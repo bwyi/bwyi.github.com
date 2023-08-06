@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang='en'>
-
-<head>
-  <style>
+<!doctype html>
+<html lang="en">
+  <head>
+<style>
 @font-face {
   font-family: 'CMU Sans Serif';
   src: url('fonts/CMUSansSerif-Regular.ttf') format('truetype');
@@ -14,301 +13,208 @@
   font-family: 'CMU Sans Serif', sans-serif;
 }
   </style>
-    <base href=".">
-    <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
-    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
-    <meta name="description" content="Conference Template">
-    <meta name="resource-type" content="document">
-    <meta name="distribution" content="global">
-    <meta name="KeyWords" content="Conference">
-    <title>IEEE CDC Workshop</title>
-</head>
+    <style>
+    .justified-text {
+      text-align: justify;
+    }
+  </style>
+  <style>
+    .gray-line {
+      border-top: 1px solid #ccc;
+    }
+  </style>
+  <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bowen Yi</title>
 
-<body>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+      ga('create', 'UA-29643011-3', 'auto');
+      ga('send', 'pageview');
+    </script>
 
-    <div class="banner">
-        <img src="assets/marina.jpg" alt="Conference Template Banner" width="1000" height="350">
-        <div class="top-left">
-            <span class="title1"><span class="cmu-sans-serif", style="font-size: 60px;">IEEE CDC</span> </span><span class="title2"><span class="cmu-sans-serif", style="font-size: 60px;">Workshop</span></span> <span class="year"><span class="cmu-sans-serif", style="font-size: 60px;">2023</span></span>
-        </div>
-        <div class="bottom-right">
-         <span class="cmu-sans-serif"><b>Modern Adaptive Control and Estimation: <br> From Theory to Applications</b></span>
-        </div>
-    </div>
+    <!-- For all browsers -->
+    <link rel="stylesheet" href="assets/css/academicons.min.css"/>
+    <link rel="stylesheet" href="assets/css/academicons.css"/>
 
-    <table class="navigation">
-        <tr>
-            <td class="navigation">
-                <a class="current" title="Conference Home Page" href=".">Home</a>
-            </td>
-            <td class="navigation">
-                <a title="Conference Program" href="program">Program</a> 
-            </td>
-            <td class="navigation">
-                <a title="Speakers" href="directions">Speakers</a>
-            </td>
-            <td class="navigation">
-                <a title="Register for the Conference" href="registration">Registration</a>
-            </td>
-        </tr>
-    </table>
-    
-    
+    <style>
+      button.accordion {
+      font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      cursor: pointer;
+      padding: 0px;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 100%;
+      transition: 0.3s;
+      background-color: #f8f8f8;
+      }
+      button.accordion.active, button.accordion:hover {
+      background-color: #f8f8f8;
+      }
+      button.accordion:after {
+      content: " [+] ";
+      font-size: 90%;
+      color:#777;
+      float: left;
+      margin-left: 1px;
+      }
 
-<table class="banner">
-<td class="banner" style="text-align: center;">
-    <span class="title1"><span class="cmu-sans-serif">
-    The 62nd IEEE Conference on Decision and Control, December 12, Marina Bay Sands, Singapore
-    </span> </span>
-</td>
-</table>
-
-
-    <h2><span class="cmu-sans-serif">Overview</span></h2>
-    <p style="text-align:justify; text-justify:inter-ideograph;">
-As a major methodology for handling parametric uncertainties in dynamical systems, adaptive control and estimation approaches have attracted much attention in both academia and industry over the past few decades. The classical adaptive control and estimation impose appropriate structural knowledge on parametric uncertainties and achieves only asymptotic error convergence with weak robustness in the absence of a stringent condition termed persistent excitation, which prevent it from widespread applications in real-world systems. In recent years, some advanced adaptive design concepts have been proposed to overcome the above limitations, where notable ones with great potential in practice include regressor extension, online optimization, and non-Euclidean adaptation. These approaches have resulted in several successful real-world applications, but they are limited to relatively simple systems with low degrees of freedom, and in-depth considerations about application issues are rare. 
-    </p>
-    
-       
-    <p style="text-align:justify; text-justify:inter-ideograph;">
-   This workshop aims to bring together researchers and practitioners from academia and industry in a forum, which will help us bridge the gap between advanced theory and its applications in real-world environments. Nine distinguished speakers in adaptive control and estimation will join the workshop, including IEEE Fellows, IFAC Fellows, ASME Fellows, Editors-in-Chief of flagship journals in control, winners of the ASME Rufus Oldenburger Medal, as well as young rising stars. Our objective is to create an inclusive environment where all participants feel welcomed and valued and where a diversity of ideas and approaches can be shared and discussed. This diversity will enrich the workshop experience and contribute to the overall success of the conference.
-    </p>
-    <p style="text-align:justify; text-justify:inter-ideograph;">  
-   Topics to be covered include several significant perspectives on modern adaptive control, parameter estimation, online learning, and their practical applications, which are listed as follows:
-    </p>
- <ul>
-  <li>- Novel constructive approaches for adaptive control and estimation;</li>
-  <li>- Theory and techniques to improve stability, robustness, and converngece;</li>
-  <li>- Adaptation and nonlinear parameterizaiton and nonparameteric uncertainties;</li>
-  <li>- Online optimization and learning for control and estimation;</li>
-  <li>- Non-Euclidean adaptation and parameter estimation on manifolds;</li>
-  <li>- Applications to robotics and reaction systems.</li>
-</ul>
-
-
-    <h2><span class="cmu-sans-serif">Speakers</span></h2>
-    
-        <table class="banner">
-        <tr>
-            <td class="banner" style="text-align: center;">
-                    <img src="assets/astolfi.jpeg" alt="Alessandro Astolfi"  width="130" height="170"> 
-            </td>
-            <td class="banner" style="text-align: center;">
-                <a>
-                    <img src="assets/slotine.jpg" alt="Jean-Jacques Slotine" width="160" height="170"> 
-                </a>
-            </td>
-            <td class="banner" style="text-align: center;">
-                <a>
-                    <img src="assets/dochain.jpeg" alt="Denis Dochain" width="140" height="170"> 
-                </a>
-            </td>
-            <td class="banner" style="text-align: center;">
-                <a>
-                    <img src="assets/dixon.jpeg" alt="Warren Dixon" width="130" height="170"> 
-                </a>
-            </td>
-            <td class="banner" style="text-align: center;">
-                <a>
-                    <img src="assets/guay.jpeg" alt="Martin Guay" width="160" height="170"> 
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td class="banner" width="130" style="text-align: center;">
-                  <a> <span class="cmu-sans-serif">Alessandro Astolfi</span>  </a>
-            </td>
-            <td class="banner"  width="120" style="text-align: center;">
-                <a>
-                 <span class="cmu-sans-serif">  Jean-Jacques Slotine</span>
-                </a>
-            </td>
-            <td class="banner"  width="140" style="text-align: center;">
-                <a>
-                <span class="cmu-sans-serif">  Denis Dochain</span>
-                </a>
-            </td>
-            <td class="banner"  width="130" style="text-align: center;">
-                <a>
-                <span class="cmu-sans-serif"> Warren Dixon</span>
-                </a>
-            </td>
-            <td class="banner"  width="120" style="text-align: center;">
-                <a>
-               <span class="cmu-sans-serif"> Martin Guay</span>
-                </a>
-            </td>
-        </tr>        
-        <tr>
-            <td class="banner" width="180" style="text-align: center;">
-                <span class="cmu-sans-serif"> Imperial College London, UK <br> Universitá di Roma “Tor Vergata”, Italy </span>
-            </td>
-            <td class="banner"  width="120" style="text-align: center;">
-                <span class="cmu-sans-serif"> Massachusetts Institute of Technology, USA</span>
-            </td>
-            <td class="banner"  width="140" style="text-align: center;">
-                <span class="cmu-sans-serif"> Université Catholique de Louvain, Belgium</span>
-            </td>
-            <td class="banner"  width="130" style="text-align: center;">
-               <span class="cmu-sans-serif"> University of Florida,<br>USA</span>
-            </td>
-            <td class="banner"  width="120" style="text-align: center;">
-               <span class="cmu-sans-serif"> Queen's University,<br>Canada</span>
-            </td>
-        </tr>
+      button.accordion.active:after {
+      content: " [\2212] ";
+      }
+      div.panel {
+      padding: 0 20px;
+      margin-top: 5px;
+      display: none;
+      background-color: white;
+      font-size: 100%;
+      }
+      div.panel.show {
+      display: block !important;
+      }
+      .social-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    .social-row1 {        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+}
+    .social-row2 {        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+}
+    .social-row3 {        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+}
+.social-row11 {display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+}
+.social-row11 {display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+}
+.social-row21 {display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+}
+    .social-row4 {        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+}
+.social-row22 {display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+}
+    </style>
+  </head>
+  <body>
+  <div class="wrapper">
+    <header>
+        <h1>Bowen Yi</h1>
+        衣博文 <br><br>
+      <p>Postdoctoral Research Fellow<br>
+      <a href="https://www.uts.edu.au/research/robotics-institute">Robotics Institute</a>
+       <br> 
+       University of Technology Sydney</p>
         
-    </table>
-    
-    
-    
-    
-        <table class="banner">
-        <tr>
-           <td class="banner" style="text-align: center;">
-                <a>
-                    <img src="assets/mahony.jpeg" alt="Robert Mahony" width="125" height="170"> 
-                </a>
-            </td>
-            <td class="banner" style="text-align: center;">
-                    <img src="assets/Yongping.jpeg" alt="Yongping Pan"  width="130" height="170"> 
-            </td>
-            <td class="banner" style="text-align: center;">
-                <a>
-                    <img src="assets/Bowen.jpg" alt="Bowen Yi" width="120" height="170"> 
-                </a>
-            </td>
-            <td class="banner" style="text-align: center;">
-                <a>
-                    <img src="assets/landau.jpeg" alt="Ioan Doré Landau" width="140" height="170"> 
-                </a>
-            </td>
+    <h3><a href="https://bwyi.github.io/">Home</a></h3>
+        <h3><a href="research.html">Research</a> </h3>
+        <h3><a href="publication.html">Publications</a></h3>
+        <h3><a href="services.html">Services</a></h3>
+<b>Social</b><br>
+      <div class="social-row">
+          <a href="mailto:ransom@ou.edu" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i><span class="social-row1"><a href="mailto:B.YI@outlook.com" class="author-social" target="_blank">Email</a><br>
+          <a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ&hl=en&oi=ao" target="_blank"><i class="ai ai-fw ai-google-scholar-square"></i></a><a href="https://orcid.org/0000-0002-0517-9519">ORCID</a><br>
+          <a href="https://orcid.org/0000-0002-0517-9519"><i class="ai ai-fw ai-orcid-square"></i></a><a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a><br>
+          <a href="https://www.researchgate.net/profile/Bowen_Yi"><i class="fa fa-fw fa-share-alt-square"></i>Researchgate</a><br>
+          <a href="https://www.linkedin.com/in/yibowen1992/" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a></span></a><span class="social-row2"><br>
+          <a href="https://www.zhihu.com/people/b.yi"><i class="fa fa-fw fa-share-alt-square"></i> 知乎</a></span><br>
+          <br>
+        </div>
+        <p><b>Contact:</b><br>
+Room 301, Level 9, Building 11<br>
+University of Technolgy Sydney<br>
+Ultimo, NSW 2007</p>
+        <p>Tel: +61 04 6761 1727</p>
+        <p>&nbsp;</p>
+      <p>&nbsp;</p>
+    </header>
+      <section>
 
-        </tr>
-        <tr>
-         <td class="banner"  width="120" style="text-align: center;">
-                <a>
-               <span class="cmu-sans-serif"> Robert Mahony</span>
-                </a>
-            </td>
-            <td class="banner" width="170" style="text-align: center;">
-                  <a> <span class="cmu-sans-serif">Yongping Pan</span>  </a>
-            </td>
-            <td class="banner"  width="120" style="text-align: center;">
-                <a>
-                 <span class="cmu-sans-serif">  Bowen Yi</span>
-                </a>
-            </td>
-            <td class="banner"  width="160" style="text-align: center;">
-                <a>
-                <span class="cmu-sans-serif">  Ioan Doré Landau</span>
-                </a>
-            </td>
-        </tr>        
-        <tr>
-          <td class="banner"  width="120" style="text-align: center;">
-               <span class="cmu-sans-serif"> The Australian National University, Australia</span>
-            </td>
-            <td class="banner" width="150" style="text-align: center;">
-                <span class="cmu-sans-serif"> Sun Yat-sen University,<br>China </span>
-            </td>
-            <td class="banner"  width="120" style="text-align: center;">
-                <span class="cmu-sans-serif"> Polytechnique Montréal,<br>Canada</span>
-            </td>
-            <td class="banner"  width="140" style="text-align: center;">
-                <span class="cmu-sans-serif"> The French National Centre for Scientific Research (CNRS),<br> France</span>
-            </td>
-        </tr>
-    </table>
-    
-    
-    
-    
+      <img src="Bowen Yi.jpg" height="200" width="150" alt="Tyler Ransom"></h3>
+      
+      <br><br>
+      
+     <h2><span class="cmu-sans-serif" style="color: darkblue;">About Me   <div class="gray-line"></div> </span></h2>  
+    <div class="justified-text">
+      <p>I will be joining the Department of Electrical Engineering, Polytechnique Montréal (University of Montreal), Canada, as an Assistant Professor in November 2023. </p>
+      
+      <p>I am currently a Postdoctoral Research Fellow in <a href="https://www.uts.edu.au/research/robotics-institute">Robotics Institute</a> at the University of Technology Sydney in the research group led by <a href="https://profiles.uts.edu.au/Dikai.Liu">Dikai Liu</a>. 
+      Prior to this, I was a Postdoctoral Research Associate in <a href="https://www.sydney.edu.au/engineering/our-research/robotics-and-intelligent-systems/australian-centre-for-field-robotics.html">Australian Centre for Robotics</a> (ACFR) at the <a href="https://www.sydney.edu.au/">University of Sydney</a>, hosted by <a href="https://www.sydney.edu.au/engineering/about/our-people/academic-staff/ian-manchester.html">Ian Manchester </a>working on the ARC Discovery Project "Robust learning of dynamic systems'' from 2019 to 2022. 
+      I obtained my Ph.D. degree in Control Engineering from <a href="https://www.sjtu.edu.cn/">Shanghai Jiao Tong University</a>, China in 2019 under the supervision of <a href="https://ipac.sjtu.edu.cn/">Weidong Zhang</a>. 
+      I was a visiting student at <a href="https://www.l2s.centralesupelec.fr/">Laboratoire des Signaux et Systèmes</a> (L2S), <a href="http://www.cnrs.fr/">CNRS</a>-<a href="https://www.centralesupelec.fr/">CentraleSupélec</a>, France from October 2017 to April 2019, as a member of <a href="https://scholar.google.nl/citations?user=1jf5n5wAAAAJ&hl=en">Romeo Ortega</a>'s group.</p>
+      
+      <p>My research interests include estimation and control of nonlinear systems, with special emphasis on applications to robotics. 
+      I received the IEEE CCTA <a href="http://ieeecss.org/awards/conference-control-technology-and-applications-best-student-paper-award">Best Student Paper Award</a> from IEEE Control Systems Society for his work on sensorless observer design for IPMSMs in 2019.      </p>
+    </div>  
+  
 
+     <h2><span class="cmu-sans-serif" style="color: darkblue;">IEEE CDC Workshop 2023   <div class="gray-line"></div> </span></h2>  
+      <div class="justified-text">
+     Along with Yongping Pan, Sayan Roy, Alexey Bobtsov, and Romeo Ortega, we are organising a pre-conference workshop (<span style="color: darkblue;">Modern Adaptive Control and Estimation</span>) at the 62nd IEEE Conference on Decision and Control (CDC), Singapore, December 12, 2023. More details can be found <a href="https://cdc-acae.github.io/">here</a>.
+      </div>
+      <p>&nbsp;</p>
 
-    <h2><span class="cmu-sans-serif">Organizers</span></h2>
-    
-    <table class="banner">
-        <tr>
-            <td class="banner" style="text-align: center;">
-                    <img src="assets/Yongping.jpeg" alt="Yongping Pan"  width="130" height="170"> 
-            </td>
-            <td class="banner" style="text-align: center;">
-                <a>
-                    <img src="assets/Bowen.jpg" alt="Bowen Yi" width="120" height="170"> 
-                </a>
-            </td>
-            <td class="banner" style="text-align: center;">
-                <a>
-                    <img src="assets/Sayan.jpeg" alt="Sayan Roy" width="160" height="170"> 
-                </a>
-            </td>
-            <td class="banner" style="text-align: center;">
-                <a>
-                    <img src="assets/alexey.jpeg" alt="Alexey Bobtsov" width="130" height="170"> 
-                </a>
-            </td>
-            <td class="banner" style="text-align: center;">
-                <a>
-                    <img src="assets/romeo.jpeg" alt="Romeo Ortega" width="115" height="170"> 
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td class="banner" width="170" style="text-align: center;">
-                  <a> <span class="cmu-sans-serif">Yongping Pan</span>  </a>
-            </td>
-            <td class="banner"  width="120" style="text-align: center;">
-                <a>
-                 <span class="cmu-sans-serif">  Bowen Yi</span>
-                </a>
-            </td>
-            <td class="banner"  width="160" style="text-align: center;">
-                <a>
-                <span class="cmu-sans-serif">  Sayan B. Roy</span>
-                </a>
-            </td>
-            <td class="banner"  width="130" style="text-align: center;">
-                <a>
-                <span class="cmu-sans-serif"> Alexey Bobtsov</span>
-                </a>
-            </td>
-            <td class="banner"  width="120" style="text-align: center;">
-                <a>
-               <span class="cmu-sans-serif"> Romeo Ortega</span>
-                </a>
-            </td>
-        </tr>        
-        <tr>
-            <td class="banner" width="150" style="text-align: center;">
-                <span class="cmu-sans-serif"> Sun Yat-sen University,<br>China  <br>
-                <code style="font-family: 'Courier New', monospace;">yongppan@gmail.com</code></span>
-            </td>
-            <td class="banner"  width="120" style="text-align: center;">
-                <span class="cmu-sans-serif"> Polytechnique Montréal,<br>Canada <br>
-                <code style="font-family: 'Courier New', monospace;">b.yi@outlook.com</code></span>
-            </td>
-            <td class="banner"  width="220" style="text-align: center;">
-                <span class="cmu-sans-serif"> Indraprastha Institute of Information Technology Delhi, India<br>
-                <code style="font-family: 'Courier New', monospace;">sayan@iiitd.ac.in</code></span>
-            </td>
-            <td class="banner"  width="130" style="text-align: center;">
-               <span class="cmu-sans-serif"> ITMO University,<br>Russia<br>
-                <code style="font-family: 'Courier New', monospace;">bobtsov@itmo.ru</code></span>
-            </td>
-            <td class="banner"  width="120" style="text-align: center;">
-               <span class="cmu-sans-serif"> Instituto Tecnológico Autónomo de México, Mexico<br>
-                <code style="font-family: 'Courier New', monospace;">romeo.ortega@itam.mx</code></span>
-            </td>
-        </tr>
-    </table>
+<div style="border:1px solid #7aabf5; width:500px; background-color: #F1F1F1; padding: 10px;">
 
-    <footer>
-        &copy; Conference Organizers
-        &nbsp;|&nbsp; Design by <a href="https://github.com/mikepierce">Mike Pierce</a>
-    </footer>
+<h3>Recent News</h3>
+	  <ul>
+	  <li><strong>5 Aug 2023</strong> Our paper, entitled Identifiability implies robust, globally exponentially convergent on-line parameter estimation, has been accepted to <em>International Journal of Control</em>.</li>
+	  <li><strong>27 July 2023</strong> Our paper, entitled Enhancing prescribed performance of tracking control of using monotone tube boundaries, has been accepted to <em>Automatica</em>.</li>
+	  <li><strong>16 July 2023</strong> Our pre-conference workshop, Modern Adaptive Control and Estimation: From Theory to Application, has been accepted to IEEE Conference on Decision and Control.</li>      <li><strong>7 Apr 2023</strong> Our paper, entitled Attitude estimation from vector measurements: Necessary and sufficient conditions and convergent observer design, has been accepted to <em>IEEE Trans. on Automatic Control</em>.</li>
+      <li><strong>12 Dec 2022</strong> Our paper, entitled On the equivalence of contraction and Koopman approaches for nonlinear stability and control, has been conditionally accepted to <em>IEEE Trans. on Automatic Control</em> as a Full Paper.</li>
+      <li><strong>06 Aug 2022</strong> Our paper, entitled Globally convergent visual-feature range estimation with biased inertial measurements, has been accepted to <em>Automatica</em>.</li>
+      <li><strong>24 July 2022</strong> The paper, entitiled Composite adaptive control for anti-unwinding attitude maneuvers: An exponential stability result without persistent excitation collaborating with <a href="https://www.researchgate.net/profile/Xiaodong-Shao">Dr. Xiaodong Shao</a>, was accepted by <em>IEEE Trans. on Aerospace and Electronic Systems.</em></li>
+      <li><strong>10 March 2022 </strong>Our paper, entitled Generation of new exciting regressors for consistent on-line estimation of unknown parameters, was accepted by <em>IEEE Trans. on Automatic Control</em>.</li>
+      <li><strong>06 Feb 2022 </strong>Our paper, entitled Conditions for convergence of dynamic regressor extension and mixing parameter estimators using LTI filters, was accepted by <em>IEEE Trans. on Automatic Control</em>.</li>
+      <li><strong>01 Feb 2022 </strong>Our paper, entitled Learning stable Koopman embeddings, was accepted by <em>American Control Conference</em>.</li>
+      <li><strong>11 Jan 2022 </strong>Our paper, entitled A constructive procedure for orbital stabilization of a class of underactuated mechancial systems, has been accepted by <em>IEEE Trans. on Control Systems Technology</em>.</li>
+      <li><strong>18 Sept 2021</strong> Our paper, entitled Reduced-order nonlinear observers via contraction analysis and convex optimization, has been accepted by<em> IEEE Trans. on Automatic Control</em> as a Full paper.</li>
+      <li><strong>27 July 2021</strong> Our paper, entitled On the equivalence of contraction and Koopman approaches for nonlinear stability and control, has been accepted by the 60th <em>IEEE Conferece on Decision and Control</em>.</li>
+      <li><strong>27 July 2021</strong> Our paper, entitled A globally convergent observer for visual localization and mapping without persistent excitation, has been accepted by the 60th <em>IEEE Conferece on Decision and Control</em>. </li>
+      <li><strong>27 April 2021</strong> Our paper, entitled Data-driven immersion and invariance adaptive attitude control for rigid bodies with double-level state constraints, has been accepted at <em>IEEE Trans. on Control Systems Technology</em>.</li>
+	  <p></p>
+</div>
+
+ <section>
+	 <br>
+	 <br>
+ </section>
+
+<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=170&t=n&d=vQXuWikfOWCHs-VDFCJWVULbHsq38PWBBDmeLmTSBK4&cmn=ed5e0e&cmo=1f9138'></script>
+    </section>
+
+  </div>
+
+    <script src="javascripts/scale.fix.js"></script>
+
 
 </body>
 </html>
-
