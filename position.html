@@ -1,200 +1,277 @@
 <!doctype html>
 <html lang="en">
-  <head>
-<style>
-@font-face {
-  font-family: 'CMU Sans Serif';
-  src: url('fonts/CMUSansSerif-Regular.ttf') format('truetype');
-  /* Add other font formats (e.g., woff, woff2) for better browser support */
-}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Bowen Yi</title>
 
-/* Apply the CMU Sans Serif font to elements with the class "cmu-sans-serif" */
-.cmu-sans-serif {
-  font-family: 'CMU Sans Serif', sans-serif;
-}
-  </style>
-    <style>
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/github-light.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
+  <link rel="stylesheet" href="assets/css/academicons.min.css">
+  <link rel="stylesheet" href="assets/css/academicons.css">
+
+  <!-- ===== Global Academic Style ===== -->
+  <style>
+    body {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: #1f2a44;
+      font-weight: 600;
+    }
+
+    a {
+      color: #1f2a44;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .gray-line {
+      border-top: 1px solid #dddddd;
+      margin-top: 6px;
+    }
+
     .justified-text {
       text-align: justify;
     }
-  </style>
-  <style>
-    .gray-line {
-      border-top: 1px solid #ccc;
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
+
+    /* ===== Top banner with background image ===== */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      background-image: url("udem.jpg");
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 25px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 25, 40, 0.55);
+    }
+
+    .hero-overlay {
+      position: relative;
+      z-index: 1;
+      color: #ffffff;
+      padding: 35px 30px;
+    }
+
+    .hero-overlay h2 {
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .hero-overlay p {
+      font-size: 1.05em;
+    }
+    
+    .news-timeline {
+  border-left: 2px solid #dddddd;
+  margin-top: 10px;
+  padding-left: 14px;
+  max-width: 520px;
+}
+
+.news-item {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.news-item::before {
+  content: "";
+  position: absolute;
+  left: -21px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  background: #1f2a44;
+  border-radius: 50%;
+}
+
+.news-date {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #1f2a44;
+  margin-bottom: 2px;
+}
+
+.news-content {
+  font-size: 0.95em;
+}
+
   </style>
-  <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bowen Yi</title>
+</head>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<body>
+<div class="wrapper">
 
+  <!-- ================= LEFT SIDEBAR ================= -->
+  <header>
+    <h1>Bowen Yi</h1>
+    衣博文
+    <br><br>
 
+    <p>
+      Assistant Professor<br>
+      <a href="https://www.polymtl.ca/ge/">Department of Electrical Engineering</a><br>
+      Polytechnique Montréal
+    </p>
 
-    <!-- For all browsers -->
-    <link rel="stylesheet" href="assets/css/academicons.min.css"/>
-    <link rel="stylesheet" href="assets/css/academicons.css"/>
+    <h3><a href="index.html">Home</a></h3>
+    <h3><a href="research.html">Research</a></h3>
+    <h3><a href="publication.html">Publications</a></h3>
+    <h3><a href="teaching.html">Teaching</a></h3>
+    <h3><a href="people.html">People</a></h3>
+    <h3><a href="awards.html">Awards</a></h3>
+    <h3><a href="services.html">Services</a></h3>
+    <h3><a href="position.html">Positions</a></h3>
+    <h3><a href="misc.html">Misc</a></h3>
 
-    <style>
-      button.accordion {
-      font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      cursor: pointer;
-      padding: 0px;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 100%;
-      transition: 0.3s;
-      background-color: #f8f8f8;
-      }
-      button.accordion.active, button.accordion:hover {
-      background-color: #f8f8f8;
-      }
-      button.accordion:after {
-      content: " [+] ";
-      font-size: 90%;
-      color:#777;
-      float: left;
-      margin-left: 1px;
-      }
+    <b>Social</b><br>
+    <div class="social-row">
+      <a href="mailto:B.YI@outlook.com"><i class="fa fa-envelope-square"></i> Email</a><br>
+      <a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ">
+        <i class="ai ai-google-scholar-square"></i> Google Scholar
+      </a><br>
+      <a href="https://orcid.org/0000-0002-0517-9519">
+        <i class="ai ai-orcid-square"></i> ORCID
+      </a><br>
+      <a href="https://www.researchgate.net/profile/Bowen_Yi">
+        <i class="fa fa-share-alt-square"></i> ResearchGate
+      </a><br>
+      <a href="https://www.linkedin.com/in/yibowen1992/">
+        <i class="fa fa-linkedin-square"></i> LinkedIn
+      </a><br>
+      <a href="https://www.zhihu.com/people/b.yi">
+        <i class="fa fa-share-alt-square"></i> 知乎
+      </a>
+    </div>
 
-      button.accordion.active:after {
-      content: " [\2212] ";
-      }
-      div.panel {
-      padding: 0 20px;
-      margin-top: 5px;
-      display: none;
-      background-color: white;
-      font-size: 100%;
-      }
-      div.panel.show {
-      display: block !important;
-      }
-      .social-row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-    .social-row1 {        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-}
-    .social-row2 {        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-}
-    .social-row3 {        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-}
-.social-row11 {display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-}
-.social-row11 {display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-}
-.social-row21 {display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-}
-    .social-row4 {        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-}
-.social-row22 {display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-}
-    </style>
-  </head>
-  <body>
-  <div class="wrapper">
+    <br>
+    <p><b>Contact</b><br>
+      Lassonde Pavillon<br>
+      2700 Chemin de la Tour<br>
+      Montréal, QC, H3T 1J4<br>
+      Canada
+    </p>
+  </header>
 
-
-    <header>
-        <h1>Bowen Yi</h1>
-        衣博文 <br><br>
-      <p>Assistant Professor<br>
-      <a href="https://www.polymtl.ca/ge/">Dept. Electrical Engineering</a>
-       <br> 
-       Polytechnique Montreal</p>
-        
-    <h3><a href="https://bwyi.github.io/">Home</a></h3>
-        <h3><a href="research.html">Research</a> </h3>
-        <h3><a href="publication.html">Publications</a></h3>
-        <h3><a href="services.html">Services</a></h3>
-        <h3><a href="position.html">Positions</a></h3>
-
-<b>Social</b><br>
-      <div class="social-row">
-          <a href="mailto:ransom@ou.edu" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i><span class="social-row1"><a href="mailto:bowen.yi@polymtl.ca" class="author-social" target="_blank">Email</a><br>
-          <a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ&hl=en&oi=ao" target="_blank"><i class="ai ai-fw ai-google-scholar-square"></i></a><a href="https://orcid.org/0000-0002-0517-9519">ORCID</a><br>
-          <a href="https://orcid.org/0000-0002-0517-9519"><i class="ai ai-fw ai-orcid-square"></i></a><a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a><br>
-          <a href="https://www.researchgate.net/profile/Bowen_Yi"><i class="fa fa-fw fa-share-alt-square"></i>Researchgate</a><br>
-          <a href="https://www.linkedin.com/in/yibowen1992/" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a></span></a><span class="social-row2"><br>
-          <a href="https://www.zhihu.com/people/b.yi"><i class="fa fa-fw fa-share-alt-square"></i> 知乎</a></span><br>
-          <br>
-        </div>
-        <p><b>Contact:</b><br>
-Lassonde Pavillon<br>2700 Chemin de la Tour<br>Montreal, QC, H3T 1J4<br>Canada</p>
-        <p>Tel: +61 04 6761 1727</p>
-        <p>&nbsp;</p>
-      <p>&nbsp;</p>
-    </header>
-      <section>
-
-
-      
-      <br><br>
-      
-     <h2><span class="cmu-sans-serif" style="color: darkblue;">Open Positions   <div class="gray-line"></div> </span></h2>  
-    <div class="justified-text">
-      <p><span style="color: red;">PhD positions.</span> (2024 Fall or 2025 Winter)
-      <br>
-      <br>
-      Possible topics include (but not limited to):
-<ul>
-  <li> State observation and parameter estimation for nonlinear systems </li>
-  <li> Scalable robotic estimation</li>
-  <li> Infinite-dimensional control technique for soft continuum robots</li>
-  <li> Koopman learning approaches</li>
-</ul>
-      <span style="color: darkblue;">Eligibility.</span> Both domestic and international students are eligible.
-      <br> 
-      <span style="color: darkblue;">Candidate Requirements.</span> 
-      <ul>
-  <li> Bachelor or Master degree in Engineering, Computer Science, Physics, or Mathematics. </li>
-  <li> Excellent English or French written and spoken communication skills; see <a href="https://www.polymtl.ca/admission/en/graduate-studies/read-eligibility-conditions/5-language-requirements/51-research-based-masters-and-doctorate">here</a> for additional details.</li>
-  <li> It is desirable that candidates possess expertise in some areas, including control theory, robotics, applied mathematics, optimisation, computer programming, and electrical engineering.</li>
-</ul>
-
-If you are interested in these positions, please write to me with your CV, transcripts, and research interests.
-
-       </p>
+  <!-- ================= MAIN CONTENT ================= -->
   
-  
-       <p><span style="color: red;">Master students.</span> There are open positions in my group for Fall 2024. 
-       </p>
-             
-      <p><span style="color: red;">Postdoc positions.</span> <a href="https://www.nserc-crsng.gc.ca/Students-Etudiants/PD-NP/PDF-BP_eng.asp">NSERC Postdoctoral Fellowship</a>
-       </p>
+<section>
 
-     </section>
+  <h2>Open Positions</h2>
+  <div class="gray-line"></div>
 
-    </section>
+  <div class="justified-text">
+    <p>
+      I am always interested in working with students and researchers
+      who are interested in <strong>control, estimation, learning, and robotics</strong>.
+      My group values strong theoretical foundations, clarity of thinking,
+      and a genuine interest in solving meaningful problems.
+    </p>
+
+    <p>
+      Prospective candidates are encouraged to read this page carefully before
+      contacting me. 
+    </p>
+  </div>
+
+  <!-- ===== PhD / MSc ===== -->
+  <h3>Ph.D. and M.Sc. Students</h3>
+  <div class="gray-line"></div>
+
+  <div class="justified-text">
+    <p>
+      I am regularly looking for <strong>Ph.D. and M.Sc. students</strong> to join my group at
+      Polytechnique Montréal. Successful candidates typically have a strong background 
+      in control systems, applied mathematics, robotics, or related fields, together with a 
+      genuine curiosity about dynamical systems and control.
+    </p>
 
   </div>
 
+  <!-- ===== Postdoctoral ===== -->
+  <h3>Postdoctoral Researchers</h3>
+  <div class="gray-line"></div>
+
+  <div class="justified-text">
+    <p>
+      Postdoctoral positions are occasionally available, subject to funding.
+      Strong candidates are encouraged to contact me to discuss
+      potential collaboration and funding opportunities. 
+      
+      The best option is to consider competitive postdoctoral funding opportunities in Canada and Québec, include
+the Banting Postdoctoral Fellowship, NSERC Postdoctoral Fellowship,
+Mitacs Elevate, FRQNT Postdoctoral Scholarship,
+IVADO Postdoctoral Scholarship, and 
+GERAD Fellowship.
+
+    </p>
+
+  </div>
+
+  <!-- ===== Visiting / Intern ===== -->
+  <h3>Visiting Students and Research Interns</h3>
+  <div class="gray-line"></div>
+
+  <div class="justified-text">
+    <p>
+      I welcome visiting graduate students, undergraduate interns,
+      and academic visitors for short- or long-term research stays.
+      Visiting students are typically expected to have external funding
+      from their home institution or scholarship programs.
+    </p>
+  </div>
+
+  <!-- ===== How to Apply ===== -->
+  <h3>How to Apply</h3>
+  <div class="gray-line"></div>
+
+  <div class="justified-text">
+    <p>
+      If you are interested in joining my group, please send me a brief email
+      with the subject line <em>“Prospective Student / Researcher”</em>
+      and include the following information:
+    </p>
+
+    <ul>
+      <li>A short description of your research interests</li>
+      <li>Your CV</li>
+      <li>Academic transcripts (unofficial is sufficient)</li>
+      <li>Links to publications or preprints (if available)</li>
+    </ul>
+
+    <p>
+      Please note that formal admission to graduate programs at
+      Polytechnique Montréal is handled centrally by the university,
+      and meeting the program admission requirements is mandatory.
+    </p>
+  </div>
+
+</section>
 
 
+
+</div>
 </body>
 </html>
