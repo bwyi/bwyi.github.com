@@ -1,341 +1,148 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-<style>
-@font-face {
-  font-family: 'CMU Sans Serif';
-  src: url('fonts/CMUSansSerif-Regular.ttf') format('truetype');
-  /* Add other font formats (e.g., woff, woff2) for better browser support */
-}
+<head>
+  <meta charset="utf-8">
+  <title>Publications | Bowen Yi</title>
 
-/* Apply the CMU Sans Serif font to elements with the class "cmu-sans-serif" */
-.cmu-sans-serif {
-  font-family: 'CMU Sans Serif', sans-serif;
-}
-  </style>
-    <style>
-    .justified-text {
-      text-align: justify;
-    }
-  </style>
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/github-light.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
+  <link rel="stylesheet" href="assets/css/academicons.min.css">
+  <link rel="stylesheet" href="assets/css/academicons.css">
+
+  <!-- BibTeX parser -->
+  <script src="https://cdn.jsdelivr.net/npm/bibtex-parse-js@1.0.0/bibtexParse.min.js"></script>
+
   <style>
+    body {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: #1f2a44;
+      font-weight: 600;
+    }
+
+    a {
+      color: #1f2a44;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     .gray-line {
-      border-top: 1px solid #ccc;
+      border-top: 1px solid #dddddd;
+      margin: 6px 0 16px 0;
+    }
+
+    ol {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
     }
   </style>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bowen Yi</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>    <![endif]-->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+</head>
 
-      ga('create', 'UA-29643011-3', 'auto');
-      ga('send', 'pageview');
-    </script>
-    <!-- For all browsers -->
-    <link rel="stylesheet" href="assets/css/academicons.min.css">
-    <link rel="stylesheet" href="assets/css/academicons.css">
-    <style>
-      button.accordion {
-      font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      cursor: pointer;
-      padding: 0px;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 100%;
-      transition: 0.3s;
-      background-color: #f8f8f8;
-      }
-      button.accordion.active, button.accordion:hover {
-      background-color: #f8f8f8;
-      }
-      button.accordion:after {
-      content: " [+] ";
-      font-size: 90%;
-      color:#777;
-      float: left;
-      margin-left: 1px;
-      }
-
-      button.accordion.active:after {
-      content: " [\2212] ";
-      }
-      div.panel {
-      padding: 0 20px;
-      margin-top: 5px;
-      display: none;
-      background-color: white;
-      font-size: 100%;
-      }
-      div.panel.show {
-      display: block !important;
-      }
-      .social-row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-    .social-row1 {        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-}
-.social-row1 {display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-}
-    .social-row2 {        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-}
-    </style>
-  </head>
-  <body>
-
+<body>
 <div class="wrapper">
-    <header>
-        <h1>Bowen Yi</h1>
-        衣博文 <br><br>
-      <p>Assistant Professor<br>
-      <a href="https://www.polymtl.ca/ge/">Dept. Electrical Engineering</a>
-       <br> 
-       Polytechnique Montreal</p>
-        
-    <h3><a href="https://bwyi.github.io/">Home</a></h3>
-        <h3><a href="research.html">Research</a> </h3>
-        <h3><a href="publication.html">Publications</a></h3>
-        <h3><a href="services.html">Services</a></h3>
-        <h3><a href="position.html">Positions</a></h3>
 
-<b>Social</b><br>
-      <div class="social-row">
-          <a href="mailto:ransom@ou.edu" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i><span class="social-row1"><a href="mailto:bowen.yi@polymtl.ca" class="author-social" target="_blank">Email</a><br>
-          <a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ&hl=en&oi=ao" target="_blank"><i class="ai ai-fw ai-google-scholar-square"></i></a><a href="https://orcid.org/0000-0002-0517-9519">ORCID</a><br>
-          <a href="https://orcid.org/0000-0002-0517-9519"><i class="ai ai-fw ai-orcid-square"></i></a><a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a><br>
-          <a href="https://www.researchgate.net/profile/Bowen_Yi"><i class="fa fa-fw fa-share-alt-square"></i>Researchgate</a><br>
-          <a href="https://www.linkedin.com/in/yibowen1992/" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a></span></a><span class="social-row2"><br>
-          <a href="https://www.zhihu.com/people/b.yi"><i class="fa fa-fw fa-share-alt-square"></i> 知乎</a></span><br>
-          <br>
-        </div>
-        <p><b>Contact:</b><br>
-Lassonde Pavillon<br>2700 Chemin de la Tour<br>Montreal, QC, H3T 1J4<br>Canada</p>
-        <p>Tel: +61 04 6761 1727</p>
-        <p>&nbsp;</p>
-      <p>&nbsp;</p>
-    </header>
-      <section>
+  <!-- ================= LEFT SIDEBAR ================= -->
+  <header>
+    <h1>Bowen Yi</h1>
+    衣博文
+    <br><br>
 
-     <h2><span class="cmu-sans-serif" style="color: darkblue;">Selected Publications   <div class="gray-line"></div> </span></h2>  
+    <p>
+      Assistant Professor<br>
+      <a href="https://www.polymtl.ca/ge/">Department of Electrical Engineering</a><br>
+      Polytechnique Montréal
+    </p>
 
-        <h3><span class="cmu-sans-serif">Preprints and submissions</span></h3>
-        <div class="justified-text">
-        <ol>
-          <li> Yeman Fan†, <u>Bowen Yi†*</u>, Dikai Liu, Modeling, control, and stiﬀness regulation of layer jamming-based continuum robots, February 2025. (submitted)</li>
-          <li>Jose Angel Chacon, and <u>Bowen Yi</u>, A globally convergent observer for estimating sphere structures with inertial measurements, submitted to IFAC Workshop on Adaptative and Learning Control Systems
-(ALCOS), January 2025.</li>
-          <li>Fletcher Fan, <u>Bowen Yi</u>*, David Rye, Guodong Shi and Ian R. Manchester, Learning stable Koopman embeddings for identification and control, submitted to <em>Automatica</em>, January 2024. (under review) </li>
-        </ol>
-        </div>
-        
-        <h3><span class="cmu-sans-serif">Journal Papers</span></h3>
-        <div class="justified-text">
-        <ol>
-          <li><u>Bowen Yi</u>, Romeo Ortega, Jongwon Choi, and Kwanghee Nam, A high performance globally exponentially stable sensorless observer for the IPMSM: Theoretical and experimental results, <em>Automatica</em>, vol. 174, Art. no. 112138, 2025. </li>
-          <li><u>Bowen Yi</u>, and Ian R. Manchester, On the equivalence of contraction and Koopman approaches for nonlinear stability and control, <em>IEEE Trans. Autom. Control</em>, vol. 69, issue 7, pp. 4336–4351,
-July 2024. </li>
-          <li><u>Bowen Yi</u>, Lei Wang and Ian R. Manchester, Attitude estimation from vector measurements: Necessary and sufficient conditions and convergent observer design, <em>IEEE Trans. Autom. Control</em>, vol. 69, issue 1, pp. 511–518, January 2024.</li>
-          <li>Romeo Ortega, Laurent Praly, Stanislav Aranovskiy, <u>Bowen Yi</u> and Weidong Zhang, On dynamic regressor extension and mixing parameter estimators: Two Luenberger observers interpretations,<em> Automatica</em>, vol. 95, pp. 348–351, 2018. </li>
-          <li><u>Bowen Yi</u>, Chi Jin, Lei Wang, Guodong Shi, Viorela Ila and Ian R. Manchester, PEBO-SLAM: Observer design for visual inertial SLAM with convergence guarantees, <em>IEEE Trans. on Automatic Control</em>, pp. 1-16, September 2024.</li> 
-          <li><u>Bowen Yi</u>, Ruigang Wang and Ian R. Manchester, Reduced-order nonlinear observers via contraction analysis and convex optimization,  <em>IEEE Trans. Autom. Control</em>, pp. 4045-4060, vol. 67, issue 8, August 2022.</li>
-          <li>Romeo Ortega, <u>Bowen Yi</u>*, Slobodan N. Vukosavic, Kwanghee Nam and Jongwon Choi, A globally exponentially stable position observer for interior permanent magnet synchronous motors, <em>Automatica</em>, vol. 125, 109424, pp. 1-10, 2021.</li>
-          <li><u>Bowen Yi</u>, Romeo Ortega and Weidong Zhang, On state observers for nonlinear systems: A new design and a unifying framework, <em>IEEE Trans. Autom. Control</em>, vol. 64, pp. 1193-1120, 2019.</li>
-          <li><u>Bowen Yi</u>, and Romeo Ortega, Conditions for convergence of dynamics extension and mixing parameter estimator using LTI filters, <em>IEEE Trans. Autom. Control</em>, vol. 68, no. 2, pp. 1-6, Feb. 2023. </li>
-          <li><u>Bowen Yi</u>, Chi Jin, and Ian R. Manchester, Globally convergent visual-feature range estimation with biased inertial measurements, <em>Automatica</em>, 2022. (accepted)</li>
-          <li>Alexey Bobtsov, <u>Bowen Yi*</u> , Romeo Ortega and Alessandro Astolfi, Generation of new exciting regressors for consistent on-line estimation of a scalar parameter, <em>IEEE Trans. Autom. Control</em>, vol. 67, pp. 4746-4753, Sept. 2022.</li>
-          <li><u>Bowen Yi</u>, Romeo Ortega, Dongjun Wu, and Weidong Zhang, Orbital stablization of nonlinear systems via Mexican sombrero energy shaping and pumping-and-damping injection, <em>Automatica, </em>vol. 112, 108661, pp. 1-9, 2020.</li>
-          <li>Yi Shi, <u>Bowen Yi</u>, Wei Xie, and Weidong Zhang, Enhancing prescribed performance of tracking control using monotone tube boundaries, <em>Automatica, </em> accepted, 2023.</li>          
-          <li>Dongjun Wu, <u>Bowen Yi</u> and Anders Rantzer, Stability analysis of trajectories on manifolds with applications to observer and controller design, <em>IEEE Trans. Autom. Control</em>, ol. 69, no. 10,
-pp. 7104–7111, October 2024.</li>          
-          <li><u>Bowen Yi</u>, Yeman Fan, Dikai Liu, and Jose G. Romero, Simultaneous position-and-stiffness control of underactuated antagonistic tendon-driven continuum robots, <em>IEEE Trans. Autom. Sci. Eng.</em>, 2024. (early access)</li>
-          <li><u>Bowen Yi</u> and Ian R. Manchester, On IMU preintegration: A nonlinear observer viewpoint and its application, <em>Systems & Control Letters</em>, vol. 193, Art. no. 105933, 2024.</li>
-          <li>Romeo Ortega, <u>Bowen Yi</u>, Alexey Bobtsov, Anton Pyrkin and Marina Korotina, Adaptive state observers for a class of nonlinear systems: The non-triangular and non-state-affine case, <em>Systems & Control Letters</em>, vol. 196, Art. no. 106020, 2025.
-          <li><u>Bowen Yi</u>, Romeo Ortega and Weidong Zhang, Relaxing the conditions for parameter estimationbased observers of nonlinear systems via signal injection, <em>Syst. Control Lett.</em>, vol. 111, pp. 18–26, 2018. </li>
-          <li>Romeo Ortega, <u>Bowen Yi</u> and Jose Guadalupe Romero, Robustification of nonlinear control systems <em>vis-à-vis</em> actuator dynamics: An immersion and invariance approach, <em>Syst. Control Lett.</em>, vol. 146, 104811, pp. 1{9, 2020.</li>
-          <li>Jose G. Romero and <u>Bowen Yi</u>*, Orbital stabilization of underactuated mechanical systems without Euler-Lagrange structure after of a collocated pre-feedback, <em>Int. J. Robust Nonlinear Control</em>, 2024. </li>
-          <li>Jose G. Romero, Isaac Gandarilla, Victor Santibanez and<u> Bowen Yi</u>, A constructive procedure for orbital stabilization of a class of underactuated mechanical systems, <em>IEEE Trans. Control Syst. Techn.</em>, 2022.</li>
-          <li>Xiaodong Shao, Qinglei Hu, Yang Shi and <u>Bowen Yi</u>, Data-driven immersion and invariance adaptive attitude control for rigid bodies with double-level state constraints, <em>IEEE Trans. Control Syst. Techn.</em>, 2021. </li>
-          <li>Romeo Ortega, <u>Bowen Yi</u>*, Jose Guadalupe Romero and Alessandro Astolfi, Orbital stabilization of nonlinear systems via the immersion and invariance technique, <em>Int. J. Robust Nonlinear Control</em>, vol. 30, issue 5, pp. 1850–1871, 2020.</li>
-          <li>Xiaodong Shao, Qinglei Hu, Daochun Li, Yang Shi and <u>Bowen Yi</u>, Composite adaptive control for anti-unwindng attitude maneuvers: An exponential stability result without persistent excitation, <em>IEEE Trans. Aerosp. Electron. Syst.,</em> vol. 59, no. 2, pp. 1051-1066, 2023.</li>
-          <li><u>Bowen Yi</u>, Romeo Ortega, and Weidong Zhang, Smooth, time-variant regulation of nonholonomic systems via energy pumping-and-damping, <em>International Journal of Robust and Nonlinear Control</em>, vol. 30, issue 16, pp. 6399–6413, 2020.</li>
-          <li><u>Bowen Yi</u>, Romeo Ortega, Ian R. Manchester and Houria Siguerdidjane, Path following of a class of underactated mechanical systems via immersion and invariance-based orbital stabilization, <em>Int. J. Robust Nonlinear Control</em>, vol. 30, no. 18, pp. 8521-8544, 2020.</li>
-          <li><u>Bowen Yi</u>, Romeo Ortega, Houria Siguerdidjane, Juan E. Machado and Weidong Zhang, On generation of virtual outputs via signal injection: Application to observer design for electromechanical systems, <em>Eur. J. Control</em>, vol. 54, pp. 129–139, 2020.</li>
-          <li><u>Bowen Yi</u>, Slobodan N. Vukosavic, Romeo Ortega, Aleksandar M. Stankovic and Weidong Zhang, A new signal injection-based method for estimation of position in salient permanent magnet synchronous motors, <em>IET Power Electron.</em>, vol. 13(9), pp. 1865–1874, 2020.</li>
-          <li>Lei Wang, Romeo Ortega, Alexey Bobtsov, Jose G. Romero and <u>Bowen Yi</u>, Identiability implies robust, globally exponentially convergent on-line parameter estimation, <em>Int J. Control</em>, accepted, 2023.</li>
-          <li>Jin Wu, Miaomiao Wang, Yi Jiang, <u>Bowen Yi</u>, Rui Fan and Ming Liu, Simultaneous Hand-Eye/Robot-World/Camera-IMU Calibration, <em>IEEE/AMSE Trans. Mechatron.</em>, 2021. (online)</li>
-          <li>Alexey Bobtsov, Romeo Ortega, <u>Bowen Yi</u>, and Nicolay Nicolaev, Adaptive state estimation of stateaffine systems with unknown time-varying parameters, <em>Int. J. Control</em>, 2021. (online)</li>
-          <li>Lei Qiao, <u>Bowen Yi</u>, Defeng Wu and Weidong Zhang, Design of three exponentially convergent robust controllers for the trajectory tracking of autonomous underwater vehicles, <em>Ocean Eng.</em>, vol. 134, pp. 157–172, 2017.</li>
-          <li><u>Bowen Yi</u>, Lei Qiao and Weidong Zhang, Two-time scale path following of underactuated marine surface vessels: design and stability analysis using singular perturbation methods, <em>Ocean Eng.</em>, vol.124, pp.287–297, 2016.</li>
-        </ol>
-        </div>
-        
-        <h3><span class="cmu-sans-serif">Conference Papers</span></h3>
-        <div class="justified-text">
-        <ol>
-          <li>Dongjun Wu, <u>Bowen Yi</u>, and Ian R. Manchester, Control contraction metrics on Lie groups, <em>IEEE Conference on Decision and Control</em>, Dec 2024.</li>
-          <li><u>Bowen Yi</u>, Yeman Fan and Dikai Liu, A novel model for layer jamming-based continuum robots, <em>IEEE Conf. Robot. Autom.</em> (ICRA), May 2024. </li>
-          <li><u>Bowen Yi</u>, Romeo Ortega, Jongwon Choi and Kwanghee Nam, A novel globally expoentially
-          stable observer for sensorless control of IPMSM via Kreisselmeier's extension, <em> the 22nd IFAC World Congress</em>, Yokohama, Japan, 2023.
-          <li><u>Bowen Yi</u>, Lei Wang and Ian R. Manchester, Attitude estimation from vector measurements: Neces-
-sary and sufficient conditions and convergent observer design, <em>the 12th IFAC Symposium on Nonlinear
-Control Systems</em> (NOLCOS), Canberra, Australia, pp. 343–348, January 4-6, 2023. </li>
-          <li><u>Bowen Yi</u>, Lei Wang and Weidong Zhang, Online gyro bias estimation from single vector measure-
-ments using regression models, <em>the 12th IFAC Symposium on Nonlinear
-Control Systems</em> (NOLCOS), Canberra, Australia, pp. 352–357, January 4-6, 2023. </li>
-           </li>
-          <li>Lei Wang, <u>Bowen Yi</u> and Hongye Su,  An I&I adaptive redesign approach for asymptotic stability
-without PE, <em>the 12th IFAC Symposium on Nonlinear
-Control Systems</em> (NOLCOS), Canberra, Australia, pp. 264-269, January 4-6, 2023. </li>
-           </li>
-          <li>Fletcher Fan, <u>Bowen Yi</u>, David Rye, Guodong Shi and Ian R. Manchester, Learning stable Koopman embeddings, <em>American Control Conference</em>, Atlanta, GA, USA, 2022. </li>
-          <li><u>Bowen Yi</u>, Chi Jin, Lei Wang, Guodong Shi, and Ian R. Manchester, A globally convergent observer for visual localization without persisent excitation, Austin, Texas, USA, <em>IEEE Conference on Decision and Control</em>, 2021.</li>
-          <li><u>Bowen Yi</u>, and Ian R. Manchester, On the equivalence of contraction and Koopman approaches for nonlinear stability and control, Austin, Texas, USA, <em>IEEE Conference on Decision and Control</em>, 2021. </li>
-          <li><u>Bowen Yi</u>, Ruigang Wang, and Ian R. Manchester, Reduced-order
-            observers for nonlinear systems via contraction analysis and convex
-            optimisation, <em>American Control Conference</em>, New Orleans, US, May 25-28, 2021. (to appear)</li>
-          <li><u>Bowen Yi</u>, Ruigang Wang and Ian R. Manchester, On necessary
-            conditions of tracking control for nonlinear systems via contraction
-            analysis, the 59th <em>IEEE Conference on Decision and Control</em>,
-            (IEEE CDC), Jeju Island, Republic of Korea, (virtual conference), Jeju Island, Republic of Korea, December 8-11, 2020. arXiv:2009.08662</li>
-          <li><u>Bowen Yi</u>, Romeo Ortega, Dongjun Wu and Weidong Zhang, Two
-            constructive solutions to orbital stabilization of nonlinear systems
-            via passivity-based control<em>, IEEE Conference on Decision and Con
-              trol</em>, (IEEE CDC), Nice, France, pp. 2027--2032, December
-            11-13, 2019.</li>
-          <li><u>Bowen Yi</u>, Romeo Ortega, andWeidong Zhang, Regulation of
-            nonholonomic systems: A smooth, time- invariant approach, vol 52,
-            issue 16, pp. 150-155, 2019. (presented at the Joint 8th<em> IFAC
-              Symposium on Mechatronic Systems and 11th IFAC Symposium on
-              Nonlinear Control Systems</em>, (Joint Mechatronics 2019 &amp;
-            NolCoS 2019), Vienna, Austria, pp. 212--217, September 4-6, 2019.)<br>
-          </li>
-          <li><u>Bowen Yi</u>, Slobodan N. Vukosavic, Romeo Ortega, Aleksandar M.
-            Stankovic and Weidong Zhang, A frequency domain interpretation of
-            signal injection methods for salient PMSMs,<em> IEEE Conference on
-              Control Technology and Applications</em>, (IEEE CCTA), Hong Kong,
-            China, pp. 517--522, August 19-21, 2019.&nbsp; (<em><strong>Student
-                Best Paper Award</strong></em> from IEEE Control Systems
-            Society) </li>
-          <li>&nbsp;<u>Bowen Yi</u>, Romeo Ortega, Houria Siguerdidjane and Weidong
-            Zhang, An adaptive observer for sen- sorless control of the
-            levitated ball using signal injection, <em>IEEE Conference on
-              Decision and Control</em>, (IEEE CDC), Miami Beach, FL, USA, pp.
-            6882-6887, December 17-19, 2018. (See also arXiv:1804.02697 for an
-            extended version.)</li>
-          <li>&nbsp;Daniele Zonetti, <u>Bowen Yi</u>, Stanislav Aranovskiy, Denis Efimov, Romeo Ortega and Enrique Garcia- Quismondo, On physical
-            modeling of Lithium-Ion cells and adaptive estimation of their
-            state-of-charge,<em> IEEE Conference on Decision and Control</em>,
-            (IEEE CDC), Miami Beach, FL, USA, pp. 2176--2181, December 17-19,
-            2018.</li>
-        </ol>
-        </div>
-  
-             
-             
-      <h2><span class="cmu-sans-serif" style="color: darkblue;">Talks and Presentations   <div class="gray-line"></div> </span></h2>  
+    <h3><a href="index.html">Home</a></h3>
+    <h3><a href="research.html">Research</a></h3>
+    <h3><a href="publication.html">Publications</a></h3>
+    <h3><a href="teaching.html">Teaching</a></h3>
+    <h3><a href="people.html">People</a></h3>
+    <h3><a href="awards.html">Awards</a></h3>
+    <h3><a href="services.html">Services</a></h3>
+    <h3><a href="position.html">Positions</a></h3>
+    <h3><a href="misc.html">Misc</a></h3>
+  </header>
 
+  <!-- ================= MAIN CONTENT ================= -->
+  <section>
 
-        <div class="justified-text">
-        <ol>
-          <li>Learning to see hidden variables for robotics 
-            <ul>
-              <li>École polytechnique de Montreal, Canada, March 2023</li>
-              <li>Trinity College Dublin, The University of Dublin, Ireland, March 2023</li>
-              <li>The University of Sheffield, UK, April 2023</li>
-            </ul>
-          </li>
-          
-          <li> Parameter estimation-based observer on Lie groups: Application to robotic systems
-          <ul>
-              <li>The Hong Kong Polytechnic University, Hong Kong SAR, Feb 2023</li>
-          </ul>
-          </li>
-          
-          <li>Equivalence between Koopman and contraction with application to nonlinear systems identificationoptimization
-            <ul>
-              <li>École polytechnique fédérale de Lausanne (EPFL), July 2022</li>
-              <li>Zhejiang University, Hangzhou, China, June 2022</li>
-            </ul>
-          </li>
-          <li>State estimation of nonlinear systems: Contraction analysis and convex optimization
-            <ul>
-              <li>ACC (observer session), New Orleans, LA, US, May 2021</li>
-              <li>Huzhou Institute, Zhejiang University, Huzhou, China, May 2021</li>
-            </ul>
-          </li>
+    <h2>Publications</h2>
+    <div class="gray-line"></div>
 
-          <li>An almost globally convergent observer for visual SLAM without persistent excitation
-            <ul>
-              <li>ACFR, the University of Sydney, NSW, Australia, Apri 2021</li>
-              <li>IEEE CDC (observer session III), Austin, TX, US, Dec 2021</li>
-            </ul>
-          </li>
+    <h3>Journal and Conference Papers</h3>
+    <div id="publications"></div>
 
-          <li>On necessary conditions of tracking control for nonlinear systems via contraction analysis
-            <ul>
-              <li>IEEE CDC (nonlinear contraction session), Jeju, Rep. of Korea, Dec 2020</li>
-            </ul>
-          </li>
+  </section>
+</div>
 
-          <li>System identification and state estimation of nonlinear control systems
-            <ul>
-              <li>Beijing ZHZ Co., Ltd, Sept 2020          </li>
-            </ul>
-          </li>
-          <li>Path following of underactuated mechanical systems: An energy
-            perspective,
-            <ul>
-              <li>ACFR, The
-                University of Sydney, NSW, Australia, July 2020.</li>
-            </ul>
-          </li>
+<!-- ================= BibTeX DATA ================= -->
+<script type="text/plain" id="bibtex-data">
+@article{yi2025automatica,
+  author  = {Yi, Bowen and Ortega, Romeo and Choi, Jongwon and Nam, Kwanghee},
+  title   = {A high performance globally exponentially stable sensorless observer for the IPMSM},
+  journal = {Automatica},
+  year    = {2025}
+}
 
-          <li>Generation of oscillations in nonlinear systems: Applications to
-            nonholonomic and underactuated mechanical systems
-            <ul>
-              <li>Northeastern
-                University, Shenyang, China, Dec 2019</li>
-              <li>IFAC NOLCOS (nonholonomic systems session), Vienna, Austria, Sept 2019          </li>
-            </ul>
-          </li>
-          <li>&nbsp;A frequency domain interpretation of signal injection
-            methods for salient PMSMs
-            <ul>
-              <li>IEEE CCTA, Hong Kong, China, Aug
-                2019          </li>
-            </ul>
-          </li>
-          <li>&nbsp;Signal injections and observers for electromechanical
-            systems
-            <ul>
-              <li>JAMACS 2018 - Journées de l'Automatique du GdR MACS
-                (Commandes des Systèmes Électroniques), Nantes, France, Nov 2018</li>
-              <li>IEEE CDC (mechatronics session), Miami Beach, FL, US, Dec 2018</li>
-              <li>Chongqing University, Chongqing, China, June 2019</li>
-            </ul>
-          </li>
-        </ol>
-        </div>
-      </section>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-  </body>
+@article{yi2024koopman,
+  author  = {Yi, Bowen and Manchester, Ian R.},
+  title   = {On the equivalence of contraction and Koopman approaches for nonlinear stability and control},
+  journal = {IEEE Transactions on Automatic Control},
+  year    = {2024}
+}
+
+@inproceedings{yi2024icra,
+  author    = {Yi, Bowen and Fan, Yeman and Liu, Dikai},
+  title     = {A novel model for layer jamming-based continuum robots},
+  booktitle = {IEEE International Conference on Robotics and Automation},
+  year      = {2024}
+}
+</script>
+
+<!-- ================= Render Script ================= -->
+<script>
+(function () {
+  const bibtexText = document.getElementById("bibtex-data").textContent;
+  const entries = bibtexParse.toJSON(bibtexText);
+
+  // Sort by year (descending)
+  entries.sort((a, b) => (b.entryTags.year || 0) - (a.entryTags.year || 0));
+
+  let html = "<ol>";
+
+  entries.forEach(e => {
+    const t = e.entryTags;
+    const authors = (t.author || "")
+      .replace(/Yi, Bowen/g, "<u>Yi, Bowen</u>")
+      .replace(/ and /g, ", ");
+
+    const venue = t.journal || t.booktitle || "";
+    const year = t.year || "";
+
+    html += `<li>
+      ${authors}, <em>${t.title}</em>, ${venue}, ${year}.
+    </li>`;
+  });
+
+  html += "</ol>";
+  document.getElementById("publications").innerHTML = html;
+})();
+</script>
+
+<script src="javascripts/scale.fix.js"></script>
+</body>
 </html>
