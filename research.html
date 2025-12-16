@@ -1,173 +1,261 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
-  <style>
-@font-face {
-  font-family: 'CMU Sans Serif';
-  src: url('fonts/CMUSansSerif-Regular.ttf') format('truetype');
-  /* Add other font formats (e.g., woff, woff2) for better browser support */
-}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Bowen Yi - Research</title>
 
-/* Apply the CMU Sans Serif font to elements with the class "cmu-sans-serif" */
-.cmu-sans-serif {
-  font-family: 'CMU Sans Serif', sans-serif;
-}
-  </style>
-    <style>
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/github-light.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
+  <link rel="stylesheet" href="assets/css/academicons.min.css">
+  <link rel="stylesheet" href="assets/css/academicons.css">
+
+  <!-- ===== Global Academic Style ===== -->
+  <style>
+    body {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: #1f2a44;
+      font-weight: 600;
+    }
+
+    a {
+      color: #1f2a44;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .gray-line {
+      border-top: 1px solid #dddddd;
+      margin: 6px 0 14px 0;
+    }
+
     .justified-text {
       text-align: justify;
     }
-  </style>
-  <style>
-    .gray-line {
-      border-top: 1px solid #ccc;
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    /* ===== Research blocks ===== */
+    .topic-block {
+      margin-top: 28px;
+    }
+
+    .pdf-box {
+      margin: 12px 0 22px 0;
+      border: 1px solid #cccccc;
+      background: #fafafa;
+      padding: 8px;
+    }
+
+    /* ===== 🔧 KEY FIX: hard align main content ===== */
+    section {
+      margin-left: 260px;   /* must match styles.css sidebar width */
+      padding-left: 0;
     }
   </style>
-  <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bowen Yi</title>
+</head>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-29643011-3', 'auto');
-      ga('send', 'pageview');
-    </script>
-
-    <!-- For all browsers -->
-    <link rel="stylesheet" href="assets/css/academicons.min.css"/>
-    <link rel="stylesheet" href="assets/css/academicons.css"/>
-    
-    <style>
-      button.accordion {
-      font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      cursor: pointer;
-      padding: 0px;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 100%;
-      transition: 0.3s;
-      background-color: #f8f8f8;
-      }
-      button.accordion.active, button.accordion:hover {
-      background-color: #f8f8f8;
-      }
-      button.accordion:after {
-      content: " [+] ";
-      font-size: 90%;
-      color:#777;
-      float: left;
-      margin-left: 1px;
-      }
-
-      button.accordion.active:after {
-      content: " [\2212] ";
-      }
-      div.panel {
-      padding: 0 20px;
-      margin-top: 5px;
-      display: none;
-      background-color: white;
-      font-size: 100%;
-      }
-      div.panel.show {
-      display: block !important;
-      }
-      .social-row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-    .social-row21 {display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-}
-.social-row3 {display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-}
-    .social-row1 {        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-}
-.social-row2 {display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-}
-    </style>
-  </head>
-  <body>
-
-
+<body>
 <div class="wrapper">
 
+  <!-- ================= LEFT SIDEBAR ================= -->
+  <header>
+    <h1>Bowen Yi</h1>
+    衣博文
+    <br><br>
 
-    <header>
-        <h1>Bowen Yi</h1>
-        衣博文 <br><br>
-      <p>Assistant Professor<br>
-      <a href="https://www.polymtl.ca/ge/">Dept. Electrical Engineering</a>
-       <br> 
-       Polytechnique Montreal</p>
-        
-    <h3><a href="https://bwyi.github.io/">Home</a></h3>
-        <h3><a href="research.html">Research</a> </h3>
-        <h3><a href="publication.html">Publications</a></h3>
-        <h3><a href="services.html">Services</a></h3>
-        <h3><a href="position.html">Positions</a></h3>
+    <p>
+      Assistant Professor<br>
+      <a href="https://www.polymtl.ca/ge/">Department of Electrical Engineering</a><br>
+      Polytechnique Montréal
+    </p>
 
-<b>Social</b><br>
-      <div class="social-row">
-          <a href="mailto:ransom@ou.edu" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i><span class="social-row1"><a href="mailto:bowen.yi@polymtl.ca" class="author-social" target="_blank">Email</a><br>
-          <a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ&hl=en&oi=ao" target="_blank"><i class="ai ai-fw ai-google-scholar-square"></i></a><a href="https://orcid.org/0000-0002-0517-9519">ORCID</a><br>
-          <a href="https://orcid.org/0000-0002-0517-9519"><i class="ai ai-fw ai-orcid-square"></i></a><a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a><br>
-          <a href="https://www.researchgate.net/profile/Bowen_Yi"><i class="fa fa-fw fa-share-alt-square"></i>Researchgate</a><br>
-          <a href="https://www.linkedin.com/in/yibowen1992/" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a></span></a><span class="social-row2"><br>
-          <a href="https://www.zhihu.com/people/b.yi"><i class="fa fa-fw fa-share-alt-square"></i> 知乎</a></span><br>
-          <br>
-        </div>
-        <p><b>Contact:</b><br>
-Lassonde Pavillon<br>2700 Chemin de la Tour<br>Montreal, QC, H3T 1J4<br>Canada</p>
-        <p>Tel: +61 04 6761 1727</p>
-        <p>&nbsp;</p>
-      <p>&nbsp;</p>
-    </header>
-      <section>
+    <h3><a href="index.html">Home</a></h3>
+    <h3><a href="research.html">Research</a></h3>
+    <h3><a href="publication.html">Publications</a></h3>
+    <h3><a href="teaching.html">Teaching</a></h3>
+    <h3><a href="people.html">People</a></h3>
+    <h3><a href="awards.html">Awards</a></h3>
+    <h3><a href="services.html">Services</a></h3>
+    <h3><a href="position.html">Positions</a></h3>
+    <h3><a href="misc.html">Misc</a></h3>
 
-     <h2><span class="cmu-sans-serif" style="color: darkblue;">Research Interests   <div class="gray-line"></div> </span></h2>  
-
-        <p>&nbsp;</p>
-        <p>My research interests are maily about the algorithms of estimation, learning and control of nonlinear dynamical systems, with emphasis to robotics.</p>
-        <ul>
-          <li>Estimation (observer theory, apdaitve control)</li>
-          <li>Nonlinear control</li>
-          <li>System identification</li>
-          <li>Robotics (continuum robots, navigation and localisation)</li>
-        </ul>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-
-<p>&nbsp;</p>
-        <p>&nbsp;</p>
-<div class="panel" style="background-color: #F1F1F1; color: #666; padding: 10px;"><p> Coming soon.</p></div><br>
-      </section>
+    <b>Social</b><br>
+    <div class="social-row">
+      <a href="mailto:B.YI@outlook.com"><i class="fa fa-envelope-square"></i> Email</a><br>
+      <a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ">
+        <i class="ai ai-google-scholar-square"></i> Google Scholar
+      </a><br>
+      <a href="https://orcid.org/0000-0002-0517-9519">
+        <i class="ai ai-orcid-square"></i> ORCID
+      </a><br>
+      <a href="https://www.researchgate.net/profile/Bowen_Yi">
+        <i class="fa fa-share-alt-square"></i> ResearchGate
+      </a><br>
+      <a href="https://www.linkedin.com/in/yibowen1992/">
+        <i class="fa fa-linkedin-square"></i> LinkedIn
+      </a><br>
+      <a href="https://www.zhihu.com/people/b.yi">
+        <i class="fa fa-share-alt-square"></i> 知乎
+      </a>
     </div>
 
-	  
-  </body>
+    <br>
+    <p><b>Contact</b><br>
+      Lassonde Pavillon<br>
+      2700 Chemin de la Tour<br>
+      Montréal, QC, H3T 1J4<br>
+      Canada
+    </p>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <section>
+
+    <h2>Research Interests</h2>
+    <div class="gray-line"></div>
+
+    <div class="justified-text">
+      <p>
+        My research interests mainly focus on the <strong>theory and algorithms for estimation,
+        learning, and control of nonlinear dynamical systems</strong>,
+        with a strong emphasis on <strong>robotics and autonomous systems</strong>.
+        I aim to develop mathematically rigorous methods with provable guarantees,
+        while ensuring their applicability to real-world robotic platforms.
+      </p>
+    </div>
+
+    <!-- ===== Topic 1 ===== -->
+    <div class="topic-block">
+      <h3>Estimation and Observer Theory</h3>
+      <div class="gray-line"></div>
+
+      <div class="justified-text">
+        <p>
+          This line of research studies real-time state estimation algorithms for nonlinear control systems, 
+          with particular interest in convergence guarantees and robustness. I am interested in various topics
+          in this field, including
+        </p>
+        <ul>
+          <li>Nonlinear observers (KKL, PEBO, DREM)</li>
+          <li>Adaptive observers </li>
+          <li>Sensorless control and estimation for electric drives</li>
+        </ul>
+      </div>
+      
+      Here is a tutorial on a new observer design approach, parameter estimation-based observer (PEBO).
+
+      <div class="pdf-box">
+<embed src="files/slides/slides_pebo.pdf"
+       type="application/pdf"
+       width="100%"
+       height="380px">
+      </div>
+      
+            <div class="pdf-box">
+<embed src="files/slides/slides_ifac_wc.pdf"
+       type="application/pdf"
+       width="100%"
+       height="380px">
+      </div>
+      
+    </div>
+    
+    
+    <!-- ===== Topic 3 ===== -->
+    <div class="topic-block">
+      <h3>System Identification and Learning</h3>
+      <div class="gray-line"></div>
+
+      <div class="justified-text">
+        <p>
+          This theme explores data-driven modeling and learning techniques
+          for dynamical systems, bridging system identification and modern learning theory.
+        </p>
+        <ul>
+          <li>System identification for nonlinear dynamical systems</li>
+          <li>Koopman operator–based learning</li>
+          <li>Real-time parameter estimation</li>
+        </ul>
+      </div>
+
+      <div class="pdf-box">
+<embed src="files/slides/slides_koopman.pdf"
+               type="application/pdf"
+               width="100%"
+               height="380px">
+      </div>
+    </div>
+
+
+    <!-- ===== Topic 2 ===== -->
+    <div class="topic-block">
+      <h3>Nonlinear Control</h3>
+      <div class="gray-line"></div>
+
+      <div class="justified-text">
+        <p>
+          I investigate nonlinear control design methods from the following perspectives.
+        </p>
+        <ul>
+          <li>Adaptive control</li>
+          <li>Orbital stabilization</li>
+          <li>Passivity-based control (PBC)</li>
+          <li>Contraction analysis</li>
+        </ul>
+      </div>
+
+      <div class="pdf-box">
+<embed src="files/slides/slides_orbital.pdf"
+               type="application/pdf"
+               width="100%"
+               height="380px">
+      </div>
+    </div>
+
+
+    <!-- ===== Topic 4 ===== -->
+    <div class="topic-block">
+      <h3>Robotics and Autonomous Systems</h3>
+      <div class="gray-line"></div>
+
+      <div class="justified-text">
+        <p>
+          My research applies estimation, learning, and control theories to
+          complex robotic systems operating in uncertain environments.
+        </p>
+        <ul>
+          <li>Continuum robots: modeling and control</li>
+          <li>Navigation and localization</li>
+        </ul>
+      </div>
+
+      <div class="pdf-box">
+      <div class="pdf-box">
+<embed src="files/slides/slides_ICRA.pdf"
+               type="application/pdf"
+               width="100%"
+               height="380px">
+      </div>
+    </div>
+
+  </section>
+</div>
+</body>
 </html>
+
