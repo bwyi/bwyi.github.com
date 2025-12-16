@@ -83,6 +83,41 @@
     .hero-overlay p {
       font-size: 1.05em;
     }
+    
+    .news-timeline {
+  border-left: 2px solid #dddddd;
+  margin-top: 10px;
+  padding-left: 14px;
+  max-width: 520px;
+}
+
+.news-item {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.news-item::before {
+  content: "";
+  position: absolute;
+  left: -21px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  background: #1f2a44;
+  border-radius: 50%;
+}
+
+.news-date {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #1f2a44;
+  margin-bottom: 2px;
+}
+
+.news-content {
+  font-size: 0.95em;
+}
+
   </style>
 </head>
 
@@ -139,7 +174,6 @@
       Canada
     </p>
   </header>
-
   <!-- ================= MAIN CONTENT ================= -->
   <section>
   
@@ -184,17 +218,42 @@
       </p>
     </div>
 
-    <h3 style="margin-top:25px;">Recent News</h3>
-    <div style="border:1px solid #cccccc; background-color:#f7f7f7; padding:10px; max-width:520px;">
-      <ul>
-        <li><strong>17 Jan 2025</strong> Our paper, <em>A high performance globally exponentially convergent sensorless observer for the IPMSM</em>, has been accepted to <em>Automatica</em>.</li>
-        <li><strong>15 Jan 2025</strong> Our paper, <em>Adaptive state observers for a class of nonlinear systems</em>, has been accepted to <em>Systems & Control Letters</em>.</li>
-        <li><strong>18 Sept 2024</strong> Our paper on IMU preintegration has been accepted to <em>Systems & Control Letters</em>.</li>
-<li><strong>14 Sept 2024</strong> Our paper, PEBO-SLAM: Observer design for visual inertial SLAM with convergence guarantees, has been accepted to <em>IEEE Transactions on Automatic Control</em> as Full paper.</li>	  
-        <li><strong>13 Sept 2024</strong> Our paper, Simultaneous position-and-stiffness control of underactuated antagonistic tendon-driven continuum robots, has been accepted to <em>IEEE Transactions on Automation Science and Engineering</em>.</li>	  
+<h3 style="margin-top:25px;">Recent News</h3>
+<div class="news-timeline">
 
-      </ul>
+  <div class="news-item">
+    <div class="news-date">17 Jan 2025</div>
+    <div class="news-content">
+      Our paper, <em>A high performance globally exponentially convergent sensorless observer for the IPMSM</em>,
+      has been accepted to <em>Automatica</em>.
     </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-date">15 Jan 2025</div>
+    <div class="news-content">
+      Our paper, <em>Adaptive state observers for a class of nonlinear systems</em>,
+      has been accepted to <em>Systems & Control Letters</em>.
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-date">18 Sept 2024</div>
+    <div class="news-content">
+      Our paper on IMU preintegration has been accepted to <em>Systems & Control Letters</em>.
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-date">14 Sept 2024</div>
+    <div class="news-content">
+      Our paper, <em>PEBO-SLAM: Observer design for visual inertial SLAM with convergence guarantees</em>,
+      has been accepted to <em>IEEE Transactions on Automatic Control</em> (Full Paper).
+    </div>
+  </div>
+
+</div>
+
 
 </section>
 
