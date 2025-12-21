@@ -172,6 +172,39 @@
 
 
   </style>
+  
+<style>
+/* ===== Timeline animation ===== */
+.news-item {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: newsFadeIn 0.6s ease forwards;
+}
+
+/* 级联延迟：每条稍微错开 */
+.news-item:nth-child(1) { animation-delay: 0.05s; }
+.news-item:nth-child(2) { animation-delay: 0.10s; }
+.news-item:nth-child(3) { animation-delay: 0.15s; }
+.news-item:nth-child(4) { animation-delay: 0.20s; }
+.news-item:nth-child(5) { animation-delay: 0.25s; }
+/* 后面够用即可，不需要太精确 */
+
+@keyframes newsFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Date subtle tech style ===== */
+.news-date {
+  font-family: "Courier New", monospace;
+  color: #6b7280;
+  letter-spacing: 0.04em;
+}
+</style>
+
+
 </head>
 
 <body>
@@ -292,6 +325,32 @@
 <h3 style="margin-top:25px;">Recent News</h3>
 <div class="news-timeline">
 
+
+<div class="news-item">
+  <div class="news-date">21 Dec 2025</div>
+  <div class="news-content">
+    I will teach ELE6209A – Navigation Systems in French for the first time in Winter 2026. Open to undergraduate and graduate students interested in navigation-related topics.
+    <a href="https://www.polymtl.ca/programmes/cours/systemes-de-navigation" target="_blank">[Course]</a>
+  </div>
+</div>
+
+
+<div class="news-item">
+  <div class="news-date">20 Dec 2024</div>
+  <div class="news-content">
+    Welcome Jeremy Meyer (co-supervised with J. Le Ny) and Sofiane Faidi to our group.
+  </div>
+</div>
+
+
+<div class="news-item">
+  <div class="news-date">2 July 2025</div>
+  <div class="news-content">
+    Participated in the 15th IFAC ALCOS 2025 in Mexico City.
+  </div>
+</div>
+
+
   <div class="news-item">
     <div class="news-date">17 Jan 2025</div>
     <div class="news-content">
@@ -322,6 +381,16 @@
       has been accepted to <em>IEEE Transactions on Automatic Control</em> (Full Paper).
     </div>
   </div>
+  
+
+<div class="news-item">
+  <div class="news-date">13 Sept 2024</div>
+  <div class="news-content">
+    Our paper on position-and-stiffness control of tendon-driven continuum robots 
+    has been accepted to <em>IEEE Transactions on Automation Science and Engineering</em> (Regular Paper).
+  </div>
+</div>
+
 
 </div>
 
@@ -334,6 +403,44 @@
     src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=170&t=n&d=vQXuWikfOWCHs-VDFCJWVULbHsq38PWBBDmeLmTSBK4&cmn=ed5e0e&cmo=1f9138">
   </script>
 </div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const items = document.querySelectorAll(".news-timeline .news-item");
+  const maxItems = 5;
+
+  if (items.length <= maxItems) return;
+
+  // Hide items beyond maxItems
+  items.forEach((item, index) => {
+    if (index >= maxItems) {
+      item.style.display = "none";
+    }
+  });
+
+  // Create toggle button
+  const button = document.createElement("button");
+  button.textContent = "Show more";
+  button.className = "news-toggle";
+
+  let expanded = false;
+
+  button.addEventListener("click", () => {
+    expanded = !expanded;
+
+    items.forEach((item, index) => {
+      if (index >= maxItems) {
+        item.style.display = expanded ? "block" : "none";
+      }
+    });
+
+    button.textContent = expanded ? "Show less" : "Show more";
+  });
+
+  document.querySelector(".news-timeline").after(button);
+});
+</script>
 
 </body>
 </html>
