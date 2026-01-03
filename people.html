@@ -125,7 +125,30 @@
       font-weight: 600;
       color: #1f2a44;
     }
+
+
+/* ===== photo on the right ===== */
+.person-with-photo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.person-with-photo .person-info {
+  flex: 1;
+}
+
+.person-with-photo .person-photo {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid #dddddd;
+}
+
   </style>
+  
 </head>
 
 <body>
@@ -162,24 +185,39 @@
 
     <div class="people-grid">
 
-      <div class="person-card">
-        <div class="person-name">Haihui Gao</div>
-        <div class="person-role">PhD student (M.Sc. UPenn.)</div>
-        <div class="person-desc">
-          Input-output data-driven control (co-supervisor: David Saussie)
-        </div>
-        <div class="person-links">
-          <a href="https://www.linkedin.com/in/haihui-gao-3b7621157/"><i class="fa fa-linkedin"></i> LinkedIn</a>
-        </div>
-      </div>
+<div class="person-card person-with-photo">
+  
+  <div class="person-info">
+    <div class="person-name">Haihui Gao</div>
+    <div class="person-role">PhD student (M.Sc. UPenn.)</div>
+    <div class="person-desc">
+      Input-output data-driven control (co-supervised with Prof. David Saussie)
+    </div>
+    <div class="person-links">
+      <a href="https://www.linkedin.com/in/haihui-gao-3b7621157/">
+        <i class="fa fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="mailto:haihui.gao@etud.polymtl.ca">
+       <i class="fa fa-envelope"></i> Email
+  	  </a>
+    </div>
+  </div>
+
+  <img src="photos/haihui2.jpg" alt="Haihui Gao" class="person-photo">
+
+</div>
+
 
       <div class="person-card">
         <div class="person-name">Jérémy Meyer</div>
-        <div class="person-role">Thesis-based Master (Incoming, Centrale Nante)</div>
+        <div class="person-role">Thesis-based Master (B.Eng. Centrale Nante)</div>
         <div class="person-desc">
-          Multi-robotic localization (co-supervisor: Jerome Le Ny)
+          Multi-robotic localization (co-supervised with Prof. Jerome Le Ny)
         </div>
         <div class="person-links">
+        <a href="mailto:jeremy-eugene-gerard.meyer@etud.polymtl.ca">
+       <i class="fa fa-envelope"></i> Email
+  	  </a>
         </div>
       </div>
       
