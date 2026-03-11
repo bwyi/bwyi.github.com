@@ -175,7 +175,9 @@
   title        = {On Transformability Conditions for Parameter Estimation-Based Observers in Nonlinear Systems},
   note         = {Submitted},
   month        = feb,
-  year         = {2026}
+  year         = {2026},
+  arxiv ={2603.09076},
+  eprint  = {2603.09076},  
 }
 
 
@@ -774,7 +776,7 @@ function renderPreprints(title, data) {
       <span class="pub-title">${e.title}</span>,
       <span class="pub-venue">arXiv:${e.eprint}</span>.
       <div class="pub-links">
-        <a class="pub-tag" href="${e.url}" target="_blank">
+<a class="pub-tag" href="https://arxiv.org/abs/${e.eprint}" target="_blank">
           <i class="ai ai-arxiv"></i> arXiv
         </a>
         <a class="pub-tag" href="#" onclick="alert(\`${e.raw}\`)">
