@@ -80,112 +80,188 @@
       are intentionally hidden.
     </p>
 
-    <div id="calendar-status" class="calendar-status">Loading calendar...</div>
-    <div id="calendar-events" class="calendar-events" aria-live="polite"></div>
+    <div class="availability-calendar" aria-label="Availability calendar">
+      <div class="calendar-toolbar">
+        <div class="calendar-nav">
+          <button type="button" id="calendar-prev" aria-label="Previous week">&lsaquo;</button>
+          <button type="button" id="calendar-next" aria-label="Next week">&rsaquo;</button>
+          <button type="button" id="calendar-today">Today</button>
+        </div>
+        <div id="calendar-title" class="calendar-title"></div>
+      </div>
+
+      <div id="calendar-status" class="calendar-status">Loading calendar...</div>
+      <div id="calendar-week" class="calendar-week"></div>
+      <div class="calendar-footer">
+        <span>Availability only</span>
+        <span id="calendar-timezone"></span>
+      </div>
+    </div>
 
   </section>
 </div>
+<script src="calendar-events.js"></script>
 <script>
-function formatEventDate(value) {
-  if (!value) return "";
+const calendarState = {
+  weekStart: startOfWeek(new Date())
+};
+
+const availabilityTitles = new Set(["Busy", "Tentative", "Working elsewhere", "Out of office"]);
+const dayNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+const startHour = 0;
+const endHour = 24;
+const hourPixelHeight = 34;
+
+function parseEventDate(value) {
   const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleDateString("en-CA", {
-    weekday: "short",
-    year: "numeric",
-    month: "short",
-    day: "numeric"
-  });
+  return Number.isNaN(date.getTime()) ? null : date;
 }
 
-function formatEventTime(value) {
-  if (!value || /^\d{4}-\d{2}-\d{2}$/.test(value)) return "";
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return "";
-  return date.toLocaleTimeString("en-CA", {
-    hour: "2-digit",
-    minute: "2-digit"
-  });
+function startOfWeek(date) {
+  const result = new Date(date);
+  result.setHours(0, 0, 0, 0);
+  result.setDate(result.getDate() - result.getDay());
+  return result;
 }
 
-function eventDateKey(event) {
-  return event.start || "";
+function addDays(date, days) {
+  const result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
 }
 
-function escapeHtml(value) {
-  return String(value || "").replace(/[&<>"']/g, character => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    "\"": "&quot;",
-    "'": "&#39;"
-  }[character]));
+function sameDay(a, b) {
+  return a.getFullYear() === b.getFullYear() &&
+    a.getMonth() === b.getMonth() &&
+    a.getDate() === b.getDate();
 }
 
-function renderEvents(events) {
+function formatHour(hour) {
+  if (hour === 0) return "12 AM";
+  const suffix = hour >= 12 ? "PM" : "AM";
+  const display = hour % 12 || 12;
+  return `${display} ${suffix}`;
+}
+
+function minutesSinceStart(date) {
+  return (date.getHours() - startHour) * 60 + date.getMinutes();
+}
+
+function buildWeekEvents(events) {
+  const weekEnd = addDays(calendarState.weekStart, 7);
+  return events
+    .filter(event => availabilityTitles.has(event.title))
+    .map(event => ({
+      ...event,
+      startDate: parseEventDate(event.start),
+      endDate: parseEventDate(event.end)
+    }))
+    .filter(event => event.startDate && event.endDate)
+    .filter(event => event.endDate > calendarState.weekStart && event.startDate < weekEnd);
+}
+
+function renderCalendar(events) {
   const status = document.getElementById("calendar-status");
-  const container = document.getElementById("calendar-events");
-  const now = new Date();
-  now.setHours(0, 0, 0, 0);
-  const availableTitles = new Set(["Free"]);
-  const unavailableTitles = new Set(["Busy", "Tentative", "Working elsewhere", "Out of office"]);
+  const week = document.getElementById("calendar-week");
+  const title = document.getElementById("calendar-title");
+  const timezone = document.getElementById("calendar-timezone");
+  const today = new Date();
+  const weekEvents = buildWeekEvents(events);
+  const monthLabel = calendarState.weekStart.toLocaleDateString("en-CA", {
+    month: "short",
+    year: "numeric"
+  });
 
-  if (events.some(event => event.title === "Calendar feed not configured yet")) {
-    status.textContent =
-      "Outlook calendar feed is not configured yet. Add OUTLOOK_CALENDAR_ICS_URL in GitHub Secrets and run the update workflow.";
-    return;
-  }
-
-  const upcoming = events
-    .filter(event => event.start)
-    .filter(event => !availableTitles.has(event.title))
-    .filter(event => {
-      const date = new Date(event.start);
-      return Number.isNaN(date.getTime()) || date >= now;
-    })
-    .sort((a, b) => eventDateKey(a).localeCompare(eventDateKey(b)))
-    .slice(0, 20);
-
-  if (!upcoming.length) {
-    status.textContent = "No upcoming busy times.";
-    return;
-  }
-
+  title.textContent = monthLabel;
+  timezone.textContent = Intl.DateTimeFormat().resolvedOptions().timeZone || "Local time";
   status.textContent = "";
-  container.innerHTML = upcoming.map(event => {
-    const startDate = formatEventDate(event.start);
-    const startTime = formatEventTime(event.start);
-    const endTime = formatEventTime(event.end);
-    const timeRange = [startTime, endTime].filter(Boolean).join(" - ");
-    const meta = [timeRange, event.location].filter(Boolean).join(" · ");
 
+  const dayHeader = Array.from({ length: 7 }, (_, index) => {
+    const day = addDays(calendarState.weekStart, index);
+    const activeClass = sameDay(day, today) ? " is-today" : "";
     return `
-      <article class="calendar-event">
-        <div class="calendar-event-date">${startDate}</div>
-        <div class="calendar-event-body">
-          <h3>${escapeHtml(unavailableTitles.has(event.title) ? event.title : "Unavailable")}</h3>
-          ${meta ? `<div class="calendar-event-meta">${escapeHtml(meta)}</div>` : ""}
-        </div>
-      </article>
+      <div class="calendar-day-header${activeClass}">
+        <span>${dayNames[index]}</span>
+        <strong>${day.getDate()}</strong>
+      </div>
     `;
   }).join("");
+
+  const hourRows = Array.from({ length: endHour - startHour }, (_, index) => {
+    const hour = startHour + index;
+    return `<div class="calendar-hour-label" style="grid-row:${index + 2};">${formatHour(hour)}</div>`;
+  }).join("");
+
+  const dayCells = Array.from({ length: 7 }, (_, dayIndex) =>
+    `<div class="calendar-day-column" style="grid-column:${dayIndex + 2};"></div>`
+  ).join("");
+
+  const eventBlocks = weekEvents.map(event => {
+    const dayIndex = Math.max(0, Math.min(6, Math.floor((event.startDate - calendarState.weekStart) / 86400000)));
+    const topMinutes = Math.max(0, minutesSinceStart(event.startDate));
+    const bottomMinutes = Math.min((endHour - startHour) * 60, minutesSinceStart(event.endDate));
+    const top = Math.round(topMinutes * hourPixelHeight / 60);
+    const bottom = Math.round(bottomMinutes * hourPixelHeight / 60);
+    const height = Math.max(8, bottom - top);
+    const label = event.title === "Tentative" ? "Tentative" : "Busy";
+    return `
+      <div class="calendar-busy-block ${event.title === "Tentative" ? "is-tentative" : ""}"
+           style="grid-column:${dayIndex + 2}; top:${top}px; height:${height}px;"
+           title="${label}">
+        <span>${label}</span>
+      </div>
+    `;
+  }).join("");
+
+  week.innerHTML = `
+    <div class="calendar-corner"></div>
+    ${dayHeader}
+    <div class="calendar-grid-body">
+      ${hourRows}
+      ${dayCells}
+      ${eventBlocks}
+    </div>
+  `;
+
+  if (!weekEvents.length) {
+    status.textContent = "";
+  }
 }
 
-fetch("calendar-events.json", { cache: "no-store" })
-  .then(response => {
-    if (!response.ok) throw new Error("Calendar data unavailable");
-    return response.json();
-  })
-  .then(renderEvents)
-  .catch(() => {
-    const status = document.getElementById("calendar-status");
-    if (window.location.protocol === "file:") {
-      status.textContent =
-        "Calendar preview requires a local web server or GitHub Pages; file:// pages cannot load calendar-events.json.";
-    } else {
-      status.textContent = "Calendar data is not available yet.";
-    }
-  });
+function loadCalendarEvents() {
+  if (window.location.protocol === "file:" && Array.isArray(window.CALENDAR_EVENTS)) {
+    renderCalendar(window.CALENDAR_EVENTS);
+    return;
+  }
+
+  fetch("calendar-events.json", { cache: "no-store" })
+    .then(response => {
+      if (!response.ok) throw new Error("Calendar data unavailable");
+      return response.json();
+    })
+    .then(renderCalendar)
+    .catch(() => {
+      document.getElementById("calendar-status").textContent =
+        "Calendar data is not available yet.";
+    });
+}
+
+document.getElementById("calendar-prev").addEventListener("click", () => {
+  calendarState.weekStart = addDays(calendarState.weekStart, -7);
+  loadCalendarEvents();
+});
+
+document.getElementById("calendar-next").addEventListener("click", () => {
+  calendarState.weekStart = addDays(calendarState.weekStart, 7);
+  loadCalendarEvents();
+});
+
+document.getElementById("calendar-today").addEventListener("click", () => {
+  calendarState.weekStart = startOfWeek(new Date());
+  loadCalendarEvents();
+});
+
+loadCalendarEvents();
 </script>
 </body>
 </html>

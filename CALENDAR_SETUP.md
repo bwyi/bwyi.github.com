@@ -12,25 +12,25 @@ In Outlook on the web, publish your calendar and copy the public ICS subscriptio
 Use the ICS link, not the HTML link. If you want to protect event details,
 publish availability only.
 
-## 2. Add the ICS link to GitHub Secrets
+## 2. Add the ICS links to GitHub Secrets
 
 In the GitHub repository:
 
 1. Open `Settings`.
 2. Open `Secrets and variables` -> `Actions`.
-3. Add a repository secret named `OUTLOOK_CALENDAR_ICS_URL`.
-4. Paste the Outlook ICS URL as the secret value.
+3. Add a repository secret named `OUTLOOK_CALENDAR_ICS_URLS`.
+4. Paste one or more Outlook ICS URLs as the secret value. Put each URL on its own line.
 
 ## 3. Run the workflow
 
 Open `Actions` -> `Update Outlook calendar` -> `Run workflow`.
 
-The workflow also runs automatically every six hours. It fetches the Outlook ICS feed and writes the result to `calendar-events.json`.
+The workflow also runs automatically every six hours. It fetches the Outlook ICS feeds and writes the result to `calendar-events.json` and `calendar-events.js`.
 
 ## Local testing
 
 Run this from the site folder:
 
 ```sh
-OUTLOOK_CALENDAR_ICS_URL="https://..." python3 -B scripts/fetch_outlook_calendar.py
+OUTLOOK_CALENDAR_ICS_URLS="https://... https://..." python3 -B scripts/fetch_outlook_calendar.py
 ```
