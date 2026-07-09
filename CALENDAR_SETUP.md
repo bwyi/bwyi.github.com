@@ -1,12 +1,16 @@
 # Outlook Calendar Setup
 
-This site displays calendar data from `calendar-events.json`.
+This site displays availability data from `calendar-events.json`.
+Event details are intentionally hidden. The public page filters out `Free`
+entries and displays only unavailable blocks such as `Busy`, `Tentative`,
+`Working elsewhere`, and `Out of office`.
 
 ## 1. Publish your Outlook calendar
 
 In Outlook on the web, publish your calendar and copy the public ICS subscription link.
 
-Use the ICS link, not the HTML link.
+Use the ICS link, not the HTML link. If you want to protect event details,
+publish availability only.
 
 ## 2. Add the ICS link to GitHub Secrets
 
