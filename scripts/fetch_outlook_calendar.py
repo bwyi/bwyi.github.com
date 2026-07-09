@@ -10,6 +10,16 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "calendar-events.json"
+OUT_JS = ROOT / "calendar-events.js"
+
+
+DEFAULT_ICS_URLS = [
+    "https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/e49dec2b-b09b-4a2e-8923-ca2d34f58445/cid-5DD438F7A538E2FB/calendar.ics",
+    "https://outlook.office365.com/owa/calendar/782154d712654b2e8586daed1ba62e73@polymtl.ca/fc7ed4d523b94f91ba7eaa4440f26b6811527342032614783165/calendar.ics",
+    "https://outlook.office365.com/owa/calendar/782154d712654b2e8586daed1ba62e73@polymtl.ca/5e70f5515e864314b263faeeaacc14d13843296798474635261/calendar.ics",
+    "https://outlook.office365.com/owa/calendar/782154d712654b2e8586daed1ba62e73@polymtl.ca/62da80c058fa441c9b5f01d30975a7902719377031557999369/calendar.ics",
+    "https://outlook.office365.com/owa/calendar/782154d712654b2e8586daed1ba62e73@polymtl.ca/3874e909f1034aed9904feb229beabe17649506517277410763/calendar.ics",
+]
 
 
 def unfold_ics(text):
@@ -93,19 +103,51 @@ def parse_events(ics_text):
     return events
 
 
+def calendar_urls():
+    raw = os.environ.get("OUTLOOK_CALENDAR_ICS_URLS") or os.environ.get("OUTLOOK_CALENDAR_ICS_URL")
+    if not raw:
+        return DEFAULT_ICS_URLS
+    return [url for url in re.split(r"[\s,]+", raw.strip()) if url]
+
+
+def fetch_ics(url):
+    req = Request(url, headers={"User-Agent": "BowenYiHomepageCalendar/1.0"})
+    with urlopen(req, timeout=30) as response:
+        return response.read().decode("utf-8", errors="replace")
+
+
+def dedupe_events(events):
+    seen = set()
+    unique = []
+    for event in sorted(events, key=lambda item: (item.get("start", ""), item.get("end", ""), item.get("title", ""))):
+        key = (
+            event.get("title", ""),
+            event.get("start", ""),
+            event.get("end", ""),
+            event.get("location", ""),
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        unique.append(event)
+    return unique
+
+
 def main():
-    ics_url = os.environ.get("OUTLOOK_CALENDAR_ICS_URL")
-    if not ics_url:
-        print("OUTLOOK_CALENDAR_ICS_URL is not set", file=sys.stderr)
+    urls = calendar_urls()
+    if not urls:
+        print("No Outlook calendar ICS URLs configured", file=sys.stderr)
         return 1
 
-    req = Request(ics_url, headers={"User-Agent": "BowenYiHomepageCalendar/1.0"})
-    with urlopen(req, timeout=30) as response:
-        ics_text = response.read().decode("utf-8", errors="replace")
-
-    events = parse_events(ics_text)
-    OUT.write_text(json.dumps(events, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {len(events)} events to {OUT}")
+    events = []
+    for url in urls:
+        print(f"Fetching {url}")
+        events.extend(parse_events(fetch_ics(url)))
+    events = dedupe_events(events)
+    json_text = json.dumps(events, ensure_ascii=False, indent=2)
+    OUT.write_text(json_text + "\n", encoding="utf-8")
+    OUT_JS.write_text("window.CALENDAR_EVENTS = " + json_text + ";\n", encoding="utf-8")
+    print(f"Wrote {len(events)} events to {OUT} and {OUT_JS}")
     return 0
 
 

@@ -205,44 +205,191 @@ section.teaching-section {
 
 .calendar-status {
   color: var(--muted);
-  margin-top: 18px;
+  min-height: 22px;
+  margin: 10px 0;
 }
 
-.calendar-events {
-  display: grid;
-  gap: 12px;
-  margin-top: 18px;
-}
-
-.calendar-event {
-  background: #ffffff;
+.availability-calendar {
+  margin-top: 22px;
   border: 1px solid var(--rule);
-  border-radius: 4px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.calendar-toolbar {
+  align-items: center;
+  background: #eef3f5;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  gap: 14px;
+  justify-content: flex-start;
+  padding: 8px 10px;
+}
+
+.calendar-nav {
+  align-items: center;
+  display: flex;
+  gap: 6px;
+}
+
+.calendar-nav button {
+  background: transparent;
+  border: 0;
+  border-radius: 3px;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 650;
+  line-height: 1;
+  padding: 5px 8px;
+}
+
+.calendar-nav button:hover {
+  background: #dde6ea;
+}
+
+.calendar-title {
+  color: var(--ink);
+  font-size: 1.05em;
+  font-weight: 650;
+}
+
+.calendar-week {
+  background: #ffffff;
+  max-height: 680px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: #aeb9b6 #eef3f5;
+}
+
+.calendar-week {
   display: grid;
-  gap: 16px;
-  grid-template-columns: 130px 1fr;
-  padding: 14px 16px;
+  grid-template-columns: 58px repeat(7, minmax(0, 1fr));
 }
 
-.calendar-event-date {
-  color: var(--accent-dark);
-  font-size: 0.9em;
+.calendar-corner {
+  background: #ffffff;
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  z-index: 4;
+}
+
+.calendar-day-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--rule);
+  color: #3f4846;
+  min-height: 70px;
+  padding-top: 9px;
+  position: sticky;
+  top: 0;
+  text-align: center;
+  z-index: 3;
+}
+
+.calendar-day-header span {
+  display: block;
+  font-size: 0.7em;
   font-weight: 700;
+  letter-spacing: 0.08em;
 }
 
-.calendar-event-body h3 {
-  font-size: 1.02em;
-  margin-bottom: 5px;
+.calendar-day-header strong {
+  display: inline-grid;
+  font-size: 1.55em;
+  font-weight: 500;
+  height: 42px;
+  margin-top: 4px;
+  place-items: center;
+  width: 42px;
 }
 
-.calendar-event-meta {
+.calendar-day-header.is-today span {
+  color: #1d5fd1;
+}
+
+.calendar-day-header.is-today strong {
+  background: #1d5fd1;
+  border-radius: 50%;
+  color: #ffffff;
+}
+
+.calendar-grid-body {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: 58px repeat(7, minmax(0, 1fr));
+  grid-template-rows: repeat(24, 34px);
+  position: relative;
+}
+
+.calendar-grid-body::before {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--rule) 0,
+    var(--rule) 1px,
+    transparent 1px,
+    transparent 34px
+  );
+  content: "";
+  grid-column: 2 / -1;
+  grid-row: 1 / -1;
+  pointer-events: none;
+}
+
+.calendar-hour-label {
+  border-right: 1px solid var(--rule);
+  color: #3f4846;
+  font-size: 0.72em;
+  padding-right: 8px;
+  padding-top: 3px;
+  text-align: right;
+}
+
+.calendar-day-column {
+  border-right: 1px solid var(--rule);
+  grid-row: 1 / -1;
+  min-width: 0;
+}
+
+.calendar-day-column:last-of-type {
+  border-right: 0;
+}
+
+.calendar-busy-block {
+  align-items: center;
+  background: #d84235;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(94, 37, 31, 0.18);
+  color: #ffffff;
+  display: flex;
+  font-size: 0.72em;
+  font-weight: 700;
+  left: 8px;
+  overflow: hidden;
+  padding: 0 8px;
+  position: absolute;
+  right: 8px;
+}
+
+.calendar-busy-block.is-tentative {
+  background: #d89a2b;
+}
+
+.calendar-busy-block span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.calendar-footer {
+  align-items: center;
+  background: #eef3f5;
+  border-top: 1px solid var(--rule);
   color: var(--muted);
-  font-size: 0.9em;
-  margin-bottom: 6px;
-}
-
-.calendar-event-body p {
-  margin-bottom: 0;
+  display: flex;
+  font-size: 0.85em;
+  justify-content: space-between;
+  padding: 5px 10px 8px;
 }
 
 .teaching-section,
@@ -299,6 +446,36 @@ section.teaching-section {
     margin-left: 0;
     padding-left: 0;
     width: auto;
+  }
+
+  .calendar-week {
+    grid-template-columns: 44px repeat(7, minmax(42px, 1fr));
+    max-height: 620px;
+    overflow-x: auto;
+  }
+
+  .calendar-grid-body {
+    grid-template-columns: 44px repeat(7, minmax(42px, 1fr));
+  }
+
+  .calendar-day-header strong {
+    font-size: 1.4em;
+    height: 38px;
+    width: 38px;
+  }
+
+  .calendar-hour-label {
+    font-size: 0.7em;
+    padding-right: 5px;
+  }
+
+  .calendar-busy-block {
+    left: 3px;
+    right: 3px;
+  }
+
+  .calendar-busy-block span {
+    display: none;
   }
 
   .calendar-event {
