@@ -278,51 +278,44 @@
     <h1>Bowen Yi</h1>
     衣博文
     <br><br>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="nav-link" href="index.html">Home</a>
 
-    <p>
-      Assistant Professor<br>
-      <a href="https://www.polymtl.ca/ge/">Department of Electrical Engineering</a><br>
-      Polytechnique Montréal
-    </p>
+      <div class="nav-group">
+        <div class="nav-heading">Research</div>
+        <a class="nav-link" href="research.html">Overview</a>
+        <a class="nav-link" href="publication.html">Publications</a>
+        <a class="nav-link" href="people.html">People</a>
+        <a class="nav-link" href="position.html">Positions</a>
+      </div>
 
-    <h3><a href="index.html">Home</a></h3>
-    <h3><a href="research.html">Research</a></h3>
-    <h3><a href="publication.html">Publications</a></h3>
-    <h3><a href="teaching.html">Teaching</a></h3>
-    <h3><a href="people.html">People</a></h3>
-    <h3><a href="awards.html">Awards</a></h3>
-    <h3><a href="services.html">Services</a></h3>
-    <h3><a href="position.html">Positions</a></h3>
-    <h3><a href="calendar.html">Calendar</a></h3>
-    <h3><a href="misc.html">Misc</a></h3>
+      <div class="nav-group">
+        <div class="nav-heading">Teaching</div>
+        <a class="nav-link" href="course-ele2200.html">ELE2200</a>
+        <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
+        <a class="nav-link" href="course-ele6202.html">ELE6202</a>
+        <a class="nav-link" href="course-ele6214.html">ELE6214</a>
+      </div>
 
-    <b>Social</b><br>
-    <div class="social-row">
-      <a href="mailto:B.YI@outlook.com"><i class="fa fa-envelope-square"></i> Email</a><br>
-      <a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ">
-        <i class="ai ai-google-scholar-square"></i> Google Scholar
-      </a><br>
-      <a href="https://orcid.org/0000-0002-0517-9519">
-        <i class="ai ai-orcid-square"></i> ORCID
-      </a><br>
-      <a href="https://www.researchgate.net/profile/Bowen_Yi">
-        <i class="fa fa-share-alt-square"></i> ResearchGate
-      </a><br>
-      <a href="https://www.linkedin.com/in/yibowen1992/">
-        <i class="fa fa-linkedin-square"></i> LinkedIn
-      </a><br>
-      <a href="https://www.zhihu.com/people/b.yi">
-        <i class="fa fa-share-alt-square"></i> 知乎
-      </a>
-    </div>
+      <div class="nav-group">
+        <div class="nav-heading">Other</div>
+        <a class="nav-link" href="calendar.html">Calendar</a>
+        <a class="nav-link" href="awards.html">Award</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link" href="misc.html">Misc</a>
+      </div>
+    </nav>
 
-    <br>
-    <p><b>Contact</b><br>
-      Lassonde Pavillon<br>
-      2700 Chemin de la Tour<br>
-      Montréal, QC, H3T 1J4<br>
-      Canada
-    </p>
+    <script>
+      (function () {
+        var current = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.site-nav a').forEach(function (link) {
+          if (link.getAttribute('href') === current) {
+            link.classList.add('active');
+          }
+        });
+      }());
+    </script>
   </header>
   <!-- ================= MAIN CONTENT ================= -->
   <section>
@@ -330,19 +323,29 @@
 <!-- Portrait + official profile -->
 <div class="profile-block">
 
-  <img src="Bowen Yi.jpg"
+  <img src="BowenYi.png"
        alt="Bowen Yi"
        class="profile-photo">
 
   <div class="profile-affiliation">
-    <div class="profile-kicker">Automatic Control · Robotics · Learning</div>
-    <a href="https://www.polymtl.ca/expertises/yi-bowen"
-       target="_blank"
-       class="official-profile">
-      Polytechnique Montréal
-    </a>
-    <div class="official-sub">
-      official faculty profile
+    <div class="official-profile">Bowen Yi, Ph.D.</div>
+    <p class="profile-title">
+      Assistant Professor<br>
+      <a href="https://www.polymtl.ca/ge/">Department of Electrical Engineering</a><br>
+      <a href="https://www.polymtl.ca/expertises/yi-bowen" target="_blank" rel="noopener">Polytechnique Montréal</a>
+    </p>
+    <p class="profile-contact">
+      Lassonde Pavillon<br>
+      2700 Chemin de la Tour<br>
+      Montréal, QC, H3T 1J4, Canada
+    </p>
+    <div class="homepage-social" aria-label="Social links">
+      <a href="mailto:B.YI@outlook.com"><i class="fa fa-envelope-square"></i> Email</a>
+      <a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ"><i class="ai ai-google-scholar-square"></i> Google Scholar</a>
+      <a href="https://orcid.org/0000-0002-0517-9519"><i class="ai ai-orcid-square"></i> ORCID</a>
+      <a href="https://www.researchgate.net/profile/Bowen_Yi"><i class="fa fa-share-alt-square"></i> ResearchGate</a>
+      <a href="https://www.linkedin.com/in/yibowen1992/"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
+      <a href="https://www.zhihu.com/people/b.yi"><i class="fa fa-share-alt-square"></i> 知乎</a>
     </div>
   </div>
 
@@ -356,17 +359,12 @@
 
     <div class="justified-text">
       <p>
-I am an <strong>Assistant Professor</strong> in Automatic Control at
-<a href="https://www.polymtl.ca/ge/">Polytechnique Montréal</a>
-(Faculty of Engineering of the Université de Montréal), Canada.
-I am also affiliated with
-<a href="https://www.gerad.ca" target="_blank">GERAD</a>
-and a member of the
-<a href="https://navigator.innovation.ca/en/facility/polytechnique-montreal/mobile-robotics-and-autonomous-systems-laboratory"
-   target="_blank">
-Mobile Robotics and Autonomous Systems Laboratory
-</a>.
-
+        My work focuses on the <strong>estimation, learning, and control of nonlinear dynamical systems</strong>,
+        with applications in <strong>robotics and autonomous systems</strong>. I am affiliated with
+        <a href="https://www.gerad.ca" target="_blank">GERAD</a>
+        and the
+        <a href="https://navigator.innovation.ca/en/facility/polytechnique-montreal/mobile-robotics-and-autonomous-systems-laboratory"
+           target="_blank">Mobile Robotics and Autonomous Systems Laboratory</a>.
       </p>
 
       <p>
@@ -386,14 +384,22 @@ Mobile Robotics and Autonomous Systems Laboratory
       </p>
     </div>
 
-    <h2>Research Interests</h2>
+    <h2>Research Themes</h2>
     <div class="gray-line"></div>
 
-    <div class="justified-text">
-      <p>
-        My research interests lie in the <strong>estimation, learning, and control of nonlinear dynamical systems</strong>,
-        with a particular emphasis on <strong>robotics and autonomous systems</strong>.
-      </p>
+    <div class="research-theme-grid">
+      <div class="research-theme">
+        <strong>Nonlinear Control</strong>
+        <span>Reliable feedback design for complex, uncertain dynamical systems.</span>
+      </div>
+      <div class="research-theme">
+        <strong>Robotics</strong>
+        <span>Estimation and control methods for autonomous and mobile robotic systems.</span>
+      </div>
+      <div class="research-theme">
+        <strong>Learning & Estimation</strong>
+        <span>Data-enabled methods with an emphasis on stability, structure, and guarantees.</span>
+      </div>
     </div>
 
 <h3 style="margin-top:25px;">Recent News</h3>

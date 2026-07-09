@@ -5,7 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Bowen Yi - Misc</title>
 
-  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/styles.css">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
@@ -184,51 +185,44 @@
     <h1>Bowen Yi</h1>
     衣博文
     <br><br>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="nav-link" href="index.html">Home</a>
 
-    <p>
-      Assistant Professor<br>
-      <a href="https://www.polymtl.ca/ge/">Department of Electrical Engineering</a><br>
-      Polytechnique Montréal
-    </p>
+      <div class="nav-group">
+        <div class="nav-heading">Research</div>
+        <a class="nav-link" href="research.html">Overview</a>
+        <a class="nav-link" href="publication.html">Publications</a>
+        <a class="nav-link" href="people.html">People</a>
+        <a class="nav-link" href="position.html">Positions</a>
+      </div>
 
-    <h3><a href="index.html">Home</a></h3>
-    <h3><a href="research.html">Research</a></h3>
-    <h3><a href="publication.html">Publications</a></h3>
-    <h3><a href="teaching.html">Teaching</a></h3>
-    <h3><a href="people.html">People</a></h3>
-    <h3><a href="awards.html">Awards</a></h3>
-    <h3><a href="services.html">Services</a></h3>
-    <h3><a href="position.html">Positions</a></h3>
-    <h3><a href="calendar.html">Calendar</a></h3>
-    <h3><a href="misc.html">Misc</a></h3>
+      <div class="nav-group">
+        <div class="nav-heading">Teaching</div>
+        <a class="nav-link" href="course-ele2200.html">ELE2200</a>
+        <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
+        <a class="nav-link" href="course-ele6202.html">ELE6202</a>
+        <a class="nav-link" href="course-ele6214.html">ELE6214</a>
+      </div>
 
-    <b>Social</b><br>
-    <div class="social-row">
-      <a href="mailto:B.YI@outlook.com"><i class="fa fa-envelope-square"></i> Email</a><br>
-      <a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ">
-        <i class="ai ai-google-scholar-square"></i> Google Scholar
-      </a><br>
-      <a href="https://orcid.org/0000-0002-0517-9519">
-        <i class="ai ai-orcid-square"></i> ORCID
-      </a><br>
-      <a href="https://www.researchgate.net/profile/Bowen_Yi">
-        <i class="fa fa-share-alt-square"></i> ResearchGate
-      </a><br>
-      <a href="https://www.linkedin.com/in/yibowen1992/">
-        <i class="fa fa-linkedin-square"></i> LinkedIn
-      </a><br>
-      <a href="https://www.zhihu.com/people/b.yi">
-        <i class="fa fa-share-alt-square"></i> 知乎
-      </a>
-    </div>
+      <div class="nav-group">
+        <div class="nav-heading">Other</div>
+        <a class="nav-link" href="calendar.html">Calendar</a>
+        <a class="nav-link" href="awards.html">Award</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link" href="misc.html">Misc</a>
+      </div>
+    </nav>
 
-    <br>
-    <p><b>Contact</b><br>
-      Lassonde Pavillon<br>
-      2700 Chemin de la Tour<br>
-      Montréal, QC, H3T 1J4<br>
-      Canada
-    </p>
+    <script>
+      (function () {
+        var current = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.site-nav a').forEach(function (link) {
+          if (link.getAttribute('href') === current) {
+            link.classList.add('active');
+          }
+        });
+      }());
+    </script>
   </header>
 
 
