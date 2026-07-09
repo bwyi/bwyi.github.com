@@ -127,6 +127,7 @@ function renderEvents(events) {
   const container = document.getElementById("calendar-events");
   const now = new Date();
   now.setHours(0, 0, 0, 0);
+  const availabilityOnlyTitles = new Set(["Free", "Busy", "Tentative", "Working elsewhere", "Out of office"]);
 
   if (events.some(event => event.title === "Calendar feed not configured yet")) {
     status.textContent =
@@ -134,8 +135,15 @@ function renderEvents(events) {
     return;
   }
 
+  if (events.length && events.every(event => availabilityOnlyTitles.has(event.title))) {
+    status.textContent =
+      "Outlook is currently publishing availability only. In Outlook calendar publishing settings, choose a link that shows full event details, then update calendar-events.json.";
+    return;
+  }
+
   const upcoming = events
     .filter(event => event.start)
+    .filter(event => !availabilityOnlyTitles.has(event.title))
     .filter(event => {
       const date = new Date(event.start);
       return Number.isNaN(date.getTime()) || date >= now;
