@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Calendar feed not configured yet",
+    "start": "",
+    "end": "",
+    "location": "",
+    "description": "Add your Outlook public ICS URL as the GitHub secret OUTLOOK_CALENDAR_ICS_URL, then run the calendar update workflow."
+  }
+]

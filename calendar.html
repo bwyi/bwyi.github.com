@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Bowen Yi - Calendar</title>
+
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
+  <link rel="stylesheet" href="assets/css/academicons.min.css">
+  <link rel="stylesheet" href="assets/css/academicons.css">
+  <link rel="stylesheet" href="stylesheets/site-theme.css">
+</head>
+
+<body>
+<div class="wrapper">
+
+  <!-- ================= LEFT SIDEBAR ================= -->
+  <header>
+    <h1>Bowen Yi</h1>
+    衣博文
+    <br><br>
+
+    <p>
+      Assistant Professor<br>
+      <a href="https://www.polymtl.ca/ge/">Department of Electrical Engineering</a><br>
+      Polytechnique Montréal
+    </p>
+
+    <h3><a href="index.html">Home</a></h3>
+    <h3><a href="research.html">Research</a></h3>
+    <h3><a href="publication.html">Publications</a></h3>
+    <h3><a href="teaching.html">Teaching</a></h3>
+    <h3><a href="people.html">People</a></h3>
+    <h3><a href="awards.html">Awards</a></h3>
+    <h3><a href="services.html">Services</a></h3>
+    <h3><a href="position.html">Positions</a></h3>
+    <h3><a href="calendar.html">Calendar</a></h3>
+    <h3><a href="misc.html">Misc</a></h3>
+
+    <b>Social</b><br>
+    <div class="social-row">
+      <a href="mailto:B.YI@outlook.com"><i class="fa fa-envelope-square"></i> Email</a><br>
+      <a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ">
+        <i class="ai ai-google-scholar-square"></i> Google Scholar
+      </a><br>
+      <a href="https://orcid.org/0000-0002-0517-9519">
+        <i class="ai ai-orcid-square"></i> ORCID
+      </a><br>
+      <a href="https://www.researchgate.net/profile/Bowen_Yi">
+        <i class="fa fa-share-alt-square"></i> ResearchGate
+      </a><br>
+      <a href="https://www.linkedin.com/in/yibowen1992/">
+        <i class="fa fa-linkedin-square"></i> LinkedIn
+      </a><br>
+      <a href="https://www.zhihu.com/people/b.yi">
+        <i class="fa fa-share-alt-square"></i> 知乎
+      </a>
+    </div>
+
+    <br>
+    <p><b>Contact</b><br>
+      Lassonde Pavillon<br>
+      2700 Chemin de la Tour<br>
+      Montréal, QC, H3T 1J4<br>
+      Canada
+    </p>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <section>
+
+    <h2>Calendar</h2>
+    <div class="gray-line"></div>
+
+    <p class="justified-text">
+      My public academic calendar includes conferences, workshops,
+      research visits, and other professional activities.
+    </p>
+
+    <div id="calendar-status" class="calendar-status">Loading calendar...</div>
+    <div id="calendar-events" class="calendar-events" aria-live="polite"></div>
+
+  </section>
+</div>
+<script>
+function formatEventDate(value) {
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleDateString("en-CA", {
+    weekday: "short",
+    year: "numeric",
+    month: "short",
+    day: "numeric"
+  });
+}
+
+function formatEventTime(value) {
+  if (!value || /^\d{4}-\d{2}-\d{2}$/.test(value)) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+  return date.toLocaleTimeString("en-CA", {
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+}
+
+function eventDateKey(event) {
+  return event.start || "";
+}
+
+function escapeHtml(value) {
+  return String(value || "").replace(/[&<>"']/g, character => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "'": "&#39;"
+  }[character]));
+}
+
+function renderEvents(events) {
+  const status = document.getElementById("calendar-status");
+  const container = document.getElementById("calendar-events");
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+
+  if (events.some(event => event.title === "Calendar feed not configured yet")) {
+    status.textContent =
+      "Outlook calendar feed is not configured yet. Add OUTLOOK_CALENDAR_ICS_URL in GitHub Secrets and run the update workflow.";
+    return;
+  }
+
+  const upcoming = events
+    .filter(event => event.start)
+    .filter(event => {
+      const date = new Date(event.start);
+      return Number.isNaN(date.getTime()) || date >= now;
+    })
+    .sort((a, b) => eventDateKey(a).localeCompare(eventDateKey(b)))
+    .slice(0, 20);
+
+  if (!upcoming.length) {
+    status.textContent = "No upcoming public events.";
+    return;
+  }
+
+  status.textContent = "";
+  container.innerHTML = upcoming.map(event => {
+    const startDate = formatEventDate(event.start);
+    const startTime = formatEventTime(event.start);
+    const endTime = formatEventTime(event.end);
+    const timeRange = [startTime, endTime].filter(Boolean).join(" - ");
+    const meta = [timeRange, event.location].filter(Boolean).join(" · ");
+
+    return `
+      <article class="calendar-event">
+        <div class="calendar-event-date">${startDate}</div>
+        <div class="calendar-event-body">
+          <h3>${escapeHtml(event.title || "Untitled event")}</h3>
+          ${meta ? `<div class="calendar-event-meta">${escapeHtml(meta)}</div>` : ""}
+          ${event.description ? `<p>${escapeHtml(event.description)}</p>` : ""}
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+fetch("calendar-events.json", { cache: "no-store" })
+  .then(response => {
+    if (!response.ok) throw new Error("Calendar data unavailable");
+    return response.json();
+  })
+  .then(renderEvents)
+  .catch(() => {
+    const status = document.getElementById("calendar-status");
+    if (window.location.protocol === "file:") {
+      status.textContent =
+        "Calendar preview requires a local web server or GitHub Pages; file:// pages cannot load calendar-events.json.";
+    } else {
+      status.textContent = "Calendar data is not available yet.";
+    }
+  });
+</script>
+</body>
+</html>

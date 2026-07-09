@@ -6,7 +6,6 @@
   <title>Bowen Yi</title>
 
   <link rel="stylesheet" href="stylesheets/styles.css">
-  <link rel="stylesheet" href="stylesheets/github-light.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
@@ -15,19 +14,30 @@
 
   <!-- ===== Global Academic Style ===== -->
   <style>
+    :root {
+      --ink: #263238;
+      --muted: #60706f;
+      --accent: #0f766e;
+      --accent-dark: #0b5d56;
+      --rule: #d9e1de;
+      --soft: #f5f8f7;
+    }
+
     body {
-      font-family: Georgia, "Times New Roman", Times, serif;
-      color: #222;
-      line-height: 1.6;
+      background: #fbfcfb;
+      color: var(--ink);
+      font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.62;
     }
 
     h1, h2, h3 {
-      color: #1f2a44;
-      font-weight: 600;
+      color: #173f3a;
+      font-weight: 650;
     }
 
     a {
-      color: #1f2a44;
+      color: var(--accent-dark);
       text-decoration: none;
     }
 
@@ -36,64 +46,113 @@
     }
 
     .gray-line {
-      border-top: 1px solid #dddddd;
-      margin-top: 6px;
+      border-top: 1px solid var(--rule);
+      margin: -8px 0 16px;
     }
 
     .justified-text {
       text-align: justify;
     }
 
+    .wrapper {
+      width: 920px;
+    }
+
+    header {
+      width: 245px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    header h1 {
+      color: #103b36;
+      font-size: 30px;
+      margin-bottom: 6px;
+    }
+
+    header h3 {
+      font-size: 15px;
+      margin: 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    header h3 a {
+      display: block;
+      padding: 7px 0;
+      color: var(--ink);
+    }
+
+    header h3 a:hover {
+      color: var(--accent-dark);
+      text-decoration: none;
+    }
+
+    section {
+      width: 610px;
+      border-left: 1px solid var(--rule);
+      padding-left: 38px;
+    }
+
     .social-row {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      gap: 4px 14px;
+      justify-content: flex-start;
+      margin-top: 6px;
     }
 
-    /* ===== Top banner with background image ===== */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 220px;
-      background-image: url("udem.jpg");
-      background-size: cover;
-      background-position: center;
-      margin-bottom: 25px;
+    .profile-block {
+      display: grid;
+      grid-template-columns: 168px 1fr;
+      gap: 24px;
+      align-items: start;
+      margin: 0 0 26px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--rule);
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(15, 25, 40, 0.55);
+    .profile-photo {
+      width: 168px;
+      border-radius: 3px;
+      border: 1px solid var(--rule);
     }
 
-    .hero-overlay {
-      position: relative;
-      z-index: 1;
-      color: #ffffff;
-      padding: 35px 30px;
+    .profile-affiliation {
+      line-height: 1.45;
+      padding-top: 3px;
     }
 
-    .hero-overlay h2 {
-      color: #ffffff;
+    .profile-kicker {
+      color: var(--accent-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       margin-bottom: 8px;
+      text-transform: uppercase;
     }
 
-    .hero-overlay p {
-      font-size: 1.05em;
+    .official-profile {
+      color: #173f3a;
+      font-size: 20px;
+      font-weight: 700;
     }
-    
+
+    .official-sub {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
     .news-timeline {
-  border-left: 2px solid #dddddd;
+  border-left: 2px solid var(--rule);
   margin-top: 10px;
-  padding-left: 14px;
-  max-width: 520px;
+  padding-left: 16px;
+  max-width: 610px;
 }
 
 .news-item {
   position: relative;
-  margin-bottom: 14px;
+  margin-bottom: 15px;
 }
 
 .news-item::before {
@@ -103,73 +162,74 @@
   top: 4px;
   width: 10px;
   height: 10px;
-  background: #1f2a44;
+  background: var(--accent);
+  border: 2px solid #fbfcfb;
   border-radius: 50%;
 }
 
 .news-date {
   font-size: 0.85em;
-  font-weight: 600;
-  color: #1f2a44;
+  font-weight: 700;
+  color: var(--accent-dark);
   margin-bottom: 2px;
 }
 
 .news-content {
   font-size: 0.95em;
 }
-/* ===== Tech-style profile card ===== */
-.tech-card {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 12px 16px;
-  margin: 8px 0 22px 0;
 
-  border: 1px solid rgba(31, 42, 68, 0.15);
-  border-radius: 10px;
+    .news-toggle {
+      appearance: none;
+      background: var(--soft);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      color: var(--accent-dark);
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 650;
+      margin-top: 2px;
+      padding: 5px 11px;
+    }
 
-  background: linear-gradient(
-    135deg,
-    rgba(245, 247, 250, 0.95),
-    rgba(255, 255, 255, 0.95)
-  );
+    .news-toggle:hover {
+      background: #eaf2ef;
+    }
 
-  transition: all 0.25s ease;
-}
+    @media print, screen and (max-width: 960px) {
+      .wrapper {
+        width: auto;
+      }
 
-.tech-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(31, 42, 68, 0.12);
-}
+      header {
+        padding-right: 0;
+        width: auto;
+      }
 
-/* Photo */
-.profile-photo {
-  width: 130px;
-  border-radius: 6px;
-}
+      section {
+        border-left: 0;
+        padding-left: 0;
+        width: auto;
+      }
+    }
 
-/* Text block */
-.profile-affiliation {
-  line-height: 1.35;
-}
+    @media print, screen and (max-width: 600px) {
+      body {
+        padding: 22px;
+      }
 
-/* Main link */
-.official-profile {
-  font-weight: 600;
-  font-size: 1.05em;
-  letter-spacing: 0.3px;
-  text-decoration: none;
-}
+      .profile-block {
+        grid-template-columns: 1fr;
+      }
 
-/* Subtext: tech / research feel */
-.official-sub {
-  font-size: 0.82em;
-  text-transform: lowercase;
-  letter-spacing: 0.08em;
-  color: #666;
-  margin-top: 3px;
-}
+      .profile-photo {
+        width: 160px;
+      }
 
+      .justified-text {
+        text-align: left;
+      }
+    }
 
   </style>
   
@@ -196,11 +256,9 @@
   }
 }
 
-/* ===== Date subtle tech style ===== */
+/* ===== Date subtle style ===== */
 .news-date {
-  font-family: "Courier New", monospace;
-  color: #6b7280;
-  letter-spacing: 0.04em;
+  color: var(--accent-dark);
 }
 
 
@@ -209,6 +267,7 @@
 
 
 
+  <link rel="stylesheet" href="stylesheets/site-theme.css">
 </head>
 
 <body>
@@ -234,6 +293,7 @@
     <h3><a href="awards.html">Awards</a></h3>
     <h3><a href="services.html">Services</a></h3>
     <h3><a href="position.html">Positions</a></h3>
+    <h3><a href="calendar.html">Calendar</a></h3>
     <h3><a href="misc.html">Misc</a></h3>
 
     <b>Social</b><br>
@@ -267,14 +327,15 @@
   <!-- ================= MAIN CONTENT ================= -->
   <section>
   
-<!-- Portrait + Official profile (tech style) -->
-<div class="profile-block tech-card">
+<!-- Portrait + official profile -->
+<div class="profile-block">
 
   <img src="Bowen Yi.jpg"
        alt="Bowen Yi"
        class="profile-photo">
 
   <div class="profile-affiliation">
+    <div class="profile-kicker">Automatic Control · Robotics · Learning</div>
     <a href="https://www.polymtl.ca/expertises/yi-bowen"
        target="_blank"
        class="official-profile">
