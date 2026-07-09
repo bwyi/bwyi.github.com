@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Bowen Yi - Systèmes et simulation</title>
+
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
+  <link rel="stylesheet" href="assets/css/academicons.min.css">
+  <link rel="stylesheet" href="assets/css/academicons.css">
+  <link rel="stylesheet" href="stylesheets/site-theme.css">
+</head>
+
+<body>
+<div class="wrapper">
+
+  <!-- ================= LEFT SIDEBAR ================= -->
+  <header>
+    <h1>Bowen Yi</h1>
+    衣博文
+    <br><br>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="nav-link" href="index.html">Home</a>
+
+      <div class="nav-group">
+        <div class="nav-heading">Research</div>
+        <a class="nav-link" href="research.html">Overview</a>
+        <a class="nav-link" href="publication.html">Publications</a>
+        <a class="nav-link" href="people.html">People</a>
+        <a class="nav-link" href="position.html">Positions</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-heading">Teaching</div>
+        <a class="nav-link" href="course-ele2200.html">ELE2200</a>
+        <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
+        <a class="nav-link" href="course-ele6202.html">ELE6202</a>
+        <a class="nav-link" href="course-ele6214.html">ELE6214</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-heading">Other</div>
+        <a class="nav-link" href="calendar.html">Calendar</a>
+        <a class="nav-link" href="awards.html">Award</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link" href="misc.html">Misc</a>
+      </div>
+    </nav>
+
+    <script>
+      (function () {
+        var current = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.site-nav a').forEach(function (link) {
+          if (link.getAttribute('href') === current) {
+            link.classList.add('active');
+          }
+        });
+      }());
+    </script>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <section class="course-home">
+    <p class="course-meta">ELE2200 · Term TBA</p>
+    <h2>Systèmes et simulation</h2>
+    <div class="gray-line"></div>
+
+    <p class="justified-text">Undergraduate course introducing systems modeling, dynamic behavior, and simulation as tools for analyzing engineering systems.</p>
+
+    <h3>Course Topics</h3>
+    <ul>
+      <li>Mathematical modeling of engineering systems</li>
+      <li>Dynamic response and simulation of linear systems</li>
+      <li>Transfer functions and state-space descriptions</li>
+      <li>Numerical tools for system analysis and validation</li>
+    </ul>
+
+    
+    <p><a href="https://www.polymtl.ca/programmes/cours/systemes-et-simulation" target="_blank" rel="noopener">Official Polytechnique course page</a></p>
+
+    <p><a href="teaching.html">Back to teaching overview</a></p>
+  </section>
+</div>
+</body>
+</html>

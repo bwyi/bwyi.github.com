@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Bowen Yi - Systèmes multivariables</title>
+
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
+  <link rel="stylesheet" href="assets/css/academicons.min.css">
+  <link rel="stylesheet" href="assets/css/academicons.css">
+  <link rel="stylesheet" href="stylesheets/site-theme.css">
+</head>
+
+<body>
+<div class="wrapper">
+
+  <!-- ================= LEFT SIDEBAR ================= -->
+  <header>
+    <h1>Bowen Yi</h1>
+    衣博文
+    <br><br>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="nav-link" href="index.html">Home</a>
+
+      <div class="nav-group">
+        <div class="nav-heading">Research</div>
+        <a class="nav-link" href="research.html">Overview</a>
+        <a class="nav-link" href="publication.html">Publications</a>
+        <a class="nav-link" href="people.html">People</a>
+        <a class="nav-link" href="position.html">Positions</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-heading">Teaching</div>
+        <a class="nav-link" href="course-ele2200.html">ELE2200</a>
+        <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
+        <a class="nav-link" href="course-ele6202.html">ELE6202</a>
+        <a class="nav-link" href="course-ele6214.html">ELE6214</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-heading">Other</div>
+        <a class="nav-link" href="calendar.html">Calendar</a>
+        <a class="nav-link" href="awards.html">Award</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link" href="misc.html">Misc</a>
+      </div>
+    </nav>
+
+    <script>
+      (function () {
+        var current = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.site-nav a').forEach(function (link) {
+          if (link.getAttribute('href') === current) {
+            link.classList.add('active');
+          }
+        });
+      }());
+    </script>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <section class="course-home">
+    <p class="course-meta">ELE6202 · Fall 2024-2025</p>
+    <h2>Systèmes multivariables</h2>
+    <div class="gray-line"></div>
+
+    <p class="justified-text">Graduate course on multivariable systems, state-space modeling, and analysis tools for modern control.</p>
+
+    <h3>Course Topics</h3>
+    <ul>
+      <li>State-space representations of linear systems</li>
+      <li>Controllability, observability, and minimal realizations</li>
+      <li>Multivariable feedback and robustness concepts</li>
+      <li>Frequency-domain and time-domain analysis</li>
+    </ul>
+
+
+    <h3>Lecture Slides</h3>
+    <ul>
+      <li><a href="files/ELE6202/Lec1_2026.pdf" target="_blank" rel="noopener">Lecture 1: Introduction</a></li>
+      <li><a href="files/ELE6202/Lec2_2026.pdf" target="_blank" rel="noopener">Lecture 2: Mathematics Review</a></li>
+      <li><a href="files/ELE6202/Lec3_2026.pdf" target="_blank" rel="noopener">Lecture 3: Solutions to Linear State-Space Models</a></li>
+      <li><a href="files/ELE6202/Lec4_2026.pdf" target="_blank" rel="noopener">Lecture 4: Internal/Lyapunov Stability</a></li>
+      <li><a href="files/ELE6202/lec5_2026.pdf" target="_blank" rel="noopener">Lecture 5: Controllability, Reachability, and Observability</a></li>
+      <li><a href="files/ELE6202/lec6_2026.pdf" target="_blank" rel="noopener">Lecture 6: State Feedback</a></li>
+      <li><a href="files/ELE6202/lec7_2026.pdf" target="_blank" rel="noopener">Lecture 7: State Observer and Output Feedback</a></li>
+      <li><a href="files/ELE6202/lec8_2026.pdf" target="_blank" rel="noopener">Lecture 8: Elements of Realization Theory</a></li>
+    </ul>
+    
+    <p><a href="https://www.polymtl.ca/programmes/cours/systemes-multivariables" target="_blank" rel="noopener">Official Polytechnique course page</a></p>
+
+    <p><a href="teaching.html">Back to teaching overview</a></p>
+  </section>
+</div>
+</body>
+</html>
