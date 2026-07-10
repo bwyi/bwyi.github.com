@@ -142,7 +142,7 @@ function minutesSinceStart(date) {
 
 function buildWeekEvents(events) {
   const weekEnd = addDays(calendarState.weekStart, 7);
-  return events
+  const parsedEvents = events
     .filter(event => availabilityTitles.has(event.title))
     .map(event => ({
       ...event,
@@ -151,6 +151,23 @@ function buildWeekEvents(events) {
     }))
     .filter(event => event.startDate && event.endDate)
     .filter(event => event.endDate > calendarState.weekStart && event.startDate < weekEnd);
+
+  return parsedEvents.flatMap(event => {
+    return Array.from({ length: 7 }, (_, dayIndex) => {
+      const dayStart = addDays(calendarState.weekStart, dayIndex);
+      const dayEnd = addDays(dayStart, 1);
+      const startDate = event.startDate > dayStart ? event.startDate : dayStart;
+      const endDate = event.endDate < dayEnd ? event.endDate : dayEnd;
+
+      if (endDate <= startDate) return null;
+      return {
+        ...event,
+        dayIndex,
+        startDate,
+        endDate
+      };
+    }).filter(Boolean);
+  });
 }
 
 function renderCalendar(events) {
@@ -190,7 +207,7 @@ function renderCalendar(events) {
   ).join("");
 
   const eventBlocks = weekEvents.map(event => {
-    const dayIndex = Math.max(0, Math.min(6, Math.floor((event.startDate - calendarState.weekStart) / 86400000)));
+    const dayIndex = event.dayIndex;
     const topMinutes = Math.max(0, minutesSinceStart(event.startDate));
     const bottomMinutes = Math.min((endHour - startHour) * 60, minutesSinceStart(event.endDate));
     const top = Math.round(topMinutes * hourPixelHeight / 60);
@@ -199,7 +216,7 @@ function renderCalendar(events) {
     const label = event.title === "Tentative" ? "Tentative" : "Busy";
     return `
       <div class="calendar-busy-block ${event.title === "Tentative" ? "is-tentative" : ""}"
-           style="grid-column:${dayIndex + 2}; top:${top}px; height:${height}px;"
+           style="grid-column:${dayIndex + 2} / span 1; top:${top}px; height:${height}px;"
            title="${label}">
         <span>${label}</span>
       </div>
@@ -227,7 +244,7 @@ function loadCalendarEvents() {
     return;
   }
 
-  fetch("calendar-events.json", { cache: "no-store" })
+  fetch(`calendar-events.json?v=${Date.now()}`, { cache: "no-store" })
     .then(response => {
       if (!response.ok) throw new Error("Calendar data unavailable");
       return response.json();
