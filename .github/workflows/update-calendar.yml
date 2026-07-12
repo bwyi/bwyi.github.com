@@ -1,0 +1,30 @@
+name: Update Outlook calendar
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-calendar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Fetch Outlook calendar
+        env:
+          OUTLOOK_CALENDAR_ICS_URLS: ${{ secrets.OUTLOOK_CALENDAR_ICS_URLS }}
+        run: python scripts/fetch_outlook_calendar.py
+
+      - name: Commit calendar updates
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update Outlook calendar events
+          file_pattern: calendar-events.json calendar-events.js
