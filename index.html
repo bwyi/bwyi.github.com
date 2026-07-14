@@ -102,13 +102,62 @@
     }
 
     .profile-block {
+      align-items: start;
+      background: linear-gradient(135deg, #fbfcfc 0%, #f6f8f8 56%, #eef3f3 100%);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      box-shadow: 0 5px 16px rgba(23,63,58,0.07);
       display: grid;
       grid-template-columns: 168px 1fr;
       gap: 24px;
-      align-items: start;
-      margin: 0 0 26px;
-      padding-bottom: 22px;
-      border-bottom: 1px solid var(--rule);
+      isolation: isolate;
+      margin: 0 0 28px;
+      overflow: hidden;
+      padding: 16px 18px;
+      position: relative;
+    }
+
+    .profile-block::before {
+      background: url("udem.jpg") center bottom / cover no-repeat;
+      content: "";
+      filter: saturate(0.9) contrast(0.96) brightness(1.12);
+      inset: 0;
+      opacity: 0.52;
+      position: absolute;
+      transform: scaleX(-1);
+      z-index: 0;
+    }
+
+    .profile-block::after {
+      background:
+        linear-gradient(90deg, #f7f9f9 0%, rgba(247,249,249,0.99) 43%, rgba(247,249,249,0.87) 62%, rgba(247,249,249,0.22) 100%),
+        linear-gradient(180deg, rgba(247,249,249,0.2), rgba(247,249,249,0));
+      content: "";
+      inset: 0;
+      position: absolute;
+      z-index: 0;
+    }
+
+    .profile-block > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-block .homepage-social {
+      flex-wrap: nowrap;
+      gap: 8px;
+      max-width: none;
+    }
+
+    .profile-block .homepage-social a {
+      height: 32px;
+      justify-content: center;
+      padding: 0;
+      width: 34px;
+    }
+
+    .profile-block .homepage-social i {
+      font-size: 17px;
     }
 
     .profile-photo {
@@ -220,6 +269,14 @@
 
       .profile-block {
         grid-template-columns: 1fr;
+      }
+
+      .profile-block::before {
+        opacity: 0.25;
+      }
+
+      .profile-block::after {
+        background: rgba(247,249,249,0.88);
       }
 
       .profile-photo {
@@ -337,23 +394,21 @@
     <p class="profile-contact">
       Lassonde Pavillon<br>
       2700 Chemin de la Tour<br>
-      Montréal, QC, H3T 1J4, Canada
+      Montréal, QC, H3T 1J4, Canada<br>
+      Bureau M-5418<br>
+      <a href="tel:+15143404711;ext=3908">+1 (514) 340 4711, poste 3908</a>
     </p>
     <div class="homepage-social" aria-label="Social links">
-      <a href="mailto:B.YI@outlook.com"><i class="fa fa-envelope-square"></i> Email</a>
-      <a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ"><i class="ai ai-google-scholar-square"></i> Google Scholar</a>
-      <a href="https://orcid.org/0000-0002-0517-9519"><i class="ai ai-orcid-square"></i> ORCID</a>
-      <a href="https://www.researchgate.net/profile/Bowen_Yi"><i class="fa fa-share-alt-square"></i> ResearchGate</a>
-      <a href="https://www.linkedin.com/in/yibowen1992/"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
-      <a href="https://www.zhihu.com/people/b.yi"><i class="fa fa-share-alt-square"></i> 知乎</a>
+      <a href="mailto:B.YI@outlook.com" aria-label="Email" title="Email"><i class="fa fa-envelope-square" aria-hidden="true"></i></a>
+      <a href="https://scholar.google.com/citations?user=hyLNHhsAAAAJ" aria-label="Google Scholar" title="Google Scholar"><i class="ai ai-google-scholar-square" aria-hidden="true"></i></a>
+      <a href="https://orcid.org/0000-0002-0517-9519" aria-label="ORCID" title="ORCID"><i class="ai ai-orcid-square" aria-hidden="true"></i></a>
+      <a href="https://www.researchgate.net/profile/Bowen_Yi" aria-label="ResearchGate" title="ResearchGate"><i class="ai ai-researchgate-square" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/yibowen1992/" aria-label="LinkedIn" title="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
     </div>
   </div>
 
 </div>
 
-     
-     
-     
     <h2>About</h2>
     <div class="gray-line"></div>
 
@@ -608,4 +663,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
-
