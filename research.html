@@ -113,6 +113,24 @@
       padding: 4px 9px;
     }
 
+    .research-visual {
+      aspect-ratio: 3.25 / 1;
+      background: #fdfcf9;
+      border: 1px solid #dce7e4;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(23, 63, 58, 0.045);
+      margin: -6px 0 30px;
+      overflow: hidden;
+    }
+
+    .research-visual img {
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+    }
+
     .research-heading {
       align-items: center;
       display: flex;
@@ -316,6 +334,11 @@
         grid-template-columns: 1fr;
       }
 
+      .research-visual {
+        aspect-ratio: 2.5 / 1;
+        margin-bottom: 26px;
+      }
+
       .research-area-card {
         min-height: 0;
       }
@@ -402,6 +425,10 @@
       <span data-i18n="focus.control">Control</span>
       <span data-i18n="focus.robotics">Robotics</span>
     </div>
+
+    <figure class="research-visual">
+      <img src="assets/images/research-overview-illustration.png" loading="lazy" decoding="async" alt="A visual flow connecting sensing and state estimation, Koopman learning, nonlinear control, and autonomous robotics." data-i18n-alt="visual.alt">
+    </figure>
 
     <h3 class="research-heading" data-i18n="areas.title">Research Areas</h3>
     <div class="research-area-grid">
@@ -530,6 +557,7 @@
         'focus.learning': 'Apprentissage',
         'focus.control': 'Commande',
         'focus.robotics': 'Robotique',
+        'visual.alt': 'Une chaîne visuelle reliant les capteurs et l’estimation d’état, l’apprentissage de Koopman, la commande non linéaire et la robotique autonome.',
         'areas.title': 'Axes de recherche',
         'area.estimation.title': 'Estimation et théorie des observateurs',
         'area.estimation.text': 'Estimation d’état en temps réel pour les systèmes de commande non linéaires, avec un accent sur la convergence et la robustesse.',
@@ -578,12 +606,14 @@
     var textNodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n]'));
     var htmlNodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n-html]'));
     var ariaNodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n-aria]'));
+    var altNodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n-alt]'));
     var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-language]'));
     var metaDescription = document.querySelector('meta[name="description"]');
 
     textNodes.forEach(function (node) { node.dataset.i18nEn = node.textContent; });
     htmlNodes.forEach(function (node) { node.dataset.i18nEn = node.innerHTML; });
     ariaNodes.forEach(function (node) { node.dataset.i18nAriaEn = node.getAttribute('aria-label') || ''; });
+    altNodes.forEach(function (node) { node.dataset.i18nAltEn = node.getAttribute('alt') || ''; });
 
     function applyLanguage(language, updateUrl) {
       var dictionary = translations[language] || {};
@@ -606,6 +636,10 @@
       ariaNodes.forEach(function (node) {
         var key = node.getAttribute('data-i18n-aria');
         node.setAttribute('aria-label', language === 'fr' && dictionary[key] ? dictionary[key] : node.dataset.i18nAriaEn);
+      });
+      altNodes.forEach(function (node) {
+        var key = node.getAttribute('data-i18n-alt');
+        node.setAttribute('alt', language === 'fr' && dictionary[key] ? dictionary[key] : node.dataset.i18nAltEn);
       });
       buttons.forEach(function (button) {
         var active = button.dataset.language === language;
