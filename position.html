@@ -427,7 +427,7 @@
       margin: 0 5px;
     }
 
-    @media screen and (max-width: 960px) {
+    @media screen and (max-width: 700px) {
       .position-page .mobile-nav-toggle {
         align-items: center;
         background: #ffffff;
@@ -481,6 +481,7 @@
 
   </style>
   <link rel="stylesheet" href="stylesheets/site-theme.css">
+  <script defer src="javascripts/site-navigation.js"></script>
 </head>
 
 <body class="position-page">
@@ -531,17 +532,6 @@
           }
         });
 
-        var menuButton = document.querySelector('.mobile-nav-toggle');
-        var navigation = document.querySelector('.site-nav');
-        if (menuButton && navigation) {
-          menuButton.addEventListener('click', function () {
-            var isOpen = navigation.classList.toggle('is-open');
-            menuButton.setAttribute('aria-expanded', String(isOpen));
-            menuButton.innerHTML = isOpen
-              ? '<i class="fa fa-times" aria-hidden="true"></i> Close'
-              : '<i class="fa fa-bars" aria-hidden="true"></i> Menu';
-          });
-        }
       }());
     </script>
   </header>
