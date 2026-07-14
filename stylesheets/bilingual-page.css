@@ -1,0 +1,52 @@
+[data-bilingual-root] {
+  position: relative;
+}
+
+.page-language-switch {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  display: inline-flex;
+  gap: 6px;
+  padding: 3px 8px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.page-language-switch button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0;
+}
+
+.page-language-switch button:hover,
+.page-language-switch button.active {
+  color: var(--accent-dark);
+}
+
+.page-language-switch button:hover {
+  text-decoration: underline;
+}
+
+.page-language-switch span {
+  color: #a7b3b0;
+  font-size: 11px;
+}
+
+@media screen and (max-width: 700px) {
+  .page-language-switch {
+    margin: 0 0 12px auto;
+    position: static;
+    width: max-content;
+  }
+}
