@@ -147,6 +147,17 @@
   border: 1px solid #dddddd;
 }
 
+/* Soften pure-white portrait backgrounds without noticeably shifting skin tones. */
+.person-with-photo .portrait-soft-bg {
+  filter: brightness(0.975) saturate(0.96) sepia(0.025);
+  border-color: #d4d8d5;
+}
+
+/* Keep the top of Xinzhou's hair inside the circular crop. */
+.person-with-photo .portrait-xinzhou {
+  object-position: center 12%;
+}
+
   </style>
   
   <link rel="stylesheet" href="stylesheets/site-theme.css">
@@ -173,10 +184,10 @@
 
       <div class="nav-group">
         <div class="nav-heading">Teaching</div>
-        <a class="nav-link" href="course-ele2200.html">ELE2200</a>
-        <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
         <a class="nav-link" href="course-ele6202.html">ELE6202</a>
         <a class="nav-link" href="course-ele6214.html">ELE6214</a>
+        <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
+        <a class="nav-link" href="course-ele2200.html">ELE2200</a>
       </div>
 
       <div class="nav-group">
@@ -209,6 +220,28 @@
     <div class="people-grid">
 
 <div class="person-card person-with-photo">
+
+  <div class="person-info">
+    <div class="person-name">Xinzhou Gao</div>
+    <div class="person-role">Postdoc (PhD, Alberta)</div>
+    <div class="person-desc">
+      Source Seeking of Robot Swarms (co-supervised with Prof. David Saussie)
+    </div>
+    <div class="person-links">
+      <a href="https://www.linkedin.com/in/xinzhou-gao-672a79390/">
+        <i class="fa fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="mailto:xinzhou2@ualberta.ca">
+        <i class="fa fa-envelope"></i> Email
+      </a>
+    </div>
+  </div>
+
+  <img src="photos/xinzhou.jpg" alt="Xinzhou Gao" class="person-photo portrait-soft-bg portrait-xinzhou">
+
+</div>
+
+<div class="person-card person-with-photo">
   
   <div class="person-info">
     <div class="person-name">Haihui Gao</div>
@@ -226,7 +259,7 @@
     </div>
   </div>
 
-  <img src="photos/haihui2.jpg" alt="Haihui Gao" class="person-photo">
+  <img src="photos/haihui2.jpg" alt="Haihui Gao" class="person-photo portrait-soft-bg">
 
 </div>
 
@@ -263,17 +296,6 @@
           </div>
         </div>
         <div class="avatar-placeholder avatar-male" role="img" aria-label="Profile placeholder for Joel Aurelien Kamwa"></div>
-      </div>
-
-      <div class="person-card person-with-photo">
-        <div class="person-info">
-          <div class="person-name">Nour Karoui</div>
-          <div class="person-role">Stage en laboratoire (Polytechnique)</div>
-          <div class="person-desc">
-            Modeling for multi-robotic localization (co-supervisor: Jerome Le Ny)
-          </div>
-        </div>
-        <div class="avatar-placeholder avatar-male" role="img" aria-label="Profile placeholder for Nour Karoui"></div>
       </div>
 
     </div>
@@ -346,6 +368,15 @@
     <div class="gray-line"></div>
 
     <div class="former-list">
+
+  <div class="former-item">
+    <span class="former-name">Nour Karoui</span> —
+    Laboratory internship, Fall 2025
+    <br>
+    <em>Topic:</em> Modeling for multi-robotic localization (co-supervised with Prof. Jerome Le Ny)
+    <br>
+    <em>Polytechnique Montréal</em>
+  </div>
 
   <div class="former-item">
     <span class="former-name">Clément Gilbert</span> —
