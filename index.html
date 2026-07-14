@@ -70,6 +70,44 @@
       margin-bottom: 6px;
     }
 
+    .language-switch {
+      align-items: center;
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      display: inline-flex;
+      gap: 6px;
+      margin: 0;
+      padding: 3px 8px;
+    }
+
+    .language-switch button {
+      appearance: none;
+      background: transparent;
+      border: 0;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 0;
+    }
+
+    .language-switch button:hover,
+    .language-switch button.active {
+      color: var(--accent-dark);
+    }
+
+    .language-switch button:hover {
+      text-decoration: underline;
+    }
+
+    .language-switch span {
+      color: #a7b3b0;
+      font-size: 11px;
+    }
+
     header h3 {
       font-size: 15px;
       margin: 0;
@@ -143,6 +181,13 @@
       z-index: 1;
     }
 
+    .profile-block .language-switch {
+      position: absolute;
+      right: 14px;
+      top: 12px;
+      z-index: 3;
+    }
+
     .profile-block .homepage-social {
       flex-wrap: nowrap;
       gap: 8px;
@@ -168,6 +213,7 @@
 
     .profile-affiliation {
       line-height: 1.45;
+      padding-right: 62px;
       padding-top: 3px;
     }
 
@@ -324,6 +370,10 @@
         width: 160px;
       }
 
+      .profile-affiliation {
+        padding-right: 0;
+      }
+
       .justified-text {
         text-align: left;
       }
@@ -366,6 +416,7 @@
 
 
   <link rel="stylesheet" href="stylesheets/site-theme.css">
+  <script defer src="javascripts/site-navigation.js"></script>
 </head>
 
 <body>
@@ -375,20 +426,20 @@
   <header>
     <h1>Bowen Yi</h1>
     衣博文
-    <br><br>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a class="nav-link" href="index.html">Home</a>
+    <br>
+    <nav class="site-nav" aria-label="Main navigation" data-i18n-aria="nav.label">
+      <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
 
       <div class="nav-group">
-        <div class="nav-heading">Research</div>
-        <a class="nav-link" href="research.html">Overview</a>
-        <a class="nav-link" href="publication.html">Publications</a>
-        <a class="nav-link" href="people.html">People</a>
-        <a class="nav-link" href="position.html">Positions</a>
+        <div class="nav-heading" data-i18n="nav.research">Research</div>
+        <a class="nav-link" href="research.html" data-i18n="nav.overview">Overview</a>
+        <a class="nav-link" href="publication.html" data-i18n="nav.publications">Publications</a>
+        <a class="nav-link" href="people.html" data-i18n="nav.people">People</a>
+        <a class="nav-link" href="position.html" data-i18n="nav.positions">Positions</a>
       </div>
 
       <div class="nav-group">
-        <div class="nav-heading">Teaching</div>
+        <div class="nav-heading" data-i18n="nav.teaching">Teaching</div>
         <a class="nav-link" href="course-ele6202.html">ELE6202</a>
         <a class="nav-link" href="course-ele6214.html">ELE6214</a>
         <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
@@ -396,11 +447,11 @@
       </div>
 
       <div class="nav-group">
-        <div class="nav-heading">Other</div>
-        <a class="nav-link" href="calendar.html">Calendar</a>
-        <a class="nav-link" href="awards.html">Award</a>
+        <div class="nav-heading" data-i18n="nav.other">Other</div>
+        <a class="nav-link" href="calendar.html" data-i18n="nav.calendar">Calendar</a>
+        <a class="nav-link" href="awards.html" data-i18n="nav.awards">Award</a>
         <a class="nav-link" href="services.html">Services</a>
-        <a class="nav-link" href="misc.html">Misc</a>
+        <a class="nav-link" href="misc.html" data-i18n="nav.misc">Misc</a>
       </div>
     </nav>
 
@@ -421,6 +472,12 @@
 <!-- Portrait + official profile -->
 <div class="profile-block">
 
+  <div class="language-switch" role="group" aria-label="Language selection">
+    <button type="button" class="active" data-language="en" aria-pressed="true">EN</button>
+    <span aria-hidden="true">|</span>
+    <button type="button" data-language="fr" aria-pressed="false">FR</button>
+  </div>
+
   <img src="BowenYi.png"
        alt="Bowen Yi"
        class="profile-photo">
@@ -428,8 +485,8 @@
   <div class="profile-affiliation">
     <div class="official-profile">Bowen Yi, Ph.D.</div>
     <p class="profile-title">
-      Assistant Professor<br>
-      <a href="https://www.polymtl.ca/ge/">Department of Electrical Engineering</a><br>
+      <span data-i18n="profile.title">Assistant Professor</span><br>
+      <a href="https://www.polymtl.ca/ge/" data-i18n="profile.department">Department of Electrical Engineering</a><br>
       <a href="https://www.polymtl.ca/expertises/yi-bowen" target="_blank" rel="noopener">Polytechnique Montréal</a>
     </p>
     <p class="profile-contact">
@@ -453,11 +510,11 @@
 
 </div>
 
-    <h2>About</h2>
+    <h2 data-i18n="about.title">About</h2>
     <div class="gray-line"></div>
 
     <div class="justified-text">
-      <p>
+      <p data-i18n-html="about.focus">
         My work focuses on the <strong>estimation, learning, and control of nonlinear dynamical systems</strong>,
         with applications in <strong>robotics and autonomous systems</strong>. I am affiliated with
         <a href="https://www.gerad.ca" target="_blank">GERAD</a>
@@ -466,7 +523,7 @@
            target="_blank">Mobile Robotics and Autonomous Systems Laboratory</a>.
       </p>
 
-      <p>
+      <p data-i18n-html="about.background">
         I received my Ph.D. from <a href="https://www.sjtu.edu.cn/">Shanghai Jiao Tong University</a> in 2019.
         Prior to joining Polytechnique Montréal, I held research positions at
         CNRS–CentraleSupélec (France),
@@ -474,7 +531,7 @@
         and the Robotics Institute at the University of Technology Sydney (Australia).
       </p>
 
-      <p>
+      <p data-i18n-html="about.awards">
         I was the recipient of the
         <strong>IEEE CCTA Best Student Paper Award</strong>
         (IEEE Control Systems Society, 2019) and the
@@ -483,25 +540,25 @@
       </p>
     </div>
 
-    <h2>Research Themes</h2>
+    <h2 data-i18n="themes.title">Research Themes</h2>
     <div class="gray-line"></div>
 
     <div class="research-theme-grid">
       <div class="research-theme">
-        <strong>Nonlinear Control</strong>
-        <span>Reliable feedback design for complex, uncertain dynamical systems.</span>
+        <strong data-i18n="themes.control.title">Nonlinear Control</strong>
+        <span data-i18n="themes.control.text">Reliable feedback design for complex, uncertain dynamical systems.</span>
       </div>
       <div class="research-theme">
-        <strong>Robotics</strong>
-        <span>Estimation and control methods for autonomous and mobile robotic systems.</span>
+        <strong data-i18n="themes.robotics.title">Robotics</strong>
+        <span data-i18n="themes.robotics.text">Estimation and control methods for autonomous and mobile robotic systems.</span>
       </div>
       <div class="research-theme">
-        <strong>Learning & Estimation</strong>
-        <span>Data-enabled methods with an emphasis on stability, structure, and guarantees.</span>
+        <strong data-i18n="themes.learning.title">Learning &amp; Estimation</strong>
+        <span data-i18n="themes.learning.text">Data-enabled methods with an emphasis on stability, structure, and guarantees.</span>
       </div>
     </div>
 
-<h3 style="margin-top:25px;">Recent News</h3>
+<h3 style="margin-top:25px;" data-i18n="news.title">Recent News</h3>
 <div class="news-timeline">
 
 <div class="news-item">
@@ -599,7 +656,7 @@
 
 
 <div class="news-item">
-  <div class="news-date">20 Dec 2024</div>
+  <div class="news-date">20 Dec 2025</div>
   <div class="news-content">
     Welcome Jeremy Meyer (co-supervised with J. Le Ny) and Sofiane Faidi to our group.
   </div>
@@ -659,9 +716,9 @@
 
 
 <footer class="site-footer">
-  &copy; <span id="copyright-year">2026</span> Bowen Yi. All rights reserved.
+  &copy; <span id="copyright-year">2026</span> <span data-i18n="footer.rights">Bowen Yi. All rights reserved.</span>
   <span class="footer-separator" aria-hidden="true">&middot;</span>
-  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="privacy-policy.html" data-i18n="footer.privacy">Privacy Policy</a>
 </footer>
 
 
@@ -677,40 +734,185 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("copyright-year").textContent = new Date().getFullYear();
+  const french = {
+    "nav.label": "Navigation principale",
+    "nav.home": "Accueil",
+    "nav.research": "Recherche",
+    "nav.overview": "Vue d’ensemble",
+    "nav.publications": "Publications",
+    "nav.people": "Équipe",
+    "nav.positions": "Postes",
+    "nav.teaching": "Enseignement",
+    "nav.other": "Autres",
+    "nav.calendar": "Calendrier",
+    "nav.awards": "Prix",
+    "nav.misc": "Divers",
+    "profile.title": "Professeur adjoint",
+    "profile.department": "Département de génie électrique",
+    "about.title": "À propos",
+    "about.focus": "Mes travaux portent sur <strong>l’estimation, l’apprentissage et la commande des systèmes dynamiques non linéaires</strong>, avec des applications en <strong>robotique et dans les systèmes autonomes</strong>. Je suis membre du <a href=\"https://www.gerad.ca\" target=\"_blank\">GERAD</a> et affilié au <a href=\"https://navigator.innovation.ca/fr/facility/polytechnique-montreal/laboratoire-de-robotique-mobile-et-de-systemes-autonomes\" target=\"_blank\">Laboratoire de robotique mobile et de systèmes autonomes</a>.",
+    "about.background": "J’ai obtenu mon doctorat de la <a href=\"https://www.sjtu.edu.cn/\">Shanghai Jiao Tong University</a> en 2019. Avant de me joindre à Polytechnique Montréal, j’ai occupé des postes de recherche au CNRS–CentraleSupélec (France), à l’Australian Centre for Robotics de l’University of Sydney et au Robotics Institute de l’University of Technology Sydney (Australie).",
+    "about.awards": "J’ai reçu le <strong>prix du meilleur article étudiant de l’IEEE CCTA</strong> (IEEE Control Systems Society, 2019) ainsi que la <strong>Discovery Early Career Researcher Award (DECRA)</strong> de l’Australian Research Council en 2024.",
+    "themes.title": "Thèmes de recherche",
+    "themes.control.title": "Commande non linéaire",
+    "themes.control.text": "Conception de lois de commande fiables pour des systèmes dynamiques complexes et incertains.",
+    "themes.robotics.title": "Robotique",
+    "themes.robotics.text": "Méthodes d’estimation et de commande pour les systèmes robotiques autonomes et mobiles.",
+    "themes.learning.title": "Apprentissage et estimation",
+    "themes.learning.text": "Méthodes fondées sur les données mettant l’accent sur la stabilité, la structure et les garanties.",
+    "news.title": "Actualités récentes",
+    "footer.rights": "Bowen Yi. Tous droits réservés.",
+    "footer.privacy": "Politique de confidentialité"
+  };
 
-  const items = document.querySelectorAll(".news-timeline .news-item");
+  const frenchNews = [
+    ["20 juin 2026", "Félicitations à Jonathan et Chau Xin, qui ont obtenu des bourses SEED d’Affaires mondiales Canada! Ils se joindront à notre laboratoire pour des stages de recherche de huit mois."],
+    ["18 juin 2026", "Le professeur Ti-Chung Lee de la National Sun Yat-sen University (Taïwan) et le professeur agrégé Han Zhang de la Shanghai Jiao Tong University visitent notre groupe cet été. Un enregistrement du séminaire est disponible ici : <a href=\"https://www.youtube.com/watch?v=FUUYoL-X-WM\" target=\"_blank\">[lien]</a>."],
+    ["30 avr. 2026", "Nous remercions le Fonds de recherche du Québec pour son soutien dans le cadre du programme <em>Établissement de la relève professorale</em>. Ce financement contribuera à faire progresser nos recherches sur l’apprentissage et la commande fiables."],
+    ["29 avr. 2026", "Félicitations à Haihui pour avoir réussi son examen de synthèse!"],
+    ["28 avr. 2026", "Notre article sur la modélisation, la rigidification et la commande des robots continus a été accepté comme article complet dans <em>IEEE Transactions on Control Systems Technology</em>."],
+    ["23 avr. 2026", "Nous remercions Affaires mondiales Canada pour son soutien à notre programme PMECP, qui vise à établir et à renforcer la collaboration entre Polytechnique et l’ITAM, au Mexique."],
+    ["2 avr. 2026", "Le professeur Romeo Ortega (ITAM, Mexique) a visité notre groupe et présenté une conférence : <a href=\"https://www.youtube.com/watch?v=QBVTvw8uW_w&t=1186s\" target=\"_blank\">[lien]</a>."],
+    ["5 mars 2026", "Deux articles sur la commande fondée sur les données ont été acceptés à l’European Control Conference 2026 (ECC). Félicitations à Haihui!"],
+    ["1er mars 2026", "Notre article sur l’apprentissage de Koopman a été accepté comme article complet dans <em>Automatica</em>."],
+    ["2 févr. 2026", "Le professeur Ti-Chung Lee (National Sun Yat-sen University, Taïwan) a visité notre groupe."],
+    ["21 déc. 2025", "J’enseignerai ELE6209A – Systèmes de navigation en français pour la première fois à l’hiver 2026. Le cours est ouvert aux étudiants de premier cycle et des cycles supérieurs qui s’intéressent aux systèmes de navigation. <a href=\"https://www.polymtl.ca/programmes/cours/systemes-de-navigation\" target=\"_blank\">[Cours]</a>"],
+    ["20 déc. 2025", "Bienvenue à Jeremy Meyer (codirigé avec J. Le Ny) et à Sofiane Faidi dans notre groupe."],
+    ["2 juill. 2025", "Participation au 15e symposium IFAC ALCOS 2025 à Mexico."],
+    ["17 janv. 2025", "Notre article, <em>A high performance globally exponentially convergent sensorless observer for the IPMSM</em>, a été accepté dans <em>Automatica</em>."],
+    ["15 janv. 2025", "Notre article, <em>Adaptive state observers for a class of nonlinear systems</em>, a été accepté dans <em>Systems &amp; Control Letters</em>."],
+    ["18 sept. 2024", "Notre article sur la préintégration des mesures inertielles a été accepté dans <em>Systems &amp; Control Letters</em>."],
+    ["14 sept. 2024", "Notre article, <em>PEBO-SLAM: Observer design for visual inertial SLAM with convergence guarantees</em>, a été accepté comme article complet dans <em>IEEE Transactions on Automatic Control</em>."],
+    ["13 sept. 2024", "Notre article sur la commande de position et de rigidité des robots continus actionnés par tendons a été accepté comme article régulier dans <em>IEEE Transactions on Automation Science and Engineering</em>."]
+  ];
+
+  const textNodes = document.querySelectorAll("[data-i18n]");
+  const htmlNodes = document.querySelectorAll("[data-i18n-html]");
+  const ariaNodes = document.querySelectorAll("[data-i18n-aria]");
+  const newsItems = document.querySelectorAll(".news-timeline .news-item");
   const maxItems = 5;
+  let currentLanguage = "en";
+  let expanded = false;
+  let toggleButton = null;
 
-  if (items.length <= maxItems) return;
-
-  // Hide items beyond maxItems
-  items.forEach((item, index) => {
-    if (index >= maxItems) {
-      item.style.display = "none";
-    }
+  textNodes.forEach(function (node) {
+    node.dataset.englishText = node.textContent;
+  });
+  htmlNodes.forEach(function (node) {
+    node.dataset.englishHtml = node.innerHTML;
+  });
+  ariaNodes.forEach(function (node) {
+    node.dataset.englishAria = node.getAttribute("aria-label") || "";
+  });
+  newsItems.forEach(function (item) {
+    const date = item.querySelector(".news-date");
+    const content = item.querySelector(".news-content");
+    date.dataset.englishText = date.textContent;
+    content.dataset.englishHtml = content.innerHTML;
   });
 
-  // Create toggle button
-  const button = document.createElement("button");
-  button.textContent = "Show more";
-  button.className = "news-toggle";
+  function updateToggleText() {
+    if (!toggleButton) return;
+    if (currentLanguage === "fr") {
+      toggleButton.textContent = expanded ? "Afficher moins" : "Afficher plus";
+      toggleButton.setAttribute("aria-label", expanded ? "Afficher moins d’actualités" : "Afficher plus d’actualités");
+    } else {
+      toggleButton.textContent = expanded ? "Show less" : "Show more";
+      toggleButton.setAttribute("aria-label", expanded ? "Show fewer news items" : "Show more news items");
+    }
+  }
 
-  let expanded = false;
+  function applyLanguage(language, updateAddress) {
+    currentLanguage = language === "fr" ? "fr" : "en";
+    document.documentElement.lang = currentLanguage;
+    document.title = currentLanguage === "fr" ? "Bowen Yi | Accueil" : "Bowen Yi";
 
-  button.addEventListener("click", () => {
-    expanded = !expanded;
-
-    items.forEach((item, index) => {
-      if (index >= maxItems) {
-        item.style.display = expanded ? "block" : "none";
+    textNodes.forEach(function (node) {
+      const key = node.dataset.i18n;
+      node.textContent = currentLanguage === "fr" && french[key] ? french[key] : node.dataset.englishText;
+    });
+    htmlNodes.forEach(function (node) {
+      const key = node.dataset.i18nHtml;
+      node.innerHTML = currentLanguage === "fr" && french[key] ? french[key] : node.dataset.englishHtml;
+    });
+    ariaNodes.forEach(function (node) {
+      const key = node.dataset.i18nAria;
+      node.setAttribute("aria-label", currentLanguage === "fr" && french[key] ? french[key] : node.dataset.englishAria);
+    });
+    newsItems.forEach(function (item, index) {
+      const date = item.querySelector(".news-date");
+      const content = item.querySelector(".news-content");
+      if (currentLanguage === "fr" && frenchNews[index]) {
+        date.textContent = frenchNews[index][0];
+        content.innerHTML = frenchNews[index][1];
+      } else {
+        date.textContent = date.dataset.englishText;
+        content.innerHTML = content.dataset.englishHtml;
       }
     });
 
-    button.textContent = expanded ? "Show less" : "Show more";
+    document.querySelectorAll("[data-language]").forEach(function (button) {
+      const selected = button.dataset.language === currentLanguage;
+      button.classList.toggle("active", selected);
+      button.setAttribute("aria-pressed", selected ? "true" : "false");
+    });
+    updateToggleText();
+
+    try {
+      localStorage.setItem("bowen-site-language", currentLanguage);
+    } catch (error) {
+      // Language switching still works when storage is unavailable.
+    }
+
+    if (updateAddress) {
+      try {
+        const url = new URL(window.location.href);
+        if (currentLanguage === "fr") {
+          url.searchParams.set("lang", "fr");
+        } else {
+          url.searchParams.delete("lang");
+        }
+        history.replaceState(null, "", url.href);
+      } catch (error) {
+        // Some local file viewers do not allow history updates.
+      }
+    }
+  }
+
+  document.getElementById("copyright-year").textContent = new Date().getFullYear();
+
+  if (newsItems.length > maxItems) {
+    newsItems.forEach(function (item, index) {
+      if (index >= maxItems) item.style.display = "none";
+    });
+
+    toggleButton = document.createElement("button");
+    toggleButton.className = "news-toggle";
+    toggleButton.type = "button";
+    toggleButton.addEventListener("click", function () {
+      expanded = !expanded;
+      newsItems.forEach(function (item, index) {
+        if (index >= maxItems) item.style.display = expanded ? "block" : "none";
+      });
+      updateToggleText();
+    });
+    document.querySelector(".news-timeline").after(toggleButton);
+  }
+
+  document.querySelectorAll("[data-language]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      applyLanguage(button.dataset.language, true);
+    });
   });
 
-  document.querySelector(".news-timeline").after(button);
+  const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+  let savedLanguage = "";
+  try {
+    savedLanguage = localStorage.getItem("bowen-site-language") || "";
+  } catch (error) {
+    savedLanguage = "";
+  }
+  applyLanguage(requestedLanguage === "fr" || requestedLanguage === "en" ? requestedLanguage : savedLanguage, false);
 });
 </script>
 
