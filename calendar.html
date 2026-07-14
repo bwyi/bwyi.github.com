@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-title-en="Bowen Yi - Calendar" data-title-fr="Calendrier | Bowen Yi">
 <head>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta charset="utf-8">
@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="assets/css/academicons.min.css">
   <link rel="stylesheet" href="assets/css/academicons.css">
   <link rel="stylesheet" href="stylesheets/site-theme.css">
+  <link rel="stylesheet" href="stylesheets/bilingual-page.css">
   <script defer src="javascripts/site-navigation.js"></script>
 </head>
 
@@ -65,30 +66,30 @@
   </header>
 
   <!-- ================= MAIN CONTENT ================= -->
-  <section>
+  <section data-bilingual-root>
 
-    <h2>Calendar</h2>
+    <h2 data-en="Calendar" data-fr="Calendrier">Calendar</h2>
     <div class="gray-line"></div>
 
-    <p class="justified-text">
+    <p class="justified-text" data-en="My public academic calendar shows availability only. Event details are intentionally hidden." data-fr="Mon calendrier académique public affiche uniquement mes disponibilités. Les détails des événements sont volontairement masqués.">
       My public academic calendar shows availability only. Event details
       are intentionally hidden.
     </p>
 
-    <div class="availability-calendar" aria-label="Availability calendar">
+    <div class="availability-calendar" aria-label="Availability calendar" data-aria-en="Availability calendar" data-aria-fr="Calendrier des disponibilités">
       <div class="calendar-toolbar">
         <div class="calendar-nav">
-          <button type="button" id="calendar-prev" aria-label="Previous week">&lsaquo;</button>
-          <button type="button" id="calendar-next" aria-label="Next week">&rsaquo;</button>
-          <button type="button" id="calendar-today">Today</button>
+          <button type="button" id="calendar-prev" aria-label="Previous week" data-aria-en="Previous week" data-aria-fr="Semaine précédente">&lsaquo;</button>
+          <button type="button" id="calendar-next" aria-label="Next week" data-aria-en="Next week" data-aria-fr="Semaine suivante">&rsaquo;</button>
+          <button type="button" id="calendar-today" data-en="Today" data-fr="Aujourd’hui">Today</button>
         </div>
         <div id="calendar-title" class="calendar-title"></div>
       </div>
 
-      <div id="calendar-status" class="calendar-status">Loading calendar...</div>
+      <div id="calendar-status" class="calendar-status" data-en="Loading calendar..." data-fr="Chargement du calendrier…">Loading calendar...</div>
       <div id="calendar-week" class="calendar-week"></div>
       <div class="calendar-footer">
-        <span>Availability only</span>
+        <span data-en="Availability only" data-fr="Disponibilités uniquement">Availability only</span>
         <span id="calendar-timezone"></span>
       </div>
     </div>
@@ -96,13 +97,17 @@
   </section>
 </div>
 <script src="calendar-events.js"></script>
+<script src="javascripts/bilingual-page.js"></script>
 <script>
 const calendarState = {
   weekStart: startOfWeek(new Date())
 };
 
 const availabilityTitles = new Set(["Busy", "Tentative", "Working elsewhere", "Out of office"]);
-const dayNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+const dayNames = {
+  en: ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"],
+  fr: ["DIM", "LUN", "MAR", "MER", "JEU", "VEN", "SAM"]
+};
 const startHour = 0;
 const endHour = 24;
 const hourPixelHeight = 34;
@@ -132,6 +137,7 @@ function sameDay(a, b) {
 }
 
 function formatHour(hour) {
+  if (document.documentElement.lang === "fr") return `${hour} h`;
   if (hour === 0) return "12 AM";
   const suffix = hour >= 12 ? "PM" : "AM";
   const display = hour % 12 || 12;
@@ -179,13 +185,14 @@ function renderCalendar(events) {
   const timezone = document.getElementById("calendar-timezone");
   const today = new Date();
   const weekEvents = buildWeekEvents(events);
-  const monthLabel = calendarState.weekStart.toLocaleDateString("en-CA", {
+  const language = document.documentElement.lang === "fr" ? "fr" : "en";
+  const monthLabel = calendarState.weekStart.toLocaleDateString(language === "fr" ? "fr-CA" : "en-CA", {
     month: "short",
     year: "numeric"
   });
 
   title.textContent = monthLabel;
-  timezone.textContent = Intl.DateTimeFormat().resolvedOptions().timeZone || "Local time";
+  timezone.textContent = Intl.DateTimeFormat().resolvedOptions().timeZone || (language === "fr" ? "Heure locale" : "Local time");
   status.textContent = "";
 
   const dayHeader = Array.from({ length: 7 }, (_, index) => {
@@ -193,7 +200,7 @@ function renderCalendar(events) {
     const activeClass = sameDay(day, today) ? " is-today" : "";
     return `
       <div class="calendar-day-header${activeClass}">
-        <span>${dayNames[index]}</span>
+        <span>${dayNames[language][index]}</span>
         <strong>${day.getDate()}</strong>
       </div>
     `;
@@ -215,7 +222,9 @@ function renderCalendar(events) {
     const top = Math.round(topMinutes * hourPixelHeight / 60);
     const bottom = Math.round(bottomMinutes * hourPixelHeight / 60);
     const height = Math.max(8, bottom - top);
-    const label = event.title === "Tentative" ? "Tentative" : "Busy";
+    const label = event.title === "Tentative"
+      ? "Tentative"
+      : (language === "fr" ? "Occupé" : "Busy");
     return `
       <div class="calendar-busy-block ${event.title === "Tentative" ? "is-tentative" : ""}"
            style="grid-column:${dayIndex + 2} / span 1; top:${top}px; height:${height}px;"
@@ -254,7 +263,9 @@ function loadCalendarEvents() {
     .then(renderCalendar)
     .catch(() => {
       document.getElementById("calendar-status").textContent =
-        "Calendar data is not available yet.";
+        document.documentElement.lang === "fr"
+          ? "Les données du calendrier ne sont pas encore disponibles."
+          : "Calendar data is not available yet.";
     });
 }
 
@@ -270,6 +281,10 @@ document.getElementById("calendar-next").addEventListener("click", () => {
 
 document.getElementById("calendar-today").addEventListener("click", () => {
   calendarState.weekStart = startOfWeek(new Date());
+  loadCalendarEvents();
+});
+
+document.addEventListener("site-language-change", () => {
   loadCalendarEvents();
 });
 
