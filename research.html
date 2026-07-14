@@ -162,6 +162,19 @@
       min-height: 230px;
       padding: 18px 18px 16px;
       position: relative;
+      scroll-margin-top: 24px;
+    }
+
+    .research-area-card:target {
+      border-color: rgba(15, 118, 110, 0.62);
+      box-shadow: 0 9px 26px rgba(15, 118, 110, 0.16);
+      animation: researchTargetPulse 0.8s ease-out;
+    }
+
+    @keyframes researchTargetPulse {
+      0% { transform: translateY(0); }
+      45% { transform: translateY(-4px); }
+      100% { transform: translateY(0); }
     }
 
     .research-area-card::before {
@@ -353,6 +366,12 @@
         justify-content: flex-start;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .research-area-card:target {
+        animation: none;
+      }
+    }
   </style>
   <link rel="stylesheet" href="stylesheets/site-theme.css">
   <script defer src="javascripts/site-navigation.js"></script>
@@ -433,7 +452,7 @@
 
     <h3 class="research-heading" data-i18n="areas.title">Research Areas</h3>
     <div class="research-area-grid">
-      <article class="research-area-card">
+      <article class="research-area-card" id="learning-estimation">
         <div class="area-icon" aria-hidden="true">∿</div>
         <h4 data-i18n="area.estimation.title">Estimation and Observer Theory</h4>
         <p data-i18n="area.estimation.text">Real-time state estimation for nonlinear control systems, with an emphasis on convergence guarantees and robustness.</p>
@@ -444,7 +463,7 @@
         </ul>
       </article>
 
-      <article class="research-area-card">
+      <article class="research-area-card" id="system-identification-learning">
         <div class="area-icon" aria-hidden="true">⌁</div>
         <h4 data-i18n="area.learning.title">System Identification and Learning</h4>
         <p data-i18n="area.learning.text">Data-driven models for dynamical systems that connect system identification with modern learning theory.</p>
@@ -455,7 +474,7 @@
         </ul>
       </article>
 
-      <article class="research-area-card">
+      <article class="research-area-card" id="nonlinear-control">
         <div class="area-icon" aria-hidden="true">↻</div>
         <h4 data-i18n="area.control.title">Nonlinear Control</h4>
         <p data-i18n="area.control.text">Control design for uncertain nonlinear systems, drawing on structural and energy-based viewpoints.</p>
@@ -467,7 +486,7 @@
         </ul>
       </article>
 
-      <article class="research-area-card">
+      <article class="research-area-card" id="robotics-autonomous">
         <div class="area-icon" aria-hidden="true">◇</div>
         <h4 data-i18n="area.robotics.title">Robotics and Autonomous Systems</h4>
         <p data-i18n="area.robotics.text">Estimation, learning, and control methods for robotic systems operating in complex and uncertain environments.</p>
