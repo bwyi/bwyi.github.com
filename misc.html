@@ -158,6 +158,37 @@
   margin-bottom: 8px;
 }
 
+.zhihu-preview-lead {
+  color: #3f4d4b;
+  font-size: 0.9em;
+  line-height: 1.65;
+  margin: 8px 0;
+}
+
+.zhihu-preview-details {
+  border-top: 1px solid #e1e7e5;
+  color: #3f4d4b;
+  font-size: 0.88em;
+  margin: 10px 0 9px;
+  padding-top: 8px;
+}
+
+.zhihu-preview-details summary {
+  color: #0b5d56;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.zhihu-preview-details p,
+.zhihu-preview-details ul {
+  margin-bottom: 8px;
+}
+
+.zhihu-preview-details li {
+  margin-bottom: 5px;
+}
+
 .zhihu-tech-link {
   font-size: 0.8em;
   color: #666;
@@ -167,6 +198,116 @@
 .zhihu-tech-link:hover {
   color: #1f2a44;
   text-decoration: underline;
+}
+
+.seminar-record {
+  background: linear-gradient(135deg, #f8fbfa 0%, #ffffff 100%);
+  border: 1px solid #d9e1de;
+  border-left: 4px solid #0f766e;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(23, 63, 58, 0.06);
+  margin: 12px 0 30px;
+  padding: 16px 18px;
+}
+
+.seminar-date {
+  color: #0b5d56;
+  font-size: 0.82em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.seminar-title {
+  color: #173f3a;
+  font-size: 1.05em;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 7px;
+}
+
+.seminar-speaker {
+  margin-bottom: 7px;
+}
+
+.seminar-affiliation,
+.seminar-location {
+  color: #536361;
+  font-size: 0.9em;
+  margin-bottom: 6px;
+}
+
+.seminar-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.seminar-links a {
+  background: #f5f8f7;
+  border: 1px solid #cbd8d4;
+  border-radius: 4px;
+  color: #0b5d56;
+  font-size: 0.82em;
+  font-weight: 600;
+  padding: 5px 10px;
+}
+
+.seminar-links a:hover {
+  background: #eaf2ef;
+  text-decoration: none;
+}
+
+.seminar-badge {
+  background: #eaf2ef;
+  border: 1px solid #b9cec7;
+  border-radius: 999px;
+  color: #0b5d56;
+  display: inline-block;
+  font-size: 0.72em;
+  font-weight: 700;
+  margin-left: 7px;
+  padding: 1px 7px;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
+
+.seminar-toggle,
+.tech-toggle {
+  appearance: none;
+  background: #0f766e;
+  border: 1px solid #0b5d56;
+  border-radius: 999px;
+  box-shadow: 0 3px 8px rgba(15, 118, 110, 0.2);
+  color: #ffffff;
+  cursor: pointer;
+  display: block;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  margin: -14px auto 30px;
+  padding: 7px 16px;
+  transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.seminar-toggle:hover,
+.tech-toggle:hover {
+  background: #0b5d56;
+  box-shadow: 0 4px 11px rgba(11, 93, 86, 0.28);
+  transform: translateY(-1px);
+}
+
+.seminar-toggle:focus-visible,
+.tech-toggle:focus-visible {
+  outline: 3px solid rgba(15, 118, 110, 0.28);
+  outline-offset: 3px;
+}
+
+.seminar-toggle i,
+.tech-toggle i {
+  margin-right: 6px;
 }
 
 
@@ -232,12 +373,102 @@
   <h2>Misc</h2>
   <div class="gray-line"></div>
 
+  <h3>Seminar Records</h3>
+
+  <div class="seminar-list">
+
+  <article class="seminar-record">
+    <div class="seminar-date"><time datetime="2026-06-18">18 June 2026</time></div>
+    <div class="seminar-title">Toward Learning-Enabled and Feedback-Driven Motion Planning for Robotic Systems</div>
+    <div class="seminar-speaker"><strong>Han Zhang</strong></div>
+    <div class="seminar-affiliation">School of Automation and Intelligent Sensing, Shanghai Jiao Tong University</div>
+    <div class="seminar-location"><i class="fa fa-map-marker" aria-hidden="true"></i> Room 4488, André-Aisenstadt Building, Université de Montréal</div>
+    <div class="seminar-links">
+      <a href="https://www.gerad.ca/en/events/2447" target="_blank" rel="noopener"><i class="fa fa-info-circle" aria-hidden="true"></i> Event details</a>
+      <a href="https://www.youtube.com/watch?v=FUUYoL-X-WM&amp;feature=youtu.be" target="_blank" rel="noopener"><i class="fa fa-youtube-play" aria-hidden="true"></i> Watch video</a>
+    </div>
+  </article>
+
+  <article class="seminar-record">
+    <div class="seminar-date"><time datetime="2026-04-02">2 April 2026</time></div>
+    <div class="seminar-title">Some Reflections on Sliding Mode Control</div>
+    <div class="seminar-speaker"><strong>Romeo Ortega</strong></div>
+    <div class="seminar-affiliation">Instituto Tecnológico Autónomo de México, Mexico</div>
+    <div class="seminar-location"><i class="fa fa-map-marker" aria-hidden="true"></i> Room M-2204, Lassonde Building, Polytechnique Montréal</div>
+    <div class="seminar-links">
+      <a href="https://www.gerad.ca/en/events/2414" target="_blank" rel="noopener"><i class="fa fa-info-circle" aria-hidden="true"></i> Event details</a>
+      <a href="https://www.youtube.com/watch?si=FCLyGvNIhs5kggYY&amp;v=QBVTvw8uW_w&amp;feature=youtu.be" target="_blank" rel="noopener"><i class="fa fa-youtube-play" aria-hidden="true"></i> Watch video</a>
+    </div>
+  </article>
+
+  <article class="seminar-record">
+    <div class="seminar-date"><time datetime="2026-02-02">2 February 2026</time></div>
+    <div class="seminar-title">Modeling, Analysis and Design of Social Networks from the Perspective of Control Theory</div>
+    <div class="seminar-speaker"><strong>Ti-Chung Lee</strong></div>
+    <div class="seminar-affiliation">Sun Yat-sen University, Taiwan</div>
+    <div class="seminar-location"><i class="fa fa-map-marker" aria-hidden="true"></i> Hybrid seminar, Room 4488, André-Aisenstadt Building</div>
+    <div class="seminar-links">
+      <a href="https://www.gerad.ca/en/events/2404" target="_blank" rel="noopener"><i class="fa fa-info-circle" aria-hidden="true"></i> Event details</a>
+    </div>
+  </article>
+
+  <article class="seminar-record">
+    <div class="seminar-date"><time datetime="2025-06-20">20 June 2025</time></div>
+    <div class="seminar-title">Data-Driven Output Regulation of Continuous-Time Linear Time-Invariant Systems</div>
+    <div class="seminar-speaker"><strong>Alessandro Bosso</strong></div>
+    <div class="seminar-affiliation">University of Bologna, Italy</div>
+    <div class="seminar-location"><i class="fa fa-video-camera" aria-hidden="true"></i> Online seminar</div>
+    <div class="seminar-links">
+      <a href="https://www.gerad.ca/en/events/2342" target="_blank" rel="noopener"><i class="fa fa-info-circle" aria-hidden="true"></i> Event details</a>
+      <a href="https://www.youtube.com/watch?v=XLkUX75amfE&amp;feature=youtu.be" target="_blank" rel="noopener"><i class="fa fa-youtube-play" aria-hidden="true"></i> Watch video</a>
+    </div>
+  </article>
+
+  <article class="seminar-record">
+    <div class="seminar-date"><time datetime="2025-05-23">23 May 2025</time></div>
+    <div class="seminar-title">Towards Intelligent Data-Driven Verification of Stability and Safety for Unknown Nonlinear Systems</div>
+    <div class="seminar-speaker"><strong>Yiming Meng</strong></div>
+    <div class="seminar-affiliation">University of Illinois at Urbana-Champaign, United States</div>
+    <div class="seminar-location"><i class="fa fa-map-marker" aria-hidden="true"></i> Hybrid seminar, Room 4488, André-Aisenstadt Building</div>
+    <div class="seminar-links">
+      <a href="https://www.gerad.ca/en/events/2330" target="_blank" rel="noopener"><i class="fa fa-info-circle" aria-hidden="true"></i> Event details</a>
+      <a href="https://www.youtube.com/watch?v=ZnEVgDcLYaU&amp;feature=youtu.be" target="_blank" rel="noopener"><i class="fa fa-youtube-play" aria-hidden="true"></i> Watch video</a>
+    </div>
+  </article>
+
+  <article class="seminar-record">
+    <div class="seminar-date"><time datetime="2024-06-03">3 June 2024</time></div>
+    <div class="seminar-title">Equivalence Between Contraction and Koopman Approaches, and Its Application in Nonlinear System Identification</div>
+    <div class="seminar-speaker"><strong>Bowen Yi</strong><span class="seminar-badge">My talk</span></div>
+    <div class="seminar-affiliation">Polytechnique Montréal, Canada</div>
+    <div class="seminar-location"><i class="fa fa-map-marker" aria-hidden="true"></i> Hybrid seminar, Room 4488, André-Aisenstadt Building</div>
+    <div class="seminar-links">
+      <a href="https://www.gerad.ca/en/events/2242" target="_blank" rel="noopener"><i class="fa fa-info-circle" aria-hidden="true"></i> Event details</a>
+      <a href="https://www.youtube.com/watch?v=DPRaNLMkyb4&amp;feature=youtu.be" target="_blank" rel="noopener"><i class="fa fa-youtube-play" aria-hidden="true"></i> Watch video</a>
+    </div>
+  </article>
+
+  </div>
+
   <h3 class="tech-notes-title">技术随笔 <span>(in Chinese)</span></h3>
+
+  <div class="tech-notes-list">
 
   <div class="zhihu-tech-card">
     <div class="zhihu-tech-title">
       自适应控制中的持续激励条件怎么理解？
     </div>
+
+    <p class="zhihu-preview-lead">自适应控制与系统辨识中最基本的问题，是如何从可测输出中估计未知参数。持续激励的基本出发点，是让回归信息在每个时间窗口内都保持足够丰富。</p>
+
+    <details class="zhihu-preview-details">
+      <summary>展开核心观点</summary>
+      <ul>
+        <li>从动力系统角度，持续激励与参数误差系统的指数收敛相关。</li>
+        <li>从几何角度，回归向量在每个时间段内应覆盖整个参数空间。</li>
+        <li>从频域角度，输入信号需要具有足够丰富的频谱。</li>
+      </ul>
+    </details>
 
     <a
       href="https://www.zhihu.com/question/266601777/answer/375458125"
@@ -253,6 +484,14 @@
     <div class="zhihu-tech-title">
       状态观测器的本质是什么？如何通俗理解状态观测器？
     </div>
+
+    <p class="zhihu-preview-lead">工程系统中，很多关键状态因技术条件或成本限制无法直接测量，但控制、监测和决策又必须使用它们，因此需要通过模型与可测信号进行估计。</p>
+
+    <details class="zhihu-preview-details">
+      <summary>展开核心观点</summary>
+      <p>观测器利用系统的输入、输出与动力学模型，实时估计不可直接测量的状态。在工程中，这既可以降低传感器成本，也能改善可靠性与鲁棒性。</p>
+      <p>常见方法大体可分为基于优化的方法和基于滤波的方法；前者适合复杂约束与多传感器融合，后者更适合实时在线估计。</p>
+    </details>
 
     <a
       href="https://www.zhihu.com/question/64872887/answer/1983144004729214944"
@@ -270,6 +509,13 @@
     现代控制理论中的卡尔曼滤波器与状态观测器之间有什么联系与区别？
   </div>
 
+  <p class="zhihu-preview-lead">Kalman–Bucy 滤波器可以看作一个“最优的、时变增益的 Luenberger 状态观测器”，其观测器增益由 Riccati 方程自动生成。</p>
+
+  <details class="zhihu-preview-details">
+    <summary>展开核心观点</summary>
+    <p>经典确定性观测器的核心，是选择增益矩阵使估计误差系统稳定。Kalman 滤波器则进一步引入过程噪声和测量噪声的统计信息，以最小化估计误差协方差。</p>
+  </details>
+
   <a
     href="https://www.zhihu.com/question/65933880/answer/1983590683307708873"
     target="_blank"
@@ -286,6 +532,17 @@
     非线性观测器有几种？哪些用得比较多？分别有什么优缺点？
   </div>
 
+  <p class="zhihu-preview-lead">非线性观测器可以按照误差系统的镇定机理分类，常见方法包括高增益观测器、KKL 观测器、浸入与不变观测器，以及移动地平估计。</p>
+
+  <details class="zhihu-preview-details">
+    <summary>展开核心观点</summary>
+    <ul>
+      <li><strong>高增益观测器：</strong>结构简单、设计方便、鲁棒性强，但对测量噪声敏感。</li>
+      <li><strong>KKL 观测器：</strong>可通过坐标变换获得线性误差动力学，噪声抑制能力较好，但构造难度较高。</li>
+      <li><strong>浸入与不变方法：</strong>框架灵活，适合机械和机电系统，但往往需要更多物理洞察并求解 PDE。</li>
+    </ul>
+  </details>
+
   <a
     href="https://www.zhihu.com/question/28360083/answer/262859807"
     target="_blank"
@@ -296,11 +553,53 @@
   </a>
 </div>
 
+  </div>
+
 
 </section>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  function addContentToggle(listSelector, itemSelector, maxItems, buttonClass) {
+    const list = document.querySelector(listSelector);
+    if (!list) return;
+
+    const items = list.querySelectorAll(itemSelector);
+    if (items.length <= maxItems) return;
+
+    items.forEach((item, index) => {
+      item.hidden = index >= maxItems;
+    });
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = buttonClass;
+    button.innerHTML = '<i class="fa fa-chevron-down" aria-hidden="true"></i>Show more';
+    button.setAttribute("aria-expanded", "false");
+
+    button.addEventListener("click", function () {
+      const nextExpanded = button.getAttribute("aria-expanded") !== "true";
+
+      items.forEach((item, index) => {
+        if (index >= maxItems) item.hidden = !nextExpanded;
+      });
+
+      button.setAttribute("aria-expanded", String(nextExpanded));
+      button.innerHTML = nextExpanded
+        ? '<i class="fa fa-chevron-up" aria-hidden="true"></i>Show less'
+        : '<i class="fa fa-chevron-down" aria-hidden="true"></i>Show more';
+    });
+
+    list.after(button);
+  }
+
+  addContentToggle(".seminar-list", ".seminar-record", 3, "seminar-toggle");
+  addContentToggle(".tech-notes-list", ".zhihu-tech-card", 3, "tech-toggle");
+});
+</script>
 
 
 
 </body>
 </html>
-
