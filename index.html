@@ -545,18 +545,18 @@
     <div class="gray-line"></div>
 
     <div class="research-theme-grid">
-      <div class="research-theme">
+      <a class="research-theme" href="research.html#nonlinear-control" data-research-target="nonlinear-control">
         <strong data-i18n="themes.control.title">Nonlinear Control</strong>
         <span data-i18n="themes.control.text">Reliable feedback design for complex, uncertain dynamical systems.</span>
-      </div>
-      <div class="research-theme">
+      </a>
+      <a class="research-theme" href="research.html#robotics-autonomous" data-research-target="robotics-autonomous">
         <strong data-i18n="themes.robotics.title">Robotics</strong>
         <span data-i18n="themes.robotics.text">Estimation and control methods for autonomous and mobile robotic systems.</span>
-      </div>
-      <div class="research-theme">
+      </a>
+      <a class="research-theme" href="research.html#learning-estimation" data-research-target="learning-estimation">
         <strong data-i18n="themes.learning.title">Learning &amp; Estimation</strong>
         <span data-i18n="themes.learning.text">Data-enabled methods with an emphasis on stability, structure, and guarantees.</span>
-      </div>
+      </a>
     </div>
 
 <h3 style="margin-top:25px;" data-i18n="news.title">Recent News</h3>
@@ -791,6 +791,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const htmlNodes = document.querySelectorAll("[data-i18n-html]");
   const ariaNodes = document.querySelectorAll("[data-i18n-aria]");
   const newsItems = document.querySelectorAll(".news-timeline .news-item");
+  const researchThemeLinks = document.querySelectorAll(".research-theme[data-research-target]");
   const maxItems = 5;
   let currentLanguage = "en";
   let expanded = false;
@@ -856,6 +857,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const selected = button.dataset.language === currentLanguage;
       button.classList.toggle("active", selected);
       button.setAttribute("aria-pressed", selected ? "true" : "false");
+    });
+    researchThemeLinks.forEach(function (link) {
+      const target = link.dataset.researchTarget;
+      link.href = currentLanguage === "fr"
+        ? "research.html?lang=fr#" + target
+        : "research.html#" + target;
     });
     updateToggleText();
 
