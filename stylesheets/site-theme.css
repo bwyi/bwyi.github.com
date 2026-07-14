@@ -247,7 +247,52 @@ section.teaching-section {
   background: #ffffff;
   border: 1px solid var(--rule);
   border-radius: 6px;
-  padding: 14px 15px;
+  box-shadow: 0 3px 10px rgba(23, 63, 58, 0);
+  color: inherit;
+  display: block;
+  padding: 14px 38px 14px 15px;
+  position: relative;
+  text-decoration: none;
+  transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.research-theme::after {
+  color: var(--accent);
+  content: "→";
+  font-size: 17px;
+  opacity: 0.45;
+  position: absolute;
+  right: 15px;
+  top: 14px;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.research-theme:hover,
+.research-theme:focus-visible {
+  border-color: rgba(15, 118, 110, 0.48);
+  box-shadow: 0 9px 22px rgba(23, 63, 58, 0.11);
+  text-decoration: none;
+  transform: translateY(-4px);
+}
+
+.research-theme:hover::after,
+.research-theme:focus-visible::after {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.research-theme:focus-visible {
+  outline: 2px solid rgba(15, 118, 110, 0.35);
+  outline-offset: 3px;
+}
+
+.research-theme:nth-child(1) { animation: researchThemeFade 0.42s ease both; }
+.research-theme:nth-child(2) { animation: researchThemeFade 0.42s 0.07s ease both; }
+.research-theme:nth-child(3) { animation: researchThemeFade 0.42s 0.14s ease both; }
+
+@keyframes researchThemeFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .research-theme strong {
@@ -263,6 +308,17 @@ section.teaching-section {
   display: block;
   font-size: 13px;
   line-height: 1.45;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .research-theme {
+    animation: none;
+    transition: none;
+  }
+
+  .research-theme::after {
+    transition: none;
+  }
 }
 
 .pub-tag {
