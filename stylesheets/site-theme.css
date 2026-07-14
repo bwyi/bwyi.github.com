@@ -120,6 +120,10 @@ header h3 a:hover {
   text-transform: uppercase;
 }
 
+.mobile-nav-toggle {
+  display: none;
+}
+
 section {
   border-left: 1px solid var(--rule);
   box-sizing: border-box;
@@ -669,6 +673,33 @@ section.teaching-section {
 
   .teaching-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .mobile-nav-toggle {
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    color: var(--ink);
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    gap: 7px;
+    margin: 15px 0 2px;
+    padding: 7px 11px;
+  }
+
+  .site-nav {
+    display: none;
+    margin-top: 9px;
+  }
+
+  .site-nav.is-open {
+    display: block;
   }
 }
 
