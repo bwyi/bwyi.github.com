@@ -186,10 +186,51 @@
       font-weight: 700;
     }
 
+    .profile-title {
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .profile-contact .contact-row {
+      align-items: flex-start;
+      display: flex;
+      width: fit-content;
+    }
+
+    .profile-contact .contact-icon {
+      flex: 0 0 14px;
+      margin-right: 5px;
+      margin-top: 3px;
+      text-align: center;
+    }
+
+    .profile-contact .contact-nowrap {
+      white-space: nowrap;
+    }
+
     .official-sub {
       color: var(--muted);
       font-size: 14px;
       margin-top: 5px;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--rule);
+      bottom: auto;
+      clear: both;
+      color: var(--muted);
+      float: none;
+      font-size: 12px;
+      margin-top: 34px;
+      padding: 14px 0 4px;
+      position: static;
+      text-align: center;
+      width: auto;
+    }
+
+    .site-footer .footer-separator {
+      color: #a7b3b0;
+      margin: 0 7px;
     }
 
     .news-timeline {
@@ -392,11 +433,14 @@
       <a href="https://www.polymtl.ca/expertises/yi-bowen" target="_blank" rel="noopener">Polytechnique Montréal</a>
     </p>
     <p class="profile-contact">
-      Lassonde Pavillon<br>
+      <a class="contact-row" href="https://www.google.com/maps/search/?api=1&amp;query=Lassonde+Pavilion%2C+2700+Chemin+de+la+Tour%2C+Montr%C3%A9al%2C+QC+H3T+1J4"
+         target="_blank"
+         rel="noopener"
+         aria-label="Open the Lassonde Pavillon address in Google Maps"
+         title="Open in Google Maps"><i class="fa fa-map-marker contact-icon" aria-hidden="true"></i><span>M-5418, Lassonde Pavillon<br>
       2700 Chemin de la Tour<br>
-      Montréal, QC, H3T 1J4, Canada<br>
-      Bureau M-5418<br>
-      <a href="tel:+15143404711;ext=3908">+1 (514) 340 4711, poste 3908</a>
+      <span class="contact-nowrap">Montréal, QC, H3T 1J4, Canada</span></span></a>
+      <a class="contact-row" href="tel:+15143404711;ext=3908"><i class="fa fa-phone contact-icon" aria-hidden="true"></i><span class="contact-nowrap">+1 (514) 340 4711, poste 3908</span></a>
     </p>
     <div class="homepage-social" aria-label="Social links">
       <a href="mailto:B.YI@outlook.com" aria-label="Email" title="Email"><i class="fa fa-envelope-square" aria-hidden="true"></i></a>
@@ -614,6 +658,13 @@
 </div>
 
 
+<footer class="site-footer">
+  &copy; <span id="copyright-year">2026</span> Bowen Yi. All rights reserved.
+  <span class="footer-separator" aria-hidden="true">&middot;</span>
+  <a href="privacy-policy.html">Privacy Policy</a>
+</footer>
+
+
 </section>
 
 <!-- Visitor statistics (hidden) -->
@@ -626,6 +677,8 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("copyright-year").textContent = new Date().getFullYear();
+
   const items = document.querySelectorAll(".news-timeline .news-item");
   const maxItems = 5;
 
