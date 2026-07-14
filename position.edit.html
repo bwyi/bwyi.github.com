@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Open Positions | Bowen Yi</title>
+  <meta name="description" content="Research opportunities in control, estimation, learning, and robotics with Bowen Yi at Polytechnique Montréal.">
+
+  <link rel="stylesheet" href="stylesheets/styles.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
+  <link rel="stylesheet" href="assets/css/academicons.min.css">
+
+  <style>
+    .position-page {
+      --position-accent: #0f766e;
+      --position-accent-dark: #0b5d56;
+      --position-ink: #173f3a;
+      --position-muted: #60706f;
+      --position-rule: #d9e1de;
+      --position-soft: #f3f8f7;
+    }
+
+    .position-content {
+      text-align: left;
+    }
+
+    .position-kicker {
+      align-items: center;
+      color: var(--position-accent-dark);
+      display: flex;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 11px;
+      font-weight: 700;
+      gap: 8px;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .position-kicker::before {
+      background: var(--position-accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12);
+      content: "";
+      height: 7px;
+      width: 7px;
+    }
+
+    .position-content > h2 {
+      font-size: 27px;
+      margin: 0 0 8px;
+    }
+
+    .position-intro {
+      color: #354441;
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 0 0 20px;
+      max-width: 620px;
+    }
+
+    .status-panel {
+      background:
+        linear-gradient(115deg, rgba(15, 118, 110, 0.08), rgba(255, 255, 255, 0.96) 62%),
+        repeating-linear-gradient(90deg, transparent 0, transparent 28px, rgba(15, 118, 110, 0.035) 29px);
+      border: 1px solid #c9ddd8;
+      border-left: 4px solid var(--position-accent);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(23, 63, 58, 0.06);
+      margin: 0 0 32px;
+      padding: 17px 20px;
+    }
+
+    .status-label {
+      align-items: center;
+      color: var(--position-accent-dark);
+      display: flex;
+      font-size: 12px;
+      font-weight: 800;
+      gap: 7px;
+      letter-spacing: 0.08em;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    .status-label i {
+      font-size: 9px;
+    }
+
+    .status-panel p {
+      margin: 0;
+    }
+
+    .status-updated {
+      color: var(--position-muted);
+      display: block;
+      font-size: 12px;
+      margin-top: 7px;
+    }
+
+    .position-heading {
+      align-items: center;
+      display: flex;
+      font-size: 19px;
+      gap: 10px;
+      margin: 34px 0 14px;
+    }
+
+    .position-heading::after {
+      background: linear-gradient(90deg, var(--position-rule), transparent);
+      content: "";
+      flex: 1;
+      height: 1px;
+    }
+
+    .research-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-bottom: 30px;
+    }
+
+    .research-card {
+      background: #ffffff;
+      border: 1px solid var(--position-rule);
+      border-radius: 7px;
+      min-height: 104px;
+      padding: 15px 16px;
+      position: relative;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+    }
+
+    .research-card::before {
+      background: var(--position-accent);
+      border-radius: 2px;
+      content: "";
+      height: 3px;
+      left: 16px;
+      position: absolute;
+      top: 0;
+      width: 34px;
+    }
+
+    .research-card:hover {
+      border-color: #bfd4cf;
+      box-shadow: 0 7px 18px rgba(23, 63, 58, 0.07);
+      transform: translateY(-2px);
+    }
+
+    .research-card strong {
+      color: var(--position-ink);
+      display: block;
+      font-size: 14px;
+      line-height: 1.35;
+      margin: 4px 0 7px;
+    }
+
+    .research-card span {
+      color: var(--position-muted);
+      display: block;
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+
+    .opportunity-card {
+      background: #ffffff;
+      border: 1px solid var(--position-rule);
+      border-radius: 8px;
+      margin-bottom: 15px;
+      padding: 19px 20px;
+    }
+
+    .opportunity-card h4 {
+      color: var(--position-ink);
+      font-size: 17px;
+      margin: 0 0 7px;
+    }
+
+    .opportunity-card p {
+      margin: 0 0 9px;
+    }
+
+    .opportunity-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .opportunity-tag {
+      background: var(--position-soft);
+      border: 1px solid #d5e5e1;
+      border-radius: 999px;
+      color: var(--position-accent-dark);
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 750;
+      margin-bottom: 10px;
+      padding: 3px 9px;
+      text-transform: uppercase;
+    }
+
+    .funding-intro {
+      color: var(--position-muted);
+      font-size: 13px;
+      margin: 15px 0 10px;
+    }
+
+    .funding-list {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .funding-list li {
+      margin: 0;
+    }
+
+    .funding-list a {
+      align-items: flex-start;
+      background: #f8faf9;
+      border: 1px solid var(--position-rule);
+      border-radius: 6px;
+      box-sizing: border-box;
+      color: var(--position-ink);
+      display: flex;
+      font-size: 12.5px;
+      gap: 9px;
+      height: 100%;
+      line-height: 1.4;
+      padding: 10px 11px;
+      text-decoration: none;
+    }
+
+    .funding-list a:hover {
+      background: #eef6f3;
+      border-color: #bdd5cf;
+      text-decoration: none;
+    }
+
+    .funding-list i {
+      color: var(--position-accent);
+      margin-top: 2px;
+    }
+
+    .funding-list small {
+      color: var(--position-muted);
+      display: block;
+      font-size: 10.5px;
+      margin-top: 3px;
+    }
+
+    .apply-panel {
+      background:
+        radial-gradient(circle at 94% 12%, rgba(105, 220, 201, 0.2), transparent 28%),
+        linear-gradient(135deg, #123f3a 0%, #0b5d56 100%);
+      border-radius: 9px;
+      box-shadow: 0 12px 28px rgba(11, 93, 86, 0.18);
+      color: #edf8f6;
+      margin-top: 16px;
+      padding: 22px 23px;
+    }
+
+    .apply-panel h4 {
+      color: #ffffff;
+      font-size: 18px;
+      margin: 0 0 7px;
+    }
+
+    .apply-panel p {
+      margin: 0 0 13px;
+    }
+
+    .apply-button {
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 6px;
+      color: var(--position-accent-dark);
+      display: inline-flex;
+      font-size: 13px;
+      font-weight: 750;
+      gap: 7px;
+      padding: 9px 13px;
+      text-decoration: none;
+    }
+
+    .apply-button:hover {
+      background: #eaf5f2;
+      text-decoration: none;
+    }
+
+    .application-list {
+      margin: 15px 0 0;
+      padding-left: 20px;
+    }
+
+    .application-list li {
+      margin-bottom: 7px;
+      padding-left: 3px;
+    }
+
+    .admission-note {
+      background: var(--position-soft);
+      border-left: 3px solid #9abeb7;
+      color: #435653;
+      font-size: 13px;
+      margin-top: 19px;
+      padding: 12px 14px;
+    }
+
+    .mobile-nav-toggle {
+      display: none;
+    }
+
+    .position-footer {
+      border-top: 1px solid var(--position-rule);
+      bottom: auto;
+      clear: both;
+      color: var(--position-muted);
+      float: none;
+      font-size: 12px;
+      margin-top: 42px;
+      padding: 14px 0 6px;
+      position: static;
+      text-align: center;
+      width: auto;
+    }
+
+    .position-footer span {
+      margin: 0 5px;
+    }
+
+    @media screen and (max-width: 960px) {
+      .position-page .mobile-nav-toggle {
+        align-items: center;
+        background: #ffffff;
+        border: 1px solid var(--position-rule);
+        border-radius: 6px;
+        color: var(--position-ink);
+        cursor: pointer;
+        display: inline-flex;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        gap: 7px;
+        margin: 16px 0 2px;
+        padding: 7px 11px;
+      }
+
+      .position-page .site-nav {
+        display: none;
+        margin-top: 9px;
+      }
+
+      .position-page .site-nav.is-open {
+        display: block;
+      }
+
+      .position-content {
+        margin-top: 28px;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .research-grid,
+      .funding-list {
+        grid-template-columns: 1fr;
+      }
+
+      .position-content > h2 {
+        font-size: 24px;
+      }
+
+      .status-panel,
+      .opportunity-card,
+      .apply-panel {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+
+  </style>
+  <link rel="stylesheet" href="stylesheets/site-theme.css">
+</head>
+
+<body class="position-page">
+<div class="wrapper">
+
+  <!-- ================= LEFT SIDEBAR ================= -->
+  <header>
+    <h1>Bowen Yi</h1>
+    衣博文
+    <br>
+    <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="position-navigation">
+      <i class="fa fa-bars" aria-hidden="true"></i> Menu
+    </button>
+    <nav class="site-nav" id="position-navigation" aria-label="Main navigation">
+      <a class="nav-link" href="index.html">Home</a>
+
+      <div class="nav-group">
+        <div class="nav-heading">Research</div>
+        <a class="nav-link" href="research.html">Overview</a>
+        <a class="nav-link" href="publication.html">Publications</a>
+        <a class="nav-link" href="people.html">People</a>
+        <a class="nav-link" href="position.html">Positions</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-heading">Teaching</div>
+        <a class="nav-link" href="course-ele6202.html">ELE6202</a>
+        <a class="nav-link" href="course-ele6214.html">ELE6214</a>
+        <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
+        <a class="nav-link" href="course-ele2200.html">ELE2200</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-heading">Other</div>
+        <a class="nav-link" href="calendar.html">Calendar</a>
+        <a class="nav-link" href="awards.html">Award</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link" href="misc.html">Misc</a>
+      </div>
+    </nav>
+
+    <script>
+      (function () {
+        var current = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.site-nav a').forEach(function (link) {
+          if (link.getAttribute('href') === current) {
+            link.classList.add('active');
+          }
+        });
+
+        var menuButton = document.querySelector('.mobile-nav-toggle');
+        var navigation = document.querySelector('.site-nav');
+        if (menuButton && navigation) {
+          menuButton.addEventListener('click', function () {
+            var isOpen = navigation.classList.toggle('is-open');
+            menuButton.setAttribute('aria-expanded', String(isOpen));
+            menuButton.innerHTML = isOpen
+              ? '<i class="fa fa-times" aria-hidden="true"></i> Close'
+              : '<i class="fa fa-bars" aria-hidden="true"></i> Menu';
+          });
+        }
+      }());
+    </script>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  
+<main>
+<section class="position-content">
+
+  <div class="position-kicker">Research opportunities · Montréal</div>
+  <h2>Open Positions</h2>
+  <p class="position-intro">
+    I am interested in working with motivated students and researchers in
+    <strong>control, estimation, learning, and robotics</strong>. The group values
+    strong theoretical foundations, clear thinking, intellectual independence,
+    and a genuine interest in meaningful engineering problems.
+  </p>
+
+  <aside class="status-panel" aria-label="Recruitment status">
+    <div class="status-label"><i class="fa fa-circle" aria-hidden="true"></i> General inquiries welcome</div>
+    <p>Prospective graduate students, postdoctoral researchers, and research visitors are welcome to get in touch. Specific funded openings depend on current projects and available funding.</p>
+    <span class="status-updated">Last updated: July 2026</span>
+  </aside>
+
+  <h3 class="position-heading">Research Directions</h3>
+  <div class="research-grid">
+    <div class="research-card">
+      <strong>Nonlinear &amp; Adaptive Control</strong>
+      <span>Stability, observer-based control, parameter estimation, and learning in dynamical systems.</span>
+    </div>
+    <div class="research-card">
+      <strong>Data-Driven Control &amp; Estimation</strong>
+      <span>System identification, input–output methods, and reliable learning from experimental data.</span>
+    </div>
+    <div class="research-card">
+      <strong>Autonomous &amp; Multi-Robot Systems</strong>
+      <span>Coordination, source seeking, distributed algorithms, and control of robot swarms.</span>
+    </div>
+    <div class="research-card">
+      <strong>Navigation, SLAM &amp; State Estimation</strong>
+      <span>Geometric estimation, sensor fusion, visual–inertial navigation, and mobile robotics.</span>
+    </div>
+  </div>
+
+  <h3 class="position-heading">Opportunities</h3>
+
+  <article class="opportunity-card">
+    <span class="opportunity-tag">Graduate research</span>
+    <h4>Ph.D. and Research-Based M.Sc. Students</h4>
+    <p>I regularly consider strong applicants for research-based graduate studies at Polytechnique Montréal. Suitable backgrounds include control systems, applied mathematics, electrical or mechanical engineering, robotics, and related fields.</p>
+    <p>Applicants should be comfortable with linear algebra and calculus. Experience with dynamical systems, probability, optimization, programming, or robotics is an asset.</p>
+  </article>
+
+  <article class="opportunity-card">
+    <span class="opportunity-tag">Funding dependent</span>
+    <h4>Postdoctoral Researchers</h4>
+    <p>Postdoctoral positions are occasionally available, subject to project funding. Strong candidates are encouraged to contact me early to discuss research fit and external fellowship applications.</p>
+    <p class="funding-intro">Competitive postdoctoral funding programs in Canada and Québec include:</p>
+    <ul class="funding-list">
+      <li>
+        <a href="https://banting.fellowships-bourses.gc.ca/en/home-accueil.html" target="_blank" rel="noopener">
+          <i class="fa fa-external-link" aria-hidden="true"></i>
+          <span><strong>Banting Postdoctoral Fellowships</strong><small>Legacy program; applications have transitioned to the CPRA.</small></span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.nserc-crsng.gc.ca/Students-Etudiants/PD-NP/PDF-BP_eng.asp" target="_blank" rel="noopener">
+          <i class="fa fa-external-link" aria-hidden="true"></i>
+          <span><strong>Canada Postdoctoral Research Award</strong><small>Current federal program, formerly the NSERC PDF.</small></span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.mitacs.ca/news/mitacs-elevate-transitions-to-new-accelerate-model-for-postdocs/" target="_blank" rel="noopener">
+          <i class="fa fa-external-link" aria-hidden="true"></i>
+          <span><strong>Mitacs Accelerate for Postdocs</strong><small>Current model, formerly Mitacs Elevate.</small></span>
+        </a>
+      </li>
+      <li>
+        <a href="https://frq.gouv.qc.ca/en/program/postdoctoral-scholarships-2027-2028-b3/" target="_blank" rel="noopener">
+          <i class="fa fa-external-link" aria-hidden="true"></i>
+          <span><strong>FRQ Postdoctoral Scholarships</strong><small>Nature and technologies sector, formerly FRQNT B3.</small></span>
+        </a>
+      </li>
+      <li>
+        <a href="https://ivado.ca/en/scholarships-and-grants/ivado-postdoctoral-research-funding-program-2026/" target="_blank" rel="noopener">
+          <i class="fa fa-external-link" aria-hidden="true"></i>
+          <span><strong>IVADO Postdoctoral Research Funding</strong><small>For research aligned with robust, reasoning, and responsible AI.</small></span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.gerad.ca/en/competition" target="_blank" rel="noopener">
+          <i class="fa fa-external-link" aria-hidden="true"></i>
+          <span><strong>GERAD Postdoctoral Fellowship</strong><small>Competitive co-supervised postdoctoral funding.</small></span>
+        </a>
+      </li>
+    </ul>
+  </article>
+
+  <article class="opportunity-card">
+    <span class="opportunity-tag">Research visits</span>
+    <h4>Visiting Students and Research Interns</h4>
+    <p>I welcome visiting graduate students, undergraduate research interns, and academic visitors for short- or long-term stays. Visitors are normally expected to have external funding from their home institution or a scholarship program.</p>
+  </article>
+
+  <h3 class="position-heading">How to Apply</h3>
+
+  <div class="apply-panel">
+    <h4>Start with a concise email</h4>
+    <p>Use the subject line <strong>“Prospective PhD/MSc/Postdoc – Name – Intended start term”</strong> and briefly explain why your background and interests fit the group.</p>
+    <a class="apply-button" href="mailto:bowen.yi@polymtl.ca?subject=Prospective%20PhD%2FMSc%2FPostdoc%20%E2%80%93%20Name%20%E2%80%93%20Intended%20start%20term">
+      <i class="fa fa-envelope" aria-hidden="true"></i> Email to Apply
+    </a>
+  </div>
+
+  <ul class="application-list">
+    <li>A focused description of your research interests and intended degree or position.</li>
+    <li>A short research-fit statement explaining how your background connects to one of the directions above.</li>
+    <li>Your CV and academic transcripts; unofficial transcripts are sufficient for the initial inquiry.</li>
+    <li>Links to publications, preprints, code, a thesis, or relevant projects, if available.</li>
+    <li>Your preferred start term and any fellowship or external funding plans.</li>
+  </ul>
+
+  <div class="admission-note">
+    Formal admission is handled centrally by Polytechnique Montréal. Candidates must meet the university's
+    <a href="https://www.polymtl.ca/admission/en" target="_blank" rel="noopener">graduate admission requirements</a>.
+    Research-based M.Sc. and Ph.D. programs may be completed in English, while course and language requirements depend on the selected program.
+  </div>
+
+  <footer class="position-footer">
+    &copy; <span id="copyright-year">2026</span> Bowen Yi. All rights reserved.
+    <span aria-hidden="true">·</span>
+    <a href="privacy-policy.html">Privacy Policy</a>
+  </footer>
+
+</section>
+</main>
+
+
+
+</div>
+<script>
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
