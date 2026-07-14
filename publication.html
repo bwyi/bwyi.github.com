@@ -99,6 +99,59 @@
 .me {
   font-weight: 800 !important;
 }
+
+.publication-content {
+  position: relative;
+}
+
+.publication-language-switch {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  display: inline-flex;
+  gap: 6px;
+  padding: 3px 8px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.publication-language-switch button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0;
+}
+
+.publication-language-switch button:hover,
+.publication-language-switch button.active {
+  color: var(--accent-dark);
+}
+
+.publication-language-switch button:hover {
+  text-decoration: underline;
+}
+
+.publication-language-switch span {
+  color: #a7b3b0;
+  font-size: 11px;
+}
+
+@media screen and (max-width: 700px) {
+  .publication-language-switch {
+    margin: 0 0 12px auto;
+    position: static;
+    width: max-content;
+  }
+}
 </style>
   <link rel="stylesheet" href="stylesheets/site-theme.css">
   <script defer src="javascripts/site-navigation.js"></script>
@@ -112,19 +165,19 @@
   <h1>Bowen Yi</h1>
   衣博文
   <br>
-  <nav class="site-nav" aria-label="Main navigation">
-    <a class="nav-link" href="index.html">Home</a>
+  <nav class="site-nav" aria-label="Main navigation" data-i18n-aria="nav.label">
+    <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
 
     <div class="nav-group">
-      <div class="nav-heading">Research</div>
-      <a class="nav-link" href="research.html">Overview</a>
+      <div class="nav-heading" data-i18n="nav.research">Research</div>
+      <a class="nav-link" href="research.html" data-i18n="nav.overview">Overview</a>
       <a class="nav-link" href="publication.html">Publications</a>
-      <a class="nav-link" href="people.html">People</a>
-      <a class="nav-link" href="position.html">Positions</a>
+      <a class="nav-link" href="people.html" data-i18n="nav.people">People</a>
+      <a class="nav-link" href="position.html" data-i18n="nav.positions">Positions</a>
     </div>
 
     <div class="nav-group">
-      <div class="nav-heading">Teaching</div>
+      <div class="nav-heading" data-i18n="nav.teaching">Teaching</div>
         <a class="nav-link" href="course-ele6202.html">ELE6202</a>
         <a class="nav-link" href="course-ele6214.html">ELE6214</a>
         <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
@@ -132,11 +185,11 @@
     </div>
 
     <div class="nav-group">
-      <div class="nav-heading">Other</div>
-      <a class="nav-link" href="calendar.html">Calendar</a>
-      <a class="nav-link" href="awards.html">Award</a>
+      <div class="nav-heading" data-i18n="nav.other">Other</div>
+      <a class="nav-link" href="calendar.html" data-i18n="nav.calendar">Calendar</a>
+      <a class="nav-link" href="awards.html" data-i18n="nav.awards">Award</a>
       <a class="nav-link" href="services.html">Services</a>
-      <a class="nav-link" href="misc.html">Misc</a>
+      <a class="nav-link" href="misc.html" data-i18n="nav.misc">Misc</a>
     </div>
   </nav>
 
@@ -153,9 +206,15 @@
   </header>
 
 <!-- ================= MAIN CONTENT (ONLY THIS PART CHANGED) ================= -->
-<section>
+<section class="publication-content">
 
-<h2>Publications</h2>
+<div class="publication-language-switch" role="group" aria-label="Language selection" data-i18n-aria="language.selector">
+  <button type="button" class="active" data-language="en" aria-pressed="true">EN</button>
+  <span aria-hidden="true">|</span>
+  <button type="button" data-language="fr" aria-pressed="false">FR</button>
+</div>
+
+<h2 data-i18n="page.title">Publications</h2>
 <div class="gray-line"></div>
 
 <div id="pub-container"></div>
@@ -178,11 +237,11 @@
 }
 
 
-@misc{Li2026DataDrivenLQ,
-  author       = {Li, Weijian and Yi, Bowen and Antsaklis, Panos J. and Lin, Hai},
-  title        = {Data-driven linear quadratic control using output-feedback via non-minimal realization},
-  note         = {Submitted},
-  year         = {2026},
+@article{li2026data,
+  title={Data-Driven Linear Quadratic Control Using Output-Feedback via Non-Minimal Realization},
+  author={Li, Weijian and Yi, Bowen and Antsaklis, Panos J and Lin, Hai},
+  journal={arXiv preprint arXiv:2605.16752},
+  year={2026}
 }
 
 
@@ -769,10 +828,20 @@ function venue(e) {
   return "";
 }
 
+function arxivId(e) {
+  const source = [e.eprint, e.arxiv, e.journal]
+    .filter(Boolean)
+    .join(" ");
+  const match = source.match(/\b\d{4}\.\d{4,5}(?:v\d+)?\b/i);
+  return match ? match[0] : "";
+}
+
 function group(entries) {
   const out = { preprint:{}, journal:{}, conference:{} };
   entries.forEach(e => {
+    const isArxivPreprint = /arxiv\s+preprint/i.test(e.journal || "");
     const cat =
+      isArxivPreprint ? "preprint" :
       e.type === "article" ? "journal" :
       e.type === "inproceedings" ? "conference" :
       "preprint";
@@ -785,14 +854,15 @@ function group(entries) {
 function renderPreprints(title, data) {
   let html = `<div class="pub-section"><h3>${title}</h3><ul class="pub-list">`;
   Object.values(data).flat().forEach(e => {
+    const id = arxivId(e);
     html += `<li>
       ${formatAuthors(e.author || "")},
       <span class="pub-title">${e.title}</span>,
-      <span class="pub-venue">arXiv:${e.eprint}</span>.
+      <span class="pub-venue">${id ? `arXiv:${id}` : (e.note || e.journal || "Preprint")}</span>.
       <div class="pub-links">
-<a class="pub-tag" href="https://arxiv.org/abs/${e.eprint}" target="_blank">
+        ${id ? `<a class="pub-tag" href="https://arxiv.org/abs/${id}" target="_blank" rel="noopener">
           <i class="ai ai-arxiv"></i> arXiv
-        </a>
+        </a>` : ""}
         <a class="pub-tag" href="#" onclick="alert(\`${e.raw}\`)">
           <i class="fa fa-quote-left"></i> BibTeX
         </a>
@@ -837,10 +907,118 @@ const entries = parseBibtex(
 );
 const g = group(entries);
 
-document.getElementById("pub-container").innerHTML =
-  renderPreprints("Preprints", g.preprint) +
-  render("Journal Papers", g.journal) +
-  render("Conference Papers", g.conference);
+const publicationTranslations = {
+  fr: {
+    "nav.label": "Navigation principale",
+    "nav.home": "Accueil",
+    "nav.research": "Recherche",
+    "nav.overview": "Aperçu",
+    "nav.people": "Équipe",
+    "nav.positions": "Postes",
+    "nav.teaching": "Enseignement",
+    "nav.other": "Autres",
+    "nav.calendar": "Calendrier",
+    "nav.awards": "Prix",
+    "nav.misc": "Divers",
+    "language.selector": "Sélection de la langue",
+    "page.title": "Publications"
+  }
+};
+
+const publicationSectionTitles = {
+  en: {
+    preprints: "Preprints",
+    journals: "Journal Papers",
+    conferences: "Conference Papers"
+  },
+  fr: {
+    preprints: "Prépublications",
+    journals: "Articles de revue",
+    conferences: "Articles de conférence"
+  }
+};
+
+const publicationTextNodes = Array.from(document.querySelectorAll("[data-i18n]"));
+const publicationAriaNodes = Array.from(document.querySelectorAll("[data-i18n-aria]"));
+const publicationLanguageButtons = Array.from(document.querySelectorAll("[data-language]"));
+
+publicationTextNodes.forEach(node => { node.dataset.i18nEn = node.textContent; });
+publicationAriaNodes.forEach(node => {
+  node.dataset.i18nAriaEn = node.getAttribute("aria-label") || "";
+});
+
+function renderPublications(language) {
+  const titles = publicationSectionTitles[language] || publicationSectionTitles.en;
+  document.getElementById("pub-container").innerHTML =
+    renderPreprints(titles.preprints, g.preprint) +
+    render(titles.journals, g.journal) +
+    render(titles.conferences, g.conference);
+}
+
+function applyPublicationLanguage(language, updateUrl) {
+  const dictionary = publicationTranslations[language] || {};
+  document.documentElement.lang = language;
+  document.title = language === "fr"
+    ? "Publications | Bowen Yi"
+    : "Publications – Bowen Yi";
+
+  publicationTextNodes.forEach(node => {
+    const key = node.getAttribute("data-i18n");
+    node.textContent = language === "fr" && dictionary[key]
+      ? dictionary[key]
+      : node.dataset.i18nEn;
+  });
+
+  publicationAriaNodes.forEach(node => {
+    const key = node.getAttribute("data-i18n-aria");
+    node.setAttribute(
+      "aria-label",
+      language === "fr" && dictionary[key]
+        ? dictionary[key]
+        : node.dataset.i18nAriaEn
+    );
+  });
+
+  publicationLanguageButtons.forEach(button => {
+    const active = button.dataset.language === language;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+
+  renderPublications(language);
+
+  try {
+    localStorage.setItem("bowen-site-language", language);
+  } catch (error) {}
+
+  if (updateUrl && window.history && window.history.replaceState) {
+    const url = new URL(window.location.href);
+    if (language === "fr") url.searchParams.set("lang", "fr");
+    else url.searchParams.delete("lang");
+    window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+  }
+}
+
+publicationLanguageButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    applyPublicationLanguage(button.dataset.language, true);
+  });
+});
+
+const publicationParams = new URLSearchParams(window.location.search);
+const publicationRequestedLanguage = publicationParams.get("lang");
+let publicationSavedLanguage = null;
+try {
+  publicationSavedLanguage = localStorage.getItem("bowen-site-language");
+} catch (error) {}
+
+applyPublicationLanguage(
+  publicationRequestedLanguage === "fr" ||
+  (!publicationRequestedLanguage && publicationSavedLanguage === "fr")
+    ? "fr"
+    : "en",
+  false
+);
 </script>
 
 </body>
