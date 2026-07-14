@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Bowen Yi - Research</title>
+  <meta name="description" content="Research in nonlinear estimation, learning, control, and robotics by Bowen Yi at Polytechnique Montréal.">
 
   <link rel="stylesheet" href="stylesheets/styles.css">
 
@@ -13,59 +14,320 @@
   <link rel="stylesheet" href="assets/css/academicons.min.css">
   <link rel="stylesheet" href="assets/css/academicons.css">
 
-  <!-- ===== Global Academic Style ===== -->
   <style>
-    body {
-      font-family: Georgia, "Times New Roman", Times, serif;
-      color: #222;
-      line-height: 1.6;
+    .research-content {
+      position: relative;
+      text-align: left;
     }
 
-    h1, h2, h3 {
-      color: #1f2a44;
-      font-weight: 600;
+    .research-language-switch {
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      display: inline-flex;
+      gap: 6px;
+      padding: 3px 8px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 2;
     }
 
-    a {
-      color: #1f2a44;
-      text-decoration: none;
+    .research-language-switch button {
+      appearance: none;
+      background: transparent;
+      border: 0;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 0;
     }
 
-    a:hover {
+    .research-language-switch button:hover,
+    .research-language-switch button.active {
+      color: var(--accent-dark);
+    }
+
+    .research-language-switch button:hover {
       text-decoration: underline;
     }
 
-    .gray-line {
-      border-top: 1px solid #dddddd;
-      margin: 6px 0 14px 0;
+    .research-language-switch span {
+      color: #a7b3b0;
+      font-size: 11px;
     }
 
-    .justified-text {
-      text-align: justify;
+    .research-kicker {
+      align-items: center;
+      color: var(--accent-dark);
+      display: flex;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 11px;
+      font-weight: 700;
+      gap: 8px;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+      text-transform: uppercase;
     }
 
-    .social-row {
+    .research-kicker::before {
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12);
+      content: "";
+      height: 7px;
+      width: 7px;
+    }
+
+    .research-content > h2 {
+      font-size: 27px;
+      margin: 0 0 9px;
+    }
+
+    .research-intro {
+      color: #354441;
+      font-size: 15.5px;
+      line-height: 1.72;
+      margin: 0 0 22px;
+      max-width: 610px;
+    }
+
+    .research-focus-row {
       display: flex;
       flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 30px;
+    }
+
+    .research-focus-row span {
+      background: #f3f8f7;
+      border: 1px solid #d5e5e1;
+      border-radius: 999px;
+      color: var(--accent-dark);
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 9px;
+    }
+
+    .research-heading {
+      align-items: center;
+      display: flex;
+      font-size: 19px;
+      gap: 10px;
+      margin: 32px 0 14px;
+    }
+
+    .research-heading::after {
+      background: linear-gradient(90deg, var(--rule), transparent);
+      content: "";
+      flex: 1;
+      height: 1px;
+    }
+
+    .research-area-grid {
+      display: grid;
+      gap: 13px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .research-area-card {
+      background: #ffffff;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      box-shadow: 0 7px 20px rgba(23, 63, 58, 0.045);
+      box-sizing: border-box;
+      min-height: 230px;
+      padding: 18px 18px 16px;
+      position: relative;
+    }
+
+    .research-area-card::before {
+      background: linear-gradient(180deg, var(--accent), #55a9b8);
+      border-radius: 8px 0 0 8px;
+      bottom: -1px;
+      content: "";
+      left: -1px;
+      position: absolute;
+      top: -1px;
+      width: 4px;
+    }
+
+    .area-icon {
+      align-items: center;
+      background: #edf6f3;
+      border-radius: 6px;
+      color: var(--accent-dark);
+      display: inline-flex;
+      height: 32px;
+      justify-content: center;
+      margin-bottom: 10px;
+      width: 32px;
+    }
+
+    .research-area-card h4 {
+      color: #173f3a;
+      font-size: 16px;
+      line-height: 1.35;
+      margin: 0 0 7px;
+    }
+
+    .research-area-card p {
+      color: #435653;
+      font-size: 13px;
+      margin: 0 0 10px;
+    }
+
+    .keyword-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .keyword-list li {
+      background: #f6f8f8;
+      border: 1px solid #e0e7e5;
+      border-radius: 4px;
+      color: #526260;
+      font-size: 10.5px;
+      margin: 0;
+      padding: 3px 6px;
+    }
+
+    .resource-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .resource-card {
+      align-items: flex-start;
+      background: #f8faf9;
+      border: 1px solid var(--rule);
+      border-radius: 7px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      min-height: 150px;
+      padding: 15px 16px;
+    }
+
+    .resource-type {
+      color: var(--accent-dark);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .resource-card h4 {
+      color: #173f3a;
+      font-size: 14px;
+      line-height: 1.35;
+      margin: 0 0 5px;
+    }
+
+    .resource-card p {
+      color: var(--muted);
+      font-size: 11.5px;
+      line-height: 1.5;
+      margin: 0 0 10px;
+    }
+
+    .resource-link {
+      align-items: center;
+      display: inline-flex;
+      font-size: 11.5px;
+      font-weight: 750;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .research-links-panel {
+      align-items: center;
+      background: linear-gradient(120deg, rgba(15, 118, 110, 0.09), #ffffff 65%);
+      border: 1px solid #cfe0dc;
+      border-radius: 8px;
+      display: flex;
+      gap: 18px;
       justify-content: space-between;
+      margin-top: 30px;
+      padding: 16px 18px;
     }
 
-    /* ===== Research blocks ===== */
-    .topic-block {
-      margin-top: 28px;
+    .research-links-panel p {
+      color: #435653;
+      font-size: 12.5px;
+      margin: 0;
     }
 
-    .pdf-box {
-      margin: 12px 0 22px 0;
-      border: 1px solid #cccccc;
-      background: #fafafa;
-      padding: 8px;
+    .research-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      justify-content: flex-end;
     }
 
-    /* ===== 🔧 KEY FIX: hard align main content ===== */
-    section {
-      margin-left: 260px;   /* must match styles.css sidebar width */
-      padding-left: 0;
+    .research-links a {
+      background: #ffffff;
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 5px 8px;
+    }
+
+    .research-footer {
+      border-top: 1px solid var(--rule);
+      bottom: auto;
+      float: none;
+      left: auto;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 38px;
+      padding: 14px 0 5px;
+      position: static;
+      right: auto;
+      text-align: center;
+      width: auto;
+    }
+
+    .research-footer span[aria-hidden="true"] {
+      margin: 0 7px;
+    }
+
+    @media screen and (max-width: 700px) {
+      .research-language-switch {
+        margin: 0 0 12px auto;
+        position: static;
+        width: max-content;
+      }
+
+      .research-area-grid,
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .research-area-card {
+        min-height: 0;
+      }
+
+      .research-links-panel {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .research-links {
+        justify-content: flex-start;
+      }
     }
   </style>
   <link rel="stylesheet" href="stylesheets/site-theme.css">
@@ -80,19 +342,19 @@
     <h1>Bowen Yi</h1>
     衣博文
     <br>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a class="nav-link" href="index.html">Home</a>
+    <nav class="site-nav" aria-label="Main navigation" data-i18n-aria="nav.label">
+      <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
 
       <div class="nav-group">
-        <div class="nav-heading">Research</div>
-        <a class="nav-link" href="research.html">Overview</a>
+        <div class="nav-heading" data-i18n="nav.research">Research</div>
+        <a class="nav-link" href="research.html" data-i18n="nav.overview">Overview</a>
         <a class="nav-link" href="publication.html">Publications</a>
-        <a class="nav-link" href="people.html">People</a>
-        <a class="nav-link" href="position.html">Positions</a>
+        <a class="nav-link" href="people.html" data-i18n="nav.people">People</a>
+        <a class="nav-link" href="position.html" data-i18n="nav.positions">Positions</a>
       </div>
 
       <div class="nav-group">
-        <div class="nav-heading">Teaching</div>
+        <div class="nav-heading" data-i18n="nav.teaching">Teaching</div>
         <a class="nav-link" href="course-ele6202.html">ELE6202</a>
         <a class="nav-link" href="course-ele6214.html">ELE6214</a>
         <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
@@ -100,11 +362,11 @@
       </div>
 
       <div class="nav-group">
-        <div class="nav-heading">Other</div>
-        <a class="nav-link" href="calendar.html">Calendar</a>
-        <a class="nav-link" href="awards.html">Award</a>
+        <div class="nav-heading" data-i18n="nav.other">Other</div>
+        <a class="nav-link" href="calendar.html" data-i18n="nav.calendar">Calendar</a>
+        <a class="nav-link" href="awards.html" data-i18n="nav.awards">Award</a>
         <a class="nav-link" href="services.html">Services</a>
-        <a class="nav-link" href="misc.html">Misc</a>
+        <a class="nav-link" href="misc.html" data-i18n="nav.misc">Misc</a>
       </div>
     </nav>
 
@@ -121,136 +383,259 @@
   </header>
 
   <!-- ================= MAIN CONTENT ================= -->
-  <section>
-
-    <h2>Research Interests</h2>
-    <div class="gray-line"></div>
-
-    <div class="justified-text">
-      <p>
-        My research interests mainly focus on the <strong>theory and algorithms for estimation,
-        learning, and control of nonlinear dynamical systems</strong>,
-        with a strong emphasis on <strong>robotics and autonomous systems</strong>.
-        I aim to develop mathematically rigorous methods with provable guarantees,
-        while ensuring their applicability to real-world robotic platforms.
-      </p>
+  <section class="research-content">
+    <div class="research-language-switch" role="group" aria-label="Language selection" data-i18n-aria="language.selector">
+      <button type="button" class="active" data-language="en" aria-pressed="true">EN</button>
+      <span aria-hidden="true">|</span>
+      <button type="button" data-language="fr" aria-pressed="false">FR</button>
     </div>
 
-    <!-- ===== Topic 1 ===== -->
-    <div class="topic-block">
-      <h3>Estimation and Observer Theory</h3>
-      <div class="gray-line"></div>
+    <div class="research-kicker" data-i18n="hero.kicker">Research overview · Theory to robotics</div>
+    <h2 data-i18n="hero.title">Research Overview</h2>
+    <p class="research-intro" data-i18n-html="hero.intro">
+      My research develops <strong>theory and algorithms for estimation, learning, and control of nonlinear dynamical systems</strong>, with a strong emphasis on <strong>robotics and autonomous systems</strong>. The goal is to combine mathematically rigorous guarantees with methods that remain useful on real-world platforms.
+    </p>
 
-      <div class="justified-text">
-        <p>
-          This line of research studies real-time state estimation algorithms for nonlinear control systems, 
-          with particular interest in convergence guarantees and robustness. I am interested in various topics
-          in this field, including
-        </p>
-        <ul>
-          <li>Nonlinear observers (KKL, PEBO, DREM)</li>
-          <li>Adaptive observers </li>
-          <li>Sensorless control and estimation for electric drives</li>
+    <div class="research-focus-row" aria-label="Core research themes" data-i18n-aria="focus.label">
+      <span data-i18n="focus.estimation">Estimation</span>
+      <span data-i18n="focus.learning">Learning</span>
+      <span data-i18n="focus.control">Control</span>
+      <span data-i18n="focus.robotics">Robotics</span>
+    </div>
+
+    <h3 class="research-heading" data-i18n="areas.title">Research Areas</h3>
+    <div class="research-area-grid">
+      <article class="research-area-card">
+        <div class="area-icon" aria-hidden="true">∿</div>
+        <h4 data-i18n="area.estimation.title">Estimation and Observer Theory</h4>
+        <p data-i18n="area.estimation.text">Real-time state estimation for nonlinear control systems, with an emphasis on convergence guarantees and robustness.</p>
+        <ul class="keyword-list">
+          <li data-i18n="area.estimation.k1">Nonlinear observers: KKL, PEBO, DREM</li>
+          <li data-i18n="area.estimation.k2">Adaptive observers</li>
+          <li data-i18n="area.estimation.k3">Sensorless control</li>
         </ul>
-      </div>
-      
-      Here is a tutorial on a new observer design approach, parameter estimation-based observer (PEBO).
+      </article>
 
-      <div class="pdf-box">
-<embed src="files/slides/slides_pebo.pdf"
-       type="application/pdf"
-       width="100%"
-       height="380px">
-      </div>
-      
-            <div class="pdf-box">
-<embed src="files/slides/slides_ifac_wc.pdf"
-       type="application/pdf"
-       width="100%"
-       height="380px">
-      </div>
-      
-    </div>
-    
-    
-    <!-- ===== Topic 3 ===== -->
-    <div class="topic-block">
-      <h3>System Identification and Learning</h3>
-      <div class="gray-line"></div>
-
-      <div class="justified-text">
-        <p>
-          This theme explores data-driven modeling and learning techniques
-          for dynamical systems, bridging system identification and modern learning theory.
-        </p>
-        <ul>
-          <li>System identification for nonlinear dynamical systems</li>
-          <li>Koopman operator–based learning</li>
-          <li>Real-time parameter estimation</li>
+      <article class="research-area-card">
+        <div class="area-icon" aria-hidden="true">⌁</div>
+        <h4 data-i18n="area.learning.title">System Identification and Learning</h4>
+        <p data-i18n="area.learning.text">Data-driven models for dynamical systems that connect system identification with modern learning theory.</p>
+        <ul class="keyword-list">
+          <li data-i18n="area.learning.k1">Nonlinear system identification</li>
+          <li data-i18n="area.learning.k2">Koopman operator learning</li>
+          <li data-i18n="area.learning.k3">Real-time parameter estimation</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="pdf-box">
-<embed src="files/slides/slides_koopman.pdf"
-               type="application/pdf"
-               width="100%"
-               height="380px">
-      </div>
-    </div>
-
-
-    <!-- ===== Topic 2 ===== -->
-    <div class="topic-block">
-      <h3>Nonlinear Control</h3>
-      <div class="gray-line"></div>
-
-      <div class="justified-text">
-        <p>
-          I investigate nonlinear control design methods from the following perspectives.
-        </p>
-        <ul>
-          <li>Adaptive control</li>
-          <li>Orbital stabilization</li>
-          <li>Passivity-based control (PBC)</li>
-          <li>Contraction analysis</li>
+      <article class="research-area-card">
+        <div class="area-icon" aria-hidden="true">↻</div>
+        <h4 data-i18n="area.control.title">Nonlinear Control</h4>
+        <p data-i18n="area.control.text">Control design for uncertain nonlinear systems, drawing on structural and energy-based viewpoints.</p>
+        <ul class="keyword-list">
+          <li data-i18n="area.control.k1">Adaptive control</li>
+          <li data-i18n="area.control.k2">Orbital stabilization</li>
+          <li data-i18n="area.control.k3">Passivity-based control</li>
+          <li data-i18n="area.control.k4">Contraction analysis</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="pdf-box">
-<embed src="files/slides/slides_orbital.pdf"
-               type="application/pdf"
-               width="100%"
-               height="380px">
-      </div>
-    </div>
-
-
-    <!-- ===== Topic 4 ===== -->
-    <div class="topic-block">
-      <h3>Robotics and Autonomous Systems</h3>
-      <div class="gray-line"></div>
-
-      <div class="justified-text">
-        <p>
-          My research applies estimation, learning, and control theories to
-          complex robotic systems operating in uncertain environments.
-        </p>
-        <ul>
-          <li>Continuum robots: modeling and control</li>
-          <li>Navigation and localization</li>
+      <article class="research-area-card">
+        <div class="area-icon" aria-hidden="true">◇</div>
+        <h4 data-i18n="area.robotics.title">Robotics and Autonomous Systems</h4>
+        <p data-i18n="area.robotics.text">Estimation, learning, and control methods for robotic systems operating in complex and uncertain environments.</p>
+        <ul class="keyword-list">
+          <li data-i18n="area.robotics.k1">Continuum robots</li>
+          <li data-i18n="area.robotics.k2">Navigation and localization</li>
+          <li data-i18n="area.robotics.k3">Autonomous systems</li>
         </ul>
-      </div>
+      </article>
+    </div>
 
-      <div class="pdf-box">
-      <div class="pdf-box">
-<embed src="files/slides/slides_ICRA.pdf"
-               type="application/pdf"
-               width="100%"
-               height="380px">
+    <h3 class="research-heading" data-i18n="resources.title">Featured Tutorials &amp; Slides</h3>
+    <div class="resource-grid">
+      <article class="resource-card">
+        <span class="resource-type" data-i18n="resources.type.tutorial">Tutorial · PDF</span>
+        <h4 data-i18n="resource.pebo.title">Parameter estimation-based observer (PEBO)</h4>
+        <p data-i18n="resource.pebo.text">A tutorial introduction to observer design through parameter estimation.</p>
+        <a class="resource-link" href="files/slides/slides_pebo.pdf" target="_blank" rel="noopener"><span data-i18n="resources.view">View PDF</span> <span aria-hidden="true">↗</span></a>
+      </article>
+
+      <article class="resource-card">
+        <span class="resource-type" data-i18n="resources.type.slides">Research slides · PDF</span>
+        <h4 data-i18n="resource.ifac.title">High-performance sensorless estimation for IPMSMs</h4>
+        <p data-i18n="resource.ifac.text">Selected slides on observer design and nonlinear estimation.</p>
+        <a class="resource-link" href="files/slides/slides_ifac_wc.pdf" target="_blank" rel="noopener"><span data-i18n="resources.view">View PDF</span> <span aria-hidden="true">↗</span></a>
+      </article>
+
+      <article class="resource-card">
+        <span class="resource-type" data-i18n="resources.type.slides">Research slides · PDF</span>
+        <h4 data-i18n="resource.koopman.title">Koopman learning</h4>
+        <p data-i18n="resource.koopman.text">Learning representations and models for nonlinear dynamical systems.</p>
+        <a class="resource-link" href="files/slides/slides_koopman.pdf" target="_blank" rel="noopener"><span data-i18n="resources.view">View PDF</span> <span aria-hidden="true">↗</span></a>
+      </article>
+
+      <article class="resource-card">
+        <span class="resource-type" data-i18n="resources.type.slides">Research slides · PDF</span>
+        <h4 data-i18n="resource.orbital.title">Orbital stabilization</h4>
+        <p data-i18n="resource.orbital.text">Nonlinear methods for stabilizing periodic motions and target orbits.</p>
+        <a class="resource-link" href="files/slides/slides_orbital.pdf" target="_blank" rel="noopener"><span data-i18n="resources.view">View PDF</span> <span aria-hidden="true">↗</span></a>
+      </article>
+
+      <article class="resource-card">
+        <span class="resource-type" data-i18n="resources.type.slides">Research slides · PDF</span>
+        <h4 data-i18n="resource.icra.title">Modeling, stiffening and control of continuum robots</h4>
+        <p data-i18n="resource.icra.text">Selected work connecting nonlinear systems theory and robotics.</p>
+        <a class="resource-link" href="files/slides/slides_ICRA.pdf" target="_blank" rel="noopener"><span data-i18n="resources.view">View PDF</span> <span aria-hidden="true">↗</span></a>
+      </article>
+    </div>
+
+    <div class="research-links-panel">
+      <p data-i18n="links.prompt">Explore related work, people, and opportunities.</p>
+      <div class="research-links">
+        <a href="publication.html" data-i18n="links.publications">Publications</a>
+        <a href="people.html" data-i18n="links.people">Research Group</a>
+        <a href="position.html" data-i18n="links.positions">Open Positions</a>
       </div>
     </div>
 
+    <footer class="research-footer">
+      <span>© <span data-current-year>2026</span> Bowen Yi. <span data-i18n="footer.rights">All rights reserved.</span></span>
+      <span aria-hidden="true">·</span>
+      <a href="privacy-policy.html" data-i18n="footer.privacy">Privacy Policy</a>
+    </footer>
   </section>
 </div>
+
+<script>
+  (function () {
+    var translations = {
+      fr: {
+        'nav.label': 'Navigation principale',
+        'nav.home': 'Accueil',
+        'nav.research': 'Recherche',
+        'nav.overview': 'Aperçu',
+        'nav.people': 'Équipe',
+        'nav.positions': 'Postes',
+        'nav.teaching': 'Enseignement',
+        'nav.other': 'Autres',
+        'nav.calendar': 'Calendrier',
+        'nav.awards': 'Prix',
+        'nav.misc': 'Divers',
+        'language.selector': 'Sélection de la langue',
+        'hero.kicker': 'Aperçu de la recherche · De la théorie à la robotique',
+        'hero.title': 'Aperçu de la recherche',
+        'hero.intro': 'Mes travaux développent des <strong>théories et algorithmes pour l’estimation, l’apprentissage et la commande des systèmes dynamiques non linéaires</strong>, avec un intérêt marqué pour la <strong>robotique et les systèmes autonomes</strong>. L’objectif est d’allier des garanties mathématiques rigoureuses à des méthodes utiles sur des plateformes réelles.',
+        'focus.label': 'Thèmes de recherche principaux',
+        'focus.estimation': 'Estimation',
+        'focus.learning': 'Apprentissage',
+        'focus.control': 'Commande',
+        'focus.robotics': 'Robotique',
+        'areas.title': 'Axes de recherche',
+        'area.estimation.title': 'Estimation et théorie des observateurs',
+        'area.estimation.text': 'Estimation d’état en temps réel pour les systèmes de commande non linéaires, avec un accent sur la convergence et la robustesse.',
+        'area.estimation.k1': 'Observateurs non linéaires : KKL, PEBO, DREM',
+        'area.estimation.k2': 'Observateurs adaptatifs',
+        'area.estimation.k3': 'Commande sans capteur',
+        'area.learning.title': 'Identification de systèmes et apprentissage',
+        'area.learning.text': 'Modèles fondés sur les données qui relient l’identification des systèmes à la théorie moderne de l’apprentissage.',
+        'area.learning.k1': 'Identification des systèmes non linéaires',
+        'area.learning.k2': 'Apprentissage par opérateur de Koopman',
+        'area.learning.k3': 'Estimation paramétrique en temps réel',
+        'area.control.title': 'Commande non linéaire',
+        'area.control.text': 'Conception de commandes pour les systèmes non linéaires incertains, à partir de points de vue structurels et énergétiques.',
+        'area.control.k1': 'Commande adaptative',
+        'area.control.k2': 'Stabilisation orbitale',
+        'area.control.k3': 'Commande basée sur la passivité',
+        'area.control.k4': 'Analyse par contraction',
+        'area.robotics.title': 'Robotique et systèmes autonomes',
+        'area.robotics.text': 'Méthodes d’estimation, d’apprentissage et de commande pour les robots évoluant dans des environnements complexes et incertains.',
+        'area.robotics.k1': 'Robots continus',
+        'area.robotics.k2': 'Navigation et localisation',
+        'area.robotics.k3': 'Systèmes autonomes',
+        'resources.title': 'Tutoriels et diapositives à la une',
+        'resources.type.tutorial': 'Tutoriel · PDF',
+        'resources.type.slides': 'Diapositives · PDF',
+        'resources.view': 'Voir le PDF',
+        'resource.pebo.title': 'Observateur fondé sur l’estimation paramétrique (PEBO)',
+        'resource.pebo.text': 'Une introduction à la conception d’observateurs par estimation paramétrique.',
+        'resource.ifac.title': 'Estimation sans capteur haute performance pour les IPMSM',
+        'resource.ifac.text': 'Diapositives choisies sur l’estimation sans capteur haute performance pour les machines synchrones à aimants permanents intérieurs.',
+        'resource.koopman.title': 'Apprentissage de Koopman',
+        'resource.koopman.text': 'Représentations et modèles appris pour les systèmes dynamiques non linéaires.',
+        'resource.orbital.title': 'Stabilisation orbitale',
+        'resource.orbital.text': 'Méthodes non linéaires pour stabiliser des mouvements périodiques et des orbites cibles.',
+        'resource.icra.title': 'Modélisation, rigidification et commande des robots continus',
+        'resource.icra.text': 'Travaux choisis reliant la théorie des systèmes non linéaires à la robotique.',
+        'links.prompt': 'Découvrez les travaux, l’équipe et les possibilités de collaboration.',
+        'links.publications': 'Publications',
+        'links.people': 'Équipe de recherche',
+        'links.positions': 'Postes disponibles',
+        'footer.rights': 'Tous droits réservés.',
+        'footer.privacy': 'Politique de confidentialité'
+      }
+    };
+
+    var textNodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n]'));
+    var htmlNodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n-html]'));
+    var ariaNodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n-aria]'));
+    var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-language]'));
+    var metaDescription = document.querySelector('meta[name="description"]');
+
+    textNodes.forEach(function (node) { node.dataset.i18nEn = node.textContent; });
+    htmlNodes.forEach(function (node) { node.dataset.i18nEn = node.innerHTML; });
+    ariaNodes.forEach(function (node) { node.dataset.i18nAriaEn = node.getAttribute('aria-label') || ''; });
+
+    function applyLanguage(language, updateUrl) {
+      var dictionary = translations[language] || {};
+      document.documentElement.lang = language;
+      document.title = language === 'fr' ? 'Aperçu de la recherche | Bowen Yi' : 'Bowen Yi - Research';
+      if (metaDescription) {
+        metaDescription.content = language === 'fr'
+          ? 'Recherche en estimation, apprentissage, commande non linéaire et robotique par Bowen Yi à Polytechnique Montréal.'
+          : 'Research in nonlinear estimation, learning, control, and robotics by Bowen Yi at Polytechnique Montréal.';
+      }
+
+      textNodes.forEach(function (node) {
+        var key = node.getAttribute('data-i18n');
+        node.textContent = language === 'fr' && dictionary[key] ? dictionary[key] : node.dataset.i18nEn;
+      });
+      htmlNodes.forEach(function (node) {
+        var key = node.getAttribute('data-i18n-html');
+        node.innerHTML = language === 'fr' && dictionary[key] ? dictionary[key] : node.dataset.i18nEn;
+      });
+      ariaNodes.forEach(function (node) {
+        var key = node.getAttribute('data-i18n-aria');
+        node.setAttribute('aria-label', language === 'fr' && dictionary[key] ? dictionary[key] : node.dataset.i18nAriaEn);
+      });
+      buttons.forEach(function (button) {
+        var active = button.dataset.language === language;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+
+      try { localStorage.setItem('bowen-site-language', language); } catch (error) {}
+      if (updateUrl && window.history && window.history.replaceState) {
+        var url = new URL(window.location.href);
+        if (language === 'fr') url.searchParams.set('lang', 'fr');
+        else url.searchParams.delete('lang');
+        window.history.replaceState({}, '', url.pathname + url.search + url.hash);
+      }
+    }
+
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () { applyLanguage(button.dataset.language, true); });
+    });
+
+    document.querySelectorAll('[data-current-year]').forEach(function (node) {
+      node.textContent = new Date().getFullYear();
+    });
+
+    var params = new URLSearchParams(window.location.search);
+    var requested = params.get('lang');
+    var saved = null;
+    try { saved = localStorage.getItem('bowen-site-language'); } catch (error) {}
+    applyLanguage(requested === 'fr' || (!requested && saved === 'fr') ? 'fr' : 'en', false);
+  }());
+</script>
 </body>
 </html>
