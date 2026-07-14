@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +12,207 @@
   <link rel="stylesheet" href="assets/css/academicons.min.css">
   <link rel="stylesheet" href="assets/css/academicons.css">
   <link rel="stylesheet" href="stylesheets/site-theme.css">
+
+  <style>
+    .course-meta {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .course-update-badge {
+      background: #eaf2ef;
+      border: 1px solid #b9cec7;
+      border-radius: 999px;
+      color: var(--accent-dark);
+      font-size: 0.78em;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 2px 9px;
+      text-transform: uppercase;
+    }
+
+    .course-section {
+      margin-bottom: 25px;
+    }
+
+    .course-section-empty {
+      min-height: 8px;
+    }
+
+    .announcement-timeline {
+      background: #fffbea;
+      border: 1px solid #e4d9a3;
+      border-left: 4px solid #d1aa32;
+      border-radius: 3px;
+      box-sizing: border-box;
+      margin-top: 10px;
+      padding: 14px 18px 14px 24px;
+      width: 100%;
+    }
+
+    .announcement-item {
+      position: relative;
+    }
+
+    .announcement-item + .announcement-item {
+      margin-top: 13px;
+    }
+
+    .announcement-item::before {
+      background: var(--accent);
+      border: 2px solid #fffbea;
+      border-radius: 50%;
+      content: "";
+      height: 10px;
+      left: -31px;
+      position: absolute;
+      top: 4px;
+      width: 10px;
+    }
+
+    .announcement-date {
+      color: var(--accent-dark);
+      font-size: 0.85em;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .announcement-content {
+      font-size: 0.95em;
+    }
+
+    .course-section h4 {
+      color: var(--accent-dark);
+      font-size: 1em;
+      margin: 18px 0 7px;
+    }
+
+    .objective-list > li,
+    .prerequisite-list > li,
+    .project-list > li {
+      margin-bottom: 8px;
+    }
+
+    .objective-list ul {
+      margin-top: 6px;
+    }
+
+    .abbreviation-note {
+      color: var(--muted);
+      font-size: 0.9em;
+    }
+
+    .general-information {
+      background: var(--soft);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      column-gap: 20px;
+      row-gap: 9px;
+      padding: 15px 17px;
+    }
+
+    .general-information dt {
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .general-information dd {
+      margin: 0;
+    }
+
+    .course-table-wrap {
+      border-bottom: 1px solid #3c4b47;
+      border-top: 2px solid #3c4b47;
+      overflow-x: auto;
+    }
+
+    .course-table {
+      border-collapse: collapse;
+      font-size: 0.94em;
+      min-width: 560px;
+      width: 100%;
+    }
+
+    .course-table th,
+    .course-table td {
+      padding: 7px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .course-table thead th {
+      border-bottom: 1px solid #3c4b47;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .course-table tbody tr + tr td {
+      border-top: 1px solid var(--rule);
+    }
+
+    .course-table .number-column {
+      text-align: center;
+      white-space: nowrap;
+      width: 54px;
+    }
+
+    .course-table .weight-column {
+      white-space: nowrap;
+      width: 92px;
+    }
+
+    .course-table .total-row td {
+      background: var(--soft);
+      border-top: 2px solid #3c4b47;
+      font-weight: 700;
+    }
+
+    .reference-list {
+      margin: 10px 0 24px;
+      padding-left: 30px;
+    }
+
+    .reference-list li {
+      margin-bottom: 9px;
+      padding-left: 4px;
+    }
+
+    .policy-card {
+      background: #f1f3f2;
+      border-left: 4px solid #8d9995;
+      border-radius: 5px;
+      color: #343c39;
+      margin-top: 18px;
+      padding: 12px 16px;
+    }
+
+    .policy-card ul {
+      margin-bottom: 0;
+    }
+
+    .policy-card li {
+      margin-bottom: 7px;
+    }
+
+    .policy-card li:last-child {
+      margin-bottom: 0;
+    }
+
+    @media print, screen and (max-width: 600px) {
+      .general-information {
+        grid-template-columns: 1fr;
+        row-gap: 4px;
+      }
+
+      .general-information dd:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -64,24 +265,224 @@
 
   <!-- ================= MAIN CONTENT ================= -->
   <section class="course-home">
-    <p class="course-meta">ELE6209A · Winter 2026</p>
+    <p class="course-meta">
+      <span>ELE6209A · Hiver 2026</span>
+      <span class="course-update-badge">Mis à jour pour l’hiver 2026</span>
+    </p>
     <h2>Systèmes de navigation</h2>
     <div class="gray-line"></div>
 
-    <p class="justified-text">Graduate course on navigation systems, with emphasis on probabilistic state estimation, sensor fusion, inertial navigation, and practical architectures for modern navigation.</p>
+    <div class="course-section">
+      <h3>Objectifs du cours</h3>
+      <p>Ce cours présente les principes fondamentaux nécessaires à la conception de systèmes de navigation modernes. La plupart des méthodes étudiées s’appliquent à différents véhicules et environnements, notamment aux drones, aux véhicules autonomes, à la navigation piétonne, à la localisation intérieure et aux systèmes de réalité augmentée ou virtuelle.</p>
+      <ul class="objective-list">
+        <li>Étudier les éléments de géodésie et de radionavigation qui influencent notamment les systèmes de navigation aérienne.</li>
+        <li>Concevoir des systèmes intégrés simplifiés, tels que les AHRS et la navigation inertielle assistée par GNSS.</li>
+        <li>Introduire les fondements de la localisation et cartographie simultanées (SLAM).</li>
+      </ul>
 
-    <h3>Course Topics</h3>
-    <ul>
-      <li>Probabilistic state estimation and uncertainty propagation</li>
-      <li>Inertial measurement units and navigation frames</li>
-      <li>Sensor fusion for positioning and attitude estimation</li>
-      <li>Kalman filtering and related recursive estimators</li>
-    </ul>
+      <h4>Compétences visées</h4>
+      <p>À l’issue du cours, l’étudiant sera capable de&nbsp;:</p>
+      <ul class="objective-list">
+        <li>modéliser le mouvement d’un véhicule en 2D et 3D&nbsp;;</li>
+        <li>modéliser les erreurs des capteurs embarqués&nbsp;;</li>
+        <li>concevoir des estimateurs d’état fondés sur les moindres carrés non linéaires et le filtrage non linéaire (sous-optimal)&nbsp;;</li>
+        <li>comprendre les bases d’un système de SLAM&nbsp;;</li>
+        <li>analyser la littérature récente en navigation.</li>
+      </ul>
+      <p class="abbreviation-note">AHRS&nbsp;: <em>Attitude and Heading Reference System</em> · GNSS&nbsp;: <em>Global Navigation Satellite System</em></p>
+    </div>
 
-    
-    <p><a href="https://www.polymtl.ca/programmes/cours/systemes-de-navigation" target="_blank" rel="noopener">Official Polytechnique course page</a></p>
+    <div class="course-section">
+      <h3>Annonces</h3>
+      <div class="announcement-timeline">
+        <div class="announcement-item">
+          <div class="announcement-date"><time datetime="2026-04-13">13 avr. 2026</time></div>
+          <div class="announcement-content"><strong>Examen final&nbsp;:</strong> 15 avr., 13 h–15 h 30, B-315. Durée de 150 minutes, 3 questions; documents papier et calculatrices autorisés, autres appareils électroniques interdits.</div>
+        </div>
 
-    <p><a href="teaching.html">Back to teaching overview</a></p>
+        <div class="announcement-item">
+          <div class="announcement-date"><time datetime="2026-03-27">27 mars 2026</time></div>
+          <div class="announcement-content">L’évaluation du cours est ouverte; les étudiants sont invités à transmettre leurs commentaires.</div>
+        </div>
+
+        <div class="announcement-item">
+          <div class="announcement-date"><time datetime="2026-03-27">27 mars 2026</time></div>
+          <div class="announcement-content">Les commentaires sur les rapports d’étape ont été envoyés par courriel. Les questions techniques peuvent être discutées avec l’enseignant.</div>
+        </div>
+
+        <div class="announcement-item">
+          <div class="announcement-date"><time datetime="2026-03-27">27 mars 2026</time></div>
+          <div class="announcement-content">Séminaire de Romeo Ortega, <em>Some Reflections on Sliding Mode Control</em>, le 2 avr. de 10 h 30 à 11 h 30, salle M-2203. <a href="https://www.gerad.ca/en/events/2414" target="_blank" rel="noopener">Détails</a>.</div>
+        </div>
+
+        <div class="announcement-item">
+          <div class="announcement-date"><time datetime="2026-03-10">10 mars 2026</time></div>
+          <div class="announcement-content">En raison de la suspension des activités sur le campus, le cours du 11 mars aura lieu à distance, à l’heure habituelle, via Microsoft Teams.</div>
+        </div>
+
+        <div class="announcement-item">
+          <div class="announcement-date"><time datetime="2026-03-03">3 mars 2026</time></div>
+          <div class="announcement-content">Une clarification concernant l’interprétation active/passive de la question 1 du Devoir 1 est disponible en PDF sur Moodle.</div>
+        </div>
+
+        <div class="announcement-item">
+          <div class="announcement-date"><time datetime="2026-02-04">4 févr. 2026</time></div>
+          <div class="announcement-content"><strong>Devoir 2&nbsp;:</strong> la partie SLAM doit être programmée en Julia. Le travail est individuel; tout partage de code, de scripts ou de solutions est interdit.</div>
+        </div>
+
+        <div class="announcement-item">
+          <div class="announcement-date"><time datetime="2026-01-15">15 janv. 2026</time></div>
+          <div class="announcement-content">L’examen final de 2022 est disponible sur Moodle à titre de référence. Les exigences du projet figurent dans le plan du cours.</div>
+        </div>
+
+        <div class="announcement-item">
+          <div class="announcement-date"><time datetime="2026-01-08">8 janv. 2026</time></div>
+          <div class="announcement-content"><strong>Devoir 1&nbsp;:</strong> remise le 30 janv. La première question doit être terminée rapidement afin de préparer la formation des groupes de projet.</div>
+        </div>
+
+        <div class="announcement-item">
+          <div class="announcement-date"><time datetime="2026-01-06">6 janv. 2026</time></div>
+          <div class="announcement-content">Bienvenue à ELE6209A. Première séance le 7 janv., 12 h 45–15 h 45, B-315. Le cours est offert en français; les travaux peuvent être rédigés en français ou en anglais.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-section">
+      <h3>Informations générales</h3>
+      <dl class="general-information">
+        <dt>Crédits</dt>
+        <dd>3 crédits (3-0-6)</dd>
+
+        <dt>Trimestre</dt>
+        <dd>Hiver 2026</dd>
+
+        <dt>Horaire</dt>
+        <dd>Mercredi, 12 h 45–15 h 45</dd>
+
+        <dt>Local</dt>
+        <dd>B-315</dd>
+
+        <dt>Enseignant</dt>
+        <dd>Bowen Yi, professeur adjoint, Département de génie électrique</dd>
+
+        <dt>Courriel</dt>
+        <dd><a href="mailto:bowen.yi@polymtl.ca">bowen.yi@polymtl.ca</a></dd>
+
+        <dt>Travail personnel</dt>
+        <dd>Environ 6 heures par semaine, ou davantage selon la préparation et l’ambition du projet</dd>
+      </dl>
+
+      <h4>Conditions préalables</h4>
+      <ul class="prerequisite-list">
+        <li>Maîtrise des bases de la modélisation des systèmes dynamiques (niveau ELE2200).</li>
+        <li>Connaissances solides en probabilités et processus stochastiques (niveau MTH2302A).</li>
+        <li>Familiarité avec la théorie des systèmes linéaires à états-espace.</li>
+        <li>Une expérience préalable en estimation et filtrage est recommandée (p. ex. filtre de Kalman au niveau ELE4202).</li>
+        <li>Solides bases en algèbre linéaire et bonne maturité mathématique.</li>
+        <li>Le cours est complémentaire à ELE8203 (Robotique), mais peut être suivi indépendamment.</li>
+      </ul>
+
+      <h4>Logiciels de calcul numérique</h4>
+      <p>Les algorithmes devront être implémentés dans un environnement de calcul numérique. MATLAB constitue l’option par défaut; <a href="https://julialang.org/" target="_blank" rel="noopener">Julia</a>, Python avec NumPy/SciPy, Octave et Scilab sont également adaptés. Selon les travaux, certains algorithmes pourront devoir être implémentés à partir des principes de base.</p>
+    </div>
+
+    <div class="course-section">
+      <h3>Plan du cours</h3>
+      <div class="course-table-wrap">
+        <table class="course-table">
+          <thead>
+            <tr>
+              <th class="number-column">Module</th>
+              <th>Contenu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="number-column">1</td><td>Cadres de référence, systèmes de coordonnées, géodésie et éléments de mécanique céleste</td></tr>
+            <tr><td class="number-column">2</td><td>Cinématique des corps rigides et représentation des mouvements en 2D et 3D</td></tr>
+            <tr><td class="number-column">3</td><td>Modèles de capteurs de navigation, biais, bruit et désalignement</td></tr>
+            <tr><td class="number-column">4</td><td>Équations de navigation et propagation des incertitudes</td></tr>
+            <tr><td class="number-column">5</td><td>Estimation par moindres carrés et optimisation non linéaire</td></tr>
+            <tr><td class="number-column">6</td><td>Filtrage de Kalman étendu et fusion de données multicapteurs</td></tr>
+            <tr><td class="number-column">7</td><td>Radiopositionnement, GNSS et GPS</td></tr>
+            <tr><td class="number-column">8</td><td>Navigation inertielle et systèmes intégrés (AHRS, navigation inertielle assistée par GNSS)</td></tr>
+            <tr><td class="number-column">9</td><td>Introduction à la localisation et cartographie simultanées (SLAM)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="course-section">
+      <h3>Diapositives du cours</h3>
+      <p>Les diapositives et les notes de cours obligatoires sont disponibles sur Moodle.</p>
+    </div>
+
+    <div class="course-section">
+      <h3>Manuels et documents de référence</h3>
+      <p><strong>Document obligatoire&nbsp;:</strong> diapositives et notes de cours de l’enseignant, disponibles sur Moodle.</p>
+      <p><strong>Références supplémentaires&nbsp;:</strong></p>
+      <ol class="reference-list">
+        <li>J. A. Farrell, <em>Aided Navigation: GPS with High Rate Sensors</em>, McGraw-Hill, 2008.</li>
+        <li>P. D. Groves, <em>Principles of GNSS, Inertial, and Multisensor Integrated Navigation Systems</em>, 2e éd., Artech House, 2013.</li>
+        <li>J. L. Crassidis et J. L. Junkins, <em>Optimal Estimation of Dynamic Systems</em>, 2e éd., CRC Press, 2011.</li>
+        <li>T. D. Barfoot, <em>State Estimation for Robotics</em>, 2e éd., Cambridge University Press, 2023. <a href="http://asrl.utias.utoronto.ca/~tdb/bib/barfoot_ser24.pdf" target="_blank" rel="noopener">[PDF]</a></li>
+        <li>J. Solà, J. Deray et D. Atchuthan, <a href="https://arxiv.org/abs/1812.01537" target="_blank" rel="noopener"><em>A Micro Lie Theory for State Estimation in Robotics</em></a>.</li>
+        <li>P. Corke, <a href="http://petercorke.com/wordpress/rvc/" target="_blank" rel="noopener"><em>Robotics, Vision, and Control: Fundamental Algorithms in MATLAB</em></a>, 2e éd., 2017.</li>
+        <li>S. Thrun, W. Burgard et D. Fox, <em>Probabilistic Robotics</em>, MIT Press, 2005.</li>
+        <li>D. Simon, <em>Optimal State Estimation: Kalman, H<sub>∞</sub>, and Nonlinear Approaches</em>, Wiley-Interscience, 2006.</li>
+        <li>S. Särkkä, <a href="https://users.aalto.fi/~ssarkka/pub/cup_book_online_20131111.pdf" target="_blank" rel="noopener"><em>Bayesian Filtering and Smoothing</em></a>, Cambridge University Press, 2013.</li>
+        <li>R. M. Murray, Z. Li et S. S. Sastry, <em>A Mathematical Introduction to Robotic Manipulation</em>, chapitre 2.</li>
+        <li>B. L. Stevens, F. L. Lewis et E. Johnson, <em>Aircraft Control and Simulation</em>, 3e éd., Wiley, 2016.</li>
+        <li>P. T. Kabamba et A. R. Girard, <em>Fundamentals of Aerospace Navigation and Guidance</em>, Cambridge University Press, 2014.</li>
+        <li>R. W. Beard et T. W. McLain, <em>Small Unmanned Aircraft: Theory and Practice</em>, Princeton University Press, 2012.</li>
+        <li>M. Kayton et W. R. Fried, <em>Avionics Navigation Systems</em>, 2e éd., Wiley-Interscience, 1997.</li>
+        <li>R. de Santis, <em>Systèmes de navigation aérienne</em>, notes de cours ELE6209, mai 2011.</li>
+      </ol>
+    </div>
+
+    <div class="course-section">
+      <h3>Modalités d’évaluation</h3>
+      <div class="course-table-wrap">
+        <table class="course-table">
+          <thead>
+            <tr>
+              <th>Évaluation</th>
+              <th class="weight-column">Pondération</th>
+              <th>Détails</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>3 devoirs notés</td><td class="weight-column">4 %, 8 %, 8 %</td><td>20 % au total</td></tr>
+            <tr><td>Examen final</td><td class="weight-column">40 %</td><td>Toute documentation est autorisée</td></tr>
+            <tr><td>Proposition de projet</td><td class="weight-column">—</td><td>Document court d’environ 2 pages; retard&nbsp;: −2 points sur la note du rapport final</td></tr>
+            <tr><td>Rapport d’avancement</td><td class="weight-column">—</td><td>Version préliminaire d’environ 6 pages; retard&nbsp;: −2 points sur la note du rapport final</td></tr>
+            <tr><td>Présentation du projet</td><td class="weight-column">5 %</td><td>Présentation vidéo de 10 à 15 minutes</td></tr>
+            <tr><td>Rapport final du projet</td><td class="weight-column">35 %</td><td>Document d’environ 20 pages, accompagné du code et des éléments développés</td></tr>
+            <tr class="total-row"><td>Total</td><td class="weight-column">100 %</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="policy-card">
+        <ul>
+          <li><strong>Retards — devoirs et rapport final&nbsp;:</strong> pénalité de 15 % pour moins de 12 h; 30 % entre 12 h et 24 h; note de 0 après 24 h.</li>
+          <li><strong>Format&nbsp;:</strong> tous les documents doivent être remis en PDF. L’utilisation de LaTeX est fortement recommandée; les travaux manuscrits doivent être numérisés et lisibles.</li>
+          <li><strong>Soumission&nbsp;:</strong> les devoirs seront remis via Moodle.</li>
+          <li><strong>Intégrité académique&nbsp;:</strong> les réponses finales et les méthodes détaillées ne doivent pas être partagées; toute ressource externe doit être correctement citée. Consulter le <a href="http://www.polymtl.ca/plagiat/reglement-et-sanctions" target="_blank" rel="noopener">règlement de Polytechnique</a>.</li>
+        </ul>
+      </div>
+
+      <h4>Directives essentielles du projet</h4>
+      <ul class="project-list">
+        <li>Le projet doit comporter une composante de conception et d’implémentation, au minimum en logiciel et en simulation.</li>
+        <li>Une simple revue de littérature n’est pas suffisante; l’analyse, les simulations et les essais de performance doivent être réalisés par les étudiants.</li>
+        <li>Les projets sont normalement réalisés en binôme. Toute autre composition d’équipe nécessite l’autorisation de l’enseignant.</li>
+        <li>La proposition doit être préparée avant la fin de la semaine 6; un travail régulier tout au long du trimestre est attendu.</li>
+        <li>Une implémentation matérielle est possible mais facultative.</li>
+      </ul>
+    </div>
+
+    <p><a href="teaching.html">Retour à l’aperçu des cours</a></p>
   </section>
 </div>
 </body>
