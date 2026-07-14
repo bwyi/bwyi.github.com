@@ -24,7 +24,49 @@
     }
 
     .position-content {
+      position: relative;
       text-align: left;
+    }
+
+    .position-language-switch {
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid var(--position-rule);
+      border-radius: 999px;
+      display: inline-flex;
+      gap: 6px;
+      padding: 3px 8px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 2;
+    }
+
+    .position-language-switch button {
+      appearance: none;
+      background: transparent;
+      border: 0;
+      color: var(--position-muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 0;
+    }
+
+    .position-language-switch button:hover,
+    .position-language-switch button.active {
+      color: var(--position-accent-dark);
+    }
+
+    .position-language-switch button:hover {
+      text-decoration: underline;
+    }
+
+    .position-language-switch span {
+      color: #a7b3b0;
+      font-size: 11px;
     }
 
     .position-kicker {
@@ -459,6 +501,12 @@
     }
 
     @media screen and (max-width: 600px) {
+      .position-language-switch {
+        margin: 0 0 12px auto;
+        position: static;
+        width: max-content;
+      }
+
       .funding-list {
         grid-template-columns: 1fr;
       }
@@ -495,19 +543,19 @@
     <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="position-navigation">
       <i class="fa fa-bars" aria-hidden="true"></i> Menu
     </button>
-    <nav class="site-nav" id="position-navigation" aria-label="Main navigation">
-      <a class="nav-link" href="index.html">Home</a>
+    <nav class="site-nav" id="position-navigation" aria-label="Main navigation" data-i18n-aria="nav.label">
+      <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
 
       <div class="nav-group">
-        <div class="nav-heading">Research</div>
-        <a class="nav-link" href="research.html">Overview</a>
+        <div class="nav-heading" data-i18n="nav.research">Research</div>
+        <a class="nav-link" href="research.html" data-i18n="nav.overview">Overview</a>
         <a class="nav-link" href="publication.html">Publications</a>
-        <a class="nav-link" href="people.html">People</a>
-        <a class="nav-link" href="position.html">Positions</a>
+        <a class="nav-link" href="people.html" data-i18n="nav.people">People</a>
+        <a class="nav-link" href="position.html" data-i18n="nav.positions">Positions</a>
       </div>
 
       <div class="nav-group">
-        <div class="nav-heading">Teaching</div>
+        <div class="nav-heading" data-i18n="nav.teaching">Teaching</div>
         <a class="nav-link" href="course-ele6202.html">ELE6202</a>
         <a class="nav-link" href="course-ele6214.html">ELE6214</a>
         <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
@@ -515,11 +563,11 @@
       </div>
 
       <div class="nav-group">
-        <div class="nav-heading">Other</div>
-        <a class="nav-link" href="calendar.html">Calendar</a>
-        <a class="nav-link" href="awards.html">Award</a>
+        <div class="nav-heading" data-i18n="nav.other">Other</div>
+        <a class="nav-link" href="calendar.html" data-i18n="nav.calendar">Calendar</a>
+        <a class="nav-link" href="awards.html" data-i18n="nav.awards">Award</a>
         <a class="nav-link" href="services.html">Services</a>
-        <a class="nav-link" href="misc.html">Misc</a>
+        <a class="nav-link" href="misc.html" data-i18n="nav.misc">Misc</a>
       </div>
     </nav>
 
@@ -541,166 +589,172 @@
 <main>
 <section class="position-content">
 
-  <div class="position-kicker">Research opportunities · Montréal</div>
-  <h2>Open Positions</h2>
-  <p class="position-intro">
+  <div class="position-language-switch" role="group" aria-label="Language selection" data-i18n-aria="language.selector">
+    <button type="button" class="active" data-language="en" aria-pressed="true">EN</button>
+    <span aria-hidden="true">|</span>
+    <button type="button" data-language="fr" aria-pressed="false">FR</button>
+  </div>
+
+  <div class="position-kicker" data-i18n="hero.kicker">Research opportunities · Montréal</div>
+  <h2 data-i18n="hero.title">Open Positions</h2>
+  <p class="position-intro" data-i18n-html="hero.intro">
     I am interested in working with motivated students and researchers in
     <strong>control, estimation, learning, and robotics</strong>. The group values
     strong theoretical foundations, clear thinking, intellectual independence,
     and a genuine interest in meaningful engineering problems.
   </p>
 
-  <aside class="status-panel" aria-label="Recruitment status">
-    <div class="status-label"><i class="fa fa-circle" aria-hidden="true"></i> General inquiries welcome</div>
-    <p>Prospective graduate students, postdoctoral researchers, and research visitors are welcome to get in touch. Specific funded openings depend on current projects and available funding.</p>
-    <span class="status-updated">Last updated: July 2026</span>
+  <aside class="status-panel" aria-label="Recruitment status" data-i18n-aria="status.aria">
+    <div class="status-label"><i class="fa fa-circle" aria-hidden="true"></i> <span data-i18n="status.label">General inquiries welcome</span></div>
+    <p data-i18n="status.text">Prospective graduate students, postdoctoral researchers, and research visitors are welcome to get in touch. Specific funded openings depend on current projects and available funding.</p>
+    <span class="status-updated" data-i18n="status.updated">Last updated: July 2026</span>
   </aside>
 
-  <h3 class="position-heading">Opportunities</h3>
+  <h3 class="position-heading" data-i18n="opportunities.title">Opportunities</h3>
 
   <article class="opportunity-card">
-    <span class="opportunity-tag">Graduate research</span>
-    <h4>Ph.D. and Research-Based M.Sc. Students</h4>
-    <p>I regularly consider strong applicants for research-based graduate studies at Polytechnique Montréal. Suitable backgrounds include control systems, applied mathematics, electrical or mechanical engineering, robotics, and related fields.</p>
-    <p>Applicants should be comfortable with linear algebra and calculus. Experience with dynamical systems, probability, optimization, programming, or robotics is an asset.</p>
+    <span class="opportunity-tag" data-i18n="graduate.tag">Graduate research</span>
+    <h4 data-i18n="graduate.title">Ph.D. and Research-Based M.Sc. Students</h4>
+    <p data-i18n="graduate.text1">I regularly consider strong applicants for research-based graduate studies at Polytechnique Montréal. Suitable backgrounds include control systems, applied mathematics, electrical or mechanical engineering, robotics, and related fields.</p>
+    <p data-i18n="graduate.text2">Applicants should be comfortable with linear algebra and calculus. Experience with dynamical systems, probability, optimization, programming, or robotics is an asset.</p>
   </article>
 
   <article class="opportunity-card">
-    <span class="opportunity-tag">Funding dependent</span>
-    <h4>Postdoctoral Researchers</h4>
-    <p>Postdoctoral positions are occasionally available, subject to project funding. Strong candidates are encouraged to contact me early to discuss research fit and external fellowship applications.</p>
-    <p class="funding-intro">Competitive postdoctoral funding programs in Canada and Québec include:</p>
+    <span class="opportunity-tag" data-i18n="postdoc.tag">Funding dependent</span>
+    <h4 data-i18n="postdoc.title">Postdoctoral Researchers</h4>
+    <p data-i18n="postdoc.text">Postdoctoral positions are occasionally available, subject to project funding. Strong candidates are encouraged to contact me early to discuss research fit and external fellowship applications.</p>
+    <p class="funding-intro" data-i18n="postdoc.funding">Competitive postdoctoral funding programs in Canada and Québec include:</p>
     <ul class="funding-list">
       <li>
         <a href="https://banting.fellowships-bourses.gc.ca/en/home-accueil.html" target="_blank" rel="noopener">
           <i class="fa fa-external-link" aria-hidden="true"></i>
-          <span><strong>Banting Postdoctoral Fellowships</strong><small>Legacy program; applications have transitioned to the CPRA.</small></span>
+          <span><strong>Banting Postdoctoral Fellowships</strong><small data-i18n="funding.banting">Legacy program; applications have transitioned to the CPRA.</small></span>
         </a>
       </li>
       <li>
         <a href="https://www.nserc-crsng.gc.ca/Students-Etudiants/PD-NP/PDF-BP_eng.asp" target="_blank" rel="noopener">
           <i class="fa fa-external-link" aria-hidden="true"></i>
-          <span><strong>Canada Postdoctoral Research Award</strong><small>Current federal program, formerly the NSERC PDF.</small></span>
+          <span><strong>Canada Postdoctoral Research Award</strong><small data-i18n="funding.cpra">Current federal program, formerly the NSERC PDF.</small></span>
         </a>
       </li>
       <li>
         <a href="https://www.mitacs.ca/news/mitacs-elevate-transitions-to-new-accelerate-model-for-postdocs/" target="_blank" rel="noopener">
           <i class="fa fa-external-link" aria-hidden="true"></i>
-          <span><strong>Mitacs Accelerate for Postdocs</strong><small>Current model, formerly Mitacs Elevate.</small></span>
+          <span><strong>Mitacs Accelerate for Postdocs</strong><small data-i18n="funding.mitacs">Current model, formerly Mitacs Elevate.</small></span>
         </a>
       </li>
       <li>
         <a href="https://frq.gouv.qc.ca/en/program/postdoctoral-scholarships-2027-2028-b3/" target="_blank" rel="noopener">
           <i class="fa fa-external-link" aria-hidden="true"></i>
-          <span><strong>FRQ Postdoctoral Scholarships</strong><small>Nature and technologies sector, formerly FRQNT B3.</small></span>
+          <span><strong>FRQ Postdoctoral Scholarships</strong><small data-i18n="funding.frq">Nature and technologies sector, formerly FRQNT B3.</small></span>
         </a>
       </li>
       <li>
         <a href="https://ivado.ca/en/scholarships-and-grants/ivado-postdoctoral-research-funding-program-2026/" target="_blank" rel="noopener">
           <i class="fa fa-external-link" aria-hidden="true"></i>
-          <span><strong>IVADO Postdoctoral Research Funding</strong><small>For research aligned with robust, reasoning, and responsible AI.</small></span>
+          <span><strong>IVADO Postdoctoral Research Funding</strong><small data-i18n="funding.ivado">For research aligned with robust, reasoning, and responsible AI.</small></span>
         </a>
       </li>
       <li>
         <a href="https://www.gerad.ca/en/competition" target="_blank" rel="noopener">
           <i class="fa fa-external-link" aria-hidden="true"></i>
-          <span><strong>GERAD Postdoctoral Fellowship</strong><small>Competitive co-supervised postdoctoral funding.</small></span>
+          <span><strong>GERAD Postdoctoral Fellowship</strong><small data-i18n="funding.gerad">Competitive co-supervised postdoctoral funding.</small></span>
         </a>
       </li>
     </ul>
   </article>
 
   <article class="opportunity-card">
-    <span class="opportunity-tag">Research visits</span>
-    <h4>Visiting Students and Research Interns</h4>
-    <p>I welcome visiting graduate students, undergraduate research interns, and academic visitors for short- or long-term stays. Visitors are normally expected to have external funding from their home institution or a scholarship program.</p>
+    <span class="opportunity-tag" data-i18n="visitors.tag">Research visits</span>
+    <h4 data-i18n="visitors.title">Visiting Students and Research Interns</h4>
+    <p data-i18n="visitors.text">I welcome visiting graduate students, undergraduate research interns, and academic visitors for short- or long-term stays. Visitors are normally expected to have external funding from their home institution or a scholarship program.</p>
   </article>
 
-  <h3 class="position-heading">How to Apply</h3>
+  <h3 class="position-heading" data-i18n="apply.title">How to Apply</h3>
 
   <div class="apply-panel">
-    <h4>Start with a concise email</h4>
-    <p>Use the subject line <strong>“Prospective PhD/MSc/Postdoc – Name – Intended start term”</strong> and briefly explain why your background and interests fit the group.</p>
+    <h4 data-i18n="apply.emailTitle">Start with a concise email</h4>
+    <p data-i18n-html="apply.emailText">Use the subject line <strong>“Prospective PhD/MSc/Postdoc – Name – Intended start term”</strong> and briefly explain why your background and interests fit the group.</p>
     <a class="apply-button" href="mailto:bowen.yi@polymtl.ca?subject=Prospective%20PhD%2FMSc%2FPostdoc%20%E2%80%93%20Name%20%E2%80%93%20Intended%20start%20term">
-      <i class="fa fa-envelope" aria-hidden="true"></i> Email to Apply
+      <i class="fa fa-envelope" aria-hidden="true"></i> <span data-i18n="apply.button">Email to Apply</span>
     </a>
   </div>
 
   <ul class="application-list">
-    <li>A focused description of your research interests and intended degree or position.</li>
-    <li>A short research-fit statement explaining how your background connects to the group's research themes.</li>
-    <li>Your CV and academic transcripts; unofficial transcripts are sufficient for the initial inquiry.</li>
-    <li>Links to publications, preprints, code, a thesis, or relevant projects, if available.</li>
-    <li>Your preferred start term and any fellowship or external funding plans.</li>
+    <li data-i18n="apply.item1">A focused description of your research interests and intended degree or position.</li>
+    <li data-i18n="apply.item2">A short research-fit statement explaining how your background connects to the group's research themes.</li>
+    <li data-i18n="apply.item3">Your CV and academic transcripts; unofficial transcripts are sufficient for the initial inquiry.</li>
+    <li data-i18n="apply.item4">Links to publications, preprints, code, a thesis, or relevant projects, if available.</li>
+    <li data-i18n="apply.item5">Your preferred start term and any fellowship or external funding plans.</li>
   </ul>
 
-  <div class="admission-note">
+  <div class="admission-note" data-i18n-html="admission.note">
     Formal admission is handled centrally by Polytechnique Montréal. Candidates must meet the university's
     <a href="https://www.polymtl.ca/admission/en" target="_blank" rel="noopener">graduate admission requirements</a>.
     Research-based M.Sc. and Ph.D. programs may be completed in English, while course and language requirements depend on the selected program.
   </div>
 
   <div class="official-info">
-    <h3 class="position-heading">Official Graduate Study Information</h3>
-    <p class="official-info-intro">The following is a concise summary of information published by Polytechnique Montréal. Applicants should consult the linked official pages for the latest admission rules and program details.</p>
+    <h3 class="position-heading" data-i18n="official.title">Official Graduate Study Information</h3>
+    <p class="official-info-intro" data-i18n="official.intro">The following is a concise summary of information published by Polytechnique Montréal. Applicants should consult the linked official pages for the latest admission rules and program details.</p>
 
     <div class="degree-grid">
       <article class="degree-card">
-        <h4>Research-Based Master's (M.A.Sc.)</h4>
-        <p>Two-thirds of the program is dedicated to a research project and one-third to coursework related to the field of research. The work is completed under the guidance of a research supervisor.</p>
+        <h4 data-i18n="masters.title">Research-Based Master's (M.A.Sc.)</h4>
+        <p data-i18n="masters.text">Two-thirds of the program is dedicated to a research project and one-third to coursework related to the field of research. The work is completed under the guidance of a research supervisor.</p>
         <div class="degree-metrics">
-          <div class="degree-metric"><strong>45</strong><span>Total credits</span></div>
-          <div class="degree-metric"><strong>4–6</strong><span>Full-time semesters</span></div>
+          <div class="degree-metric"><strong>45</strong><span data-i18n="degree.credits">Total credits</span></div>
+          <div class="degree-metric"><strong>4–6</strong><span data-i18n="degree.semesters">Full-time semesters</span></div>
         </div>
-        <div class="credit-bar" aria-label="15 course credits and 30 research credits">
+        <div class="credit-bar" aria-label="15 course credits and 30 research credits" data-i18n-aria="masters.aria">
           <span class="course-credit"></span><span class="research-credit"></span>
         </div>
-        <div class="credit-legend">15 course credits · 30 research credits</div>
+        <div class="credit-legend" data-i18n="masters.legend">15 course credits · 30 research credits</div>
       </article>
 
       <article class="degree-card">
-        <h4>Doctorate (Ph.D.)</h4>
-        <p>The doctoral program develops advanced knowledge, intellectual rigour, scientific curiosity, and creativity through research conducted under the guidance of a research supervisor.</p>
+        <h4 data-i18n="phd.title">Doctorate (Ph.D.)</h4>
+        <p data-i18n="phd.text">The doctoral program develops advanced knowledge, intellectual rigour, scientific curiosity, and creativity through research conducted under the guidance of a research supervisor.</p>
         <div class="degree-metrics">
-          <div class="degree-metric"><strong>90</strong><span>Total credits</span></div>
-          <div class="degree-metric"><strong>8–11</strong><span>Full-time semesters</span></div>
+          <div class="degree-metric"><strong>90</strong><span data-i18n="degree.credits">Total credits</span></div>
+          <div class="degree-metric"><strong>8–11</strong><span data-i18n="degree.semesters">Full-time semesters</span></div>
         </div>
-        <div class="credit-bar" aria-label="15 course credits and 75 research credits">
+        <div class="credit-bar" aria-label="15 course credits and 75 research credits" data-i18n-aria="phd.aria">
           <span class="course-credit" style="width:16.667%;"></span><span class="research-credit"></span>
         </div>
-        <div class="credit-legend">15 course credits · 75 research credits</div>
+        <div class="credit-legend" data-i18n="phd.legend">15 course credits · 75 research credits</div>
       </article>
     </div>
 
     <article class="official-detail-card">
-      <h4>Direct Entry from a Bachelor's to the Doctorate</h4>
-      <p>This pathway allows eligible candidates to begin doctoral studies after completing an engineering bachelor's degree, without first completing a master's degree.</p>
+      <h4 data-i18n="direct.title">Direct Entry from a Bachelor's to the Doctorate</h4>
+      <p data-i18n="direct.text">This pathway allows eligible candidates to begin doctoral studies after completing an engineering bachelor's degree, without first completing a master's degree.</p>
       <ul>
-        <li>Bachelor's degree in engineering or an equivalent degree (BAC+5 or Master 2 in the European system).</li>
-        <li>Minimum GPA of 3.2/4.0.</li>
-        <li>Standard 90-credit doctorate, normally completed in 8–11 semesters.</li>
+        <li data-i18n="direct.item1">Bachelor's degree in engineering or an equivalent degree (BAC+5 or Master 2 in the European system).</li>
+        <li data-i18n="direct.item2">Minimum GPA of 3.2/4.0.</li>
+        <li data-i18n="direct.item3">Standard 90-credit doctorate, normally completed in 8–11 semesters.</li>
       </ul>
-      <a class="official-link" href="https://www.polymtl.ca/futur/en/es/programs" target="_blank" rel="noopener"><i class="fa fa-external-link" aria-hidden="true"></i> View official program information</a>
+      <a class="official-link" href="https://www.polymtl.ca/futur/en/es/programs" target="_blank" rel="noopener"><i class="fa fa-external-link" aria-hidden="true"></i> <span data-i18n="direct.link">View official program information</span></a>
     </article>
 
     <article class="official-detail-card">
-      <h4>Double Degree</h4>
-      <p>Polytechnique Montréal has entered into several double degree agreements with major engineering schools. If your home institution is a signatory to one of these agreements, you may be able to integrate a master's program into your engineering training and obtain both an engineering degree from your home institution and a master's degree from Polytechnique Montréal.</p>
-      <a class="official-link" href="https://www.polymtl.ca/futur/en/es/double-degree" target="_blank" rel="noopener"><i class="fa fa-external-link" aria-hidden="true"></i> Find out more about double degrees</a>
+      <h4 data-i18n="double.title">Double Degree</h4>
+      <p data-i18n="double.text">Polytechnique Montréal has entered into several double degree agreements with major engineering schools. If your home institution is a signatory to one of these agreements, you may be able to integrate a master's program into your engineering training and obtain both an engineering degree from your home institution and a master's degree from Polytechnique Montréal.</p>
+      <a class="official-link" href="https://www.polymtl.ca/futur/en/es/double-degree" target="_blank" rel="noopener"><i class="fa fa-external-link" aria-hidden="true"></i> <span data-i18n="double.link">Find out more about double degrees</span></a>
     </article>
 
     <article class="official-detail-card language-card">
-      <h4>Language of Study and Language Requirements</h4>
-      <p>Polytechnique Montréal is a francophone university of international calibre. Basic knowledge of French is recommended for smooth academic and social integration. Research-based master's and Ph.D. programs may be completed in English, and students may take courses at partner anglophone universities in Montréal while pursuing their research at Polytechnique.</p>
-      <p>Applicants should consult the official page for accepted proof of language proficiency, exemptions, and graduation-related French requirements.</p>
-      <a class="official-link" href="https://www.polymtl.ca/admission/en/graduate-studies/read-eligibility-conditions/5-language-requirements/51-research-based-masters-and-doctorate" target="_blank" rel="noopener"><i class="fa fa-language" aria-hidden="true"></i> View official language requirements</a>
+      <h4 data-i18n="language.title">Language of Study and Language Requirements</h4>
+      <p data-i18n="language.text1">Polytechnique Montréal is a francophone university of international calibre. Basic knowledge of French is recommended for smooth academic and social integration. Research-based master's and Ph.D. programs may be completed in English, and students may take courses at partner anglophone universities in Montréal while pursuing their research at Polytechnique.</p>
+      <p data-i18n="language.text2">Applicants should consult the official page for accepted proof of language proficiency, exemptions, and graduation-related French requirements.</p>
+      <a class="official-link" href="https://www.polymtl.ca/admission/en/graduate-studies/read-eligibility-conditions/5-language-requirements/51-research-based-masters-and-doctorate" target="_blank" rel="noopener"><i class="fa fa-language" aria-hidden="true"></i> <span data-i18n="language.link">View official language requirements</span></a>
     </article>
   </div>
 
   <footer class="position-footer">
-    &copy; <span id="copyright-year">2026</span> Bowen Yi. All rights reserved.
+    &copy; <span id="copyright-year">2026</span> <span data-i18n="footer.rights">Bowen Yi. All rights reserved.</span>
     <span aria-hidden="true">·</span>
-    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="privacy-policy.html" data-i18n="footer.privacy">Privacy Policy</a>
   </footer>
 
 </section>
@@ -710,7 +764,165 @@
 
 </div>
 <script>
-  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+document.addEventListener("DOMContentLoaded", function () {
+  const french = {
+    "language.selector": "Choix de la langue",
+    "nav.label": "Navigation principale",
+    "nav.home": "Accueil",
+    "nav.research": "Recherche",
+    "nav.overview": "Vue d’ensemble",
+    "nav.people": "Équipe",
+    "nav.positions": "Postes",
+    "nav.teaching": "Enseignement",
+    "nav.other": "Autres",
+    "nav.calendar": "Calendrier",
+    "nav.awards": "Prix",
+    "nav.misc": "Divers",
+    "hero.kicker": "Possibilités de recherche · Montréal",
+    "hero.title": "Possibilités de recherche",
+    "hero.intro": "Je souhaite collaborer avec des étudiants et des chercheurs motivés en <strong>commande, estimation, apprentissage et robotique</strong>. Le groupe valorise de solides bases théoriques, la clarté du raisonnement, l’autonomie intellectuelle et un intérêt réel pour des problèmes d’ingénierie pertinents.",
+    "status.aria": "État du recrutement",
+    "status.label": "Demandes générales bienvenues",
+    "status.text": "Les futurs étudiants aux cycles supérieurs, les chercheurs postdoctoraux et les visiteurs de recherche sont invités à communiquer avec moi. Les postes financés dépendent des projets en cours et du financement disponible.",
+    "status.updated": "Dernière mise à jour : juillet 2026",
+    "opportunities.title": "Possibilités",
+    "graduate.tag": "Recherche aux cycles supérieurs",
+    "graduate.title": "Doctorat et maîtrise recherche (M.Sc.A.)",
+    "graduate.text1": "J’examine régulièrement les candidatures solides aux programmes de recherche aux cycles supérieurs de Polytechnique Montréal. Les profils pertinents comprennent la commande des systèmes, les mathématiques appliquées, le génie électrique ou mécanique, la robotique et les domaines connexes.",
+    "graduate.text2": "Les candidats doivent être à l’aise avec l’algèbre linéaire et le calcul différentiel et intégral. Une expérience en systèmes dynamiques, probabilités, optimisation, programmation ou robotique constitue un atout.",
+    "postdoc.tag": "Selon le financement",
+    "postdoc.title": "Chercheurs postdoctoraux",
+    "postdoc.text": "Des postes postdoctoraux sont parfois disponibles, selon le financement des projets. Les candidats solides sont invités à communiquer avec moi suffisamment tôt afin de discuter de l’adéquation scientifique et des demandes de bourses externes.",
+    "postdoc.funding": "Les programmes concurrentiels de financement postdoctoral au Canada et au Québec comprennent :",
+    "funding.banting": "Programme antérieur; les candidatures ont été transférées au programme CPRA.",
+    "funding.cpra": "Programme fédéral actuel, auparavant la bourse postdoctorale du CRSNG.",
+    "funding.mitacs": "Modèle actuel, auparavant Mitacs Élévation.",
+    "funding.frq": "Secteur Nature et technologies, auparavant FRQNT B3.",
+    "funding.ivado": "Pour les recherches liées à une IA robuste, capable de raisonnement et responsable.",
+    "funding.gerad": "Financement postdoctoral concurrentiel en codirection.",
+    "visitors.tag": "Séjours de recherche",
+    "visitors.title": "Étudiants visiteurs et stagiaires de recherche",
+    "visitors.text": "J’accueille des étudiants visiteurs aux cycles supérieurs, des stagiaires de recherche au premier cycle et des visiteurs universitaires pour des séjours de courte ou de longue durée. Les visiteurs doivent normalement disposer d’un financement externe de leur établissement d’attache ou d’un programme de bourses.",
+    "apply.title": "Comment postuler",
+    "apply.emailTitle": "Commencez par un courriel concis",
+    "apply.emailText": "Utilisez l’objet <strong>« Prospective PhD/MSc/Postdoc – Name – Intended start term »</strong> et expliquez brièvement en quoi votre formation et vos intérêts correspondent aux activités du groupe.",
+    "apply.button": "Envoyer une candidature",
+    "apply.item1": "Une description précise de vos intérêts de recherche et du programme ou poste souhaité.",
+    "apply.item2": "Un court texte expliquant le lien entre votre parcours et les thèmes de recherche du groupe.",
+    "apply.item3": "Votre CV et vos relevés de notes; des relevés non officiels suffisent pour la prise de contact initiale.",
+    "apply.item4": "Des liens vers vos publications, prépublications, codes, mémoire, thèse ou projets pertinents, le cas échéant.",
+    "apply.item5": "Le trimestre de début souhaité ainsi que vos projets de bourse ou de financement externe.",
+    "admission.note": "L’admission officielle est gérée de façon centralisée par Polytechnique Montréal. Les candidats doivent satisfaire aux <a href=\"https://www.polymtl.ca/admission\" target=\"_blank\" rel=\"noopener\">conditions d’admission aux études supérieures</a> de l’Université. Les programmes de maîtrise recherche et de doctorat peuvent être réalisés en anglais; les exigences relatives aux cours et aux langues dépendent du programme choisi.",
+    "official.title": "Renseignements officiels sur les études supérieures",
+    "official.intro": "Voici un résumé concis des renseignements publiés par Polytechnique Montréal. Les candidats doivent consulter les pages officielles indiquées pour connaître les règles d’admission et les détails des programmes les plus récents.",
+    "masters.title": "Maîtrise recherche (M.Sc.A.)",
+    "masters.text": "Les deux tiers du programme sont consacrés à un projet de recherche et le dernier tiers à des cours liés au domaine de recherche. Les travaux sont réalisés sous la direction d’un directeur de recherche.",
+    "degree.credits": "Crédits au total",
+    "degree.semesters": "Trimestres à temps plein",
+    "masters.aria": "15 crédits de cours et 30 crédits de recherche",
+    "masters.legend": "15 crédits de cours · 30 crédits de recherche",
+    "phd.title": "Doctorat (Ph.D.)",
+    "phd.text": "Le programme de doctorat développe des connaissances avancées, la rigueur intellectuelle, la curiosité scientifique et la créativité grâce à des travaux menés sous la direction d’un directeur de recherche.",
+    "phd.aria": "15 crédits de cours et 75 crédits de recherche",
+    "phd.legend": "15 crédits de cours · 75 crédits de recherche",
+    "direct.title": "Passage direct du baccalauréat au doctorat",
+    "direct.text": "Ce cheminement permet aux candidats admissibles de commencer leurs études doctorales après un baccalauréat en génie, sans devoir d’abord terminer une maîtrise.",
+    "direct.item1": "Baccalauréat en génie ou diplôme équivalent (BAC+5 ou Master 2 dans le système européen).",
+    "direct.item2": "Moyenne cumulative minimale de 3,2/4,0.",
+    "direct.item3": "Doctorat standard de 90 crédits, normalement réalisé en 8 à 11 trimestres.",
+    "direct.link": "Consulter les renseignements officiels sur les programmes",
+    "double.title": "Double diplôme",
+    "double.text": "Polytechnique Montréal a conclu plusieurs ententes de double diplôme avec de grandes écoles d’ingénieurs. Si votre établissement d’attache est signataire de l’une de ces ententes, vous pourriez intégrer un programme de maîtrise à votre formation d’ingénieur et obtenir à la fois le diplôme d’ingénieur de votre établissement et une maîtrise de Polytechnique Montréal.",
+    "double.link": "En savoir plus sur les doubles diplômes",
+    "language.title": "Langue d’études et exigences linguistiques",
+    "language.text1": "Polytechnique Montréal est une université francophone de calibre international. Une connaissance de base du français est recommandée afin de faciliter l’intégration universitaire et sociale. Les programmes de maîtrise recherche et de doctorat peuvent être réalisés en anglais, et les étudiants peuvent suivre des cours dans des universités anglophones partenaires de Montréal tout en poursuivant leurs travaux de recherche à Polytechnique.",
+    "language.text2": "Les candidats doivent consulter la page officielle pour connaître les preuves de compétence linguistique acceptées, les exemptions et les exigences de français liées à l’obtention du diplôme.",
+    "language.link": "Consulter les exigences linguistiques officielles",
+    "footer.rights": "Bowen Yi. Tous droits réservés.",
+    "footer.privacy": "Politique de confidentialité"
+  };
+
+  const textNodes = document.querySelectorAll("[data-i18n]");
+  const htmlNodes = document.querySelectorAll("[data-i18n-html]");
+  const ariaNodes = document.querySelectorAll("[data-i18n-aria]");
+
+  textNodes.forEach(function (node) {
+    node.dataset.englishText = node.textContent;
+  });
+  htmlNodes.forEach(function (node) {
+    node.dataset.englishHtml = node.innerHTML;
+  });
+  ariaNodes.forEach(function (node) {
+    node.dataset.englishAria = node.getAttribute("aria-label") || "";
+  });
+
+  function applyLanguage(language, updateAddress) {
+    const currentLanguage = language === "fr" ? "fr" : "en";
+    document.documentElement.lang = currentLanguage;
+    document.title = currentLanguage === "fr" ? "Possibilités de recherche | Bowen Yi" : "Open Positions | Bowen Yi";
+
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+      description.content = currentLanguage === "fr"
+        ? "Possibilités de recherche en commande, estimation, apprentissage et robotique avec Bowen Yi à Polytechnique Montréal."
+        : "Research opportunities in control, estimation, learning, and robotics with Bowen Yi at Polytechnique Montréal.";
+    }
+
+    textNodes.forEach(function (node) {
+      const key = node.dataset.i18n;
+      node.textContent = currentLanguage === "fr" && french[key] ? french[key] : node.dataset.englishText;
+    });
+    htmlNodes.forEach(function (node) {
+      const key = node.dataset.i18nHtml;
+      node.innerHTML = currentLanguage === "fr" && french[key] ? french[key] : node.dataset.englishHtml;
+    });
+    ariaNodes.forEach(function (node) {
+      const key = node.dataset.i18nAria;
+      node.setAttribute("aria-label", currentLanguage === "fr" && french[key] ? french[key] : node.dataset.englishAria);
+    });
+    document.querySelectorAll("[data-language]").forEach(function (button) {
+      const selected = button.dataset.language === currentLanguage;
+      button.classList.toggle("active", selected);
+      button.setAttribute("aria-pressed", selected ? "true" : "false");
+    });
+
+    try {
+      localStorage.setItem("bowen-site-language", currentLanguage);
+    } catch (error) {
+      // Language switching still works when storage is unavailable.
+    }
+
+    if (updateAddress) {
+      try {
+        const url = new URL(window.location.href);
+        if (currentLanguage === "fr") {
+          url.searchParams.set("lang", "fr");
+        } else {
+          url.searchParams.delete("lang");
+        }
+        history.replaceState(null, "", url.href);
+      } catch (error) {
+        // Some local file viewers do not allow history updates.
+      }
+    }
+  }
+
+  document.getElementById("copyright-year").textContent = new Date().getFullYear();
+  document.querySelectorAll("[data-language]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      applyLanguage(button.dataset.language, true);
+    });
+  });
+
+  const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+  let savedLanguage = "";
+  try {
+    savedLanguage = localStorage.getItem("bowen-site-language") || "";
+  } catch (error) {
+    savedLanguage = "";
+  }
+  applyLanguage(requestedLanguage === "fr" || requestedLanguage === "en" ? requestedLanguage : savedLanguage, false);
+});
 </script>
 </body>
 </html>
