@@ -12,6 +12,234 @@
   <link rel="stylesheet" href="assets/css/academicons.min.css">
   <link rel="stylesheet" href="assets/css/academicons.css">
   <link rel="stylesheet" href="stylesheets/site-theme.css">
+
+  <style>
+    .course-meta {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .course-update-badge {
+      background: #eaf2ef;
+      border: 1px solid #b9cec7;
+      border-radius: 999px;
+      color: var(--accent-dark);
+      font-size: 0.78em;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 2px 9px;
+      text-transform: uppercase;
+    }
+
+    .announcement-timeline {
+      background: #fffbea;
+      border: 1px solid #e4d9a3;
+      border-left: 4px solid #d1aa32;
+      border-radius: 3px;
+      box-sizing: border-box;
+      margin-bottom: 24px;
+      margin-top: 10px;
+      padding: 14px 18px 14px 24px;
+      width: 100%;
+    }
+
+    .announcement-item {
+      position: relative;
+      margin-bottom: 0;
+    }
+
+    .announcement-item::before {
+      content: "";
+      position: absolute;
+      left: -31px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border: 2px solid #fffbea;
+      border-radius: 50%;
+    }
+
+    .announcement-date {
+      color: var(--accent-dark);
+      font-size: 0.85em;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .announcement-content {
+      font-size: 0.95em;
+    }
+
+    .general-information {
+      background: var(--soft);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      column-gap: 20px;
+      row-gap: 9px;
+      padding: 15px 17px;
+    }
+
+    .general-information dt {
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .general-information dd {
+      margin: 0;
+    }
+
+    .prerequisite-note {
+      color: var(--muted);
+      display: block;
+      font-size: 0.94em;
+      margin-top: 3px;
+    }
+
+    .syllabus-table-wrap {
+      border-bottom: 1px solid #3c4b47;
+      border-top: 2px solid #3c4b47;
+      overflow-x: auto;
+    }
+
+    .syllabus-table {
+      border-collapse: collapse;
+      font-size: 0.94em;
+      min-width: 560px;
+      width: 100%;
+    }
+
+    .syllabus-table th,
+    .syllabus-table td {
+      padding: 7px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .syllabus-table thead th {
+      border-bottom: 1px solid #3c4b47;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .syllabus-table .week-column {
+      text-align: center;
+      width: 56px;
+    }
+
+    .syllabus-table .date-column {
+      white-space: nowrap;
+      width: 82px;
+    }
+
+    .syllabus-table tfoot td {
+      border-top: 1px solid #3c4b47;
+      font-weight: 700;
+    }
+
+    .syllabus-note {
+      color: var(--muted);
+      font-size: 0.9em;
+      font-style: italic;
+      margin: 12px 0 28px;
+      text-align: center;
+    }
+
+    .reference-list {
+      list-style: none;
+      margin: 10px 0 24px;
+      padding-left: 16px;
+    }
+
+    .reference-list li {
+      margin-bottom: 9px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .reference-list li::before {
+      color: var(--accent-dark);
+      content: "▸";
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    .reference-primary {
+      color: #c9362b;
+    }
+
+    .grading-block {
+      margin-bottom: 18px;
+    }
+
+    .grading-policy {
+      margin-bottom: 28px;
+    }
+
+    .grading-block > p:first-child {
+      margin-bottom: 7px;
+    }
+
+    .grading-label {
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .grading-sublist {
+      list-style: none;
+      margin: 7px 0 0;
+      padding-left: 18px;
+    }
+
+    .grading-sublist li {
+      margin-bottom: 6px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .grading-sublist li::before {
+      color: var(--accent-dark);
+      content: "▸";
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    .policy-alert {
+      border-radius: 5px;
+      box-shadow: 2px 3px 0 rgba(31, 42, 68, 0.16);
+      margin: 9px 0 0;
+      padding: 11px 14px;
+    }
+
+    .policy-alert-danger {
+      background: #fff4f1;
+      border-left: 4px solid #d64535;
+      color: #b42318;
+    }
+
+    .policy-alert-exam {
+      background: #f1f3f2;
+      border-left: 4px solid #8d9995;
+      color: #343c39;
+    }
+
+    @media print, screen and (max-width: 600px) {
+      .general-information {
+        grid-template-columns: 1fr;
+        row-gap: 4px;
+      }
+
+      .general-information dd:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -35,10 +263,10 @@
 
       <div class="nav-group">
         <div class="nav-heading">Teaching</div>
-        <a class="nav-link" href="course-ele2200.html">ELE2200</a>
-        <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
         <a class="nav-link" href="course-ele6202.html">ELE6202</a>
         <a class="nav-link" href="course-ele6214.html">ELE6214</a>
+        <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
+        <a class="nav-link" href="course-ele2200.html">ELE2200</a>
       </div>
 
       <div class="nav-group">
@@ -64,20 +292,150 @@
 
   <!-- ================= MAIN CONTENT ================= -->
   <section class="course-home">
-    <p class="course-meta">ELE6202 · Fall 2024-2025</p>
+    <p class="course-meta">
+      <span>ELE6202 · Fall 2024–2026</span>
+      <span class="course-update-badge">Updated for Fall 2026</span>
+    </p>
     <h2>Systèmes multivariables</h2>
     <div class="gray-line"></div>
 
-    <p class="justified-text">Graduate course on multivariable systems, state-space modeling, and analysis tools for modern control.</p>
+    <h3>Course Description</h3>
+    <p class="justified-text">
+      This is a graduate-level course on the theory of linear multivariable dynamical systems. It introduces mathematical modelling, state-space and input–output representations, stability, controllability, observability, and realization theory. The course also covers the design of state-feedback controllers and observers. Familiarity with linear algebra, calculus, and basic control theory is recommended.
+    </p>
 
-    <h3>Course Topics</h3>
-    <ul>
-      <li>State-space representations of linear systems</li>
-      <li>Controllability, observability, and minimal realizations</li>
-      <li>Multivariable feedback and robustness concepts</li>
-      <li>Frequency-domain and time-domain analysis</li>
-    </ul>
+    <h3>Announcements</h3>
+    <div class="announcement-timeline">
+      <div class="announcement-item">
+        <div class="announcement-date">21 Aug 2026</div>
+        <div class="announcement-content">Welcome to ELE6202E.</div>
+      </div>
+    </div>
 
+    <h3>General Information</h3>
+    <dl class="general-information">
+      <dt>Credits</dt>
+      <dd>3</dd>
+
+      <dt>Schedule</dt>
+      <dd>Wednesday, 12:45–15:45, A-503</dd>
+
+      <dt>Instructor</dt>
+      <dd>Bowen Yi</dd>
+
+      <dt>Department</dt>
+      <dd>Department of Electrical Engineering</dd>
+
+      <dt>Office</dt>
+      <dd>M-5418</dd>
+
+      <dt>Office Hours</dt>
+      <dd>By appointment via email</dd>
+
+      <dt>Prerequisites</dt>
+      <dd>
+        ELE3201 Asservissements or equivalent
+        <span class="prerequisite-note">We assume that you are comfortable with matrix theory and calculus and can perform basic proofs and calculations.</span>
+      </dd>
+    </dl>
+
+    <h3>Syllabus</h3>
+    <div class="syllabus-table-wrap">
+      <table class="syllabus-table">
+        <thead>
+          <tr>
+            <th class="week-column" scope="col">Week</th>
+            <th class="date-column" scope="col">Date</th>
+            <th scope="col">Topic</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="week-column">1</td>
+            <td class="date-column">Aug. 26</td>
+            <td>Chapter 1 – Introduction</td>
+          </tr>
+          <tr>
+            <td class="week-column">2</td>
+            <td class="date-column">Sep. 2</td>
+            <td>Chapter 2 – Mathematics Review</td>
+          </tr>
+          <tr>
+            <td class="week-column">3</td>
+            <td class="date-column">Sep. 9</td>
+            <td>Chapter 3 – Solutions to Linear State-Space Models</td>
+          </tr>
+          <tr>
+            <td class="week-column">4</td>
+            <td class="date-column">Sep. 16</td>
+            <td>Chapter 3 (cont.); Chapter 4 – Internal/Lyapunov Stability</td>
+          </tr>
+          <tr>
+            <td class="week-column">5</td>
+            <td class="date-column">Sep. 23</td>
+            <td>Chapter 4 (cont.)</td>
+          </tr>
+          <tr>
+            <td class="week-column">6</td>
+            <td class="date-column">Sep. 30</td>
+            <td><strong>No Class (Congé)</strong></td>
+          </tr>
+          <tr>
+            <td class="week-column">7</td>
+            <td class="date-column">Oct. 7</td>
+            <td><strong>Midterm Exam</strong></td>
+          </tr>
+          <tr>
+            <td class="week-column">8</td>
+            <td class="date-column">Oct. 14</td>
+            <td><strong>Fall Recess</strong></td>
+          </tr>
+          <tr>
+            <td class="week-column">9</td>
+            <td class="date-column">Oct. 21</td>
+            <td>Chapter 4 (cont.); Chapter 5 – Controllability, Reachability, and Observability</td>
+          </tr>
+          <tr>
+            <td class="week-column">10</td>
+            <td class="date-column">Oct. 28</td>
+            <td>Chapter 5 (cont.)</td>
+          </tr>
+          <tr>
+            <td class="week-column">11</td>
+            <td class="date-column">Nov. 4</td>
+            <td>Chapter 6 – State Feedback</td>
+          </tr>
+          <tr>
+            <td class="week-column">12</td>
+            <td class="date-column">Nov. 11</td>
+            <td>Chapter 6 (cont.); Chapter 7 – State Observer and Output Feedback</td>
+          </tr>
+          <tr>
+            <td class="week-column">13</td>
+            <td class="date-column">Nov. 18</td>
+            <td>Chapter 7 (cont.); Chapter 8 – Elements of Realization Theory</td>
+          </tr>
+          <tr>
+            <td class="week-column">14</td>
+            <td class="date-column">Nov. 25</td>
+            <td>Chapter 8 (cont.); Exercises and Catch-up</td>
+          </tr>
+          <tr>
+            <td class="week-column">15</td>
+            <td class="date-column">Dec. 2</td>
+            <td><strong>Course Review</strong></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td class="week-column">Final</td>
+            <td class="date-column">TBA</td>
+            <td>Final Exam</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <p class="syllabus-note">The schedule may be adjusted slightly depending on class progress.</p>
 
     <h3>Lecture Slides</h3>
     <ul>
@@ -90,6 +448,52 @@
       <li><a href="files/ELE6202/lec7_2026.pdf" target="_blank" rel="noopener">Lecture 7: State Observer and Output Feedback</a></li>
       <li><a href="files/ELE6202/lec8_2026.pdf" target="_blank" rel="noopener">Lecture 8: Elements of Realization Theory</a></li>
     </ul>
+
+    <h3>Textbooks and Reference Materials</h3>
+    <p>There is no required textbook. Reading materials include:</p>
+    <ul class="reference-list">
+      <li class="reference-primary">W. J. Rugh, <em>Linear System Theory</em>, 1996. ★</li>
+      <li>F. M. Callier and C. A. Desoer, <em>Linear System Theory</em>. ★</li>
+      <li>T. Kailath, <em>Linear Systems</em>, Prentice-Hall, 1980.</li>
+      <li>P. J. Antsaklis and A. N. Michel, <em>Linear Systems</em>, 1997. (Online textbook available to students at Polytechnique)</li>
+      <li>Lecture notes for the course 6.241J (Dynamic Systems and Control) at MIT, by M. Dahleh, M. Dahleh, and G. Verghese. (Available online)</li>
+      <li>J. P. Hespanha, <em>Linear Systems Theory</em>, 2018. (Textbook sold at the COOP)</li>
+      <li>Chi-Tsong Chen, <em>Linear System Theory and Design</em>, 3rd ed., 1999. (Available online)</li>
+    </ul>
+
+    <h3>Grading Policy</h3>
+    <div class="grading-policy">
+      <div class="grading-block">
+        <p><span class="grading-label">Homework:</span> 6 graded homework assignments (5% each; 30% total)</p>
+        <div class="policy-alert policy-alert-danger">
+          Homework must be completed and submitted individually. Sharing final answers or detailed solution methods is not permitted. Violations will be reported to Polytechnique and handled under the academic integrity policy.
+        </div>
+      </div>
+
+      <div class="grading-block">
+        <p><span class="grading-label">Exams:</span></p>
+        <ul class="grading-sublist">
+          <li>Midterm exam (30%, October 7)</li>
+          <li>Final exam (40%, date TBA)</li>
+        </ul>
+        <div class="policy-alert policy-alert-exam">
+          <strong>Open-book exams:</strong> Both the midterm and final exams are open-book. You may bring any printed or handwritten paper materials. Computers and other electronic devices are not permitted.
+        </div>
+      </div>
+
+      <div class="grading-block">
+        <p><span class="grading-label">Late submissions:</span></p>
+        <ul class="grading-sublist">
+          <li>15% penalty if submitted less than 12 hours late</li>
+          <li>30% penalty if submitted between 12 and 24 hours late</li>
+          <li>A grade of 0 if submitted more than 24 hours late</li>
+        </ul>
+      </div>
+
+      <div class="grading-block">
+        <strong>Generative AI tools are permitted</strong>, subject to Polytechnique’s <em>Utilisation des outils d’intelligence artificielle générative</em> policy.
+      </div>
+    </div>
     
     <p><a href="https://www.polymtl.ca/programmes/cours/systemes-multivariables" target="_blank" rel="noopener">Official Polytechnique course page</a></p>
 
