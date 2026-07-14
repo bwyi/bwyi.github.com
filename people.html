@@ -126,6 +126,32 @@
       color: #1f2a44;
     }
 
+    .former-item-with-photo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .former-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .former-photo-link {
+      flex: 0 0 auto;
+      line-height: 0;
+    }
+
+    .former-photo {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border: 1px solid #d4d8d5;
+      border-radius: 50%;
+      box-shadow: 0 2px 7px rgba(31, 42, 68, 0.1);
+    }
+
 
 /* ===== photo on the right ===== */
 .person-with-photo {
@@ -392,12 +418,17 @@
     <em>Exchange student, IMT Mines Albi, France</em>
   </div>
 
-  <div class="former-item">
-    <span class="former-name">José Ángel Chacón Rivas</span> —
-    Laboratory internship, September 2024 – January 2025
-    <br>
-    <em>Topic:</em> Adaptive Observer Design for Estimating Sphere Structures<br>
-    <em>Exchange student, Universidad de Sevilla, Spain</em>
+  <div class="former-item former-item-with-photo">
+    <div class="former-item-info">
+      <span class="former-name">José Ángel Chacón Rivas</span> —
+      Laboratory internship, September 2024 – January 2025
+      <br>
+      <em>Topic:</em> Adaptive Observer Design for Estimating Sphere Structures<br>
+      <em>Exchange student, Universidad de Sevilla, Spain</em>
+    </div>
+    <a class="former-photo-link" href="https://www.gerad.ca/en/people/bowen-yi" target="_blank" rel="noopener" title="Photo source: GERAD">
+      <img src="photos/jose-chacon-rivas.jpg" alt="José Ángel Chacón Rivas" class="former-photo">
+    </a>
   </div>
   
   
