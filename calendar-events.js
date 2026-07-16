@@ -1,11 +1,6 @@
 window.CALENDAR_EVENTS = [
   {
     "title": "Busy",
-    "start": "2025-07-15T21:00:00",
-    "end": "2025-07-15T22:00:00"
-  },
-  {
-    "title": "Busy",
     "start": "2025-07-17T18:00:00",
     "end": "2025-07-17T20:00:00"
   },
@@ -1773,6 +1768,11 @@ window.CALENDAR_EVENTS = [
     "title": "Busy",
     "start": "2026-07-17T07:00:00",
     "end": "2026-07-17T09:00:00"
+  },
+  {
+    "title": "Busy",
+    "start": "2026-07-22T12:00:00",
+    "end": "2026-07-22T13:00:00"
   },
   {
     "title": "Free",
