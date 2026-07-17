@@ -2,6 +2,10 @@
   "use strict";
 
   function initialiseNavigation() {
+    document.querySelectorAll("[data-current-year]").forEach(function (node) {
+      node.textContent = new Date().getFullYear();
+    });
+
     var header = document.querySelector(".wrapper > header");
     if (!header) return;
 
