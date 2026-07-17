@@ -13,6 +13,64 @@
   <link rel="stylesheet" href="assets/css/academicons.css">
   <link rel="stylesheet" href="stylesheets/site-theme.css?v=20260717j">
   <link rel="stylesheet" href="stylesheets/bilingual-page.css">
+  <style>
+    /* Calendar-specific visual states. */
+    #calendar-today {
+      border: 1px solid #6e9b94;
+      background: #ffffff;
+      color: #155f57;
+      transition: background-color .16s ease, color .16s ease;
+    }
+
+    #calendar-today:hover,
+    #calendar-today.is-current-week {
+      background: #155f57;
+      color: #ffffff;
+    }
+
+    .calendar-day-header.is-weekend,
+    .calendar-day-column.is-weekend {
+      background: #f5f7f8;
+    }
+
+    .calendar-day-header.is-today {
+      background: #eaf5f2;
+      box-shadow: inset 0 -3px 0 #16766b;
+    }
+
+    .calendar-day-column.is-today {
+      background: rgba(44, 139, 126, .055);
+    }
+
+    .calendar-day-header.is-today span {
+      color: #155f57;
+    }
+
+    .calendar-day-header.is-today strong {
+      background: #16766b;
+      box-shadow: 0 0 0 3px rgba(22, 118, 107, .12);
+    }
+
+    .calendar-now-line {
+      border-top: 2px solid #d35445;
+      left: 1px;
+      pointer-events: none;
+      position: absolute;
+      right: 1px;
+      z-index: 2;
+    }
+
+    .calendar-now-line::before {
+      background: #d35445;
+      border-radius: 50%;
+      content: "";
+      height: 7px;
+      left: -2px;
+      position: absolute;
+      top: -4px;
+      width: 7px;
+    }
+  </style>
   <script defer src="javascripts/site-navigation.js"></script>
 </head>
 
@@ -200,11 +258,17 @@ function renderCalendar(events) {
   timezone.textContent = Intl.DateTimeFormat().resolvedOptions().timeZone || (language === "fr" ? "Heure locale" : "Local time");
   status.textContent = "";
 
+  const viewingCurrentWeek = sameDay(calendarState.weekStart, startOfWeek(today));
+  document.getElementById("calendar-today").classList.toggle("is-current-week", viewingCurrentWeek);
+
   const dayHeader = Array.from({ length: 7 }, (_, index) => {
     const day = addDays(calendarState.weekStart, index);
-    const activeClass = sameDay(day, today) ? " is-today" : "";
+    const stateClasses = [
+      sameDay(day, today) ? "is-today" : "",
+      index === 0 || index === 6 ? "is-weekend" : ""
+    ].filter(Boolean).join(" ");
     return `
-      <div class="calendar-day-header${activeClass}">
+      <div class="calendar-day-header${stateClasses ? ` ${stateClasses}` : ""}">
         <span>${dayNames[language][index]}</span>
         <strong>${day.getDate()}</strong>
       </div>
@@ -216,9 +280,18 @@ function renderCalendar(events) {
     return `<div class="calendar-hour-label" style="grid-row:${index + 2};">${formatHour(hour)}</div>`;
   }).join("");
 
-  const dayCells = Array.from({ length: 7 }, (_, dayIndex) =>
-    `<div class="calendar-day-column" style="grid-column:${dayIndex + 2};"></div>`
-  ).join("");
+  const dayCells = Array.from({ length: 7 }, (_, dayIndex) => {
+    const day = addDays(calendarState.weekStart, dayIndex);
+    const stateClasses = [
+      sameDay(day, today) ? "is-today" : "",
+      dayIndex === 0 || dayIndex === 6 ? "is-weekend" : ""
+    ].filter(Boolean).join(" ");
+    return `<div class="calendar-day-column${stateClasses ? ` ${stateClasses}` : ""}" style="grid-column:${dayIndex + 2};"></div>`;
+  }).join("");
+
+  const nowLine = viewingCurrentWeek && today.getHours() >= startHour && today.getHours() < endHour
+    ? `<div class="calendar-now-line" aria-hidden="true" style="grid-column:${today.getDay() + 2}; top:${Math.round(minutesSinceStart(today) * hourPixelHeight / 60)}px;"></div>`
+    : "";
 
   const eventBlocks = weekEvents.map(event => {
     const dayIndex = event.dayIndex;
@@ -245,6 +318,7 @@ function renderCalendar(events) {
     <div class="calendar-grid-body">
       ${hourRows}
       ${dayCells}
+      ${nowLine}
       ${eventBlocks}
     </div>
   `;

@@ -391,14 +391,14 @@
 <!-- ================= BibTeX DATA ================= -->
 <script type="text/plain" id="bibtex-data">
 
-@misc{Yi2026Transformability,
+@inproceedings{Yi2026Transformability,
   author       = {Yi, Bowen and Fang, Leyan and Ortega, Romeo},
-  title        = {On the solvability of parameter estimation-based observers in nonlinear systems, submitted to <i>IEEE Transactions on Automatic Control</i>},
-  note         = {Submitted},
-  month        = feb,
+  title        = {On the solvability of parameter estimation-based observers for nonlinear systems},
+  booktitle    = {IEEE Conference on Decision and Control (CDC)},
   year         = {2026},
-  arxiv ={2603.09076},
-  eprint  = {2603.09076},  
+  arxiv        = {2603.09076},
+  eprint       = {2603.09076},
+  pdf          = {https://arxiv.org/pdf/2603.09076}
 }
 
 
@@ -1033,6 +1033,7 @@ function renderPublicationEntry(entry, category) {
     </div>
     <div class="pub-links">
       ${category === "preprint" && id ? `<a class="pub-tag" href="https://arxiv.org/abs/${id}" target="_blank" rel="noopener"><i class="ai ai-arxiv" aria-hidden="true"></i> arXiv</a>` : ""}
+      ${entry.pdf ? `<a class="pub-tag" href="${entry.pdf}" target="_blank" rel="noopener"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>` : ""}
       ${category !== "preprint" && entry.doi ? `<a class="pub-tag" href="https://doi.org/${entry.doi}" target="_blank" rel="noopener"><i class="ai ai-doi" aria-hidden="true"></i> DOI</a>` : ""}
       <button class="pub-tag bibtex-button" type="button" data-bibtex-index="${entry._index}"><i class="fa fa-quote-left" aria-hidden="true"></i> BibTeX</button>
     </div>
