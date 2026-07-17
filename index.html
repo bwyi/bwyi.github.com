@@ -206,9 +206,13 @@
     }
 
     .profile-photo {
-      width: 168px;
+      aspect-ratio: 1 / 1;
       border-radius: 3px;
       border: 1px solid var(--rule);
+      display: block;
+      height: auto;
+      object-fit: cover;
+      width: 168px;
     }
 
     .profile-affiliation {
@@ -415,7 +419,7 @@
 
 
 
-  <link rel="stylesheet" href="stylesheets/site-theme.css?v=20260717">
+  <link rel="stylesheet" href="stylesheets/site-theme.css?v=20260717g">
   <script defer src="javascripts/site-navigation.js"></script>
 </head>
 
