@@ -5,6 +5,23 @@
 <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Bowen Yi - Systèmes et simulation</title>
+  <meta name="description" content="ELE2200 Systèmes et simulation: course information and teaching materials by Bowen Yi at Polytechnique Montréal.">
+  <link rel="canonical" href="https://bwyi.github.io/course-ele2200.html">
+  <meta property="og:site_name" content="Bowen Yi">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ELE2200 · Systèmes et simulation">
+  <meta property="og:description" content="Course information and teaching materials for ELE2200 at Polytechnique Montréal.">
+  <meta property="og:url" content="https://bwyi.github.io/course-ele2200.html">
+  <meta property="og:image" content="https://bwyi.github.io/udem-home.webp">
+  <meta property="og:image:width" content="1400">
+  <meta property="og:image:height" content="787">
+  <meta property="og:image:alt" content="Polytechnique Montréal and the Université de Montréal campus">
+  <meta property="og:locale" content="fr_CA">
+  <meta property="og:locale:alternate" content="en_CA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ELE2200 · Systèmes et simulation">
+  <meta name="twitter:description" content="Cours Systèmes et simulation à Polytechnique Montréal.">
+  <meta name="twitter:image" content="https://bwyi.github.io/udem-home.webp">
 
   <link rel="stylesheet" href="stylesheets/styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,56 +29,14 @@
   <link rel="stylesheet" href="assets/css/academicons.min.css">
   <link rel="stylesheet" href="assets/css/academicons.css">
   <link rel="stylesheet" href="stylesheets/site-theme.css?v=20260717k">
-  <script defer src="javascripts/site-navigation.js"></script>
 </head>
 
 <body>
 <div class="wrapper">
 
   <!-- ================= LEFT SIDEBAR ================= -->
-  <header>
-    <h1>Bowen Yi</h1>
-    衣博文
-    <br>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a class="nav-link" href="index.html">Home</a>
-
-      <div class="nav-group">
-        <div class="nav-heading">Research</div>
-        <a class="nav-link" href="research.html">Overview</a>
-        <a class="nav-link" href="publication.html">Publications</a>
-        <a class="nav-link" href="people.html">People</a>
-        <a class="nav-link" href="position.html">Positions</a>
-      </div>
-
-      <div class="nav-group">
-        <div class="nav-heading">Teaching</div>
-        <a class="nav-link" href="course-ele6202.html">ELE6202</a>
-        <a class="nav-link" href="course-ele6214.html">ELE6214</a>
-        <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
-        <a class="nav-link" href="course-ele2200.html">ELE2200</a>
-      </div>
-
-      <div class="nav-group">
-        <div class="nav-heading">Other</div>
-        <a class="nav-link" href="calendar.html">Calendar</a>
-        <a class="nav-link" href="awards.html">Award</a>
-        <a class="nav-link" href="services.html">Services</a>
-        <a class="nav-link" href="misc.html">Misc</a>
-      </div>
-    </nav>
-
-    <script>
-      (function () {
-        var current = window.location.pathname.split('/').pop() || 'index.html';
-        document.querySelectorAll('.site-nav a').forEach(function (link) {
-          if (link.getAttribute('href') === current) {
-            link.classList.add('active');
-          }
-        });
-      }());
-    </script>
-  </header>
+  <header data-site-header></header>
+  <script src="javascripts/site-shell.js"></script>
 
   <!-- ================= MAIN CONTENT ================= -->
   <section class="course-home">
@@ -82,13 +57,7 @@
     
     <p><a href="https://www.polymtl.ca/programmes/cours/systemes-et-simulation" target="_blank" rel="noopener">Official Polytechnique course page</a></p>
 
-    <p><a href="teaching.html">Back to teaching overview</a></p>
-
-    <footer class="site-footer-unified">
-      <span>© <span data-current-year>2026</span> Bowen Yi. All rights reserved.</span>
-      <span class="footer-separator" aria-hidden="true">·</span>
-      <a href="privacy-policy.html">Privacy Policy</a>
-    </footer>
+    <footer class="site-footer-unified" data-site-footer></footer>
   </section>
 </div>
 </body>

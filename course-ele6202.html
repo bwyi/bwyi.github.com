@@ -5,6 +5,23 @@
 <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Bowen Yi - Systèmes multivariables - Multivariable Systems</title>
+  <meta name="description" content="ELE6202 Multivariable Systems: graduate-level course on state-space models, stability, controllability, observability, realization, feedback, and observers.">
+  <link rel="canonical" href="https://bwyi.github.io/course-ele6202.html">
+  <meta property="og:site_name" content="Bowen Yi">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ELE6202 · Multivariable Systems">
+  <meta property="og:description" content="Course information, syllabus, slides, references, and announcements for ELE6202 at Polytechnique Montréal.">
+  <meta property="og:url" content="https://bwyi.github.io/course-ele6202.html">
+  <meta property="og:image" content="https://bwyi.github.io/udem-home.webp">
+  <meta property="og:image:width" content="1400">
+  <meta property="og:image:height" content="787">
+  <meta property="og:image:alt" content="Polytechnique Montréal and the Université de Montréal campus">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:locale:alternate" content="fr_CA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ELE6202 · Multivariable Systems">
+  <meta name="twitter:description" content="Graduate course on linear multivariable dynamical systems at Polytechnique Montréal.">
+  <meta name="twitter:image" content="https://bwyi.github.io/udem-home.webp">
 
   <link rel="stylesheet" href="stylesheets/styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,301 +30,15 @@
   <link rel="stylesheet" href="assets/css/academicons.css">
   <link rel="stylesheet" href="stylesheets/site-theme.css?v=20260717k">
 
-  <style>
-    .course-meta {
-      align-items: center;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .course-update-badge {
-      background: #eaf2ef;
-      border: 1px solid #b9cec7;
-      border-radius: 999px;
-      color: var(--accent-dark);
-      font-size: 0.78em;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      padding: 2px 9px;
-      text-transform: uppercase;
-    }
-
-    .course-language-notice {
-      align-items: center;
-      background: linear-gradient(135deg, #edf7f4 0%, #f7fbfa 100%);
-      border: 1px solid #c7ddd7;
-      border-left: 4px solid var(--accent);
-      border-radius: 4px;
-      color: #254a45;
-      display: flex;
-      gap: 9px;
-      margin: 8px 0 22px;
-      padding: 10px 13px;
-    }
-
-    .course-language-notice i {
-      color: var(--accent-dark);
-      flex: 0 0 auto;
-    }
-
-    .announcement-timeline {
-      background: #fffbea;
-      border: 1px solid #e4d9a3;
-      border-left: 4px solid #d1aa32;
-      border-radius: 3px;
-      box-sizing: border-box;
-      margin-bottom: 24px;
-      margin-top: 10px;
-      padding: 14px 18px 14px 24px;
-      width: 100%;
-    }
-
-    .announcement-item {
-      position: relative;
-      margin-bottom: 0;
-    }
-
-    .announcement-item::before {
-      content: "";
-      position: absolute;
-      left: -31px;
-      top: 4px;
-      width: 10px;
-      height: 10px;
-      background: var(--accent);
-      border: 2px solid #fffbea;
-      border-radius: 50%;
-    }
-
-    .announcement-date {
-      color: var(--accent-dark);
-      font-size: 0.85em;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-
-    .announcement-content {
-      font-size: 0.95em;
-    }
-
-    .general-information {
-      background: var(--soft);
-      border: 1px solid var(--rule);
-      border-radius: 3px;
-      display: grid;
-      grid-template-columns: max-content 1fr;
-      column-gap: 20px;
-      row-gap: 9px;
-      padding: 15px 17px;
-    }
-
-    .general-information dt {
-      color: var(--accent-dark);
-      font-weight: 700;
-    }
-
-    .general-information dd {
-      margin: 0;
-    }
-
-    .prerequisite-note {
-      color: var(--muted);
-      display: block;
-      font-size: 0.94em;
-      margin-top: 3px;
-    }
-
-    .syllabus-table-wrap {
-      border-bottom: 1px solid #3c4b47;
-      border-top: 2px solid #3c4b47;
-      overflow-x: auto;
-    }
-
-    .syllabus-table {
-      border-collapse: collapse;
-      font-size: 0.94em;
-      min-width: 560px;
-      width: 100%;
-    }
-
-    .syllabus-table th,
-    .syllabus-table td {
-      padding: 7px 10px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    .syllabus-table thead th {
-      border-bottom: 1px solid #3c4b47;
-      color: var(--accent-dark);
-      font-weight: 700;
-    }
-
-    .syllabus-table .week-column {
-      text-align: center;
-      width: 56px;
-    }
-
-    .syllabus-table .date-column {
-      white-space: nowrap;
-      width: 82px;
-    }
-
-    .syllabus-table tfoot td {
-      border-top: 1px solid #3c4b47;
-      font-weight: 700;
-    }
-
-    .syllabus-note {
-      color: var(--muted);
-      font-size: 0.9em;
-      font-style: italic;
-      margin: 12px 0 28px;
-      text-align: center;
-    }
-
-    .reference-list {
-      list-style: none;
-      margin: 10px 0 24px;
-      padding-left: 16px;
-    }
-
-    .reference-list li {
-      margin-bottom: 9px;
-      padding-left: 16px;
-      position: relative;
-    }
-
-    .reference-list li::before {
-      color: var(--accent-dark);
-      content: "▸";
-      left: 0;
-      position: absolute;
-      top: 0;
-    }
-
-    .reference-primary {
-      color: #c9362b;
-    }
-
-    .grading-block {
-      margin-bottom: 18px;
-    }
-
-    .grading-policy {
-      margin-bottom: 28px;
-    }
-
-    .grading-block > p:first-child {
-      margin-bottom: 7px;
-    }
-
-    .grading-label {
-      color: var(--accent-dark);
-      font-weight: 700;
-    }
-
-    .grading-sublist {
-      list-style: none;
-      margin: 7px 0 0;
-      padding-left: 18px;
-    }
-
-    .grading-sublist li {
-      margin-bottom: 6px;
-      padding-left: 16px;
-      position: relative;
-    }
-
-    .grading-sublist li::before {
-      color: var(--accent-dark);
-      content: "▸";
-      left: 0;
-      position: absolute;
-      top: 0;
-    }
-
-    .policy-alert {
-      border-radius: 5px;
-      box-shadow: 2px 3px 0 rgba(31, 42, 68, 0.16);
-      margin: 9px 0 0;
-      padding: 11px 14px;
-    }
-
-    .policy-alert-danger {
-      background: #fff4f1;
-      border-left: 4px solid #d64535;
-      color: #b42318;
-    }
-
-    .policy-alert-exam {
-      background: #f1f3f2;
-      border-left: 4px solid #8d9995;
-      color: #343c39;
-    }
-
-    @media print, screen and (max-width: 600px) {
-      .general-information {
-        grid-template-columns: 1fr;
-        row-gap: 4px;
-      }
-
-      .general-information dd:not(:last-child) {
-        margin-bottom: 8px;
-      }
-    }
-  </style>
-  <script defer src="javascripts/site-navigation.js"></script>
+  <link rel="stylesheet" href="stylesheets/pages/course-ele6202.css?v=20260717a">
 </head>
 
 <body>
 <div class="wrapper">
 
   <!-- ================= LEFT SIDEBAR ================= -->
-  <header>
-    <h1>Bowen Yi</h1>
-    衣博文
-    <br>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a class="nav-link" href="index.html">Home</a>
-
-      <div class="nav-group">
-        <div class="nav-heading">Research</div>
-        <a class="nav-link" href="research.html">Overview</a>
-        <a class="nav-link" href="publication.html">Publications</a>
-        <a class="nav-link" href="people.html">People</a>
-        <a class="nav-link" href="position.html">Positions</a>
-      </div>
-
-      <div class="nav-group">
-        <div class="nav-heading">Teaching</div>
-        <a class="nav-link" href="course-ele6202.html">ELE6202</a>
-        <a class="nav-link" href="course-ele6214.html">ELE6214</a>
-        <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
-        <a class="nav-link" href="course-ele2200.html">ELE2200</a>
-      </div>
-
-      <div class="nav-group">
-        <div class="nav-heading">Other</div>
-        <a class="nav-link" href="calendar.html">Calendar</a>
-        <a class="nav-link" href="awards.html">Award</a>
-        <a class="nav-link" href="services.html">Services</a>
-        <a class="nav-link" href="misc.html">Misc</a>
-      </div>
-    </nav>
-
-    <script>
-      (function () {
-        var current = window.location.pathname.split('/').pop() || 'index.html';
-        document.querySelectorAll('.site-nav a').forEach(function (link) {
-          if (link.getAttribute('href') === current) {
-            link.classList.add('active');
-          }
-        });
-      }());
-    </script>
-  </header>
+  <header data-site-header></header>
+  <script src="javascripts/site-shell.js"></script>
 
   <!-- ================= MAIN CONTENT ================= -->
   <section class="course-home">
@@ -521,13 +252,7 @@
     
     <p><a href="https://www.polymtl.ca/programmes/cours/systemes-multivariables" target="_blank" rel="noopener">Official Polytechnique course page</a></p>
 
-    <p><a href="teaching.html">Back to teaching overview</a></p>
-
-    <footer class="site-footer-unified">
-      <span>© <span data-current-year>2026</span> Bowen Yi. All rights reserved.</span>
-      <span class="footer-separator" aria-hidden="true">·</span>
-      <a href="privacy-policy.html">Privacy Policy</a>
-    </footer>
+    <footer class="site-footer-unified" data-site-footer></footer>
   </section>
 </div>
 </body>

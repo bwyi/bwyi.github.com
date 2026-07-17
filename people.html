@@ -5,6 +5,23 @@
 <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Bowen Yi</title>
+  <meta name="description" content="Current and former members of Bowen Yi's research group at Polytechnique Montréal, working in control, estimation, learning, and robotics.">
+  <link rel="canonical" href="https://bwyi.github.io/people.html">
+  <meta property="og:site_name" content="Bowen Yi">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Research Group | Bowen Yi">
+  <meta property="og:description" content="Meet the current and former members of Bowen Yi's research group at Polytechnique Montréal.">
+  <meta property="og:url" content="https://bwyi.github.io/people.html">
+  <meta property="og:image" content="https://bwyi.github.io/udem-home.webp">
+  <meta property="og:image:width" content="1400">
+  <meta property="og:image:height" content="787">
+  <meta property="og:image:alt" content="Polytechnique Montréal and the Université de Montréal campus">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:locale:alternate" content="fr_CA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Research Group | Bowen Yi">
+  <meta name="twitter:description" content="Researchers and students working in control, estimation, learning, and robotics.">
+  <meta name="twitter:image" content="https://bwyi.github.io/udem-home.webp">
 
   <link rel="stylesheet" href="stylesheets/styles.css">
 
@@ -14,230 +31,18 @@
   <link rel="stylesheet" href="assets/css/academicons.css">
 
   <!-- ===== Global Academic Style ===== -->
-  <style>
-    body {
-      font-family: Georgia, "Times New Roman", Times, serif;
-      color: #222;
-      line-height: 1.6;
-    }
-
-    h1, h2, h3 {
-      color: #1f2a44;
-      font-weight: 600;
-    }
-
-    a {
-      color: #1f2a44;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .gray-line {
-      border-top: 1px solid #dddddd;
-      margin-top: 6px;
-      margin-bottom: 14px;
-    }
-
-    .justified-text {
-      text-align: justify;
-    }
-
-    .social-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-    /* ===== Right-side People styles (NEW) ===== */
-
-    section {
-      margin-left: 260px; /* 与现有 sidebar 精确对齐 */
-    }
-
-    .people-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 18px;
-      margin-top: 10px;
-    }
-
-    .person-card {
-      border: 1px solid #dddddd;
-      background: #fafafa;
-      padding: 14px 16px;
-      border-radius: 4px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .person-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-    }
-
-    .person-name {
-      font-size: 1.05em;
-      font-weight: 600;
-      color: #1f2a44;
-    }
-
-    .person-role {
-      font-size: 0.95em;
-      font-style: italic;
-      margin-bottom: 6px;
-      color: #444;
-    }
-
-    .person-desc {
-      font-size: 0.9em;
-      color: #444;
-    }
-
-    .person-links {
-      margin-top: 8px;
-      font-size: 0.9em;
-    }
-
-    .person-links a {
-      margin-right: 12px;
-      white-space: nowrap;
-    }
-
-    /* ===== Former members ===== */
-
-    .former-list {
-      margin-top: 6px;
-    }
-
-    .former-item {
-      padding: 8px 0;
-      border-bottom: 1px dashed #cccccc;
-      font-size: 0.95em;
-    }
-
-    .former-item:last-child {
-      border-bottom: none;
-    }
-
-    .former-name {
-      font-weight: 600;
-      color: #1f2a44;
-    }
-
-    .former-item-with-photo {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .former-item-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .former-photo-link {
-      flex: 0 0 auto;
-      line-height: 0;
-    }
-
-    .former-photo {
-      width: 72px;
-      height: 72px;
-      object-fit: cover;
-      border: 1px solid #d4d8d5;
-      border-radius: 50%;
-      box-shadow: 0 2px 7px rgba(31, 42, 68, 0.1);
-    }
-
-
-/* ===== photo on the right ===== */
-.person-with-photo {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.person-with-photo .person-info {
-  flex: 1;
-}
-
-.person-with-photo .person-photo {
-  width: 110px;
-  height: 110px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 1px solid #dddddd;
-}
-
-/* Soften pure-white portrait backgrounds without noticeably shifting skin tones. */
-.person-with-photo .portrait-soft-bg {
-  filter: brightness(0.975) saturate(0.96) sepia(0.025);
-  border-color: #d4d8d5;
-}
-
-/* Keep the top of Xinzhou's hair inside the circular crop. */
-.person-with-photo .portrait-xinzhou {
-  object-position: center 12%;
-}
-
-  </style>
+  <link rel="stylesheet" href="stylesheets/pages/people.css?v=20260717a">
   
   <link rel="stylesheet" href="stylesheets/site-theme.css?v=20260717k">
   <link rel="stylesheet" href="stylesheets/bilingual-page.css">
-  <script defer src="javascripts/site-navigation.js"></script>
 </head>
 
 <body>
 <div class="wrapper">
 
   <!-- ================= LEFT SIDEBAR (STRICTLY UNCHANGED) ================= -->
-  <header>
-    <h1>Bowen Yi</h1>
-    衣博文
-    <br>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a class="nav-link" href="index.html">Home</a>
-
-      <div class="nav-group">
-        <div class="nav-heading">Research</div>
-        <a class="nav-link" href="research.html">Overview</a>
-        <a class="nav-link" href="publication.html">Publications</a>
-        <a class="nav-link" href="people.html">People</a>
-        <a class="nav-link" href="position.html">Positions</a>
-      </div>
-
-      <div class="nav-group">
-        <div class="nav-heading">Teaching</div>
-        <a class="nav-link" href="course-ele6202.html">ELE6202</a>
-        <a class="nav-link" href="course-ele6214.html">ELE6214</a>
-        <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
-        <a class="nav-link" href="course-ele2200.html">ELE2200</a>
-      </div>
-
-      <div class="nav-group">
-        <div class="nav-heading">Other</div>
-        <a class="nav-link" href="calendar.html">Calendar</a>
-        <a class="nav-link" href="awards.html">Award</a>
-        <a class="nav-link" href="services.html">Services</a>
-        <a class="nav-link" href="misc.html">Misc</a>
-      </div>
-    </nav>
-
-    <script>
-      (function () {
-        var current = window.location.pathname.split('/').pop() || 'index.html';
-        document.querySelectorAll('.site-nav a').forEach(function (link) {
-          if (link.getAttribute('href') === current) {
-            link.classList.add('active');
-          }
-        });
-      }());
-    </script>
-  </header>
+  <header data-site-header></header>
+  <script src="javascripts/site-shell.js"></script>
 
   <!-- ================= MAIN CONTENT ================= -->
   <section data-bilingual-root>
@@ -354,7 +159,7 @@
       Research focus on <strong>power electronics</strong> and related control systems.
     </div>
     <div class="person-links">
-      <a href="https://scholar.google.com/citations?user=3xzUgf0AAAAJ&hl=en" target="_blank">
+      <a href="https://scholar.google.com/citations?user=3xzUgf0AAAAJ&hl=en" target="_blank" rel="noopener">
         <i class="ai ai-google-scholar"></i> Google Scholar
       </a>
     </div>
@@ -370,7 +175,7 @@
       Visiting Polytechnique for three months (2026 Summer).
     </div>
     <div class="person-links">
-      <a href="https://zhanghan-tc.github.io" target="_blank">
+      <a href="https://zhanghan-tc.github.io" target="_blank" rel="noopener">
         <i class="ai ai-google-scholar"></i> <span data-en="Website" data-fr="Site web">Website</span>
       </a>
     </div>
@@ -386,7 +191,7 @@
       Visiting Polytechnique in February and June 2026.
     </div>
     <div class="person-links">
-      <a href="https://ieeecss.org/contact/ti-chung-lee" target="_blank">
+      <a href="https://ieeecss.org/contact/ti-chung-lee" target="_blank" rel="noopener">
         <i class="fa fa-external-link"></i> <span data-en="Website" data-fr="Site web">Website</span>
       </a>
     </div>
@@ -459,11 +264,7 @@
 
     </div>
 
-    <footer class="site-footer-unified">
-      <span>© <span data-current-year>2026</span> Bowen Yi. <span data-en="All rights reserved." data-fr="Tous droits réservés.">All rights reserved.</span></span>
-      <span class="footer-separator" aria-hidden="true">·</span>
-      <a href="privacy-policy.html" data-en="Privacy Policy" data-fr="Politique de confidentialité">Privacy Policy</a>
-    </footer>
+    <footer class="site-footer-unified" data-site-footer></footer>
 
   </section>
 </div>

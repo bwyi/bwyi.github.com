@@ -5,6 +5,23 @@
 <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Bowen Yi - Systèmes de navigation</title>
+  <meta name="description" content="ELE6209A Systèmes de navigation: vehicle modelling, sensor errors, nonlinear estimation, filtering, SLAM, course materials, and references.">
+  <link rel="canonical" href="https://bwyi.github.io/course-ele6209a.html">
+  <meta property="og:site_name" content="Bowen Yi">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ELE6209A · Systèmes de navigation">
+  <meta property="og:description" content="Cours sur la modélisation, l’estimation, le filtrage et le SLAM à Polytechnique Montréal.">
+  <meta property="og:url" content="https://bwyi.github.io/course-ele6209a.html">
+  <meta property="og:image" content="https://bwyi.github.io/udem-home.webp">
+  <meta property="og:image:width" content="1400">
+  <meta property="og:image:height" content="787">
+  <meta property="og:image:alt" content="Polytechnique Montréal and the Université de Montréal campus">
+  <meta property="og:locale" content="fr_CA">
+  <meta property="og:locale:alternate" content="en_CA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ELE6209A · Systèmes de navigation">
+  <meta name="twitter:description" content="Cours de cycles supérieurs sur les systèmes de navigation à Polytechnique Montréal.">
+  <meta name="twitter:image" content="https://bwyi.github.io/udem-home.webp">
 
   <link rel="stylesheet" href="stylesheets/styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,274 +30,15 @@
   <link rel="stylesheet" href="assets/css/academicons.css">
   <link rel="stylesheet" href="stylesheets/site-theme.css?v=20260717k">
 
-  <style>
-    .course-meta {
-      align-items: center;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .course-update-badge {
-      background: #eaf2ef;
-      border: 1px solid #b9cec7;
-      border-radius: 999px;
-      color: var(--accent-dark);
-      font-size: 0.78em;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      padding: 2px 9px;
-      text-transform: uppercase;
-    }
-
-    .course-language-notice {
-      align-items: center;
-      background: linear-gradient(135deg, #edf7f4 0%, #f7fbfa 100%);
-      border: 1px solid #c7ddd7;
-      border-left: 4px solid var(--accent);
-      border-radius: 4px;
-      color: #254a45;
-      display: flex;
-      gap: 9px;
-      margin: 8px 0 22px;
-      padding: 10px 13px;
-    }
-
-    .course-language-notice i {
-      color: var(--accent-dark);
-      flex: 0 0 auto;
-    }
-
-    .course-section {
-      margin-bottom: 25px;
-    }
-
-    .course-section-empty {
-      min-height: 8px;
-    }
-
-    .announcement-timeline {
-      background: #fffbea;
-      border: 1px solid #e4d9a3;
-      border-left: 4px solid #d1aa32;
-      border-radius: 3px;
-      box-sizing: border-box;
-      margin-top: 10px;
-      padding: 14px 18px 14px 24px;
-      width: 100%;
-    }
-
-    .announcement-item {
-      position: relative;
-    }
-
-    .announcement-item + .announcement-item {
-      margin-top: 13px;
-    }
-
-    .announcement-item::before {
-      background: var(--accent);
-      border: 2px solid #fffbea;
-      border-radius: 50%;
-      content: "";
-      height: 10px;
-      left: -31px;
-      position: absolute;
-      top: 4px;
-      width: 10px;
-    }
-
-    .announcement-date {
-      color: var(--accent-dark);
-      font-size: 0.85em;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-
-    .announcement-content {
-      font-size: 0.95em;
-    }
-
-    .course-section h4 {
-      color: var(--accent-dark);
-      font-size: 1em;
-      margin: 18px 0 7px;
-    }
-
-    .objective-list > li,
-    .prerequisite-list > li,
-    .project-list > li {
-      margin-bottom: 8px;
-    }
-
-    .objective-list ul {
-      margin-top: 6px;
-    }
-
-    .abbreviation-note {
-      color: var(--muted);
-      font-size: 0.9em;
-    }
-
-    .general-information {
-      background: var(--soft);
-      border: 1px solid var(--rule);
-      border-radius: 3px;
-      display: grid;
-      grid-template-columns: max-content 1fr;
-      column-gap: 20px;
-      row-gap: 9px;
-      padding: 15px 17px;
-    }
-
-    .general-information dt {
-      color: var(--accent-dark);
-      font-weight: 700;
-    }
-
-    .general-information dd {
-      margin: 0;
-    }
-
-    .course-table-wrap {
-      border-bottom: 1px solid #3c4b47;
-      border-top: 2px solid #3c4b47;
-      overflow-x: auto;
-    }
-
-    .course-table {
-      border-collapse: collapse;
-      font-size: 0.94em;
-      min-width: 560px;
-      width: 100%;
-    }
-
-    .course-table th,
-    .course-table td {
-      padding: 7px 10px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    .course-table thead th {
-      border-bottom: 1px solid #3c4b47;
-      color: var(--accent-dark);
-      font-weight: 700;
-    }
-
-    .course-table tbody tr + tr td {
-      border-top: 1px solid var(--rule);
-    }
-
-    .course-table .number-column {
-      text-align: center;
-      white-space: nowrap;
-      width: 54px;
-    }
-
-    .course-table .weight-column {
-      white-space: nowrap;
-      width: 92px;
-    }
-
-    .course-table .total-row td {
-      background: var(--soft);
-      border-top: 2px solid #3c4b47;
-      font-weight: 700;
-    }
-
-    .reference-list {
-      margin: 10px 0 24px;
-      padding-left: 30px;
-    }
-
-    .reference-list li {
-      margin-bottom: 9px;
-      padding-left: 4px;
-    }
-
-    .policy-card {
-      background: #f1f3f2;
-      border-left: 4px solid #8d9995;
-      border-radius: 5px;
-      color: #343c39;
-      margin-top: 18px;
-      padding: 12px 16px;
-    }
-
-    .policy-card ul {
-      margin-bottom: 0;
-    }
-
-    .policy-card li {
-      margin-bottom: 7px;
-    }
-
-    .policy-card li:last-child {
-      margin-bottom: 0;
-    }
-
-    @media print, screen and (max-width: 600px) {
-      .general-information {
-        grid-template-columns: 1fr;
-        row-gap: 4px;
-      }
-
-      .general-information dd:not(:last-child) {
-        margin-bottom: 8px;
-      }
-    }
-  </style>
-  <script defer src="javascripts/site-navigation.js"></script>
+  <link rel="stylesheet" href="stylesheets/pages/course-ele6209a.css?v=20260717a">
 </head>
 
 <body>
 <div class="wrapper">
 
   <!-- ================= LEFT SIDEBAR ================= -->
-  <header>
-    <h1>Bowen Yi</h1>
-    衣博文
-    <br>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a class="nav-link" href="index.html">Home</a>
-
-      <div class="nav-group">
-        <div class="nav-heading">Research</div>
-        <a class="nav-link" href="research.html">Overview</a>
-        <a class="nav-link" href="publication.html">Publications</a>
-        <a class="nav-link" href="people.html">People</a>
-        <a class="nav-link" href="position.html">Positions</a>
-      </div>
-
-      <div class="nav-group">
-        <div class="nav-heading">Teaching</div>
-        <a class="nav-link" href="course-ele6202.html">ELE6202</a>
-        <a class="nav-link" href="course-ele6214.html">ELE6214</a>
-        <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
-        <a class="nav-link" href="course-ele2200.html">ELE2200</a>
-      </div>
-
-      <div class="nav-group">
-        <div class="nav-heading">Other</div>
-        <a class="nav-link" href="calendar.html">Calendar</a>
-        <a class="nav-link" href="awards.html">Award</a>
-        <a class="nav-link" href="services.html">Services</a>
-        <a class="nav-link" href="misc.html">Misc</a>
-      </div>
-    </nav>
-
-    <script>
-      (function () {
-        var current = window.location.pathname.split('/').pop() || 'index.html';
-        document.querySelectorAll('.site-nav a').forEach(function (link) {
-          if (link.getAttribute('href') === current) {
-            link.classList.add('active');
-          }
-        });
-      }());
-    </script>
-  </header>
+  <header data-site-header></header>
+  <script src="javascripts/site-shell.js"></script>
 
   <!-- ================= MAIN CONTENT ================= -->
   <section class="course-home">
@@ -506,13 +264,7 @@
       </ul>
     </div>
 
-    <p><a href="teaching.html">Retour à l’aperçu des cours</a></p>
-
-    <footer class="site-footer-unified">
-      <span>© <span data-current-year>2026</span> Bowen Yi. Tous droits réservés.</span>
-      <span class="footer-separator" aria-hidden="true">·</span>
-      <a href="privacy-policy.html">Politique de confidentialité</a>
-    </footer>
+    <footer class="site-footer-unified" data-site-footer></footer>
   </section>
 </div>
 </body>

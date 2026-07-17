@@ -1,0 +1,127 @@
+/* Extracted from services.html — block 1. */
+body {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: #1f2a44;
+      font-weight: 600;
+    }
+
+    a {
+      color: #1f2a44;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .gray-line {
+      border-top: 1px solid #dddddd;
+      margin: 6px 0 16px 0;
+    }
+
+    /* ===== Align main content with existing layout ===== */
+    section {
+      margin-left: 260px;
+    }
+
+    /* ===== Placeholder text ===== */
+    .placeholder {
+      color: #666;
+      font-style: italic;
+      margin-top: 12px;
+    }
+    
+  .awards-list {
+    margin-top: 10px;
+  }
+
+  .award-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px dashed #cccccc;
+  }
+
+  .award-item:last-child {
+    border-bottom: none;
+  }
+
+  .award-main {
+    max-width: 85%;
+    font-size: 0.95em;
+  }
+
+  .award-year {
+    font-weight: 600;
+    color: #1f2a44;
+    white-space: nowrap;
+    margin-left: 15px;
+  }
+  
+  .grants-list {
+    margin-top: 12px;
+  }
+
+  .grant-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    border: 1px solid #dddddd;
+    background: #fafafa;
+    border-radius: 4px;
+  }
+
+  .grant-main {
+    max-width: 88%;
+    font-size: 0.95em;
+  }
+
+  .grant-meta {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 0.85em;
+    color: #555;
+  }
+
+  .grant-badge {
+    font-size: 0.8em;
+    font-weight: 600;
+    color: #1f2a44;
+    border: 1px solid #1f2a44;
+    padding: 4px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    margin-left: 14px;
+  }
+
+  .service-card {
+    border: 1px solid #dddddd;
+    background: #fafafa;
+    padding: 12px 16px;
+    margin: 12px 0;
+    border-radius: 4px;
+    font-size: 0.95em;
+  }
+
+  .service-meta {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.85em;
+    color: #555;
+  }
+
+  .service-list {
+    margin: 6px 0 0 18px;
+  }
+
+  .service-list li {
+    margin-bottom: 4px;
+  }

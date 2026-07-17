@@ -5,6 +5,23 @@
 <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Bowen Yi - Misc</title>
+  <meta name="description" content="Seminar recordings, technical notes, and selected academic resources curated by Bowen Yi.">
+  <link rel="canonical" href="https://bwyi.github.io/misc.html">
+  <meta property="og:site_name" content="Bowen Yi">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Seminars &amp; Technical Notes | Bowen Yi">
+  <meta property="og:description" content="Invited seminar recordings, technical notes, and selected academic resources.">
+  <meta property="og:url" content="https://bwyi.github.io/misc.html">
+  <meta property="og:image" content="https://bwyi.github.io/udem-home.webp">
+  <meta property="og:image:width" content="1400">
+  <meta property="og:image:height" content="787">
+  <meta property="og:image:alt" content="Polytechnique Montréal and the Université de Montréal campus">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:locale:alternate" content="fr_CA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Seminars &amp; Technical Notes | Bowen Yi">
+  <meta name="twitter:description" content="Invited seminar recordings, technical notes, and academic resources.">
+  <meta name="twitter:image" content="https://bwyi.github.io/udem-home.webp">
 
   <link rel="stylesheet" href="stylesheets/styles.css">
 
@@ -14,359 +31,17 @@
   <link rel="stylesheet" href="assets/css/academicons.css">
 
   <!-- ===== Global Academic Style ===== -->
-  <style>
-    body {
-      font-family: Georgia, "Times New Roman", Times, serif;
-      color: #222;
-      line-height: 1.6;
-    }
-
-    h1, h2, h3 {
-      color: #1f2a44;
-      font-weight: 600;
-    }
-
-    a {
-      color: #1f2a44;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .gray-line {
-      border-top: 1px solid #dddddd;
-      margin-top: 6px;
-    }
-
-    .justified-text {
-      text-align: justify;
-    }
-
-    .social-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-    /* ===== Top banner with background image ===== */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 220px;
-      background-image: url("udem.jpg");
-      background-size: cover;
-      background-position: center;
-      margin-bottom: 25px;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(15, 25, 40, 0.55);
-    }
-
-    .hero-overlay {
-      position: relative;
-      z-index: 1;
-      color: #ffffff;
-      padding: 35px 30px;
-    }
-
-    .hero-overlay h2 {
-      color: #ffffff;
-      margin-bottom: 8px;
-    }
-
-    .hero-overlay p {
-      font-size: 1.05em;
-    }
-    
-    .news-timeline {
-  border-left: 2px solid #dddddd;
-  margin-top: 10px;
-  padding-left: 14px;
-  max-width: 520px;
-}
-
-.news-item {
-  position: relative;
-  margin-bottom: 14px;
-}
-
-.news-item::before {
-  content: "";
-  position: absolute;
-  left: -21px;
-  top: 4px;
-  width: 10px;
-  height: 10px;
-  background: #1f2a44;
-  border-radius: 50%;
-}
-
-.news-date {
-  font-size: 0.85em;
-  font-weight: 600;
-  color: #1f2a44;
-  margin-bottom: 2px;
-}
-
-.news-content {
-  font-size: 0.95em;
-}
-
-
-.calendar-fullwidth {
-  margin-left: 260px;   /* 左侧 sidebar 宽度 */
-  margin-right: 20px;
-  margin-top: 10px;
-}
-
-.calendar-fullwidth iframe {
-  width: 80%;
-  min-width: 700px;     /* 👈 关键：防止 Outlook 被压缩 */
-  height: 300px;
-  border: 1px solid #dddddd;
-  background: #ffffff;
-}
-
-.zhihu-tech-card {
-  margin: 18px 0 26px 0;
-  padding: 14px 18px;
-  border-left: 3px solid #1f2a44;
-  background: linear-gradient(
-    to right,
-    #fafbfc 0%,
-    #ffffff 60%
-  );
-}
-
-.zhihu-tech-title {
-  font-weight: 600;
-  font-size: 0.95em;
-  margin-bottom: 6px;
-  color: #1f2a44;
-}
-
-.zhihu-tech-content {
-  font-size: 0.9em;
-  line-height: 1.6;
-  color: #222;
-  margin-bottom: 8px;
-}
-
-.zhihu-preview-lead {
-  color: #3f4d4b;
-  font-size: 0.9em;
-  line-height: 1.65;
-  margin: 8px 0;
-}
-
-.zhihu-preview-details {
-  border-top: 1px solid #e1e7e5;
-  color: #3f4d4b;
-  font-size: 0.88em;
-  margin: 10px 0 9px;
-  padding-top: 8px;
-}
-
-.zhihu-preview-details summary {
-  color: #0b5d56;
-  cursor: pointer;
-  font-weight: 600;
-  margin-bottom: 7px;
-}
-
-.zhihu-preview-details p,
-.zhihu-preview-details ul {
-  margin-bottom: 8px;
-}
-
-.zhihu-preview-details li {
-  margin-bottom: 5px;
-}
-
-.zhihu-tech-link {
-  font-size: 0.8em;
-  color: #666;
-  text-decoration: none;
-}
-
-.zhihu-tech-link:hover {
-  color: #1f2a44;
-  text-decoration: underline;
-}
-
-.seminar-record {
-  background: linear-gradient(135deg, #f8fbfa 0%, #ffffff 100%);
-  border: 1px solid #d9e1de;
-  border-left: 4px solid #0f766e;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(23, 63, 58, 0.06);
-  margin: 12px 0 30px;
-  padding: 16px 18px;
-}
-
-.seminar-date {
-  color: #0b5d56;
-  font-size: 0.82em;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  margin-bottom: 4px;
-  text-transform: uppercase;
-}
-
-.seminar-title {
-  color: #173f3a;
-  font-size: 1.05em;
-  font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: 7px;
-}
-
-.seminar-speaker {
-  margin-bottom: 7px;
-}
-
-.seminar-affiliation,
-.seminar-location {
-  color: #536361;
-  font-size: 0.9em;
-  margin-bottom: 6px;
-}
-
-.seminar-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.seminar-links a {
-  background: #f5f8f7;
-  border: 1px solid #cbd8d4;
-  border-radius: 4px;
-  color: #0b5d56;
-  font-size: 0.82em;
-  font-weight: 600;
-  padding: 5px 10px;
-}
-
-.seminar-links a:hover {
-  background: #eaf2ef;
-  text-decoration: none;
-}
-
-.seminar-badge {
-  background: #eaf2ef;
-  border: 1px solid #b9cec7;
-  border-radius: 999px;
-  color: #0b5d56;
-  display: inline-block;
-  font-size: 0.72em;
-  font-weight: 700;
-  margin-left: 7px;
-  padding: 1px 7px;
-  text-transform: uppercase;
-  vertical-align: 1px;
-}
-
-.seminar-toggle,
-.tech-toggle {
-  appearance: none;
-  background: #0f766e;
-  border: 1px solid #0b5d56;
-  border-radius: 999px;
-  box-shadow: 0 3px 8px rgba(15, 118, 110, 0.2);
-  color: #ffffff;
-  cursor: pointer;
-  display: block;
-  font: inherit;
-  font-size: 13px;
-  font-weight: 700;
-  margin: -14px auto 30px;
-  padding: 7px 16px;
-  transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
-}
-
-.seminar-toggle:hover,
-.tech-toggle:hover {
-  background: #0b5d56;
-  box-shadow: 0 4px 11px rgba(11, 93, 86, 0.28);
-  transform: translateY(-1px);
-}
-
-.seminar-toggle:focus-visible,
-.tech-toggle:focus-visible {
-  outline: 3px solid rgba(15, 118, 110, 0.28);
-  outline-offset: 3px;
-}
-
-.seminar-toggle i,
-.tech-toggle i {
-  margin-right: 6px;
-}
-
-
-
-
-
-  </style>
+  <link rel="stylesheet" href="stylesheets/pages/misc.css?v=20260717a">
   <link rel="stylesheet" href="stylesheets/site-theme.css?v=20260717k">
   <link rel="stylesheet" href="stylesheets/bilingual-page.css">
-  <script defer src="javascripts/site-navigation.js"></script>
 </head>
 
 <body>
 <div class="wrapper">
 
   <!-- ================= LEFT SIDEBAR ================= -->
-  <header>
-    <h1>Bowen Yi</h1>
-    衣博文
-    <br>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a class="nav-link" href="index.html">Home</a>
-
-      <div class="nav-group">
-        <div class="nav-heading">Research</div>
-        <a class="nav-link" href="research.html">Overview</a>
-        <a class="nav-link" href="publication.html">Publications</a>
-        <a class="nav-link" href="people.html">People</a>
-        <a class="nav-link" href="position.html">Positions</a>
-      </div>
-
-      <div class="nav-group">
-        <div class="nav-heading">Teaching</div>
-        <a class="nav-link" href="course-ele6202.html">ELE6202</a>
-        <a class="nav-link" href="course-ele6214.html">ELE6214</a>
-        <a class="nav-link" href="course-ele6209a.html">ELE6209A</a>
-        <a class="nav-link" href="course-ele2200.html">ELE2200</a>
-      </div>
-
-      <div class="nav-group">
-        <div class="nav-heading">Other</div>
-        <a class="nav-link" href="calendar.html">Calendar</a>
-        <a class="nav-link" href="awards.html">Award</a>
-        <a class="nav-link" href="services.html">Services</a>
-        <a class="nav-link" href="misc.html">Misc</a>
-      </div>
-    </nav>
-
-    <script>
-      (function () {
-        var current = window.location.pathname.split('/').pop() || 'index.html';
-        document.querySelectorAll('.site-nav a').forEach(function (link) {
-          if (link.getAttribute('href') === current) {
-            link.classList.add('active');
-          }
-        });
-      }());
-    </script>
-  </header>
+  <header data-site-header></header>
+  <script src="javascripts/site-shell.js"></script>
 
 
 <!-- ================= MAIN CONTENT ================= -->
@@ -557,79 +232,12 @@
 
   </div>
 
-  <footer class="site-footer-unified">
-    <span>© <span data-current-year>2026</span> Bowen Yi. <span data-en="All rights reserved." data-fr="Tous droits réservés.">All rights reserved.</span></span>
-    <span class="footer-separator" aria-hidden="true">·</span>
-    <a href="privacy-policy.html" data-en="Privacy Policy" data-fr="Politique de confidentialité">Privacy Policy</a>
-  </footer>
+  <footer class="site-footer-unified" data-site-footer></footer>
 
 </section>
 
 <script src="javascripts/bilingual-page.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  function toggleLabel(button, expanded) {
-    const french = document.documentElement.lang === "fr";
-    const label = expanded
-      ? (french ? "Afficher moins" : "Show less")
-      : (french ? "Afficher plus" : "Show more");
-    const icon = expanded ? "fa-chevron-up" : "fa-chevron-down";
-    button.innerHTML = `<i class="fa ${icon}" aria-hidden="true"></i>${label}`;
-  }
-
-  function addContentToggle(listSelector, itemSelector, maxItems, buttonClass) {
-    const list = document.querySelector(listSelector);
-    if (!list) return;
-
-    const items = list.querySelectorAll(itemSelector);
-    if (items.length <= maxItems) return;
-
-    items.forEach((item, index) => {
-      item.hidden = index >= maxItems;
-    });
-
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = buttonClass;
-    button.setAttribute("aria-expanded", "false");
-    toggleLabel(button, false);
-
-    button.addEventListener("click", function () {
-      const nextExpanded = button.getAttribute("aria-expanded") !== "true";
-
-      items.forEach((item, index) => {
-        if (index >= maxItems) item.hidden = !nextExpanded;
-      });
-
-      button.setAttribute("aria-expanded", String(nextExpanded));
-      toggleLabel(button, nextExpanded);
-    });
-
-    list.after(button);
-  }
-
-  addContentToggle(".seminar-list", ".seminar-record", 3, "seminar-toggle");
-  addContentToggle(".tech-notes-list", ".zhihu-tech-card", 3, "tech-toggle");
-
-  function updateSeminarDates() {
-    const french = document.documentElement.lang === "fr";
-    document.querySelectorAll(".seminar-date time[datetime]").forEach(time => {
-      const date = new Date(`${time.getAttribute("datetime")}T12:00:00`);
-      time.textContent = date.toLocaleDateString(french ? "fr-CA" : "en-CA", {
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-      });
-    });
-    document.querySelectorAll(".seminar-toggle, .tech-toggle").forEach(button => {
-      toggleLabel(button, button.getAttribute("aria-expanded") === "true");
-    });
-  }
-
-  document.addEventListener("site-language-change", updateSeminarDates);
-  updateSeminarDates();
-});
-</script>
+<script src="javascripts/pages/misc.js?v=20260717a"></script>
 
 
 

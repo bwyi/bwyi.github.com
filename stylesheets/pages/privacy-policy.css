@@ -1,0 +1,29 @@
+/* Extracted from privacy-policy.html — block 1. */
+.policy-intro {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 26px;
+      max-width: 620px;
+    }
+
+    .policy-updated {
+      color: var(--muted);
+      display: inline-block;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .policy-section {
+      border-top: 1px solid var(--rule);
+      padding: 17px 0 5px;
+    }
+
+    .policy-section h3 {
+      color: #173f3a;
+      font-size: 16px;
+      margin: 0 0 6px;
+    }
+
+    .policy-section p {
+      margin: 0 0 12px;
+    }
