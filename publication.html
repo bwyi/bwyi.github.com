@@ -172,8 +172,7 @@
 }
 
 .publication-filter-button,
-.publication-year-select,
-.publication-older-toggle {
+.publication-year-select {
   background: #ffffff;
   border: 1px solid #cfdad6;
   border-radius: 999px;
@@ -186,8 +185,7 @@
 }
 
 .publication-filter-button:hover,
-.publication-filter-button.active,
-.publication-older-toggle:hover {
+.publication-filter-button.active {
   background: #e3efec;
   border-color: #a9c8c2;
 }
@@ -210,11 +208,6 @@
   gap: 9px;
   justify-content: space-between;
   margin-top: 11px;
-}
-
-.publication-older-toggle {
-  background: transparent;
-  padding: 5px 9px;
 }
 
 .publication-empty {
@@ -294,7 +287,7 @@
   }
 }
 </style>
-  <link rel="stylesheet" href="stylesheets/site-theme.css?v=20260717j">
+  <link rel="stylesheet" href="stylesheets/site-theme.css?v=20260717k">
   <script defer src="javascripts/site-navigation.js"></script>
 </head>
 
@@ -372,7 +365,6 @@
 
   <div class="publication-summary-row">
     <span id="publication-summary" aria-live="polite"></span>
-    <button type="button" class="publication-older-toggle" id="publication-older-toggle" hidden></button>
   </div>
 </div>
 
@@ -1066,9 +1058,6 @@ const entries = parseBibtex(
 
 const publicationYears = [...new Set(entries.map(entry => entry.year).filter(Boolean))]
   .sort((a, b) => Number(b) - Number(a));
-const latestPublicationYear = Math.max(...publicationYears.map(Number));
-const earliestPublicationYear = Math.min(...publicationYears.map(Number));
-const recentPublicationCutoff = latestPublicationYear - 3;
 
 const publicationTranslations = {
   fr: {
@@ -1103,17 +1092,11 @@ const publicationInterfaceText = {
   en: {
     allYears: "All years",
     summary: count => `${count} publication${count === 1 ? "" : "s"} shown`,
-    hidden: count => `${count} earlier hidden`,
-    showOlder: (start, end) => `Show earlier publications (${start}–${end})`,
-    hideOlder: "Hide earlier publications",
     empty: "No publications match the current filters."
   },
   fr: {
     allYears: "Toutes les années",
     summary: count => `${count} publication${count === 1 ? "" : "s"} affichée${count === 1 ? "" : "s"}`,
-    hidden: count => `${count} publication${count === 1 ? "" : "s"} antérieure${count === 1 ? "" : "s"} masquée${count === 1 ? "" : "s"}`,
-    showOlder: (start, end) => `Afficher les publications antérieures (${start}–${end})`,
-    hideOlder: "Masquer les publications antérieures",
     empty: "Aucune publication ne correspond aux filtres sélectionnés."
   }
 };
@@ -1139,14 +1122,12 @@ const publicationTypeButtons = Array.from(document.querySelectorAll("[data-publi
 const publicationSearch = document.getElementById("publication-search");
 const publicationYear = document.getElementById("publication-year");
 const publicationSummary = document.getElementById("publication-summary");
-const publicationOlderToggle = document.getElementById("publication-older-toggle");
 
 const publicationState = {
   language: "en",
   query: "",
   type: "all",
-  year: "all",
-  showOlder: false
+  year: "all"
 };
 
 publicationTextNodes.forEach(node => { node.dataset.i18nEn = node.textContent; });
@@ -1179,36 +1160,20 @@ function renderPublications(language) {
     return typeMatches && yearMatches && queryMatches;
   });
 
-  const canCollapseOlder = !normalizedQuery && publicationState.year === "all";
-  const hiddenOlder = canCollapseOlder
-    ? matchingEntries.filter(entry => Number(entry.year) < recentPublicationCutoff)
-    : [];
-  const visibleEntries = canCollapseOlder && !publicationState.showOlder
-    ? matchingEntries.filter(entry => Number(entry.year) >= recentPublicationCutoff)
-    : matchingEntries;
-
   const categories = {
-    preprint: visibleEntries.filter(entry => publicationCategory(entry) === "preprint"),
-    journal: visibleEntries.filter(entry => publicationCategory(entry) === "journal"),
-    conference: visibleEntries.filter(entry => publicationCategory(entry) === "conference")
+    preprint: matchingEntries.filter(entry => publicationCategory(entry) === "preprint"),
+    journal: matchingEntries.filter(entry => publicationCategory(entry) === "journal"),
+    conference: matchingEntries.filter(entry => publicationCategory(entry) === "conference")
   };
 
   const publicationContainer = document.getElementById("pub-container");
-  publicationContainer.innerHTML = visibleEntries.length
+  publicationContainer.innerHTML = matchingEntries.length
     ? renderPublicationCategory(titles.preprints, "preprint", categories.preprint) +
       renderPublicationCategory(titles.journals, "journal", categories.journal) +
       renderPublicationCategory(titles.conferences, "conference", categories.conference)
     : `<div class="publication-empty">${labels.empty}</div>`;
 
-  publicationSummary.textContent = hiddenOlder.length && !publicationState.showOlder
-    ? `${labels.summary(visibleEntries.length)} · ${labels.hidden(hiddenOlder.length)}`
-    : labels.summary(visibleEntries.length);
-
-  publicationOlderToggle.hidden = hiddenOlder.length === 0;
-  publicationOlderToggle.textContent = publicationState.showOlder
-    ? labels.hideOlder
-    : labels.showOlder(earliestPublicationYear, recentPublicationCutoff - 1);
-  publicationOlderToggle.setAttribute("aria-expanded", String(publicationState.showOlder));
+  publicationSummary.textContent = labels.summary(matchingEntries.length);
 
   document.querySelectorAll(".bibtex-button").forEach(button => {
     button.addEventListener("click", () => {
@@ -1281,14 +1246,12 @@ publicationLanguageButtons.forEach(button => {
 
 publicationSearch.addEventListener("input", () => {
   publicationState.query = publicationSearch.value;
-  publicationState.showOlder = false;
   renderPublications(publicationState.language);
 });
 
 publicationTypeButtons.forEach(button => {
   button.addEventListener("click", () => {
     publicationState.type = button.dataset.publicationType;
-    publicationState.showOlder = false;
     publicationTypeButtons.forEach(candidate => {
       const active = candidate === button;
       candidate.classList.toggle("active", active);
@@ -1300,12 +1263,6 @@ publicationTypeButtons.forEach(button => {
 
 publicationYear.addEventListener("change", () => {
   publicationState.year = publicationYear.value;
-  publicationState.showOlder = false;
-  renderPublications(publicationState.language);
-});
-
-publicationOlderToggle.addEventListener("click", () => {
-  publicationState.showOlder = !publicationState.showOlder;
   renderPublications(publicationState.language);
 });
 

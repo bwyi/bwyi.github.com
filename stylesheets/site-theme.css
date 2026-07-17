@@ -566,18 +566,22 @@ section.teaching-section {
 .site-footer-unified {
   align-items: center;
   border-top: 1px solid var(--rule);
+  bottom: auto;
   clear: both;
   color: var(--muted);
   display: flex;
+  float: none !important;
   flex-wrap: wrap;
   font-size: 12px;
   gap: 6px;
   justify-content: center;
+  left: auto;
   margin-top: 38px;
   padding: 14px 0 5px;
-  position: static;
+  position: static !important;
+  right: auto;
   text-align: center;
-  width: auto;
+  width: 100%;
 }
 
 .site-footer-unified .footer-separator {
