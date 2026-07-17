@@ -52,21 +52,48 @@
 
  /* ===== Publications layout ===== */
 .pub-section { margin-bottom: 34px; }
-.pub-year { margin-top: 20px; margin-bottom: 10px; }
 
-.pub-list {
-  list-style: disc;
-  padding-left: 1.2em;
+.pub-section h3 {
+  border-bottom: 1px solid var(--rule);
+  margin: 30px 0 14px;
+  padding-bottom: 7px;
 }
 
-/* 🔑 论文之间的核心间距控制 */
+.pub-year {
+  align-items: center;
+  display: flex;
+  margin: 20px 0 9px;
+}
+
+.pub-year b {
+  background: #eaf2ef;
+  border: 1px solid #d1dfda;
+  border-radius: 999px;
+  color: var(--accent-dark);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 3px 9px;
+}
+
+.pub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .pub-list li {
-  margin-bottom: 18px;     /* 两篇论文的间距 */
-  line-height: 1.55;       /* 单条论文内部行距 */
+  background: #ffffff;
+  border: 1px solid var(--rule);
+  border-left: 3px solid #8cbeb6;
+  border-radius: 6px;
+  line-height: 1.52;
+  margin-bottom: 10px;
+  padding: 12px 14px;
 }
 
 .pub-title {
-  font-weight: 500;
+  color: #173f3a;
+  font-weight: 650;
 }
 
 .pub-venue {
@@ -92,6 +119,111 @@
 
 .pub-tag:hover {
   background: #eee;
+}
+
+.pub-tag[type="button"] {
+  color: var(--accent-dark);
+  cursor: pointer;
+  font: inherit;
+}
+
+.publication-tools {
+  background: linear-gradient(135deg, #f8faf9 0%, #f1f6f4 100%);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  margin: 18px 0 24px;
+  padding: 14px;
+}
+
+.publication-search-label {
+  color: #173f3a;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.publication-search {
+  background: #ffffff;
+  border: 1px solid #cfdad6;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  padding: 9px 11px;
+  width: 100%;
+}
+
+.publication-search:focus,
+.publication-year-select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+  outline: none;
+}
+
+.publication-filter-row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 11px;
+}
+
+.publication-filter-button,
+.publication-year-select,
+.publication-older-toggle {
+  background: #ffffff;
+  border: 1px solid #cfdad6;
+  border-radius: 999px;
+  color: var(--accent-dark);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  padding: 6px 10px;
+}
+
+.publication-filter-button:hover,
+.publication-filter-button.active,
+.publication-older-toggle:hover {
+  background: #e3efec;
+  border-color: #a9c8c2;
+}
+
+.publication-filter-button.active {
+  box-shadow: inset 0 0 0 1px rgba(15, 118, 110, 0.12);
+}
+
+.publication-year-select {
+  border-radius: 6px;
+  margin-left: auto;
+}
+
+.publication-summary-row {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+  gap: 9px;
+  justify-content: space-between;
+  margin-top: 11px;
+}
+
+.publication-older-toggle {
+  background: transparent;
+  padding: 5px 9px;
+}
+
+.publication-empty {
+  background: #f8faf9;
+  border: 1px dashed #bfcfc9;
+  border-radius: 7px;
+  color: var(--muted);
+  padding: 24px;
+  text-align: center;
 }
 
 /* 你的名字 */
@@ -150,9 +282,19 @@
     position: static;
     width: max-content;
   }
+
+  .publication-year-select {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .publication-summary-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 </style>
-  <link rel="stylesheet" href="stylesheets/site-theme.css?v=20260717g">
+  <link rel="stylesheet" href="stylesheets/site-theme.css?v=20260717j">
   <script defer src="javascripts/site-navigation.js"></script>
 </head>
 
@@ -215,6 +357,24 @@
 
 <h2 data-i18n="page.title">Publications</h2>
 <div class="gray-line"></div>
+
+<div class="publication-tools" aria-label="Publication filters" data-i18n-aria="filters.label">
+  <label class="publication-search-label" for="publication-search" data-i18n="filters.searchLabel">Search publications</label>
+  <input class="publication-search" id="publication-search" type="search" autocomplete="off" placeholder="Title, author, venue, or year" data-i18n-placeholder="filters.searchPlaceholder">
+
+  <div class="publication-filter-row" role="group" aria-label="Publication type" data-i18n-aria="filters.typeLabel">
+    <button type="button" class="publication-filter-button active" data-publication-type="all" aria-pressed="true" data-i18n="filters.all">All</button>
+    <button type="button" class="publication-filter-button" data-publication-type="preprint" aria-pressed="false" data-i18n="filters.preprints">Preprints</button>
+    <button type="button" class="publication-filter-button" data-publication-type="journal" aria-pressed="false" data-i18n="filters.journals">Journals</button>
+    <button type="button" class="publication-filter-button" data-publication-type="conference" aria-pressed="false" data-i18n="filters.conferences">Conferences</button>
+    <select class="publication-year-select" id="publication-year" aria-label="Publication year" data-i18n-aria="filters.yearLabel"></select>
+  </div>
+
+  <div class="publication-summary-row">
+    <span id="publication-summary" aria-live="polite"></span>
+    <button type="button" class="publication-older-toggle" id="publication-older-toggle" hidden></button>
+  </div>
+</div>
 
 <div id="pub-container"></div>
 <div id="error-box" class="error"></div>
@@ -841,76 +1001,73 @@ function arxivId(e) {
   return match ? match[0] : "";
 }
 
-function group(entries) {
-  const out = { preprint:{}, journal:{}, conference:{} };
-  entries.forEach(e => {
-    const isArxivPreprint = /arxiv\s+preprint/i.test(e.journal || "");
-    const cat =
-      isArxivPreprint ? "preprint" :
-      e.type === "article" ? "journal" :
-      e.type === "inproceedings" ? "conference" :
-      "preprint";
-    const y = e.year || "Unknown";
-    (out[cat][y] ||= []).push(e);
-  });
-  return out;
+function publicationCategory(entry) {
+  const isArxivPreprint = /arxiv\s+preprint/i.test(entry.journal || "");
+  if (isArxivPreprint) return "preprint";
+  if (entry.type === "article") return "journal";
+  if (entry.type === "inproceedings") return "conference";
+  return "preprint";
 }
 
-function renderPreprints(title, data) {
-  let html = `<div class="pub-section"><h3>${title}</h3><ul class="pub-list">`;
-  Object.values(data).flat().forEach(e => {
-    const id = arxivId(e);
-    html += `<li>
-      ${formatAuthors(e.author || "")},
-      <span class="pub-title">${e.title}</span>,
-      <span class="pub-venue">${id ? `arXiv:${id}` : (e.note || e.journal || "Preprint")}</span>.
-      <div class="pub-links">
-        ${id ? `<a class="pub-tag" href="https://arxiv.org/abs/${id}" target="_blank" rel="noopener">
-          <i class="ai ai-arxiv"></i> arXiv
-        </a>` : ""}
-        <a class="pub-tag" href="#" onclick="alert(\`${e.raw}\`)">
-          <i class="fa fa-quote-left"></i> BibTeX
-        </a>
-      </div>
-    </li>`;
-  });
-  return html + "</ul></div>";
+function publicationSearchText(entry) {
+  return [
+    entry.author,
+    (entry.title || "").replace(/<[^>]+>/g, " "),
+    venue(entry),
+    entry.note,
+    entry.year
+  ].filter(Boolean).join(" ").toLowerCase();
 }
 
-function render(title, data) {
-  let html = `<div class="pub-section"><h3>${title}</h3>`;
-  Object.keys(data).sort((a,b)=>b-a).forEach(y => {
-    html += `<div class="pub-year"><b>${y}</b><ul class="pub-list">`;
-    data[y].forEach(e => {
-      html += `<li>
-        ${formatAuthors(e.author || "")},
-        <span class="pub-title">${e.title}</span>,
-        <span class="pub-venue">
-          ${venue(e)}
-          ${e.volume ? `, vol. ${e.volume}` : ""}
-          ${e.number ? `(${e.number})` : ""}
-          ${e.pages ? `, pp. ${e.pages}` : ""}
-        </span>.
-        <div class="pub-links">
-          ${e.doi ? `
-            <a class="pub-tag" href="https://doi.org/${e.doi}" target="_blank">
-              <i class="ai ai-doi"></i> DOI
-            </a>` : ""}
-          <a class="pub-tag" href="#" onclick="alert(\`${e.raw}\`)">
-            <i class="fa fa-quote-left"></i> BibTeX
-          </a>
-        </div>
-      </li>`;
+function renderPublicationEntry(entry, category) {
+  const id = arxivId(entry);
+  const publicationVenue = category === "preprint"
+    ? (id ? `arXiv:${id}` : (entry.note || entry.journal || "Preprint"))
+    : `${venue(entry)}${entry.volume ? `, vol. ${entry.volume}` : ""}${entry.number ? `(${entry.number})` : ""}${entry.pages ? `, pp. ${entry.pages}` : ""}`;
+
+  return `<li data-publication-index="${entry._index}">
+    <div class="pub-citation">
+      ${formatAuthors(entry.author || "")},
+      <span class="pub-title">${entry.title}</span>,
+      <span class="pub-venue">${publicationVenue}</span>.
+    </div>
+    <div class="pub-links">
+      ${category === "preprint" && id ? `<a class="pub-tag" href="https://arxiv.org/abs/${id}" target="_blank" rel="noopener"><i class="ai ai-arxiv" aria-hidden="true"></i> arXiv</a>` : ""}
+      ${category !== "preprint" && entry.doi ? `<a class="pub-tag" href="https://doi.org/${entry.doi}" target="_blank" rel="noopener"><i class="ai ai-doi" aria-hidden="true"></i> DOI</a>` : ""}
+      <button class="pub-tag bibtex-button" type="button" data-bibtex-index="${entry._index}"><i class="fa fa-quote-left" aria-hidden="true"></i> BibTeX</button>
+    </div>
+  </li>`;
+}
+
+function renderPublicationCategory(title, category, categoryEntries) {
+  if (!categoryEntries.length) return "";
+
+  const byYear = {};
+  categoryEntries.forEach(entry => {
+    const year = entry.year || "Unknown";
+    (byYear[year] ||= []).push(entry);
+  });
+
+  let html = `<div class="pub-section" data-publication-category="${category}"><h3>${title}</h3>`;
+  Object.keys(byYear).sort((a, b) => Number(b) - Number(a)).forEach(year => {
+    html += `<div class="pub-year"><b>${year}</b></div><ul class="pub-list">`;
+    byYear[year].forEach(entry => {
+      html += renderPublicationEntry(entry, category);
     });
-    html += "</ul></div>";
+    html += "</ul>";
   });
   return html + "</div>";
 }
 
 const entries = parseBibtex(
   document.getElementById("bibtex-data").textContent
-);
-const g = group(entries);
+).map((entry, index) => ({ ...entry, _index: index }));
+
+const publicationYears = [...new Set(entries.map(entry => entry.year).filter(Boolean))]
+  .sort((a, b) => Number(b) - Number(a));
+const latestPublicationYear = Math.max(...publicationYears.map(Number));
+const earliestPublicationYear = Math.min(...publicationYears.map(Number));
+const recentPublicationCutoff = latestPublicationYear - 3;
 
 const publicationTranslations = {
   fr: {
@@ -927,8 +1084,36 @@ const publicationTranslations = {
     "nav.misc": "Divers",
     "language.selector": "Sélection de la langue",
     "page.title": "Publications",
+    "filters.label": "Filtres des publications",
+    "filters.searchLabel": "Rechercher dans les publications",
+    "filters.searchPlaceholder": "Titre, auteur, revue, conférence ou année",
+    "filters.typeLabel": "Type de publication",
+    "filters.all": "Toutes",
+    "filters.preprints": "Prépublications",
+    "filters.journals": "Revues",
+    "filters.conferences": "Conférences",
+    "filters.yearLabel": "Année de publication",
     "footer.rights": "Tous droits réservés.",
     "footer.privacy": "Politique de confidentialité"
+  }
+};
+
+const publicationInterfaceText = {
+  en: {
+    allYears: "All years",
+    summary: count => `${count} publication${count === 1 ? "" : "s"} shown`,
+    hidden: count => `${count} earlier hidden`,
+    showOlder: (start, end) => `Show earlier publications (${start}–${end})`,
+    hideOlder: "Hide earlier publications",
+    empty: "No publications match the current filters."
+  },
+  fr: {
+    allYears: "Toutes les années",
+    summary: count => `${count} publication${count === 1 ? "" : "s"} affichée${count === 1 ? "" : "s"}`,
+    hidden: count => `${count} publication${count === 1 ? "" : "s"} antérieure${count === 1 ? "" : "s"} masquée${count === 1 ? "" : "s"}`,
+    showOlder: (start, end) => `Afficher les publications antérieures (${start}–${end})`,
+    hideOlder: "Masquer les publications antérieures",
+    empty: "Aucune publication ne correspond aux filtres sélectionnés."
   }
 };
 
@@ -947,19 +1132,89 @@ const publicationSectionTitles = {
 
 const publicationTextNodes = Array.from(document.querySelectorAll("[data-i18n]"));
 const publicationAriaNodes = Array.from(document.querySelectorAll("[data-i18n-aria]"));
+const publicationPlaceholderNodes = Array.from(document.querySelectorAll("[data-i18n-placeholder]"));
 const publicationLanguageButtons = Array.from(document.querySelectorAll("[data-language]"));
+const publicationTypeButtons = Array.from(document.querySelectorAll("[data-publication-type]"));
+const publicationSearch = document.getElementById("publication-search");
+const publicationYear = document.getElementById("publication-year");
+const publicationSummary = document.getElementById("publication-summary");
+const publicationOlderToggle = document.getElementById("publication-older-toggle");
+
+const publicationState = {
+  language: "en",
+  query: "",
+  type: "all",
+  year: "all",
+  showOlder: false
+};
 
 publicationTextNodes.forEach(node => { node.dataset.i18nEn = node.textContent; });
 publicationAriaNodes.forEach(node => {
   node.dataset.i18nAriaEn = node.getAttribute("aria-label") || "";
 });
+publicationPlaceholderNodes.forEach(node => {
+  node.dataset.i18nPlaceholderEn = node.getAttribute("placeholder") || "";
+});
+
+function updatePublicationYearOptions(language) {
+  const labels = publicationInterfaceText[language] || publicationInterfaceText.en;
+  publicationYear.innerHTML = [
+    `<option value="all">${labels.allYears}</option>`,
+    ...publicationYears.map(year => `<option value="${year}">${year}</option>`)
+  ].join("");
+  publicationYear.value = publicationState.year;
+}
 
 function renderPublications(language) {
+  publicationState.language = language;
   const titles = publicationSectionTitles[language] || publicationSectionTitles.en;
-  document.getElementById("pub-container").innerHTML =
-    renderPreprints(titles.preprints, g.preprint) +
-    render(titles.journals, g.journal) +
-    render(titles.conferences, g.conference);
+  const labels = publicationInterfaceText[language] || publicationInterfaceText.en;
+  const normalizedQuery = publicationState.query.trim().toLowerCase();
+
+  const matchingEntries = entries.filter(entry => {
+    const typeMatches = publicationState.type === "all" || publicationCategory(entry) === publicationState.type;
+    const yearMatches = publicationState.year === "all" || entry.year === publicationState.year;
+    const queryMatches = !normalizedQuery || publicationSearchText(entry).includes(normalizedQuery);
+    return typeMatches && yearMatches && queryMatches;
+  });
+
+  const canCollapseOlder = !normalizedQuery && publicationState.year === "all";
+  const hiddenOlder = canCollapseOlder
+    ? matchingEntries.filter(entry => Number(entry.year) < recentPublicationCutoff)
+    : [];
+  const visibleEntries = canCollapseOlder && !publicationState.showOlder
+    ? matchingEntries.filter(entry => Number(entry.year) >= recentPublicationCutoff)
+    : matchingEntries;
+
+  const categories = {
+    preprint: visibleEntries.filter(entry => publicationCategory(entry) === "preprint"),
+    journal: visibleEntries.filter(entry => publicationCategory(entry) === "journal"),
+    conference: visibleEntries.filter(entry => publicationCategory(entry) === "conference")
+  };
+
+  const publicationContainer = document.getElementById("pub-container");
+  publicationContainer.innerHTML = visibleEntries.length
+    ? renderPublicationCategory(titles.preprints, "preprint", categories.preprint) +
+      renderPublicationCategory(titles.journals, "journal", categories.journal) +
+      renderPublicationCategory(titles.conferences, "conference", categories.conference)
+    : `<div class="publication-empty">${labels.empty}</div>`;
+
+  publicationSummary.textContent = hiddenOlder.length && !publicationState.showOlder
+    ? `${labels.summary(visibleEntries.length)} · ${labels.hidden(hiddenOlder.length)}`
+    : labels.summary(visibleEntries.length);
+
+  publicationOlderToggle.hidden = hiddenOlder.length === 0;
+  publicationOlderToggle.textContent = publicationState.showOlder
+    ? labels.hideOlder
+    : labels.showOlder(earliestPublicationYear, recentPublicationCutoff - 1);
+  publicationOlderToggle.setAttribute("aria-expanded", String(publicationState.showOlder));
+
+  document.querySelectorAll(".bibtex-button").forEach(button => {
+    button.addEventListener("click", () => {
+      const entry = entries[Number(button.dataset.bibtexIndex)];
+      if (entry) window.alert(entry.raw);
+    });
+  });
 }
 
 function applyPublicationLanguage(language, updateUrl) {
@@ -986,12 +1241,23 @@ function applyPublicationLanguage(language, updateUrl) {
     );
   });
 
+  publicationPlaceholderNodes.forEach(node => {
+    const key = node.getAttribute("data-i18n-placeholder");
+    node.setAttribute(
+      "placeholder",
+      language === "fr" && dictionary[key]
+        ? dictionary[key]
+        : node.dataset.i18nPlaceholderEn
+    );
+  });
+
   publicationLanguageButtons.forEach(button => {
     const active = button.dataset.language === language;
     button.classList.toggle("active", active);
     button.setAttribute("aria-pressed", String(active));
   });
 
+  updatePublicationYearOptions(language);
   renderPublications(language);
 
   try {
@@ -1010,6 +1276,36 @@ publicationLanguageButtons.forEach(button => {
   button.addEventListener("click", () => {
     applyPublicationLanguage(button.dataset.language, true);
   });
+});
+
+publicationSearch.addEventListener("input", () => {
+  publicationState.query = publicationSearch.value;
+  publicationState.showOlder = false;
+  renderPublications(publicationState.language);
+});
+
+publicationTypeButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    publicationState.type = button.dataset.publicationType;
+    publicationState.showOlder = false;
+    publicationTypeButtons.forEach(candidate => {
+      const active = candidate === button;
+      candidate.classList.toggle("active", active);
+      candidate.setAttribute("aria-pressed", String(active));
+    });
+    renderPublications(publicationState.language);
+  });
+});
+
+publicationYear.addEventListener("change", () => {
+  publicationState.year = publicationYear.value;
+  publicationState.showOlder = false;
+  renderPublications(publicationState.language);
+});
+
+publicationOlderToggle.addEventListener("click", () => {
+  publicationState.showOlder = !publicationState.showOlder;
+  renderPublications(publicationState.language);
 });
 
 const publicationParams = new URLSearchParams(window.location.search);
