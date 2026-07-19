@@ -160,6 +160,23 @@
     if (header) updateMenuButton(header);
   }
 
+  function recordPrivateVisit() {
+    if (window.location.protocol !== "http:" && window.location.protocol !== "https:") return;
+    if (navigator.globalPrivacyControl === true || navigator.doNotTrack === "1") return;
+
+    var endpoint = "https://bowen-visitor-analytics.bowen-yi.workers.dev/collect.gif";
+    var parameters = new URLSearchParams({
+      p: window.location.pathname || "/",
+      l: navigator.language || document.documentElement.lang || "",
+      r: document.referrer || ""
+    });
+    var pixel = new Image(1, 1);
+    pixel.alt = "";
+    pixel.setAttribute("aria-hidden", "true");
+    pixel.src = endpoint + "?" + parameters.toString();
+    window.__bowenPrivateVisitorPixel = pixel;
+  }
+
   function finishShell() {
     renderHeader();
     renderFooters();
@@ -173,8 +190,15 @@
   };
 
   renderHeader();
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", finishShell);
-  else finishShell();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      finishShell();
+      recordPrivateVisit();
+    });
+  } else {
+    finishShell();
+    recordPrivateVisit();
+  }
   document.addEventListener("site-language-change", updateLanguage);
   new MutationObserver(updateLanguage).observe(document.documentElement, { attributeFilter: ["lang"] });
 }());
