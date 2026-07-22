@@ -1,8 +1,8 @@
 window.CALENDAR_EVENTS = [
   {
     "title": "Busy",
-    "start": "2025-07-21T18:00:00",
-    "end": "2025-07-21T20:00:00"
+    "start": "2025-07-24T18:00:00",
+    "end": "2025-07-24T20:00:00"
   },
   {
     "title": "Busy",
