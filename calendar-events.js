@@ -1,8 +1,8 @@
 window.CALENDAR_EVENTS = [
   {
     "title": "Busy",
-    "start": "2025-07-21T18:00:00",
-    "end": "2025-07-21T20:00:00"
+    "start": "2025-07-24T18:00:00",
+    "end": "2025-07-24T20:00:00"
   },
   {
     "title": "Busy",
@@ -1165,19 +1165,9 @@ window.CALENDAR_EVENTS = [
     "end": "2026-04-17T18:00:00"
   },
   {
-    "title": "Free",
-    "start": "2026-04-20",
-    "end": "2026-04-21"
-  },
-  {
     "title": "Busy",
     "start": "2026-04-20T10:00:00",
     "end": "2026-04-20T12:00:00"
-  },
-  {
-    "title": "Tentative",
-    "start": "2026-04-20T16:15:00",
-    "end": "2026-04-20T16:20:00"
   },
   {
     "title": "Busy",
@@ -1786,6 +1776,11 @@ window.CALENDAR_EVENTS = [
   },
   {
     "title": "Busy",
+    "start": "2026-07-21T11:00:00",
+    "end": "2026-07-21T12:00:00"
+  },
+  {
+    "title": "Busy",
     "start": "2026-07-22T07:00:00",
     "end": "2026-07-22T09:00:00"
   },
@@ -1808,6 +1803,11 @@ window.CALENDAR_EVENTS = [
     "title": "Busy",
     "start": "2026-07-24T07:00:00",
     "end": "2026-07-24T09:00:00"
+  },
+  {
+    "title": "Busy",
+    "start": "2026-07-25T08:00:00",
+    "end": "2026-07-25T09:00:00"
   },
   {
     "title": "Busy",
