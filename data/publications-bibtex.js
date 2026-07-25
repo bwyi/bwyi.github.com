@@ -31,13 +31,15 @@
   doi={10.1016/j.automatica.2026.113003}
 }
 
-@misc{bosso2026data2,
+@article{bosso2026data2,
   author       = {Bosso, Alessandro and Borghesi, Marco and Iannelli, Andrea and Yi, Bowen and Notarstefano, Giuseppe},
-  title        = {Data-Driven Stabilization of Continuous-Time LTI Systems from Noisy Input-Output Data, submitted to <i>European Journal of Control</i>},
-  note         = {European Journal of Control},
+  title        = {Data-Driven Stabilization of Continuous-Time LTI Systems from Noisy Input–Output Data},
+  journal      = {European Journal of Control},
+  pages        = {101602},
   year         = {2026},
+  doi          = {10.1016/j.ejcon.2026.101602},
   arxiv        = {2511.11417},
-  eprint       = {2511.11417 (Invited)},
+  eprint       = {2511.11417},
 }
 
 
