@@ -1,10 +1,5 @@
 window.CALENDAR_EVENTS = [
   {
-    "title": "Tentative",
-    "start": "2025-07-31T09:00:00",
-    "end": "2025-07-31T15:00:00"
-  },
-  {
     "title": "Busy",
     "start": "2025-08-05T13:30:00",
     "end": "2025-08-05T15:00:00"
