@@ -1800,6 +1800,11 @@ window.CALENDAR_EVENTS = [
     "end": "2026-08-02"
   },
   {
+    "title": "Busy",
+    "start": "2026-08-04T09:00:00",
+    "end": "2026-08-04T10:00:00"
+  },
+  {
     "title": "Free",
     "start": "2026-08-07",
     "end": "2026-08-08"
@@ -1825,7 +1830,7 @@ window.CALENDAR_EVENTS = [
     "end": "2026-09-02T11:00:00"
   },
   {
-    "title": "Tentative",
+    "title": "Busy",
     "start": "2026-09-02T11:00:00",
     "end": "2026-09-02T13:00:00"
   },
