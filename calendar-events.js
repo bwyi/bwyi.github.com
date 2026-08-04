@@ -1825,7 +1825,7 @@ window.CALENDAR_EVENTS = [
     "end": "2026-08-28"
   },
   {
-    "title": "Tentative",
+    "title": "Busy",
     "start": "2026-09-02T09:00:00",
     "end": "2026-09-02T11:00:00"
   },
