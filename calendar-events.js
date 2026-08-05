@@ -1,10 +1,5 @@
 window.CALENDAR_EVENTS = [
   {
-    "title": "Busy",
-    "start": "2025-08-05T13:30:00",
-    "end": "2025-08-05T15:00:00"
-  },
-  {
     "title": "Tentative",
     "start": "2025-08-20T14:00:00",
     "end": "2025-08-20T15:00:00"
@@ -1226,11 +1221,6 @@ window.CALENDAR_EVENTS = [
   },
   {
     "title": "Free",
-    "start": "2026-05-04",
-    "end": "2026-05-05"
-  },
-  {
-    "title": "Free",
     "start": "2026-05-05",
     "end": "2026-05-06"
   },
@@ -1808,6 +1798,11 @@ window.CALENDAR_EVENTS = [
     "title": "Free",
     "start": "2026-08-07",
     "end": "2026-08-08"
+  },
+  {
+    "title": "Busy",
+    "start": "2026-08-07T16:00:00",
+    "end": "2026-08-07T19:00:00"
   },
   {
     "title": "Busy",
