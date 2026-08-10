@@ -1825,6 +1825,11 @@ window.CALENDAR_EVENTS = [
     "end": "2026-08-28"
   },
   {
+    "title": "Tentative",
+    "start": "2026-08-31T09:30:00",
+    "end": "2026-08-31T12:45:00"
+  },
+  {
     "title": "Busy",
     "start": "2026-09-02T09:00:00",
     "end": "2026-09-02T11:00:00"
@@ -1840,6 +1845,11 @@ window.CALENDAR_EVENTS = [
     "end": "2026-09-08"
   },
   {
+    "title": "Tentative",
+    "start": "2026-09-09T09:30:00",
+    "end": "2026-09-09T12:45:00"
+  },
+  {
     "title": "Free",
     "start": "2026-09-10",
     "end": "2026-09-11"
@@ -1853,6 +1863,16 @@ window.CALENDAR_EVENTS = [
     "title": "Busy",
     "start": "2026-09-11T04:45:00",
     "end": "2026-09-11T14:15:00"
+  },
+  {
+    "title": "Tentative",
+    "start": "2026-09-14T09:30:00",
+    "end": "2026-09-14T12:45:00"
+  },
+  {
+    "title": "Tentative",
+    "start": "2026-09-21T09:30:00",
+    "end": "2026-09-21T12:45:00"
   },
   {
     "title": "Free",
