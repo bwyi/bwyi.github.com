@@ -1825,6 +1825,16 @@ window.CALENDAR_EVENTS = [
     "end": "2026-08-24"
   },
   {
+    "title": "Busy",
+    "start": "2026-08-24T10:00:00",
+    "end": "2026-08-24T11:00:00"
+  },
+  {
+    "title": "Busy",
+    "start": "2026-08-26T12:45:00",
+    "end": "2026-08-26T15:45:00"
+  },
+  {
     "title": "Free",
     "start": "2026-08-27",
     "end": "2026-08-28"
@@ -1883,6 +1893,11 @@ window.CALENDAR_EVENTS = [
     "title": "Tentative",
     "start": "2026-09-14T09:30:00",
     "end": "2026-09-14T12:45:00"
+  },
+  {
+    "title": "Busy",
+    "start": "2026-09-14T13:00:00",
+    "end": "2026-09-14T15:00:00"
   },
   {
     "title": "Tentative",
