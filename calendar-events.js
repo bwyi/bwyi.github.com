@@ -1,11 +1,6 @@
 window.CALENDAR_EVENTS = [
   {
     "title": "Busy",
-    "start": "2025-08-25T21:00:00",
-    "end": "2025-08-25T22:00:00"
-  },
-  {
-    "title": "Busy",
     "start": "2025-08-26T17:00:00",
     "end": "2025-08-26T19:00:00"
   },
@@ -33,6 +28,11 @@ window.CALENDAR_EVENTS = [
     "title": "Busy",
     "start": "2025-08-29T13:00:00",
     "end": "2025-08-29T14:00:00"
+  },
+  {
+    "title": "Busy",
+    "start": "2025-09-01T21:00:00",
+    "end": "2025-09-01T22:00:00"
   },
   {
     "title": "Busy",
@@ -1320,11 +1320,6 @@ window.CALENDAR_EVENTS = [
     "end": "2026-05-24T11:00:00"
   },
   {
-    "title": "Free",
-    "start": "2026-05-25",
-    "end": "2026-05-26"
-  },
-  {
     "title": "Busy",
     "start": "2026-05-27T06:15:00",
     "end": "2026-05-27T15:15:00"
@@ -1846,6 +1841,11 @@ window.CALENDAR_EVENTS = [
   },
   {
     "title": "Busy",
+    "start": "2026-08-28T16:00:00",
+    "end": "2026-08-28T17:00:00"
+  },
+  {
+    "title": "Busy",
     "start": "2026-08-29T08:30:00",
     "end": "2026-08-29T10:30:00"
   },
@@ -1926,6 +1926,11 @@ window.CALENDAR_EVENTS = [
   },
   {
     "title": "Tentative",
+    "start": "2026-09-16T09:00:00",
+    "end": "2026-09-16T10:30:00"
+  },
+  {
+    "title": "Tentative",
     "start": "2026-09-21T09:30:00",
     "end": "2026-09-21T12:45:00"
   },
@@ -1968,6 +1973,11 @@ window.CALENDAR_EVENTS = [
     "title": "Free",
     "start": "2026-10-23",
     "end": "2026-10-24"
+  },
+  {
+    "title": "Tentative",
+    "start": "2026-10-28T09:30:00",
+    "end": "2026-10-28T12:00:00"
   },
   {
     "title": "Free",
