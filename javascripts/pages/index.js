@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const frenchNews = [
+    ["24 août 2026", "Bienvenue à Xinzhou Gao, notre nouveau chercheur postdoctoral (codirigé avec le professeur David Saussié), qui travaillera sur la recherche de sources par des essaims de robots."],
     ["20 juin 2026", "Félicitations à Jonathan et Chau Xin, qui ont obtenu des bourses SEED d’Affaires mondiales Canada! Ils se joindront à notre laboratoire pour des stages de recherche de huit mois."],
     ["18 juin 2026", "Le professeur Ti-Chung Lee de la National Sun Yat-sen University (Taïwan) et le professeur agrégé Han Zhang de la Shanghai Jiao Tong University visitent notre groupe cet été. Un enregistrement du séminaire est disponible ici : <a href=\"https://www.youtube.com/watch?v=FUUYoL-X-WM\" target=\"_blank\">[lien]</a>."],
     ["30 avr. 2026", "Nous remercions le Fonds de recherche du Québec pour son soutien dans le cadre du programme <em>Établissement de la relève professorale</em>. Ce financement contribuera à faire progresser nos recherches sur l’apprentissage et la commande fiables."],
