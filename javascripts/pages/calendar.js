@@ -114,7 +114,7 @@ function renderCalendar(events) {
 
   const hourRows = Array.from({ length: endHour - startHour }, (_, index) => {
     const hour = startHour + index;
-    return `<div class="calendar-hour-label" style="grid-row:${index + 2};">${formatHour(hour)}</div>`;
+    return `<div class="calendar-hour-label" style="grid-row:${index + 1};">${formatHour(hour)}</div>`;
   }).join("");
 
   const dayCells = Array.from({ length: 7 }, (_, dayIndex) => {
