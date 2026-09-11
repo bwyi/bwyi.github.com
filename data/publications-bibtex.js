@@ -12,6 +12,26 @@
 }
 
 
+@misc{gao2026datadriven,
+  title={Data-driven stabilization of continuous-time linear MIMO systems from input--output data},
+  author={Gao, Haihui and Bosso, Alessandro and Wang, Lei and Saussie, David and Yi, Bowen},
+  note={Submitted to <i>Automatica</i>},
+  year={2026},
+  hal={hal-05747546v1},
+  url={https://hal.science/hal-05747546v1}
+}
+
+
+@article{yi2026solvabilityjournal,
+  title={On the solvability of parameter estimation-based observers for nonlinear systems},
+  author={Yi, Bowen and Fang, Leyan and Ortega, Romeo},
+  journal={arXiv preprint arXiv:2603.09076},
+  year={2026},
+  eprint={2603.09076},
+  arxiv={2603.09076}
+}
+
+
 @article{li2026data,
   title={Data-Driven Linear Quadratic Control Using Output-Feedback via Non-Minimal Realization},
   author={Li, Weijian and Yi, Bowen and Antsaklis, Panos J and Lin, Hai},
@@ -80,15 +100,20 @@
 
 
 
-@misc{fan2025layerjamming,
-  title   = {Modeling, control, and stiffness regulation of layer jamming-based continuum robots, accepted to <i>IEEE Transactions on Control Systems Technology</i>},
-  author  = {Fan, Yeman and Yi, Bowen and Liu, Dikai},
-  year    = {2025},
-  month   = {6},
-  journal={arXiv preprint arXiv:2309.04154},
-  eprint  = {2309.04154},
-  primaryClass = {cs.RO},
-  arxiv     = {2309.04154},
+@article{fan2026layerjamming,
+  title={Modeling, control, and stiffness regulation of layer jamming-based continuum robots},
+  author={Fan, Yeman and Yi, Bowen and Liu, Dikai},
+  journal={IEEE Transactions on Control Systems Technology},
+  volume={34},
+  number={5},
+  pages={2219--2233},
+  year={2026},
+  doi={10.1109/TCST.2026.3690756},
+  eprint={2309.04154},
+  primaryClass={cs.RO},
+  arxiv={2309.04154},
+  equalcontrib={Y. Fan and B. Yi},
+  corresponding={B. Yi}
 }
 
 

@@ -14,7 +14,25 @@ function parseBibtex(text) {
   });
 }
 
-function formatAuthors(authors) {
+function authorMarkers(name, entry) {
+  const equalContributors = (entry.equalcontrib || "")
+    .split(" and ").map(author => author.trim()).filter(Boolean);
+  const correspondingAuthors = (entry.corresponding || "")
+    .split(" and ").map(author => author.trim()).filter(Boolean);
+  const isEqualContributor = equalContributors.includes(name);
+  const isCorresponding = correspondingAuthors.includes(name);
+
+  if (!isEqualContributor && !isCorresponding) return "";
+
+  const label = [
+    isEqualContributor ? "Equal contribution" : "",
+    isCorresponding ? "Corresponding author" : ""
+  ].filter(Boolean).join("; ");
+  const symbols = `${isEqualContributor ? "&dagger;" : ""}${isCorresponding ? "*" : ""}`;
+  return `<sup class="pub-author-marker" title="${label}" aria-label="${label}">${symbols}</sup>`;
+}
+
+function formatAuthors(authors, entry) {
   return authors.split(" and ").map(a => {
     let first="", last="";
     if (a.includes(",")) {
@@ -27,9 +45,10 @@ function formatAuthors(authors) {
       last = p.slice(-1)[0];
     }
     const name = `${first[0]}. ${last}`;
-    return /^B\.\s*Yi$/i.test(name)
+    const formattedName = /^B\.\s*Yi$/i.test(name)
       ? `<strong class="me">B. Yi</strong>`
       : name;
+    return `${formattedName}${authorMarkers(name, entry)}`;
   }).join(", ");
 }
 
@@ -69,16 +88,17 @@ function renderPublicationEntry(entry, category) {
   const id = arxivId(entry);
   const publicationVenue = category === "preprint"
     ? (id ? `arXiv:${id}` : (entry.note || entry.journal || "Preprint"))
-    : `${venue(entry)}${entry.volume ? `, vol. ${entry.volume}` : ""}${entry.number ? `(${entry.number})` : ""}${entry.pages ? `, pp. ${entry.pages}` : ""}`;
+    : `${venue(entry)}${entry.volume ? `, vol. ${entry.volume}` : ""}${entry.number ? `, no. ${entry.number}` : ""}${entry.pages ? `, pp. ${entry.pages.replace(/--/g, "&ndash;")}` : ""}`;
 
   return `<li data-publication-index="${entry._index}">
     <div class="pub-citation">
-      ${formatAuthors(entry.author || "")},
-      <span class="pub-title">${entry.title}</span>,
+      ${formatAuthors(entry.author || "", entry)},
+      <span class="pub-title">${entry.title.replace(/--/g, "&ndash;")}</span>,
       <span class="pub-venue">${publicationVenue}</span>.
     </div>
     <div class="pub-links">
       ${category === "preprint" && id ? `<a class="pub-tag" href="https://arxiv.org/abs/${id}" target="_blank" rel="noopener"><i class="ai ai-arxiv" aria-hidden="true"></i> arXiv</a>` : ""}
+      ${entry.hal ? `<a class="pub-tag" href="${entry.url || `https://hal.science/${entry.hal}`}" target="_blank" rel="noopener"><i class="fa fa-database" aria-hidden="true"></i> HAL</a>` : ""}
       ${entry.pdf ? `<a class="pub-tag" href="${entry.pdf}" target="_blank" rel="noopener"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>` : ""}
       ${category !== "preprint" && entry.doi ? `<a class="pub-tag" href="https://doi.org/${entry.doi}" target="_blank" rel="noopener"><i class="ai ai-doi" aria-hidden="true"></i> DOI</a>` : ""}
       <button class="pub-tag bibtex-button" type="button" data-bibtex-index="${entry._index}"><i class="fa fa-quote-left" aria-hidden="true"></i> BibTeX</button>
