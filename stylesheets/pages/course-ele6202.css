@@ -53,6 +53,16 @@
       margin-bottom: 0;
     }
 
+    .announcement-item + .announcement-item {
+      border-top: 1px solid rgba(209, 170, 50, 0.35);
+      margin-top: 14px;
+      padding-top: 14px;
+    }
+
+    .announcement-item + .announcement-item::before {
+      top: 18px;
+    }
+
     .announcement-item::before {
       content: "";
       position: absolute;
@@ -74,6 +84,20 @@
 
     .announcement-content {
       font-size: 0.95em;
+    }
+
+    .announcement-schedule {
+      margin: 7px 0 0;
+      padding-left: 20px;
+    }
+
+    .announcement-schedule li {
+      margin: 4px 0;
+    }
+
+    .meeting-details {
+      color: var(--muted);
+      font-size: 0.94em;
     }
 
     .general-information {
