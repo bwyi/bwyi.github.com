@@ -18,7 +18,8 @@
   note={Submitted to <i>Automatica</i>},
   year={2026},
   hal={hal-05747546v1},
-  url={https://hal.science/hal-05747546v1}
+  url={https://hal.science/hal-05747546v1},
+  pdf={files/publications/Gao_2026_IO_data_driven.pdf}
 }
 
 
