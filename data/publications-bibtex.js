@@ -12,6 +12,22 @@
 }
 
 
+@misc{do2026interference,
+  title={Interference-aware rotor spin estimation for hovering targets in aerial FMCW-ISAC},
+  author={Do, Tri Nhu and Choi, Jongwon and Yi, Bowen and Karabulut Kurt, Gunes},
+  note={Submitted},
+  year={2026}
+}
+
+
+@misc{mattioni2026digital,
+  title={A digital sensorless observer for IPMSMs with exponential convergence guarantees},
+  author={Mattioni, Mattia and Choi, Jongwon and Yi, Bowen},
+  note={Submitted},
+  year={2026}
+}
+
+
 @misc{gao2026datadriven,
   title={Data-driven stabilization of continuous-time linear MIMO systems from input--output data},
   author={Gao, Haihui and Bosso, Alessandro and Wang, Lei and Saussie, David and Yi, Bowen},
