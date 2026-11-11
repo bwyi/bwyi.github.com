@@ -12,6 +12,22 @@
 }
 
 
+@misc{meyer2026distributed,
+  title={Distributed range-based localization using PEBO},
+  author={Meyer, Jérémy and Le Ny, Jerome and Yi, Bowen},
+  note={Submitted},
+  year={2026}
+}
+
+
+@misc{choi2026discrete,
+  title={Discrete-time regression model based sensorless observer for IPMSM},
+  author={Choi, Jongwon and Mattioni, Mattia and Yi, Bowen},
+  note={Submitted},
+  year={2026}
+}
+
+
 @misc{do2026interference,
   title={Interference-aware rotor spin estimation for hovering targets in aerial FMCW-ISAC},
   author={Do, Tri Nhu and Choi, Jongwon and Yi, Bowen and Karabulut Kurt, Gunes},
